@@ -368,3 +368,35 @@ launch with a known gap, which is legitimate only if it is recorded here with a 
 - Re-verify dated content on a schedule: prices quarterly, visa and immigration content whenever
   official guidance changes and at minimum every six months, rankings annually.
 - Review the accessibility statement against reality after any significant template change.
+
+---
+
+## Measured performance (20 August 2026)
+
+Lighthouse 12 against `next start` on the production build, homepage `/en`, with the
+CMS empty. Re-measure after the content import: real images and article lists will
+move these numbers, and the mobile LCP is the one to watch.
+
+| Metric | Mobile (throttled) | Desktop | Target |
+|---|---|---|---|
+| Performance | 98 | 99 | — |
+| Accessibility | — | 100 | — |
+| Best practices | — | 96 | — |
+| SEO | — | 100 | — |
+| **LCP** | **1.8 s** | 0.9 s | < 2.5 s |
+| **CLS** | **0** | 0 | < 0.1 |
+| **TBT** (INP proxy) | **20 ms** | 20 ms | INP < 200 ms |
+| First Contentful Paint | 1.8 s | — | — |
+| Speed Index | 2.0 s | — | — |
+
+All three Core Web Vitals targets in the brief are met on mobile.
+
+Caveats, stated plainly:
+- TBT is a lab proxy for INP, not INP itself. Confirm INP from field data in Search
+  Console once the site has traffic.
+- Measured with an empty dataset. The homepage hero image is present, so LCP is
+  representative, but destination and article pages have not been measured because
+  they do not render until the migration is committed.
+- Lighthouse's own accessibility score is an automated subset. The manual keyboard
+  walkthrough and the axe-core specs in `tests/e2e/accessibility.spec.ts` are the
+  substantive check.
