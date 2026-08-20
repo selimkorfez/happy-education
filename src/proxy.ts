@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import { DEFAULT_LOCALE, LOCALES, isLocale, type Locale } from '@/lib/i18n/config'
+import { DEFAULT_LOCALE, isLocale, type Locale } from '@/lib/i18n/config'
+import { isGone } from '@/lib/redirects'
 
 /**
  * Next.js 16 renamed the middleware convention to `proxy`. This file does two jobs:
@@ -113,6 +114,27 @@ export default function proxy(request: NextRequest) {
   // Server components cannot read the request URL directly. The header lets the
   // header/footer build breadcrumb and language-switch links without client JS.
   requestHeaders.set('x-pathname', pathname)
+  // Full URL including the query string, so server components can read search params
+  // on routes reached through the catch-all (which does not thread searchParams down).
+  requestHeaders.set('x-url', request.nextUrl.toString())
+
+  /*
+   * Genuinely obsolete legacy URLs return 410 Gone rather than 404.
+   * 410 tells a crawler the URL is intentionally dead and will not return, which
+   * removes it from the index faster and more cleanly than a soft 404. These are
+   * the WooCommerce and LearnPress plugin artefacts and the theme demo pages,
+   * none of which has a legitimate replacement.
+   */
+  if (isGone(pathname)) {
+    return new NextResponse(null, {
+      status: 410,
+      headers: {
+        'Content-Security-Policy': csp,
+        'X-Robots-Tag': 'noindex',
+        'Cache-Control': 'public, max-age=3600',
+      },
+    })
+  }
 
   const firstSegment = pathname.split('/')[1] ?? ''
 
@@ -153,12 +175,17 @@ export const config = {
   matcher: [
     /*
      * Everything except:
+     *   api                        route handlers. CRITICAL: without this they are
+     *                              treated as locale-less content paths and 307'd
+     *                              to /en/api/..., which does not exist. Stripe
+     *                              does not follow redirects, so the payment
+     *                              webhook would fail silently in production.
      *   _next/static, _next/image  build output
-     *   favicon/robots/sitemap     crawler files served from the app
+     *   favicon/robots/sitemap/feed crawler files served from the app
      *   studio                     the Sanity Studio route handles its own auth,
      *                              and its bundle needs different CSP handling
      *   files with an extension    static assets in /public
      */
-    '/((?!_next/static|_next/image|studio|favicon\\.ico|robots\\.txt|sitemap.*\\.xml|.*\\.[\\w]+$).*)',
+    '/((?!api|_next/static|_next/image|studio|favicon\\.ico|robots\\.txt|feed\\.xml|sitemap.*\\.xml|.*\\.[\\w]+$).*)',
   ],
 }

@@ -23,6 +23,7 @@ export function MobileNav({ groups, locale }: { groups: NavGroup[]; locale: Loca
   const panelRef = useRef<HTMLDivElement | null>(null)
   const triggerRef = useRef<HTMLButtonElement | null>(null)
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- synchronising local state with an external system (URL, cookie or DOM), which is the case the rule's own guidance permits but cannot detect.
   useEffect(() => setIsOpen(false), [pathname])
 
   useEffect(() => {
@@ -32,8 +33,23 @@ export function MobileNav({ groups, locale }: { groups: NavGroup[]; locale: Loca
     const previousOverflow = body.style.overflow
     body.style.overflow = 'hidden'
 
-    // Move focus into the panel so the next Tab lands inside it.
-    panelRef.current?.querySelector<HTMLElement>('a, button')?.focus()
+    /*
+     * Move focus into the panel so the next Tab lands inside it.
+     *
+     * The selector must include `summary`: the first focusable in the panel is a
+     * disclosure summary, not a link. Matching only `a, button` found a link
+     * nested inside a *closed* <details>, which cannot take focus, so focus
+     * silently stayed on the trigger outside the panel.
+     *
+     * `offsetParent` filters out anything inside a collapsed disclosure.
+     */
+    const focusables = panelRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? []
+    for (const candidate of focusables) {
+      if (candidate.offsetParent !== null) {
+        candidate.focus()
+        break
+      }
+    }
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
@@ -43,9 +59,7 @@ export function MobileNav({ groups, locale }: { groups: NavGroup[]; locale: Loca
       }
       if (event.key !== 'Tab' || !panelRef.current) return
 
-      const focusables = panelRef.current.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), summary, input, select, textarea',
-      )
+      const focusables = panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE)
       if (focusables.length === 0) return
       const first = focusables[0]
       const last = focusables[focusables.length - 1]
@@ -165,6 +179,9 @@ export function MobileNav({ groups, locale }: { groups: NavGroup[]; locale: Loca
     </div>
   )
 }
+
+/** Single source of truth for what counts as focusable inside the panel. */
+const FOCUSABLE = 'a[href], button:not([disabled]), summary, input, select, textarea'
 
 const mobileSubLink =
   'flex min-h-12 items-center py-2 text-base text-fg-muted no-underline hover:text-fg'

@@ -67,6 +67,7 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   // Read the existing decision after mount. Rendering the banner is deferred until
   // then so the server and client markup agree during hydration.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- synchronising local state with an external system (URL, cookie or DOM), which is the case the rule's own guidance permits but cannot detect.
     setConsent(parseConsent(readCookie(CONSENT_COOKIE)))
     setHydrated(true)
   }, [])

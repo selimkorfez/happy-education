@@ -29,6 +29,7 @@ export function PrimaryNav({ groups, locale }: { groups: NavGroup[]; locale: Loc
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // Any navigation closes the panel.
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- synchronising local state with an external system (URL, cookie or DOM), which is the case the rule's own guidance permits but cannot detect.
   useEffect(() => setOpenKey(null), [pathname])
 
   useEffect(() => {

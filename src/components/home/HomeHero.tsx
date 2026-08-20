@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame } from '@/components/ui/MediaFrame'
 import { sectionPath, type Locale } from '@/lib/i18n/config'
-import { t } from '@/lib/i18n/dictionary'
 import { BUSINESS, publicValue } from '@/lib/business-facts'
+import { brandImage } from '@/lib/media/library'
 
 /**
  * Homepage hero.
@@ -41,6 +41,7 @@ const COPY = {
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const copy = COPY[locale]
+  const hero = brandImage('heroLondon')
   const founded = publicValue(BUSINESS.foundedYear)
   const companyNumber = publicValue(BUSINESS.companyNumber)
 
@@ -96,14 +97,13 @@ export function HomeHero({ locale }: { locale: Locale }) {
           {/* Place column — bleeds to the viewport edge on large screens. */}
           <div className="order-1 lg:order-2 lg:col-span-5 xl:col-span-6">
             <MediaFrame
-              image={null}
-              alt={copy.imageAlt}
-              width={1400}
-              height={1000}
+              local={hero.src}
+              alt={hero.alt}
+              width={1800}
+              height={1200}
               priority
-              sizes="(max-width: 1024px) 100vw, 58vw"
+              sizes="(max-width: 1024px) 100vw, 45vw"
               className="aspect-[16/10] h-full w-full lg:aspect-auto lg:min-h-[34rem]"
-              placeholderLabel="Homepage hero — licensed London/campus photograph required before launch."
             />
           </div>
         </div>

@@ -80,9 +80,19 @@ export const SECTIONS: Record<SectionKey, Record<Locale, string>> = {
   legal: { en: 'legal', tr: 'yasal' },
 }
 
-/** Reverse lookup: a URL segment in a given locale back to its section key. */
+/**
+ * Reverse lookup: a URL segment in a given locale back to its section key.
+ *
+ * Built on null-prototype objects because the keys come straight from the URL.
+ * A plain object literal inherits from Object.prototype, so a request for
+ * /en/constructor or /en/toString would find an inherited function rather than
+ * missing, and the caller's `?? null` would never fire.
+ */
 const SEGMENT_TO_SECTION: Record<Locale, Record<string, SectionKey>> = (() => {
-  const out = { en: {}, tr: {} } as Record<Locale, Record<string, SectionKey>>
+  const out = Object.create(null) as Record<Locale, Record<string, SectionKey>>
+  for (const locale of LOCALES) {
+    out[locale] = Object.create(null) as Record<string, SectionKey>
+  }
   for (const key of SECTION_KEYS) {
     for (const locale of LOCALES) {
       out[locale][SECTIONS[key][locale]] = key
@@ -92,7 +102,11 @@ const SEGMENT_TO_SECTION: Record<Locale, Record<string, SectionKey>> = (() => {
 })()
 
 export function sectionFromSegment(locale: Locale, segment: string): SectionKey | null {
-  return SEGMENT_TO_SECTION[locale][segment] ?? null
+  const table = SEGMENT_TO_SECTION[locale]
+  // Own-property check as well as the null prototype: belt and braces, since this
+  // is the entry point for every untrusted URL on the site.
+  if (!Object.hasOwn(table, segment)) return null
+  return table[segment] ?? null
 }
 
 /** The localised segment for a section, e.g. sectionSegment('tr','universities') -> 'universiteler'. */

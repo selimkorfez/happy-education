@@ -1,0 +1,397 @@
+old_url,new_url,status,reason
+/abbey-college-cambridge/,/tr/yaz-okullari/abbey-college-cambridge,301,summerProgramme: Root-level summer programme (164w) - must NOT be confused with the same-named university page
+/ai-and-computer-science-oxford/,/tr/yaz-okullari/ai-and-computer-science-oxford,301,summerProgramme: Root-level summer programme (180w) - must NOT be confused with the same-named university page
+/amerika-universiteler/,/tr/universiteler/amerika,301,page: Country landing page (397w) for university in US; genuine market prose
+/anasayfa/,/tr,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/anasayfa/blog/,/tr/blog,301,SUPERSEDED: 0-word empty Elementor container standing in for the blog index; the 18 real posts are not linked from it and are absent from the XML sitemap
+/anasayfa/contact/,/tr/iletisim,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/anasayfa/hakkimizda/,/tr/hakkimizda,301,About page: genuine Turkish company copy. The placement-count claims on the legacy page are unverified and must not be carried over.
+/anasayfa/iletisim-2/,/en/contact,301,English-language contact page. Sends English link equity to the English contact page rather than the Turkish one.
+/anasayfa/iletisim/,/tr/iletisim,301,"page: Real contact page: 5 named staff, +44 7735 826785, admin@happyeducation.uk. Office address is missing on both language versions"
+/anasayfa/price-disc/,,410,410 Eduma theme demo pricing page (0 words)
+/anasayfa/price/,,410,410 Eduma theme demo pricing page (0 words)
+/anasayfa/testimonial/,,410,410 Theme demo testimonials - fake names (Blaise Matuidi) + demo copy
+/arizona-state-university/,/tr/universiteler/amerika/arizona-state-university,301,"institution/university: Non-UK university profile (169w, US) sitting at the site root instead of under /universiteler/"
+/avustralya-universiteler/,/tr/universiteler/avustralya,301,page: Country landing page (316w) for university in AU; genuine market prose
+/barry-university-miami/,/tr/yaz-okullari/barry-university-miami,301,summerProgramme: Root-level summer programme (189w) - must NOT be confused with the same-named university page
+/become_a_teacher/,,410,410 LearnPress become-instructor page (0 words)
+/bireysel-yaz-okullari/,/tr/yaz-okullari,301,MERGE into /summer-schools/: Jaccard 0.41 / containment 0.78 vs /summer-schools/ - re-uses the same programme-type prose
+/boarding-schools/,/tr/yatili-okullar,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/boarding-schools/bosworth-independent-school/,/tr/yatili-okullar/bosworth-independent-school,301,"LEGACY ALIAS (currently a live WordPress 301 to /yatili-okullar2/bosworth-independent-school/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/boarding-schools/north-bridge-house-school/,/tr/yatili-okullar/north-bridge-house-school,301,"LEGACY ALIAS (currently a live WordPress 301 to /yatili-okullar2/north-bridge-house-school/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/boarding-schools/oxford-international-college-brighton/,/tr/yatili-okullar/oxford-international-college-brighton,301,"LEGACY ALIAS (currently a live WordPress 301 to /yatili-okullar2/oxford-international-college-brighton/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/bucksmore-education-brighton/,/tr/yaz-okullari/bucksmore-education-brighton,301,summerProgramme: Root-level summer programme (175w) - must NOT be confused with the same-named university page
+/business-and-finance-london/,/tr/yaz-okullari/business-and-finance-london,301,summerProgramme: Root-level summer programme (183w) - must NOT be confused with the same-named university page
+/california-state-university-san-marcos/,/tr/universiteler/amerika/california-state-university-san-marcos,301,"institution/university: Non-UK university profile (295w, US) sitting at the site root instead of under /universiteler/"
+/cart/,,410,"410 WooCommerce cart page (plugin artefact, 13 words, live 200)"
+/checkout/,,410,"410 WooCommerce checkout page (plugin artefact, 0 words)"
+/cocugunuzu-yurtdisinda-egitime-hazirliyorsaniz/,/tr/blog/cocugunuzu-yurtdisinda-egitime-hazirliyorsaniz,301,"article: Genuine long-form Turkish editorial (864 words), the strongest content asset on the site"
+/colorado-state-university/,/tr/universiteler/amerika/colorado-state-university,301,"institution/university: Non-UK university profile (236w, US) sitting at the site root instead of under /universiteler/"
+/course/australia/,/tr/dil-okullari/avustralya,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/course/ec-english-dublin/,/tr/dil-okullari/ec-english-dublin,301,"LEGACY ALIAS (currently a live WordPress 301 to /dil-okullari/ec-english-dublin/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/course/ingiltere-dil-okullari/,/tr/dil-okullari/ingiltere,301,"LEGACY ALIAS (currently a live WordPress 301 to /dil-okullari/ingiltere-dil-okullari/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/course/usa/,/tr/dil-okullari/amerika,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/courses/,,410,"410 LearnPress course archive (plugin artefact, 0 words)"
+/depaul-university/,/tr/universiteler/amerika/depaul-university,301,"institution/university: Non-UK university profile (189w, US) sitting at the site root instead of under /universiteler/"
+/dil-okullari/,/tr/dil-okullari,301,Language schools section index. Draft target was a classifier artefact; corrected to the section index.
+/dil-okullari/amerika-dil-okullari/,/tr/dil-okullari/amerika,301,page: Country landing page for language schools in US (654w)
+/dil-okullari/amerika-dil-okullari/ec-english-los-angeles/,/tr/dil-okullari/amerika/ec-english-los-angeles,301,"institution/languageSchool: Language-school branch page (339w, EN)"
+/dil-okullari/amerika-dil-okullari/ec-english-new-york/,/tr/dil-okullari/amerika/ec-english-new-york,301,"institution/languageSchool: Language-school branch page (294w, TR)"
+/dil-okullari/amerika-dil-okullari/ec-english-school-in-boston/,/tr/dil-okullari/amerika/ec-english-school-in-boston,301,"institution/languageSchool: Language-school branch page (341w, EN)"
+/dil-okullari/amerika-dil-okullari/ec-english-school-in-san-diego/,/tr/dil-okullari/amerika/ec-english-school-in-san-diego,301,"institution/languageSchool: Language-school branch page (278w, EN)"
+/dil-okullari/amerika-dil-okullari/ec-english-school-in-san-francisco/,/tr/dil-okullari/amerika/ec-english-school-in-san-francisco,301,"institution/languageSchool: Language-school branch page (260w, EN)"
+/dil-okullari/amerika-dil-okullari/kaplan-international-boston/,/tr/dil-okullari/amerika/kaplan-international-boston,301,"institution/languageSchool: Language-school branch page (185w, EN)"
+/dil-okullari/amerika-dil-okullari/kaplan-international-chicago/,/tr/dil-okullari/amerika/kaplan-international-chicago,301,"institution/languageSchool: Language-school branch page (210w, EN)"
+/dil-okullari/amerika-dil-okullari/kaplan-international-los-angeles/,/tr/dil-okullari/amerika/kaplan-international-los-angeles,301,"institution/languageSchool: Language-school branch page (364w, EN)"
+/dil-okullari/amerika-dil-okullari/kaplan-international-new-york/,/tr/dil-okullari/amerika/kaplan-international-new-york,301,"institution/languageSchool: Language-school branch page (401w, TR)"
+/dil-okullari/amerika-dil-okullari/lsi-boston/,/tr/dil-okullari/amerika/lsi-boston,301,"institution/languageSchool: Language-school branch page (172w, EN)"
+/dil-okullari/amerika-dil-okullari/lsi-new-york/,/tr/dil-okullari/amerika/lsi-new-york,301,"institution/languageSchool: Language-school branch page (250w, TR)"
+/dil-okullari/amerika-dil-okullari/lsi-san-diego/,/tr/dil-okullari/amerika/lsi-san-diego,301,"institution/languageSchool: Language-school branch page (275w, EN)"
+/dil-okullari/amerika-dil-okullari/lsi-san-francisco-berkeley/,/tr/dil-okullari/amerika/lsi-san-francisco-berkeley,301,"institution/languageSchool: Language-school branch page (318w, EN)"
+/dil-okullari/australia/,/tr/dil-okullari/avustralya,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/avustralya-dil-okullari/,/tr/dil-okullari/avustralya,301,page: Country landing page for language schools in AU (520w)
+/dil-okullari/avustralya-dil-okullari/lsi-brisbane/,/tr/dil-okullari/avustralya/lsi-brisbane,301,"institution/languageSchool: Language-school branch page (123w, TR)"
+/dil-okullari/dubai-dil-okullari/,/tr/dil-okullari/dubai,301,page: Country landing page for language schools in AE (434w)
+/dil-okullari/dubai-dil-okulu-fiyatlari-happy-education/,/tr/dil-okullari/dubai,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/ec-english-dublin/,/tr/dil-okullari/ec-english-dublin,301,"languageSchool: Provider/brand overview page (138w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/ec-english/,/tr/dil-okullari/ec-english,301,"languageSchool: Provider/brand overview page (170w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/english-path/,/tr/dil-okullari/english-path,301,"languageSchool: Provider/brand overview page (247w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/english-studio/,/tr/dil-okullari/english-studio,301,"languageSchool: Provider/brand overview page (176w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/ingiltere-dil-okullari/,/tr/dil-okullari/ingiltere,301,"MERGE into /dil-okullari/uk/: Second UK language-school hub (536w) competing with /dil-okullari/uk/ (33w). KEEP the prose, retire the URL"
+/dil-okullari/international-house/,/tr/dil-okullari/international-house,301,"languageSchool: Provider/brand overview page (208w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/ireland/,/tr/dil-okullari/irlanda,301,"KEEP URL, REWRITE CONTENT: 10-word link stub for a whole country"
+/dil-okullari/ireland/english-path-dublin-2/,/tr/dil-okullari/irlanda/english-path-dublin,301,"institution/languageSchool: Language-school branch page (645w, EN)"
+/dil-okullari/ireland/english-path-dublin/,/tr/dil-okullari/irlanda/english-path-dublin,301,"MERGE into /dil-okullari/ireland/english-path-dublin-2/: 142w TR stub vs 645w EN ""-2"" twin, same institution and same title"
+/dil-okullari/ireland/kaplan-international-in-dublin/,/tr/dil-okullari/irlanda/kaplan-international-in-dublin,301,"institution/languageSchool: Language-school branch page (174w, TR)"
+/dil-okullari/ireland/twin-english-centre-dublin/,/tr/dil-okullari/irlanda/twin-english-centre-dublin,301,"institution/languageSchool: Language-school branch page (92w, EN)"
+/dil-okullari/islington-centrefor-english/,/tr/dil-okullari/islington-centrefor-english,301,"languageSchool: Provider/brand overview page (150w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/kanada-dil-okullari/,/tr/dil-okullari/kanada,301,page: Country landing page for language schools in CA (403w)
+/dil-okullari/kanada-dil-okullari/ec-montreal/,/tr/dil-okullari/kanada/ec-montreal,301,"institution/languageSchool: Language-school branch page (155w, EN)"
+/dil-okullari/kanada-dil-okullari/englishpath-in-toronto/,/tr/dil-okullari/kanada/englishpath-in-toronto,301,"institution/languageSchool: Language-school branch page (356w, EN)"
+/dil-okullari/kanada-dil-okullari/kaplan-international-toronto/,/tr/dil-okullari/kanada/kaplan-international-toronto,301,"institution/languageSchool: Language-school branch page (120w, EN)"
+/dil-okullari/kanada-dil-okullari/kaplan-international-vancouver/,/tr/dil-okullari/kanada/kaplan-international-vancouver,301,"institution/languageSchool: Language-school branch page (176w, TR)"
+/dil-okullari/kanada-dil-okullari/lsi-international-vancouver/,/tr/dil-okullari/kanada/lsi-international-vancouver,301,"institution/languageSchool: Language-school branch page (215w, TR)"
+/dil-okullari/kanada-dil-okullari/st-giles-international-vancouver/,/tr/dil-okullari/kanada/st-giles-vancouver,301,"institution/languageSchool: Language-school branch page (155w, TR)"
+/dil-okullari/kanada/,/tr/dil-okullari/kanada,301,"LEGACY ALIAS (currently a live WordPress 301 to /dil-okullari/kanada-dil-okullari/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/dil-okullari/kaplan-international/,/tr/dil-okullari/kaplan-international,301,"languageSchool: Provider/brand overview page (188w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/lsi-education/,/tr/dil-okullari/lsi-education,301,"languageSchool: Provider/brand overview page (189w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/malta-dil-okullari/,/tr/dil-okullari/malta,301,page: Country landing page for language schools in MT (425w)
+/dil-okullari/malta-dil-okullari/ec-malta/,/tr/dil-okullari/malta/ec-malta,301,"institution/languageSchool: Language-school branch page (211w, TR)"
+/dil-okullari/malta-dil-okulu-fiyatlari-happy-education/,/tr/dil-okullari/malta,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/new-zeland/,/tr/dil-okullari/yeni-zelanda,301,"KEEP URL, REWRITE CONTENT: 2-word link stub; slug also misspelt (""new-zeland"")"
+/dil-okullari/new-zeland/lsi-auckland/,/tr/dil-okullari/yeni-zelanda/lsi-auckland,301,"institution/languageSchool: Language-school branch page (147w, EN)"
+/dil-okullari/oxford-house/,/tr/dil-okullari/oxford-house,301,"languageSchool: Provider/brand overview page (176w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/south-africa/,/tr/dil-okullari/guney-afrika,301,"KEEP URL, REWRITE CONTENT: 4-word link stub for a whole country"
+/dil-okullari/south-africa/ec-cape-town/,/tr/dil-okullari/guney-afrika/ec-cape-town,301,"institution/languageSchool: Language-school branch page (179w, EN)"
+/dil-okullari/st-giles/,/tr/dil-okullari/st-giles,301,"languageSchool: Provider/brand overview page (193w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/stafford-house/,/tr/dil-okullari/stafford-house,301,"languageSchool: Provider/brand overview page (185w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/top-up-learning/,/tr/dil-okullari/top-up-learning,301,"languageSchool: Provider/brand overview page (289w) - becomes a languageSchool ""brand"" record with child branches"
+/dil-okullari/uk/,/tr/dil-okullari/ingiltere,301,"KEEP URL, REWRITE CONTENT: 33-word link stub for the most important market on the site"
+/dil-okullari/uk/birmingham-2/,/tr/dil-okullari/ingiltere/birmingham,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/uk/birmingham-dil-okullari/,/tr/dil-okullari/ingiltere/birmingham,301,page: City landing page (153w) for UK language schools
+/dil-okullari/uk/brighton-dil-okullari/,/tr/dil-okullari/ingiltere/brighton,301,page: City landing page (156w) for UK language schools
+/dil-okullari/uk/brighton/,/tr/dil-okullari/ingiltere/brighton,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/uk/cambridge-2/,/tr/dil-okullari/ingiltere/cambridge,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/uk/cambridge-dil-okullari/,/tr/dil-okullari/ingiltere/cambridge,301,page: City landing page (143w) for UK language schools
+/dil-okullari/uk/ec-english-learn-english-in-brighton/,/tr/dil-okullari/ingiltere/ec-english-learn-english-in-brighton-uk,301,"institution/languageSchool: Language-school branch page (201w, TR)"
+/dil-okullari/uk/ec-english-manchester/,/tr/dil-okullari/ingiltere/ec-english-manchester,301,"institution/languageSchool: Language-school branch page (196w, TR)"
+/dil-okullari/uk/english-path-manchester/,/tr/dil-okullari/ingiltere/english-path-manchester,301,"institution/languageSchool: Language-school branch page (161w, TR)"
+/dil-okullari/uk/kaplan-international-manchester/,/tr/dil-okullari/ingiltere/kaplan-international-manchester,301,"institution/languageSchool: Language-school branch page (199w, TR)"
+/dil-okullari/uk/londra-2/,/tr/dil-okullari/ingiltere/londra,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/uk/londra-dil-okullari/,/tr/dil-okullari/ingiltere/londra,301,page: City landing page (167w) for UK language schools
+/dil-okullari/uk/londra/,/tr/dil-okullari/ingiltere/londra,301,"MERGE into /dil-okullari/uk/londra-dil-okullari/: 19-word link stub, same title ""Londra"" as the 167w city hub"
+/dil-okullari/uk/lsi-brighton-learn-english-in-brighton/,/tr/dil-okullari/ingiltere/lsi-brighton-learn-english-in-brighton-england,301,"institution/languageSchool: Language-school branch page (185w, TR)"
+/dil-okullari/uk/manchester-dil-okullari/,/tr/dil-okullari/ingiltere/manchester,301,page: City landing page (154w) for UK language schools
+/dil-okullari/uk/manchester/,/tr/dil-okullari/ingiltere/manchester,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/uk/oxford-2/,/tr/dil-okullari/ingiltere/oxford,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okullari/uk/oxford-dil-okullari/,/tr/dil-okullari/ingiltere/oxford,301,page: City landing page (116w) for UK language schools
+/dil-okullari/uk/oxford-international-college/,/tr/dil-okullari/ingiltere/oxford-international-college,301,"KEEP URL, REWRITE CONTENT: Boarding-school content mis-filed under language schools; 3-way duplicate with the two /yatili-okullar2/ OIC pages"
+/dil-okullari/uk/st-giles-international-english-language-courses-in-brighton/,/tr/dil-okullari/ingiltere/st-giles,301,"institution/languageSchool: Language-school branch page (229w, TR)"
+/dil-okullari/usa/,/tr/dil-okullari/amerika,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/dil-okulu-secerken-dikkat-edilmesi-gerekenler/,/tr/blog/dil-okulu-secerken-dikkat-edilmesi-gerekenler,301,"article: Genuine long-form Turkish editorial (893 words), the strongest content asset on the site"
+/drew-university/,/tr/universiteler/amerika/drew-university,301,"institution/university: Non-UK university profile (209w, US) sitting at the site root instead of under /universiteler/"
+/dunyanin-en-iyi-universiteleri/,/tr/blog/dunyanin-en-iyi-universiteleri,301,"article: Genuine long-form Turkish editorial (1033 words), the strongest content asset on the site"
+/ec-english-cambridge/,/tr/dil-okullari/ingiltere/ec-english-cambridge,301,institution/languageSchool: Root-level language-school branch (118w)
+/ec-english-vancouver/,/tr/dil-okullari/kanada/ec-english-vancouver,301,institution/languageSchool: Root-level language-school branch (176w)
+/edskills-language-school/,/tr/dil-okullari/amerika/edskills-language-school,301,institution/languageSchool: Root-level language-school branch (148w)
+/elementor-sayfa-11642/,/tr/universiteler/avustralya/university-of-western-australia,301,"institution/university: Non-UK university profile (325w, AU) sitting at the site root instead of under /universiteler/"
+/elementor-sayfa-11663/,/tr/universiteler/avustralya/universal-higher-education,301,"institution/university: Non-UK university profile (384w, AU) sitting at the site root instead of under /universiteler/"
+/elementor-sayfa-12208/,/tr/dil-okullari/ingiltere/oxford-international-londra-greenwich,301,"KEEP URL, REWRITE CONTENT: Real content (Oxford International London Greenwich, 174w) trapped behind an auto-generated Elementor slug"
+/en-populer-yaz-okulu-sehirleri/,/tr/blog/en-populer-yaz-okulu-sehirleri,301,"article: Genuine long-form Turkish editorial (816 words), the strongest content asset on the site"
+/en-populer-yurtdisi-egitim-ulkeleri-ingiltere-kanada-malta-ve-irlanda-karsilastirmasi/,/tr/blog/en-populer-yurtdisi-egitim-ulkeleri-ingiltere-kanada-malta-ve-irlanda-karsilastirmasi,301,"article: Genuine long-form Turkish editorial (958 words), the strongest content asset on the site"
+/en-uygun-fiyatli-ingilizce-kursu/,/tr/blog/en-uygun-fiyatli-ingilizce-kursu,301,"article: Genuine long-form Turkish editorial (907 words), the strongest content asset on the site"
+/engineering-camp-brighton/,/tr/yaz-okullari/engineering-camp-brighton,301,summerProgramme: Root-level summer programme (175w) - must NOT be confused with the same-named university page
+/english-path-birmingham/,/tr/dil-okullari/ingiltere/english-path-birmingham,301,institution/languageSchool: Root-level language-school branch (133w)
+/english-path-brisbane/,/tr/dil-okullari/avustralya/english-path-brisbane,301,institution/languageSchool: Root-level language-school branch (194w)
+/english-path-dubai/,/tr/dil-okullari/dubai/english-path-dubai,301,institution/languageSchool: Root-level language-school branch (136w)
+/english-path-london/,/tr/dil-okullari/ingiltere/english-path-london,301,institution/languageSchool: Root-level language-school branch (162w)
+/english-path-malta/,/tr/dil-okullari/malta/english-path-malta,301,institution/languageSchool: Root-level language-school branch (171w)
+/find-the-right-learning-path-for-your-group-course-online/,,410,410 Eduma theme demo post (English lorem-style demo content)
+/fisher-college/,/tr/universiteler/amerika/fisher-college,301,"institution/university: Non-UK university profile (156w, US) sitting at the site root instead of under /universiteler/"
+/florida-atlantic-university/,/tr/universiteler/ingiltere/florida-atlantic-university,301,"institution/university: Non-UK university profile (157w, GB) sitting at the site root instead of under /universiteler/"
+/football-academy-brighton-2/,/tr/yaz-okullari/berlitz-manchester,301,"KEEP URL, REWRITE CONTENT: Slug says football-academy-brighton-2 but the page is Berlitz Manchester - slug/content mismatch"
+/football-academy-brighton/,/tr/yaz-okullari/football-academy-brighton,301,summerProgramme: Root-level summer programme (184w) - must NOT be confused with the same-named university page
+/football-sports-academy-yorkshire/,/tr/yaz-okullari/football-sports-academy-yorkshire,301,summerProgramme: Root-level summer programme (163w) - must NOT be confused with the same-named university page
+/george-mason-university/,/tr/universiteler/amerika/george-mason-university,301,"institution/university: Non-UK university profile (172w, US) sitting at the site root instead of under /universiteler/"
+/grup-yaz-okullari/,/tr/yaz-okullari/grup,301,"page: 416w group-summer-school hub, the substantive version of this pair"
+/hofstra-university/,/tr/universiteler/amerika/hofstra-university,301,"institution/university: Non-UK university profile (173w, US) sitting at the site root instead of under /universiteler/"
+/home/blog/,/en/insights,301,"Eduma theme demo blog index, English. Draft target /en/blog is not a valid path; the English insights segment is ""insights""."
+/illinois-state-university/,/tr/universiteler/amerika/illinois-state-university,301,"institution/university: Non-UK university profile (178w, US) sitting at the site root instead of under /universiteler/"
+/ingiltere-mi-malta-mi/,/tr/blog/ingiltere-mi-malta-mi,301,"article: Genuine long-form Turkish editorial (805 words), the strongest content asset on the site"
+/ingiltere-universiteler/,/tr/universiteler/ingiltere,301,page: Country landing page (539w) for university in GB; genuine market prose
+/ingiltere-yatili-okullar/,/tr/yatili-okullar,301,page: 472w UK boarding-schools hub; all 5 of its child links point at dead /boarding-schools/* and /yatili-okullar/* URLs
+/ingiltere-yaz-okulu-bavul-hazirligi/,/tr/blog/ingiltere-yaz-okulu-bavul-hazirligi,301,"article: Genuine long-form Turkish editorial (948 words), the strongest content asset on the site"
+/instructor/,,410,410 LearnPress single-instructor page ([learn_press_single_instructor] only)
+/instructors/,,410,410 LearnPress instructor archive ([learn_press_instructors] only)
+/intensive-english-london/,/tr/yaz-okullari/intensive-english-london,301,summerProgramme: Root-level summer programme (168w) - must NOT be confused with the same-named university page
+/irlanda-dil-okullari/,/tr/dil-okullari/irlanda,301,MERGE into /dil-okullari/ireland/: Root Ireland hub (476w) duplicates the nested /dil-okullari/ireland/ (10w stub)
+/irlanda-universiteler/,/tr/universiteler/irlanda,301,page: Country landing page (250w) for university in IE; genuine market prose
+/irlanda/,/tr/dil-okullari/irlanda,301,"LEGACY ALIAS (currently a live WordPress 301 to /irlanda-dil-okullari/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/is-ingilizcesi-icin-ingiltere-mi-amerika-mi/,/tr/blog/is-ingilizcesi-icin-ingiltere-mi-amerika-mi,301,"article: Genuine long-form Turkish editorial (831 words), the strongest content asset on the site"
+/james-madison-university/,/tr/universiteler/amerika/james-madison-university,301,"institution/university: Non-UK university profile (182w, US) sitting at the site root instead of under /universiteler/"
+/kanada-universiteler/,/tr/universiteler/kanada,301,page: Country landing page (252w) for university in CA; genuine market prose
+/kaplan-international-oxford/,/tr/dil-okullari/ingiltere/kaplan-international-oxford,301,institution/languageSchool: Root-level language-school branch (185w)
+/kaplan-international/,/tr/dil-okullari/ingiltere/kaplan-international,301,"KEEP URL, REWRITE CONTENT: Slug is the brand name but the content is Kaplan International Cambridge specifically"
+/learn-by-doing-with-real-world-projects-other-countries/,,410,410 Eduma theme demo post
+/lipscomb-university/,/tr/universiteler/amerika/lipscomb-university,301,"institution/university: Non-UK university profile (168w, US) sitting at the site root instead of under /universiteler/"
+/london-kings-college/,/tr/yaz-okullari/london-kings-college,301,"KEEP URL, REWRITE CONTENT: Hero image is University-of-Aberdeen.jpg - wrong institution photo"
+/long-island-university/,/tr/universiteler/amerika/long-island-university,301,"institution/university: Non-UK university profile (177w, US) sitting at the site root instead of under /universiteler/"
+/los-angeles/,/tr/yaz-okullari/los-angeles,301,summerProgramme: Root-level summer programme (190w) - must NOT be confused with the same-named university page
+/lp-checkout/,,410,410 LearnPress checkout (0 words)
+/lp-profile/,,410,410 LearnPress profile page ([learn_press_profile] only)
+/lsi-cambridge/,/tr/dil-okullari/ingiltere/lsi-cambridge,301,institution/languageSchool: Root-level language-school branch (167w)
+/lsi-london/,/tr/yaz-okullari/lsi-london,301,summerProgramme: Root-level summer programme (157w) - must NOT be confused with the same-named university page
+/lsi-ucl-london-central/,/tr/yaz-okullari/lsi-ucl-london-central,301,summerProgramme: Root-level summer programme (159w) - must NOT be confused with the same-named university page
+/marshall-university/,/tr/universiteler/amerika/marshall-university,301,"institution/university: Non-UK university profile (217w, US) sitting at the site root instead of under /universiteler/"
+/massey-university/,/tr/universiteler/yeni-zelanda/massey-university,301,"institution/university: Non-UK university profile (199w, NZ) sitting at the site root instead of under /universiteler/"
+/mercy-university/,/tr/universiteler/amerika/mercy-university,301,"institution/university: Non-UK university profile (139w, US) sitting at the site root instead of under /universiteler/"
+/montclair-state-university/,/tr/universiteler/amerika/montclair-state-university,301,"institution/university: Non-UK university profile (193w, US) sitting at the site root instead of under /universiteler/"
+/murdoch-university/,/tr/universiteler/avustralya/murdoch-university,301,"institution/university: Non-UK university profile (409w, AU) sitting at the site root instead of under /universiteler/"
+/my-account/,,410,"410 WooCommerce account page (plugin artefact, [woocommerce_my_account] only)"
+/neden-ingiltere-yaz-okulu/,/tr/blog/neden-ingiltere-yaz-okulu,301,"article: Genuine long-form Turkish editorial (829 words), the strongest content asset on the site"
+/new-england-college/,/tr/universiteler/amerika/new-england-college,301,"institution/university: Non-UK university profile (167w, US) sitting at the site root instead of under /universiteler/"
+/new-york-st-peters-university/,/tr/yaz-okullari/new-york-st-peters-university,301,summerProgramme: Root-level summer programme (198w) - must NOT be confused with the same-named university page
+/north-london-grammar-school/,/tr/yaz-okullari/north-london-grammar-school,301,summerProgramme: Root-level summer programme (181w) - must NOT be confused with the same-named university page
+/oregon-state-university/,/tr/universiteler/amerika/oregon-state-university,301,"institution/university: Non-UK university profile (163w, US) sitting at the site root instead of under /universiteler/"
+/oxford-international-melbourne/,/tr/dil-okullari/avustralya/oxford-international-melbourne,301,institution/languageSchool: Root-level language-school branch (128w)
+/oxford-international-new-york/,/tr/dil-okullari/amerika/oxford-international-new-york,301,institution/languageSchool: Root-level language-school branch (314w)
+/oxford-international-vancouver/,/tr/dil-okullari/kanada/oxford-international-vancouver,301,institution/languageSchool: Root-level language-school branch (171w)
+/oxford-international/,/tr/dil-okullari/ingiltere/oxford-international,301,institution/languageSchool: Root-level language-school branch (152w)
+/pace-university/,/tr/universiteler/amerika/pace-university,301,"institution/university: Non-UK university profile (152w, US) sitting at the site root instead of under /universiteler/"
+/page-sitemap.xml,/sitemap.xml,301,Legacy WordPress page sitemap. Superseded by the Next.js sitemap.
+/policy/,/tr/yasal/gizlilik-politikasi,301,Privacy policy. Draft target omitted the legal section segment; corrected to the path src/lib/legal.ts builds.
+/post-sitemap.xml,/sitemap.xml,301,Legacy WordPress post sitemap. Superseded by the Next.js sitemap.
+/saint-louis-university/,/tr/universiteler/amerika/saint-louis-university,301,"institution/university: Non-UK university profile (181w, US) sitting at the site root instead of under /universiteler/"
+/salesforce/,/tr/iletisim,301,"SUPERSEDED: Legacy Salesforce Web-to-Lead form page; the 6 ""APPLY NOW"" buttons that point here are replaced by the new enquiry form on the contact page"
+/san-francisco-state-university/,/tr/universiteler/amerika/san-francisco-state-university,301,"institution/university: Non-UK university profile (161w, US) sitting at the site root instead of under /universiteler/"
+/simmons-university/,/tr/universiteler/amerika/simmons-university,301,"institution/university: Non-UK university profile (151w, US) sitting at the site root instead of under /universiteler/"
+/sir-christopher-cambridge/,/tr/yaz-okullari/sir-christopher-cambridge,301,summerProgramme: Root-level summer programme (163w) - must NOT be confused with the same-named university page
+/sir-edward-cambridge/,/tr/yaz-okullari/sir-edward-cambridge,301,summerProgramme: Root-level summer programme (159w) - must NOT be confused with the same-named university page
+/sir-micheal-cambridge/,/tr/yaz-okullari/sir-micheal-cambridge,301,summerProgramme: Root-level summer programme (161w) - must NOT be confused with the same-named university page
+/sitemap.html,,410,410 HTML sitemap generated by google-sitemap-generator plugin
+/skola-regent-gloucester-gate/,/tr/yaz-okullari/skola-regent-gloucester-gate,301,summerProgramme: Root-level summer programme (219w) - must NOT be confused with the same-named university page
+/skola-regent-park-london/,/tr/yaz-okullari/skola-regent-park-london,301,summerProgramme: Root-level summer programme (167w) - must NOT be confused with the same-named university page
+/southern-illinois-university-carbondale/,/tr/universiteler/amerika/southern-illinois-university-carbondale,301,"institution/university: Non-UK university profile (390w, US) sitting at the site root instead of under /universiteler/"
+/st-giles-cambridge-2/,/tr/yaz-okullari/st-giles-cambridge,301,summerProgramme: Root-level summer programme (165w) - must NOT be confused with the same-named university page
+/st-giles-cambridge/,/tr/dil-okullari/ingiltere/st-giles-cambridge,301,institution/languageSchool: Root-level language-school branch (170w)
+/st-giles-family-programme-london-highgate/,/tr/yaz-okullari/st-giles-family-programme-london-highgate,301,summerProgramme: Root-level summer programme (170w) - must NOT be confused with the same-named university page
+/st-giles-family-programme-london/,/tr/yaz-okullari/st-giles-family-programme-london,301,summerProgramme: Root-level summer programme (166w) - must NOT be confused with the same-named university page
+/st-giles-oxford-2/,/tr/yaz-okullari/st-giles-oxford,301,summerProgramme: Root-level summer programme (162w) - must NOT be confused with the same-named university page
+/st-giles-oxford/,/tr/dil-okullari/ingiltere/st-giles-oxford,301,institution/languageSchool: Root-level language-school branch (160w)
+/st-giles-ucl-london/,/tr/yaz-okullari/st-giles-ucl-london,301,summerProgramme: Root-level summer programme (164w) - must NOT be confused with the same-named university page
+/stafford-house-cambridge/,/tr/dil-okullari/ingiltere/stafford-house-cambridge,301,institution/languageSchool: Root-level language-school branch (142w)
+/strategic-social-media-evolution-of-visual-design/,,410,410 Eduma theme demo post
+/suffolk-university/,/tr/universiteler/amerika/suffolk-university,301,"institution/university: Non-UK university profile (151w, US) sitting at the site root instead of under /universiteler/"
+/summer-schools/,/tr/yaz-okullari,301,page: 901w - the longest page on the site; the real summer-schools hub. Note the slug is English while the content is Turkish
+/syracuse-university/,/tr/universiteler/amerika/syracuse-university,301,"institution/university: Non-UK university profile (339w, US) sitting at the site root instead of under /universiteler/"
+/term_conditions/,,410,"410 LearnPress default T&C stub, 0 words - real terms page must be authored fresh"
+/texas-am-university/,/tr/universiteler/amerika/texas-a-m-university,301,"institution/university: Non-UK university profile (228w, US) sitting at the site root instead of under /universiteler/"
+/texas-state-university/,/tr/universiteler/amerika/texas-state-university,301,"institution/university: Non-UK university profile (318w, US) sitting at the site root instead of under /universiteler/"
+/thanks/,,410,"410 Form thank-you page, 11 words; the 3 tour PDFs it links (england-tour.pdf, Europe-Tour-Disneyland-.pdf, Italy-Tour-.pdf, all live 200) must be re-hosted before this URL dies"
+/thomas-jefferson-university/,/tr/universiteler/amerika/thomas-jefferson-university,301,"institution/university: Non-UK university profile (177w, US) sitting at the site root instead of under /universiteler/"
+/towson-university/,/tr/universiteler/amerika/towson-university,301,"institution/university: Non-UK university profile (243w, US) sitting at the site root instead of under /universiteler/"
+/tufts-university/,/tr/yaz-okullari/tufts-university,301,summerProgramme: Root-level summer programme (186w) - must NOT be confused with the same-named university page
+/turlar/,/tr/turlar,301,tour: 716w tour catalogue: England / Europe / Italy itineraries with day-by-day city lists and a EUR price; the only revenue line outside education
+/twin-english-centres-dublin/,/tr/dil-okullari/irlanda/twin-english-centres-dublin,301,institution/languageSchool: Root-level language-school branch (178w)
+/universiteler/,/tr/universiteler,301,Universities section index. Draft target was a classifier artefact (a path ending in the section segment itself); corrected to the section index.
+/universiteler/anglia-ruskin-university/,/tr/universiteler/ingiltere/anglia-ruskin-university,301,institution/university: UK university profile (170w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/aston-university-2/,/tr/universiteler/ingiltere/aston-university,301,institution/university: UK university profile (218w). Extractable: city=true ranking=true founded=true departments=true logo=false
+/universiteler/bangor-university-2/,/tr/universiteler/ingiltere/bangor-university,301,institution/university: UK university profile (201w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/birkbeck-university-of-london-2/,/tr/universiteler/ingiltere/birkbeck-university-of-london,301,institution/university: UK university profile (156w). Extractable: city=true ranking=true founded=true departments=false logo=false
+/universiteler/birmingham-city-university/,/tr/universiteler/ingiltere/birmingham-city-university,301,"KEEP URL, REWRITE CONTENT: 21 words, legacy ""Address/Prices/IELTS + APPLY NOW"" template, English only"
+/universiteler/bournemouth-university-2/,/tr/universiteler/ingiltere/bournemouth-university,301,institution/university: UK university profile (221w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/brunel-university/,/tr/universiteler/ingiltere/brunel-university,301,institution/university: UK university profile (189w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/cardiff-university-2/,/tr/universiteler/ingiltere/cardiff-university,301,institution/university: UK university profile (142w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/city-university-of-london/,/tr/universiteler/ingiltere/city-university-of-london,301,institution/university: UK university profile (156w). Extractable: city=true ranking=true founded=true departments=false logo=true
+/universiteler/colorado-state-university/,/tr/universiteler/amerika/colorado-state-university,301,MERGE into /colorado-state-university/: 98w English legacy-template version of the 236w Turkish root page; same institution
+/universiteler/de-montfort-university-2/,/tr/universiteler/ingiltere/de-montfort-university,301,institution/university: UK university profile (128w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/dublin-international-study-centre-2/,/tr/universiteler/irlanda/dublin-international-study-centre,301,"KEEP URL, REWRITE CONTENT: 25 words, legacy English template husk; Irish, mis-filed under UK universities"
+/universiteler/durham-university-2/,/tr/universiteler/ingiltere/durham-university,301,institution/university: UK university profile (157w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/edinburgh-napier-university-2/,/tr/universiteler/ingiltere/edinburgh-napier-university,301,institution/university: UK university profile (167w). Extractable: city=true ranking=false founded=true departments=true logo=false
+/universiteler/goldsmiths-university-of-london-2/,/tr/universiteler/ingiltere/goldsmiths-university-of-london,301,institution/university: UK university profile (135w). Extractable: city=true ranking=true founded=true departments=true logo=false
+/universiteler/henley-business-school-2/,/tr/universiteler/ingiltere/henley-business-school,301,institution/university: UK university profile (140w). Extractable: city=true ranking=false founded=true departments=true logo=true
+/universiteler/keele-university/,/tr/universiteler/ingiltere/keele-university,301,institution/university: UK university profile (148w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/kingston-university-2/,/tr/universiteler/ingiltere/kingston-university,301,institution/university: UK university profile (151w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/leeds-beckett-university-2/,/tr/universiteler/ingiltere/leeds-beckett-university,301,institution/university: UK university profile (202w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/leicester-university/,/tr/universiteler/ingiltere/leicester-university,301,institution/university: UK university profile (173w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/liverpool-john-moores-university-2/,/tr/universiteler/ingiltere/liverpool-john-moores-university,301,institution/university: UK university profile (103w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/london-south-bank-university/,/tr/universiteler/ingiltere/london-south-bank-university,301,institution/university: UK university profile (145w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/loughborough-university-2/,/tr/universiteler/ingiltere/loughborough-university,301,institution/university: UK university profile (173w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/manchester-metropolitan-university-2/,/tr/universiteler/ingiltere/manchester-metropolitan-university,301,"KEEP URL, REWRITE CONTENT: Body text is 92% contained in the University of Manchester page - wrong institution described"
+/universiteler/newcastle-university/,/tr/universiteler/ingiltere/newcastle-university,301,institution/university: UK university profile (163w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/northumbria-university-2/,/tr/universiteler/ingiltere/northumbria-university,301,institution/university: UK university profile (132w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/nottingham-trent-university-2/,/tr/universiteler/ingiltere/nottingham-trent-university,301,institution/university: UK university profile (158w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/plymouth-university/,/tr/universiteler/ingiltere/plymouth-university,301,institution/university: UK university profile (208w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/queen-mary-university/,/tr/universiteler/ingiltere/queen-mary-university,301,institution/university: UK university profile (223w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/queens-university-belfast/,/tr/universiteler/ingiltere/queens-university-belfast,301,institution/university: UK university profile (163w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/robert-gordon-university/,/tr/universiteler/ingiltere/robert-gordon-university,301,institution/university: UK university profile (188w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/royal-college-of-surgeons-2/,/tr/universiteler/ingiltere/royal-college-of-surgeons,301,institution/university: UK university profile (132w). Extractable: city=true ranking=false founded=true departments=true logo=true
+/universiteler/royal-holloway-university-2/,/tr/universiteler/ingiltere/royal-holloway-university,301,institution/university: UK university profile (222w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/royal-veterinary-college/,/tr/universiteler/ingiltere/royal-veterinary-college,301,institution/university: UK university profile (172w). Extractable: city=true ranking=false founded=true departments=true logo=false
+/universiteler/solent-university-2/,/tr/universiteler/ingiltere/solent-university,301,institution/university: UK university profile (215w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/st-georges-university-of-grenada/,/tr/universiteler/grenada/st-georges-university-of-grenada,301,"KEEP URL, REWRITE CONTENT: 24 words, legacy English template husk; not a UK institution"
+/universiteler/st-georges-university-of-london/,/tr/universiteler/ingiltere/st-georges-university-of-london,301,institution/university: UK university profile (176w). Extractable: city=true ranking=false founded=true departments=true logo=false
+/universiteler/swansea-university/,/tr/universiteler/ingiltere/swansea-university,301,institution/university: UK university profile (190w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/tedi-london-2/,/tr/universiteler/ingiltere/tedi-london,301,institution/university: UK university profile (137w). Extractable: city=false ranking=false founded=false departments=true logo=true
+/universiteler/teesside-university/,/tr/universiteler/ingiltere/teesside-university,301,institution/university: UK university profile (208w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-academy-92/,/tr/universiteler/ingiltere/university-academy-92,301,institution/university: UK university profile (199w). Extractable: city=true ranking=false founded=true departments=true logo=true
+/universiteler/university-of-aberdeen-2/,/tr/universiteler/ingiltere/university-of-aberdeen,301,institution/university: UK university profile (202w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-birmingham-2/,/tr/universiteler/ingiltere/university-of-birmingham,301,institution/university: UK university profile (224w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-bradford-2/,/tr/universiteler/ingiltere/university-of-bradford,301,institution/university: UK university profile (151w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-brighton-2/,/tr/universiteler/ingiltere/university-of-brighton,301,institution/university: UK university profile (191w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-bristol-2/,/tr/universiteler/ingiltere/university-of-bristol,301,institution/university: UK university profile (192w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-central-lancashire-uclan-2/,/tr/universiteler/ingiltere/university-of-central-lancashire-uclan,301,institution/university: UK university profile (220w). Extractable: city=true ranking=true founded=true departments=true logo=false
+/universiteler/university-of-dundee/,/tr/universiteler/ingiltere/university-of-dundee,301,institution/university: UK university profile (121w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-east-anglia/,/tr/universiteler/ingiltere/university-of-east-anglia,301,institution/university: UK university profile (199w). Extractable: city=true ranking=true founded=true departments=false logo=true
+/universiteler/university-of-essex-2/,/tr/universiteler/ingiltere/university-of-essex,301,institution/university: UK university profile (133w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-exeter-2/,/tr/universiteler/ingiltere/university-of-exeter,301,institution/university: UK university profile (206w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-glasgow-2/,/tr/universiteler/ingiltere/university-of-glasgow,301,institution/university: UK university profile (175w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-greenwich/,/tr/universiteler/ingiltere/university-of-greenwich,301,institution/university: UK university profile (178w). Extractable: city=true ranking=true founded=true departments=false logo=true
+/universiteler/university-of-hertfordshire/,/tr/universiteler/ingiltere/university-of-hertfordshire,301,institution/university: UK university profile (150w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-huddersfield/,/tr/universiteler/ingiltere/university-of-huddersfield,301,institution/university: UK university profile (167w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-hull-2/,/tr/universiteler/ingiltere/university-of-hull,301,institution/university: UK university profile (139w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-leeds/,/tr/universiteler/ingiltere/university-of-leeds,301,institution/university: UK university profile (187w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-liverpool/,/tr/universiteler/ingiltere/university-of-liverpool,301,institution/university: UK university profile (190w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-manchester/,/tr/universiteler/ingiltere/university-of-manchester,301,institution/university: UK university profile (190w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-nicosia-2/,/tr/universiteler/kibris/university-of-nicosia,301,"KEEP URL, REWRITE CONTENT: 23 words, legacy English template husk; also not a UK institution"
+/universiteler/university-of-northampton/,/tr/universiteler/ingiltere/university-of-northampton,301,institution/university: UK university profile (194w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-nottingham/,/tr/universiteler/ingiltere/university-of-nottingham,301,institution/university: UK university profile (123w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-portsmouth-2/,/tr/universiteler/ingiltere/university-of-portsmouth,301,"KEEP URL, REWRITE CONTENT: 23 words, legacy English template husk (Jaccard 0.50 with Birmingham City)"
+/universiteler/university-of-reading-2/,/tr/universiteler/ingiltere/university-of-reading,301,institution/university: UK university profile (171w). Extractable: city=true ranking=false founded=true departments=true logo=true
+/universiteler/university-of-roehampton-2/,/tr/universiteler/ingiltere/university-of-roehampton,301,institution/university: UK university profile (151w). Extractable: city=true ranking=false founded=true departments=true logo=true
+/universiteler/university-of-sheffield/,/tr/universiteler/ingiltere/university-of-sheffield,301,institution/university: UK university profile (136w). Extractable: city=true ranking=true founded=true departments=true logo=false
+/universiteler/university-of-south-wales/,/tr/universiteler/ingiltere/university-of-south-wales,301,institution/university: UK university profile (190w). Extractable: city=true ranking=false founded=true departments=true logo=true
+/universiteler/university-of-southampton-2/,/tr/universiteler/ingiltere/university-of-southampton,301,institution/university: UK university profile (223w). Extractable: city=true ranking=true founded=true departments=true logo=false
+/universiteler/university-of-stirling-2/,/tr/universiteler/ingiltere/university-of-stirling,301,institution/university: UK university profile (165w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-strathclyde/,/tr/universiteler/ingiltere/university-of-strathclyde,301,institution/university: UK university profile (118w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-sunderland-2/,/tr/universiteler/ingiltere/university-of-sunderland,301,institution/university: UK university profile (192w). Extractable: city=true ranking=false founded=true departments=true logo=true
+/universiteler/university-of-surrey-2/,/tr/universiteler/ingiltere/university-of-surrey,301,institution/university: UK university profile (135w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-sussex-2/,/tr/universiteler/ingiltere/university-of-sussex,301,institution/university: UK university profile (268w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-westminster/,/tr/universiteler/ingiltere/university-of-westminster,301,institution/university: UK university profile (206w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/university-of-york/,/tr/universiteler/ingiltere/university-of-york,301,institution/university: UK university profile (233w). Extractable: city=true ranking=true founded=true departments=true logo=true
+/universiteler/uwe-bristol-2/,/tr/universiteler/ingiltere/uwe-bristol,301,institution/university: UK university profile (152w). Extractable: city=true ranking=false founded=true departments=true logo=true
+/universities/bangor-university-2/,/tr/universiteler/ingiltere/bangor-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/bangor-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/bournemouth-university-2/,/tr/universiteler/ingiltere/bournemouth-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/bournemouth-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/cardiff-university-2/,/tr/universiteler/ingiltere/cardiff-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/cardiff-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/de-montfort-university-2/,/tr/universiteler/ingiltere/de-montfort-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/de-montfort-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/durham-university-2/,/tr/universiteler/ingiltere/durham-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/durham-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/edinburgh-napier-university-2/,/tr/universiteler/ingiltere/edinburgh-napier-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/edinburgh-napier-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/leeds-beckett-university-2/,/tr/universiteler/ingiltere/leeds-beckett-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/leeds-beckett-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/liverpool-john-moores-university-2/,/tr/universiteler/ingiltere/liverpool-john-moores-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/liverpool-john-moores-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/newcastle-university/,/tr/universiteler/ingiltere/newcastle-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/newcastle-university/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/nottingham-trent-university-2/,/tr/universiteler/ingiltere/nottingham-trent-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/nottingham-trent-university-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/queens-university-belfast/,/tr/universiteler/ingiltere/queens-university-belfast,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/queens-university-belfast/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/royal-college-of-surgeons-2/,/tr/universiteler/ingiltere/royal-college-of-surgeons,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/royal-college-of-surgeons-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/royal-veterinary-college/,/tr/universiteler/ingiltere/royal-veterinary-college,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/royal-veterinary-college/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/st-georges-university-of-london/,/tr/universiteler/ingiltere/st-georges-university-of-london,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/st-georges-university-of-london/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/teesside-university/,/tr/universiteler/ingiltere/teesside-university,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/teesside-university/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-academy-92/,/tr/universiteler/ingiltere/university-academy-92,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-academy-92/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-aberdeen-2/,/tr/universiteler/ingiltere/university-of-aberdeen,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-aberdeen-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-birmingham-2/,/tr/universiteler/ingiltere/university-of-birmingham,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-birmingham-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-bradford-2/,/tr/universiteler/ingiltere/university-of-bradford,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-bradford-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-brighton-2/,/tr/universiteler/ingiltere/university-of-brighton,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-brighton-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-bristol-2/,/tr/universiteler/ingiltere/university-of-bristol,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-bristol-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-dundee/,/tr/universiteler/ingiltere/university-of-dundee,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-dundee/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-essex-2/,/tr/universiteler/ingiltere/university-of-essex,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-essex-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-glasgow-2/,/tr/universiteler/ingiltere/university-of-glasgow,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-glasgow-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-hertfordshire/,/tr/universiteler/ingiltere/university-of-hertfordshire,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-hertfordshire/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-hull-2/,/tr/universiteler/ingiltere/university-of-hull,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-hull-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-leeds/,/tr/universiteler/ingiltere/university-of-leeds,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-leeds/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-manchester/,/tr/universiteler/ingiltere/university-of-manchester,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-manchester/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-nottingham/,/tr/universiteler/ingiltere/university-of-nottingham,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-nottingham/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-roehampton-2/,/tr/universiteler/ingiltere/university-of-roehampton,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-roehampton-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-south-wales/,/tr/universiteler/ingiltere/university-of-south-wales,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-south-wales/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-strathclyde/,/tr/universiteler/ingiltere/university-of-strathclyde,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-strathclyde/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-sunderland-2/,/tr/universiteler/ingiltere/university-of-sunderland,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-sunderland-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/universities/university-of-surrey-2/,/tr/universiteler/ingiltere/university-of-surrey,301,"LEGACY ALIAS (currently a live WordPress 301 to /universiteler/university-of-surrey-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/university-college-dublin/,/tr/universiteler/irlanda/university-college-dublin,301,"institution/university: Non-UK university profile (286w, IE) sitting at the site root instead of under /universiteler/"
+/university-college-london/,/tr/yaz-okullari/university-college-london,301,summerProgramme: Root-level summer programme (179w) - must NOT be confused with the same-named university page
+/university-of-adelaide/,/tr/universiteler/avustralya/university-of-adelaide,301,"institution/university: Non-UK university profile (469w, AU) sitting at the site root instead of under /universiteler/"
+/university-of-alabama-at-birmingham/,/tr/universiteler/amerika/university-of-alabama-at-birmingham,301,"institution/university: Non-UK university profile (152w, US) sitting at the site root instead of under /universiteler/"
+/university-of-alberta/,/tr/universiteler/kanada/university-of-alberta,301,"institution/university: Non-UK university profile (198w, CA) sitting at the site root instead of under /universiteler/"
+/university-of-arizona/,/tr/universiteler/amerika/university-of-arizona,301,"institution/university: Non-UK university profile (189w, US) sitting at the site root instead of under /universiteler/"
+/university-of-connecticut/,/tr/universiteler/amerika/university-of-connecticut,301,"institution/university: Non-UK university profile (156w, US) sitting at the site root instead of under /universiteler/"
+/university-of-greenwich/,/tr/yaz-okullari/university-of-greenwich,301,summerProgramme: Root-level summer programme (161w) - must NOT be confused with the same-named university page
+/university-of-hartford/,/tr/universiteler/amerika/university-of-hartford,301,"institution/university: Non-UK university profile (191w, US) sitting at the site root instead of under /universiteler/"
+/university-of-kent/,/tr/yaz-okullari/university-of-kent,301,summerProgramme: Root-level summer programme (164w) - must NOT be confused with the same-named university page
+/university-of-massachusetts-amherst/,/tr/universiteler/amerika/university-of-massachusetts-amherst,301,"institution/university: Non-UK university profile (176w, US) sitting at the site root instead of under /universiteler/"
+/university-of-massachusetts/,/tr/universiteler/amerika/university-of-massachusetts,301,"institution/university: Non-UK university profile (163w, US) sitting at the site root instead of under /universiteler/"
+/university-of-middlesex-london/,/tr/yaz-okullari/university-of-middlesex-london,301,summerProgramme: Root-level summer programme (173w) - must NOT be confused with the same-named university page
+/university-of-nebraska-omaha/,/tr/universiteler/amerika/university-of-nebraska-omaha,301,"institution/university: Non-UK university profile (245w, US) sitting at the site root instead of under /universiteler/"
+/university-of-newcastle/,/tr/universiteler/ingiltere/university-of-newcastle,301,"institution/university: Non-UK university profile (441w, GB) sitting at the site root instead of under /universiteler/"
+/university-of-notre-dame/,/tr/universiteler/ingiltere/the-university-of-notre-dame,301,"institution/university: Non-UK university profile (363w, GB) sitting at the site root instead of under /universiteler/"
+/university-of-oklahoma/,/tr/universiteler/amerika/university-of-oklahoma,301,"institution/university: Non-UK university profile (378w, US) sitting at the site root instead of under /universiteler/"
+/university-of-victoria/,/tr/universiteler/kanada/university-of-victoria,301,"institution/university: Non-UK university profile (181w, CA) sitting at the site root instead of under /universiteler/"
+/university-of-westminster-london/,/tr/yaz-okullari/university-of-westminster-london,301,summerProgramme: Root-level summer programme (184w) - must NOT be confused with the same-named university page
+/vize-basvurusunda-en-sik-yapilan-hatalar-ve-cozumleri/,/tr/blog/vize-basvurusunda-en-sik-yapilan-hatalar-ve-cozumleri,301,"article: Genuine long-form Turkish editorial (849 words), the strongest content asset on the site"
+/washington-state-university/,/tr/universiteler/amerika/washington-state-university,301,"institution/university: Non-UK university profile (269w, US) sitting at the site root instead of under /universiteler/"
+/western-washington-university/,/tr/universiteler/amerika/western-washington-university,301,"institution/university: Non-UK university profile (202w, US) sitting at the site root instead of under /universiteler/"
+/yatili-okullar/north-london-grammar-school-2/,/tr/yatili-okullar/north-london-grammar-school,301,"LEGACY ALIAS (currently a live WordPress 301 to /yatili-okullar2/north-london-grammar-school-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/yatili-okullar/oxford-international-college-2/,/tr/yatili-okullar/oxford-international-college-brighton,301,"LEGACY ALIAS (currently a live WordPress 301 to /yatili-okullar2/oxford-international-college-2/, linked from the old hub pages): must be re-created on the new platform or the link equity is lost"
+/yatili-okullar2/,/tr/yatili-okullar,301,CURRENTLY 404 on the old site but linked from live hub pages and/or blog posts: fix on migration
+/yatili-okullar2/bosworth-independent-school/,/tr/yatili-okullar/bosworth-independent-school,301,institution/boardingSchool: Boarding school (275w). Extractable: fees=true programmes=true accommodation=true
+/yatili-okullar2/cats-cambridge-2/,/tr/yatili-okullar/cats-cambridge,301,institution/boardingSchool: Boarding school (355w). Extractable: fees=true programmes=false accommodation=true
+/yatili-okullar2/david-game-college-2/,/tr/yatili-okullar/david-game-college,301,institution/boardingSchool: Boarding school (398w). Extractable: fees=true programmes=true accommodation=true
+/yatili-okullar2/guildhouse-school-london-2/,/tr/yatili-okullar/guildhouse-school-london,301,institution/boardingSchool: Boarding school (270w). Extractable: fees=false programmes=false accommodation=true
+/yatili-okullar2/hendon-prep-school-2/,/tr/yatili-okullar/hendon-prep-school,301,institution/boardingSchool: Boarding school (424w). Extractable: fees=true programmes=true accommodation=true
+/yatili-okullar2/mill-hill-school-2/,/tr/yatili-okullar/mill-hill-school,301,institution/boardingSchool: Boarding school (365w). Extractable: fees=true programmes=true accommodation=true
+/yatili-okullar2/north-bridge-house-school/,/tr/yatili-okullar/north-bridge-house-school,301,institution/boardingSchool: Boarding school (301w). Extractable: fees=true programmes=true accommodation=true
+/yatili-okullar2/north-london-grammar-school-2/,/tr/yatili-okullar/north-london-grammar-school,301,institution/boardingSchool: Boarding school (268w). Extractable: fees=true programmes=false accommodation=true
+/yatili-okullar2/oxford-international-college-2/,/tr/yatili-okullar/oxford-international-college-brighton,301,MERGE into /yatili-okullar2/oxford-international-college-brighton/: BYTE-IDENTICAL body (Jaccard 1.00) - literal duplicate
+/yatili-okullar2/oxford-international-college-brighton/,/tr/yatili-okullar/oxford-international-college-brighton,301,institution/boardingSchool: Boarding school (313w). Extractable: fees=true programmes=true accommodation=true
+/yatili-okullar2/the-worthgate-school-canterbury-2/,/tr/yatili-okullar/the-worthgate-school-canterbury,301,institution/boardingSchool: Boarding school (247w). Extractable: fees=false programmes=false accommodation=true
+/yaz-okullari/,/tr/yaz-okullari,301,"SUPERSEDED: 6-word nav stub (""Individual Summer Schools / Group Summer Schools""); /summer-schools/ carries the real 901w hub content"
+/yaz-okullari/bireysel-yaz-okullari/,/tr/yaz-okullari,301,MERGE into /bireysel-yaz-okullari/: Link-list stub (31w) duplicating the 529w root hub of the same title
+/yaz-okullari/bireysel-yaz-okullari/cats-cambridge/,/tr/yaz-okullari/cats-cambridge,301,"KEEP URL, REWRITE CONTENT: 44-word English spec-card for a CATS Cambridge summer programme; the 355w /yatili-okullar2/cats-cambridge-2/ page is the boarding-school record, a different product - do not merge them"
+/yaz-okullari/bireysel-yaz-okullari/ep-london-stratford-2/,/tr/yaz-okullari/ep-london-stratford,301,summerProgramme: Summer programme (203w). Extractable: dates=false ageRange=false lessons/wk=20 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/guildhouse-school-london/,/tr/yaz-okullari/guildhouse-school-london,301,summerProgramme: Summer programme (208w). Extractable: dates=false ageRange=false lessons/wk=15 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/lsi-london-hampstead/,/tr/yaz-okullari/lsi-london-hampstead,301,summerProgramme: Summer programme (219w). Extractable: dates=false ageRange=false lessons/wk=20 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/sir-edward-kings-ely/,/tr/yaz-okullari/sir-edward-kings-ely,301,summerProgramme: Summer programme (226w). Extractable: dates=false ageRange=false lessons/wk=15 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/sir-laurence-cambridge/,/tr/yaz-okullari/sir-laurence-cambridge,301,summerProgramme: Summer programme (212w). Extractable: dates=false ageRange=false lessons/wk=21 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/sir-michael-cambridge/,/tr/yaz-okullari/sir-michael-cambridge,301,summerProgramme: Summer programme (199w). Extractable: dates=false ageRange=false lessons/wk=15 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/skola-regents-park-2/,/tr/yaz-okullari/skola-regents-park,301,summerProgramme: Summer programme (214w). Extractable: dates=false ageRange=false lessons/wk=15 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/st-giles-london-central/,/tr/yaz-okullari/st-giles-london-central,301,summerProgramme: Summer programme (226w). Extractable: dates=false ageRange=false lessons/wk=17 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/twin-edinburgh-2/,/tr/yaz-okullari/twin-edinburgh,301,summerProgramme: Summer programme (204w). Extractable: dates=false ageRange=false lessons/wk=15 groupSize=false
+/yaz-okullari/bireysel-yaz-okullari/twin-london-docklands/,/tr/yaz-okullari/twin-london-docklands,301,summerProgramme: Summer programme (207w). Extractable: dates=false ageRange=false lessons/wk=15 groupSize=false
+/yaz-okullari/grup-yaz-okullari/,/tr/yaz-okullari/grup,301,MERGE into /grup-yaz-okullari/: Link-list stub (35w) duplicating the 416w root hub of the same title
+/yaz-okullari/grup-yaz-okullari/bath/,/tr/yaz-okullari/bath,301,"KEEP URL, REWRITE CONTENT: 32-word English spec-card, no prose"
+/yaz-okullari/grup-yaz-okullari/cambridge-chesterton/,/tr/yaz-okullari/cambridge-chesterton,301,"KEEP URL, REWRITE CONTENT: 45-word English spec-card, no prose; city name misspelt ""Chercheston"" on the parent hub"
+/yaz-okullari/grup-yaz-okullari/guildhouse-school-london2/,/tr/yaz-okullari/guildhouse-school-london,301,MERGE into /yaz-okullari/bireysel-yaz-okullari/guildhouse-school-london/: 53w English spec-card duplicating the 208w Turkish Guildhouse page
+/yaz-okullari/grup-yaz-okullari/islington-centre-for-english/,/tr/dil-okullari/islington-centrefor-english,301,MERGE into /dil-okullari/islington-centrefor-english/: 58w English spec-card duplicating the 150w Turkish Islington page
+/yaz-okullari/grup-yaz-okullari/kingston-london/,/tr/yaz-okullari/kingston-london,301,summerProgramme: Summer programme (138w). Extractable: dates=true ageRange=true lessons/wk=- groupSize=false
+/yaz-okullari/grup-yaz-okullari/london-kings-college/,/tr/yaz-okullari/london-kings-college,301,MERGE into /london-kings-college/: 175w vs 181w near-identical KCL summer programme; root version carries the price
+/yaz-okullari/grup-yaz-okullari/london-ucfb-wembley/,/tr/yaz-okullari/london-ucfb-wembley,301,summerProgramme: Summer programme (198w). Extractable: dates=false ageRange=false lessons/wk=15 groupSize=false
+/yaz-okullari/grup-yaz-okullari/oxford-house-college/,/tr/yaz-okullari/oxford-house-college,301,"KEEP URL, REWRITE CONTENT: 53-word English spec-card, no prose"
+/yaz-okullari/grup-yaz-okullari/queen-mary-university-of-london/,/tr/yaz-okullari/queen-mary-university-of-london,301,summerProgramme: Summer programme (145w). Extractable: dates=true ageRange=true lessons/wk=15 groupSize=true
+/yaz-okullari/grup-yaz-okullari/university-college-london/,/tr/yaz-okullari/university-college-london,301,MERGE into /university-college-london/: 35w English spec-card; the 179w Turkish root page covers the same UCL summer programme
+/yaz-okullari/grup-yaz-okullari/university-of-chester/,/tr/yaz-okullari/university-of-chester,301,summerProgramme: Summer programme (228w). Extractable: dates=false ageRange=false lessons/wk=15 groupSize=false
+/yaz-okullari/grup-yaz-okullari/uxbridge-london/,/tr/yaz-okullari/uxbridge-london,301,summerProgramme: Summer programme (151w). Extractable: dates=true ageRange=true lessons/wk=- groupSize=true
+/yaz-okullari/grup-yaz-okullari/windsor/,/tr/yaz-okullari/windsor,301,summerProgramme: Summer programme (171w). Extractable: dates=false ageRange=false lessons/wk=- groupSize=false
+/yaz-okulu-karsilastirmasi/,/tr/blog/yaz-okulu-karsilastirmasi,301,"article: Genuine long-form Turkish editorial (715 words), the strongest content asset on the site"
+/yaz-okulunda-guvenlik-ve-konaklama/,/tr/blog/yaz-okulunda-guvenlik-ve-konaklama,301,"article: Genuine long-form Turkish editorial (1079 words), the strongest content asset on the site"
+/yeni-zelanda-universiteler/,/tr/universiteler/yeni-zelanda,301,page: Country landing page (306w) for university in NZ; genuine market prose
+/yurtdisi-egitim-danismanligi-neden-onemli/,/tr/blog/yurtdisi-egitim-danismanligi-neden-onemli,301,"article: Genuine long-form Turkish editorial (890 words), the strongest content asset on the site"
+/yurtdisina-cikmadan-once-yapilmasi-gereken-7-hazirlik/,/tr/blog/yurtdisina-cikmadan-once-yapilmasi-gereken-7-hazirlik,301,"article: Genuine long-form Turkish editorial (718 words), the strongest content asset on the site"
+/yurtdisinda-dil-egitimi-almanin-kariyerinize-10-faydasi/,/tr/blog/yurtdisinda-dil-egitimi-almanin-kariyerinize-10-faydasi,301,"article: Genuine long-form Turkish editorial (828 words), the strongest content asset on the site"
+/yurtdisinda-dil-egitimi-gunluk-hayatta-ingilizce-pratigi/,/tr/blog/yurtdisinda-dil-egitimi-gunluk-hayatta-ingilizce-pratigi,301,"article: Genuine long-form Turkish editorial (849 words), the strongest content asset on the site"
+/yurtdisinda-universite-okurken-calismak/,/tr/blog/yurtdisinda-universite-okurken-calismak,301,"article: Genuine long-form Turkish editorial (923 words), the strongest content asset on the site"

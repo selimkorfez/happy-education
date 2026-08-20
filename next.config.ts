@@ -1,4 +1,6 @@
 import type { NextConfig } from 'next'
+// Relative import: next.config.ts is loaded before the TypeScript path aliases resolve.
+import { getRedirects } from './src/lib/redirects'
 
 /**
  * Headers that do not vary per request live here. The Content-Security-Policy is
@@ -78,6 +80,27 @@ const nextConfig: NextConfig = {
   experimental: {
     // Rich text and schema helpers are server-only; keep them out of the client graph.
     optimizePackageImports: ['@sanity/image-url'],
+  },
+
+  async redirects() {
+    /*
+     * The legacy WordPress URL map, read from redirects.csv at build time.
+     *
+     * 301s are emitted here so they are served by the edge without invoking a
+     * function. The 410s are NOT redirects and cannot be expressed here; they are
+     * handled in the proxy, which returns a real 410 Gone for genuinely obsolete
+     * URLs rather than a soft 404.
+     */
+    return getRedirects()
+  },
+
+  async rewrites() {
+    return [
+      // The Turkish search URL is /tr/arama, but both locales are served by the
+      // same route file. Rewriting keeps the public URL localised without
+      // duplicating the page or forcing the catch-all route to render dynamically.
+      { source: '/tr/arama', destination: '/tr/search' },
+    ]
   },
 
   async headers() {

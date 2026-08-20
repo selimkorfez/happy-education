@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container'
 import { MediaFrame } from '@/components/ui/MediaFrame'
 import { docPath, type Locale } from '@/lib/i18n/config'
 import { countrySlug, countryLabel, type CountryKey } from '@/lib/navigation'
+import { BRAND_IMAGES, DESTINATION_IMAGE } from '@/lib/media/library'
 
 /**
  * Destinations.
@@ -110,16 +111,20 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
           {DESTINATIONS.map((destination, index) => {
             const label = countryLabel(locale, destination.key)
             const href = docPath(locale, 'universities', countrySlug(locale, destination.key))
+            const imageKey = DESTINATION_IMAGE[destination.key]
+            const image = imageKey ? BRAND_IMAGES[imageKey] : null
 
             return (
               <li key={destination.key} className="w-[16rem] shrink-0 sm:w-[18rem]">
                 <Link href={href} className="group block no-underline">
                   <MediaFrame
-                    image={null}
-                    alt={`${label}`}
+                    local={image?.src ?? null}
+                    alt={image?.alt ?? label}
+                    // The country name is announced by the heading directly below,
+                    // so the image itself is decorative in this composition.
                     decorative
-                    width={720}
-                    height={960}
+                    width={1350}
+                    height={1800}
                     sizes="(max-width: 640px) 16rem, 18rem"
                     className="aspect-[3/4] w-full"
                     placeholderLabel={`Destination photograph: ${label}`}

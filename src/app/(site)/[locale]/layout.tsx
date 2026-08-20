@@ -38,7 +38,9 @@ export async function generateMetadata({
       template: `%s | ${t(locale, 'brand.name')}`,
     },
     description: t(locale, 'meta.defaultDescription'),
-    robots: { index: true, follow: true },
+    // No `robots` here on purpose. "index, follow" is the crawler default, and
+    // declaring it site-wide put a second, contradictory robots meta tag on the
+    // 404 page alongside its own noindex.
   }
 }
 

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 import { imageUrl, blurDataUrl, type ImageWithMeta } from '@/lib/sanity/image'
 import { isProduction } from '@/lib/env'
 
@@ -34,6 +34,12 @@ export interface MediaSource extends ImageWithMeta {
 
 interface MediaFrameProps {
   image?: MediaSource | null
+  /**
+   * A statically imported asset from the brand library. Takes precedence over
+   * `image`, and is used for the built-in destination and hero imagery whose
+   * provenance is already recorded in src/lib/media/library.ts.
+   */
+  local?: StaticImageData | null
   alt: string
   /** Emits alt="" for imagery that adds nothing a screen reader needs. */
   decorative?: boolean
@@ -48,6 +54,7 @@ interface MediaFrameProps {
 
 export function MediaFrame({
   image,
+  local,
   alt,
   decorative = false,
   width,
@@ -57,6 +64,25 @@ export function MediaFrame({
   className = '',
   placeholderLabel,
 }: MediaFrameProps) {
+  // Local brand assets carry their provenance in the library and need no CMS
+  // licence gate. Next generates AVIF/WebP variants and the blur placeholder from
+  // the static import, so there is no layout shift and no oversized original.
+  if (local) {
+    return (
+      <div className={`relative overflow-hidden ${className}`}>
+        <Image
+          src={local}
+          alt={decorative ? '' : alt}
+          sizes={sizes}
+          priority={priority}
+          loading={priority ? undefined : 'lazy'}
+          placeholder="blur"
+          className="h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
+
   const cleared = image?.licence?.cleared === true
   const src = image && cleared ? imageUrl(image, width, height) : null
 
