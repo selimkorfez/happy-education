@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { DEFAULT_LOCALE, LOCALES, SECTIONS, isLocale, type Locale } from '@/lib/i18n/config'
 import { isGone } from '@/lib/redirects'
+import { isIndexableDeployment } from '@/lib/canonical-host'
 
 /**
  * Next.js 16 renamed the middleware convention to `proxy`. This file does two jobs:
@@ -178,8 +179,14 @@ export default function proxy(request: NextRequest) {
     response.headers.set('X-Robots-Tag', 'noindex, follow')
   }
 
-  // Any non-production deployment must be invisible to crawlers.
-  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production') {
+  /*
+   * Anything that is not the real site on its real domain is invisible to crawlers.
+   *
+   * This covers preview deployments AND a production build still being served from
+   * a *.vercel.app URL before the DNS switch, which VERCEL_ENV alone reports as
+   * "production". See src/lib/canonical-host.ts.
+   */
+  if (!isIndexableDeployment(request.headers.get('host'))) {
     response.headers.set('X-Robots-Tag', 'noindex, nofollow')
   }
 

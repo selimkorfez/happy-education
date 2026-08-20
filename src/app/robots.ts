@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next'
+import { headers } from 'next/headers'
 import { siteUrl } from '@/lib/env'
+import { isIndexableDeployment } from '@/lib/canonical-host'
 import { LOCALES, sectionSegment } from '@/lib/i18n/config'
 
 /**
@@ -18,11 +20,15 @@ import { LOCALES, sectionSegment } from '@/lib/i18n/config'
 /** Search result pages: thin, effectively infinite, and never a landing page. */
 const searchPaths = LOCALES.map((locale) => `/${locale}/${sectionSegment(locale, 'search')}`)
 
-export default function robots(): MetadataRoute.Robots {
-  const vercelEnv = process.env.VERCEL_ENV
-  const isPreview = Boolean(vercelEnv) && vercelEnv !== 'production'
-
-  if (isPreview) {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  /*
+   * Crawling is allowed only on the real site at its real domain.
+   *
+   * A production build served from a *.vercel.app URL before the DNS switch still
+   * reports VERCEL_ENV=production, so the host has to be checked too, otherwise the
+   * staging copy invites indexing and competes with happyeducation.uk.
+   */
+  if (!isIndexableDeployment((await headers()).get('host'))) {
     return {
       rules: [{ userAgent: '*', disallow: '/' }],
     }

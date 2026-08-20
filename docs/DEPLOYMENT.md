@@ -469,3 +469,66 @@ account, the registrar account and the Stripe account. Each should have **at lea
 owners** with independent access. A single admin account with a single set of credentials in one
 person's password manager is the most common disaster recovery failure, and it is entirely
 preventable by adding a second owner today.
+
+---
+
+## Repository
+
+`https://github.com/RheagarTargerian/happy-education` — **private**.
+
+It stays private. `docs/URGENT-LEGACY-SITE.md` documents a confirmed, unpatched
+remote code execution vulnerability on the live happyeducation.uk WordPress site,
+including the exact vulnerable version and the precondition that makes it
+exploitable. That is a working attack blueprint while the legacy site is still up.
+Do not make this repository public until the legacy site is decommissioned or
+patched, and consider moving that document out of version control entirely once the
+issue is closed.
+
+## Connecting Vercel (5 minutes, needs your account)
+
+The deploy itself could not be automated: it needs an authenticated Vercel session,
+and `vercel login` is an interactive browser flow.
+
+1. **Import** — vercel.com/new, choose `RheagarTargerian/happy-education`.
+   Framework and region are already set in `vercel.json` (`lhr1`, London).
+2. **Set environment variables** before the first deploy. Minimum for a working site:
+
+   | Variable | Value |
+   |---|---|
+   | `NEXT_PUBLIC_SITE_URL` | `https://happyeducation.uk` |
+
+   Everything else is optional and degrades honestly. See `.env.example` for the
+   full list with notes on what each one unlocks.
+
+3. **Deploy.** The build runs `next build`; it will succeed with no other variables
+   set, and the migrated content renders from `content/migrated/`.
+
+### The site will not be indexed until DNS is switched
+
+This is deliberate and worth understanding before someone reports it as a bug.
+
+Indexing requires a production build **and** the request arriving on the canonical
+hostname from `NEXT_PUBLIC_SITE_URL`. A deployment promoted with `--prod` but still
+served at `happy-education.vercel.app` reports `VERCEL_ENV=production`, so the
+environment check alone would have let a staging copy compete with the real site and
+put unreviewed legal drafts into search results.
+
+`src/lib/canonical-host.ts` enforces both conditions. Verified behaviour, same build:
+
+| Host | robots.txt | X-Robots-Tag |
+|---|---|---|
+| `happyeducation.uk` | `Allow: /` | none, indexable |
+| `happy-education.vercel.app` | `Disallow: /` | `noindex, nofollow` |
+
+So the Vercel URL is a safe review environment, and indexing begins the moment DNS
+points at it. Nothing needs changing at cutover.
+
+### Then, in order
+
+1. Create the Sanity project, set `NEXT_PUBLIC_SANITY_PROJECT_ID` and
+   `SANITY_API_WRITE_TOKEN`, run `node scripts/migrate/import.mjs --commit`,
+   verify in the Studio, then delete `content/migrated/`.
+2. Add Stripe keys and register the webhook at `/api/webhooks/stripe`.
+3. Work through the DNS and email tasks in `DOMAIN_SECURITY.md`. Those are
+   independent of this deployment and address the phishing problem.
+4. Follow the cutover checklist above.
