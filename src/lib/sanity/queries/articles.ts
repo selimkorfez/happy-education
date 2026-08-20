@@ -2,6 +2,14 @@ import 'server-only'
 import { sanityFetch } from '@/lib/sanity/client'
 import type { MediaSource } from '@/components/ui/MediaFrame'
 import type { Locale } from '@/lib/i18n/config'
+import { isConfigured } from '@/lib/env'
+import { hasLocalContent } from '@/lib/content/local-source'
+import * as local from '@/lib/content/local-queries'
+
+/** Sanity always wins; the migrated bundle answers only before it is configured. */
+function shouldReadLocalBundle(): boolean {
+  return !isConfigured.sanity() && hasLocalContent()
+}
 
 /**
  * Article queries.
@@ -39,6 +47,7 @@ const CARD_PROJECTION = /* groq */ `
 `
 
 export async function getLatestArticles(locale: Locale, limit = 5): Promise<ArticleCard[]> {
+  if (shouldReadLocalBundle()) return local.localListArticles(locale, limit)
   return sanityFetch<ArticleCard[]>(
     /* groq */ `
       *[_type == "article" && locale == $locale && defined(slug.current) && !(_id in path("drafts.**"))]
@@ -57,6 +66,7 @@ export async function getArticlesByCategory(
   categorySlug: string | null,
   limit = 24,
 ): Promise<ArticleCard[]> {
+  if (shouldReadLocalBundle()) return local.localListArticles(locale, limit, categorySlug)
   return sanityFetch<ArticleCard[]>(
     /* groq */ `
       *[

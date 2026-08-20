@@ -1,6 +1,8 @@
 import 'server-only'
 import type { MetadataRoute } from 'next'
 import { sanityFetch } from '@/lib/sanity/client'
+import { isConfigured } from '@/lib/env'
+import { hasLocalContent, allOfType, deref, slugOf } from '@/lib/content/local-source'
 import {
   LOCALES,
   docPath,
@@ -326,12 +328,10 @@ function toEntries(seeds: RouteSeed[]): SitemapEntry[] {
  * slice.
  */
 export async function collectSitemapEntries(): Promise<SitemapEntry[]> {
-  const rows = await sanityFetch<DocRow[]>(
-    SITEMAP_QUERY,
-    {},
-    { tags: ['sitemap'], revalidate: 3600 },
-    [],
-  )
+  const rows =
+    !isConfigured.sanity() && hasLocalContent()
+      ? localRows()
+      : await sanityFetch<DocRow[]>(SITEMAP_QUERY, {}, { tags: ['sitemap'], revalidate: 3600 }, [])
 
   const presentTypes = new Set(rows.map((row) => row._type))
   const sections = [
@@ -406,4 +406,55 @@ export function sitemapIndexXml(chunkCount: number, lastModified = new Date()): 
     '</sitemapindex>',
     '',
   ].join('\n')
+}
+
+/**
+ * The same rows, read from the migrated bundle.
+ *
+ * Without this the sitemap lists only the static chrome routes, so 308 migrated
+ * pages exist and are reachable but are never submitted to a search engine. That
+ * is precisely the failure the legacy site had: its sitemap omitted all eighteen
+ * genuine articles and listed four theme demo posts instead.
+ *
+ * Sanity takes over the moment it is configured; see src/lib/content/local-source.ts.
+ */
+function localRows(): DocRow[] {
+  const TYPES = [
+    'destination',
+    'institution',
+    'languageSchool',
+    'boardingSchool',
+    'summerProgramme',
+    'tour',
+    'article',
+    'guide',
+    'service',
+    'page',
+    'legalPage',
+  ]
+
+  return TYPES.flatMap((type) =>
+    allOfType(type)
+      .filter((doc) => slugOf(doc))
+      .map((doc) => {
+        const destination = deref(doc.destination)
+        const parent = destination ? deref(destination.parent) : null
+        // A city resolves to its parent country, so an institution in London still
+        // sits under the United Kingdom in the URL.
+        const country = parent ?? destination
+
+        return {
+          _type: doc._type,
+          locale: doc.locale ?? null,
+          slug: slugOf(doc),
+          updated: typeof doc.updatedAt === 'string' ? doc.updatedAt : null,
+          noIndex: (doc.seo as { noIndex?: boolean } | undefined)?.noIndex ?? null,
+          groupId: (doc.translationGroup as { _ref?: string } | undefined)?._ref ?? null,
+          section: typeof doc.section === 'string' ? doc.section : null,
+          parentSlug: parent ? slugOf(parent) : null,
+          countrySlug: country ? slugOf(country) : null,
+          pageKey: typeof doc.pageKey === 'string' ? doc.pageKey : null,
+        } satisfies DocRow
+      }),
+  )
 }

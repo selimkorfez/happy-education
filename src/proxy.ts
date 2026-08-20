@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import { DEFAULT_LOCALE, isLocale, type Locale } from '@/lib/i18n/config'
+import { DEFAULT_LOCALE, LOCALES, SECTIONS, isLocale, type Locale } from '@/lib/i18n/config'
 import { isGone } from '@/lib/redirects'
 
 /**
@@ -81,6 +81,14 @@ function buildCsp(nonce: string, isDev: boolean): string {
   return parts.join('; ')
 }
 
+/** The search route in either locale: /en/search and /tr/arama. */
+const SEARCH_PATHS = new Set(LOCALES.map((locale) => `/${locale}/${SECTIONS.search[locale]}`))
+
+function isSearchPath(pathname: string): boolean {
+  const withoutTrailingSlash = pathname.replace(/\/+$/, '') || '/'
+  return SEARCH_PATHS.has(withoutTrailingSlash)
+}
+
 /** Picks a locale from Accept-Language, defaulting to English (also the x-default). */
 function negotiateLocale(header: string | null): Locale {
   if (!header) return DEFAULT_LOCALE
@@ -158,8 +166,15 @@ export default function proxy(request: NextRequest) {
   const response = NextResponse.next({ request: { headers: requestHeaders } })
   response.headers.set('Content-Security-Policy', csp)
 
-  // Search result pages must not be indexed (they are thin and infinite).
-  if (pathname.includes('/search')) {
+  /*
+   * Search result pages must not be indexed: they are thin and effectively
+   * infinite.
+   *
+   * Matching the literal string "search" missed the Turkish URL entirely, because
+   * it is /tr/arama. The segments are read from the locale registry so this cannot
+   * drift again if a segment is renamed.
+   */
+  if (isSearchPath(pathname)) {
     response.headers.set('X-Robots-Tag', 'noindex, follow')
   }
 

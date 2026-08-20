@@ -1,6 +1,9 @@
 import 'server-only'
 import { sanityFetch } from '@/lib/sanity/client'
 import type { Locale } from '@/lib/i18n/config'
+import { isConfigured } from '@/lib/env'
+import { hasLocalContent } from '@/lib/content/local-source'
+import { localSearch } from '@/lib/content/local-queries'
 
 /**
  * Site search.
@@ -63,6 +66,9 @@ export function toMatchTerm(query: string): string | null {
 export async function searchContent(locale: Locale, query: string): Promise<SearchResult[]> {
   const term = toMatchTerm(query)
   if (!term) return []
+
+  // Before Sanity exists, search the migrated bundle so the page is not a dead end.
+  if (!isConfigured.sanity() && hasLocalContent()) return localSearch(locale, query)
 
   return sanityFetch<SearchResult[]>(
     /* groq */ `

@@ -1,0 +1,114 @@
+[
+  {
+    "_id": "category-tr-consultancy-and-process",
+    "_type": "category",
+    "locale": "tr",
+    "title": "Danışmanlık süreci",
+    "slug": {
+      "_type": "slug",
+      "current": "danismanlik-sureci"
+    },
+    "_migration": {
+      "source": "docs/audit/blog-posts.json cluster",
+      "cluster": "consultancy-and-process"
+    }
+  },
+  {
+    "_id": "category-tr-destination-comparison",
+    "_type": "category",
+    "locale": "tr",
+    "title": "Ülke karşılaştırmaları",
+    "slug": {
+      "_type": "slug",
+      "current": "ulke-karsilastirmalari"
+    },
+    "_migration": {
+      "source": "docs/audit/blog-posts.json cluster",
+      "cluster": "destination-comparison"
+    }
+  },
+  {
+    "_id": "category-tr-language-study-value",
+    "_type": "category",
+    "locale": "tr",
+    "title": "Dil eğitimi",
+    "slug": {
+      "_type": "slug",
+      "current": "dil-egitimi"
+    },
+    "_migration": {
+      "source": "docs/audit/blog-posts.json cluster",
+      "cluster": "language-study-value"
+    }
+  },
+  {
+    "_id": "category-tr-parents-and-safeguarding",
+    "_type": "category",
+    "locale": "tr",
+    "title": "Veliler için",
+    "slug": {
+      "_type": "slug",
+      "current": "veliler-icin"
+    },
+    "_migration": {
+      "source": "docs/audit/blog-posts.json cluster",
+      "cluster": "parents-and-safeguarding"
+    }
+  },
+  {
+    "_id": "category-tr-pre-departure",
+    "_type": "category",
+    "locale": "tr",
+    "title": "Yola çıkmadan önce",
+    "slug": {
+      "_type": "slug",
+      "current": "yola-cikmadan-once"
+    },
+    "_migration": {
+      "source": "docs/audit/blog-posts.json cluster",
+      "cluster": "pre-departure"
+    }
+  },
+  {
+    "_id": "category-tr-summer-schools",
+    "_type": "category",
+    "locale": "tr",
+    "title": "Yaz okulları",
+    "slug": {
+      "_type": "slug",
+      "current": "yaz-okullari"
+    },
+    "_migration": {
+      "source": "docs/audit/blog-posts.json cluster",
+      "cluster": "summer-schools"
+    }
+  },
+  {
+    "_id": "category-tr-university-admissions",
+    "_type": "category",
+    "locale": "tr",
+    "title": "Üniversite başvuruları",
+    "slug": {
+      "_type": "slug",
+      "current": "universite-basvurulari"
+    },
+    "_migration": {
+      "source": "docs/audit/blog-posts.json cluster",
+      "cluster": "university-admissions"
+    }
+  },
+  {
+    "_id": "category-tr-visa-and-immigration",
+    "_type": "category",
+    "locale": "tr",
+    "title": "Vize ve başvuru süreçleri",
+    "slug": {
+      "_type": "slug",
+      "current": "vize-ve-basvuru-surecleri"
+    },
+    "_migration": {
+      "source": "docs/audit/blog-posts.json cluster",
+      "cluster": "visa-and-immigration"
+    }
+  }
+]

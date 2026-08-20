@@ -504,3 +504,42 @@ all 18 articles indexed, which is 18 more than today.
 | Gated visa content republished by mistake | Regulatory exposure under the Immigration and Asylum Act 1999 | Gate list in section 12, checked at publication in `docs/QA.md` |
 | Manual field collection underestimated | 313 official URLs, 240-plus logos and near-total alt text coverage are hand work | Scoped and scheduled explicitly, not assumed to be part of "the import" |
 | PDFs and orphaned media lost at switch-off | Unrecoverable | Phase 0 gate |
+
+---
+
+## Pre-import review mode (added 20 August 2026)
+
+The 300 migrated documents are readable on the live templates *before* they are
+committed to Sanity. `src/lib/content/local-source.ts` reads `content/migrated/*.json`
+directly, so every destination, institution, school, programme and article route
+renders, search returns results, and the sitemap lists all 314 URLs.
+
+**Sanity always takes precedence.** The fallback only engages when
+`NEXT_PUBLIC_SANITY_PROJECT_ID` is unset. Setting it silences the local source
+permanently.
+
+Why it exists: 300 of the 300 documents carry an editorial flag and 255 contain
+time-sensitive claims. Reviewing those on the real templates, in context, is far
+more effective than reading JSON, and it puts the correction step *before* the
+import rather than after.
+
+### Sequence
+
+1. Review the content at `/tr/...` on a local or preview deployment.
+2. Correct anything wrong in `content/migrated/*.json`, or note it for the editor.
+3. Create the Sanity project and set `NEXT_PUBLIC_SANITY_PROJECT_ID`, `SANITY_API_WRITE_TOKEN`.
+4. `node scripts/migrate/import.mjs --commit`
+5. Verify in the Studio, then **delete `content/migrated/`**. Nothing else depends on it.
+
+### Known state of the corpus
+
+- **All 308 documents are Turkish.** The English tree is empty and needs roughly
+  77,000 words of transcreation. This is an editorial commission, not a code task:
+  the chrome, routing, metadata and templates are locale-agnostic and already work.
+- **609 inline images were not carried across.** They render as a labelled note
+  outside production and as nothing in production. The originals remain on the
+  WordPress host and their licences are uncleared, so they are never hotlinked.
+- **32 summer programmes have an inferred format.** They sat at the legacy root
+  rather than under `/yaz-okullari/grup-yaz-okullari/`, so they import as
+  *individual* and carry a flag asking an editor to confirm. Changing it changes
+  the page URL.

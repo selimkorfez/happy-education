@@ -2,6 +2,7 @@ import { PortableText as PortableTextBase, type PortableTextComponents } from 'n
 import Link from 'next/link'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
 import { resolveInternalHref, safeExternalHref } from '@/lib/links'
+import { isProduction } from '@/lib/env'
 import type { Locale } from '@/lib/i18n/config'
 
 /**
@@ -148,6 +149,32 @@ function components(locale: Locale): PortableTextComponents {
               </figcaption>
             ) : null}
           </figure>
+        )
+      },
+
+      /*
+       * An inline image the migration recorded but did not carry across.
+       *
+       * 609 of these exist in the migrated corpus. The original file still sits on
+       * the WordPress host, and its licence has not been cleared, so it is never
+       * rendered: hotlinking the legacy host is explicitly out of bounds and
+       * publishing unlicensed media is the exposure this project set out to remove.
+       *
+       * In production it renders nothing at all. Outside production it renders a
+       * labelled note, so an editor filling in the CMS can see exactly which image
+       * belonged here and where.
+       */
+      imagePlaceholder: ({ value }) => {
+        if (isProduction) return null
+        const placeholder = value as { src?: string; alt?: string; caption?: string }
+        const filename = placeholder.src?.split('/').pop() ?? 'unknown file'
+        return (
+          <p className="my-6 border border-dashed border-border-input bg-paper-sunk p-3 text-xs leading-relaxed text-fg-muted">
+            <strong className="font-semibold text-fg">Image not migrated.</strong>{' '}
+            {filename}
+            {placeholder.alt ? `, alt: "${placeholder.alt}"` : ', no alt text on the original'}
+            . Upload it to the CMS and clear its licence before publication.
+          </p>
         )
       },
 

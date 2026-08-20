@@ -150,12 +150,19 @@ test.describe('preferences dialog', () => {
 })
 
 test.describe('after consent', () => {
-  // Only meaningful once a container ID is configured; it stays in the suite so a
-  // future tag cannot be added without a consent gate.
+  /*
+   * The mirror of the "nothing loads before consent" specs above: proves the tag
+   * genuinely fires once permission is given, so those cannot pass simply because
+   * analytics is switched off everywhere.
+   *
+   * The request is intercepted and fulfilled locally, so the suite never calls
+   * Google and does not depend on the network.
+   */
   test('loads analytics only once analytics consent is granted', async ({ page }) => {
     const requests: string[] = []
-    page.on('request', (request) => {
-      if (ANALYTICS_HOSTS.test(request.url())) requests.push(request.url())
+    await page.route(ANALYTICS_HOSTS, async (route) => {
+      requests.push(route.request().url())
+      await route.fulfill({ status: 200, contentType: 'application/javascript', body: '' })
     })
 
     await page.goto('/en')

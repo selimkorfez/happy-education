@@ -67,7 +67,27 @@ export default defineConfig({
      * builds (see src/lib/rate-limit.ts). Rate limiting itself is covered by its
      * own spec, which sets the flag back off.
      */
-    env: { ...process.env, E2E_DISABLE_RATE_LIMIT: '1' },
+    env: {
+      ...process.env,
+      E2E_DISABLE_RATE_LIMIT: '1',
+      /*
+       * A throwaway webhook secret so signature verification actually runs in the
+       * suite. Without it the route short-circuits to 503 "not configured" and the
+       * rejection tests prove nothing.
+       *
+       * This is not a Stripe credential and grants no access: it is only the HMAC
+       * key both the route and the spec use to sign a local payload. The tests that
+       * need a real Stripe API call are skipped separately.
+       */
+      STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET ?? 'whsec_e2e_local_testing_only',
+      /*
+       * A throwaway container id so the consent gate is actually exercised: without
+       * one the analytics loader renders nothing and "does not load before consent"
+       * passes for the wrong reason. The consent spec stubs the request, so no call
+       * reaches Google.
+       */
+      NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID ?? 'GTM-E2ETEST',
+    },
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,

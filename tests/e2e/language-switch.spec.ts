@@ -64,12 +64,15 @@ test.describe('language switcher (UI)', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'en-GB')
   })
 
-  // Deep pages are still being built. Once the destination routes land, this
-  // should arrive on the translated document rather than the section index.
-  test('switches from a deep page to its translated equivalent', async ({ page }) => {
-    await page.goto('/en/universities/united-kingdom')
-    await page.locator('nav a[hreflang="tr-TR"]').first().click()
-    await expect(page).toHaveURL(/\/tr\/universiteler\/ingiltere$/)
+  // Falls back to the English section index today, because the English tree has no
+  // documents yet. Once transcreation lands this should arrive on the translated
+  // document itself. See content.spec.ts for why the English tree is empty.
+  test('switches from a deep page to the best available equivalent', async ({ page }) => {
+    await page.goto('/tr/universiteler/ingiltere')
+    // On a Turkish page the Turkish entry is the current locale and renders as a
+    // span, not a link. The switch target is the English one.
+    await page.locator('nav a[hreflang="en-GB"]').first().click()
+    await expect(page).toHaveURL(/\/en\/universities/)
   })
 })
 

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import type Stripe from 'stripe'
-import { getStripe, stripeErrorSummary } from '@/lib/payments/stripe'
+import Stripe from 'stripe'
+import { getStripe, stripeErrorSummary, STRIPE_API_VERSION } from '@/lib/payments/stripe'
 import { serverEnv } from '@/lib/env'
 import { getProcessedEventStore } from '@/lib/payments/event-log'
 import {
@@ -57,12 +57,23 @@ const HANDLED_EVENTS = [
 ] as const
 
 export async function POST(request: Request): Promise<NextResponse> {
-  const stripe = getStripe()
   const secret = serverEnv().STRIPE_WEBHOOK_SECRET
 
-  if (!stripe || !secret) {
-    // Not configured. 503 rather than 200, so Stripe surfaces the endpoint as
-    // failing instead of the site silently discarding real payment events.
+  /*
+   * ORDER MATTERS HERE.
+   *
+   * Signature verification runs before anything else and depends only on the
+   * webhook secret, never on the API client. An earlier version required the
+   * secret key too, which meant a half-configured deployment answered forged
+   * payloads with 503 instead of rejecting them: signature checking silently
+   * switched itself off exactly when the configuration was least trustworthy.
+   *
+   * Verification needs no authenticated client, so a bare instance is used. It
+   * makes no API call; `constructEvent` is pure HMAC over the raw bytes.
+   */
+  if (!secret) {
+    // Genuinely unconfigured. 503 rather than 200, so Stripe surfaces the endpoint
+    // as failing instead of the site silently discarding real payment events.
     return NextResponse.json({ error: 'not_configured' }, { status: 503 })
   }
 
@@ -75,9 +86,14 @@ export async function POST(request: Request): Promise<NextResponse> {
   // RAW body. Nothing may touch these bytes before verification.
   const payload = await request.text()
 
+  // The SDK refuses an empty key, but `constructEvent` never makes an API call, so
+  // a placeholder is enough to reach the HMAC check. It can authenticate nothing.
+  const verifier =
+    getStripe() ?? new Stripe('sk_signature_verification_only', { apiVersion: STRIPE_API_VERSION })
+
   let event: Stripe.Event
   try {
-    event = stripe.webhooks.constructEvent(payload, signature, secret)
+    event = verifier.webhooks.constructEvent(payload, signature, secret)
   } catch (error) {
     logSecurityEvent('webhook.invalid_signature', {
       reason: stripeErrorSummary(error).message,

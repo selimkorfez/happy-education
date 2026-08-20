@@ -1,0 +1,626 @@
+[
+  {
+    "_id": "legalPage-tr-9972",
+    "_type": "legalPage",
+    "locale": "tr",
+    "title": "Policy",
+    "slug": {
+      "_type": "slug",
+      "current": "gizlilik-politikasi"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-legalPage-9972"
+    },
+    "key": "privacy",
+    "solicitorApproved": false,
+    "body": [
+      {
+        "_type": "imagePlaceholder",
+        "_key": "15ac15cb9b6b",
+        "src": "https://happyeducation.uk/wp-content/uploads/cropped-happyedu.logo_-350x250.png",
+        "alt": "Happy Education"
+      },
+      {
+        "_type": "block",
+        "_key": "7c5d5bc1c5b7",
+        "style": "h2",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "d5e1a9cb4d74",
+            "reference": {
+              "_type": "reference",
+              "_ref": "page-tr-12883"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5e685859c569",
+            "text": "Gizlilik Sözleşmesi",
+            "marks": [
+              "d5e1a9cb4d74"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2f053569e8c3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cd1486616d4b",
+            "text": "Happy Education olarak kullanıcılarımızın gizliliğine saygı duyuyoruz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "53472d5f1b5b",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "externalLink",
+            "_key": "90e68fa91021",
+            "href": "https://find-and-update.company-information.service.gov.uk/company/11331426"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bce75b3cdebe",
+            "text": "Bu Gizlilik Politikası,",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "5409a1c18cd4",
+            "text": " ",
+            "marks": [
+              "90e68fa91021"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "d6754e9a5450",
+            "text": "https://find-and-update.company-information.service.gov.uk/company/11331426",
+            "marks": [
+              "90e68fa91021",
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "739beee7802d",
+            "text": " adresini ziyaret ettiğinizde hakkınızda topladığımız bilgilerin türlerini ve bu bilgileri nasıl kullandığımızı açıklamaktadır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4fb71ded5490",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b7cbf2c6eefb",
+            "text": "Topladığımız Bilgiler",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b565d4a0329e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "91565aeac1c0",
+            "text": "Kişisel Bilgiler:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "38ebfa3842b6",
+            "text": " Bir hesap oluşturduğunuzda, bültenimize abone olduğunuzda veya bizimle iletişime geçtiğinizde; adınız, e-posta adresiniz, telefon numaranız ve posta adresiniz gibi ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "8fa47f4f1c06",
+            "text": "kişisel bilgilerinizi",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "29bdde07eebc",
+            "text": " toplayabiliriz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a8c517732f76",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9fec1e959e3e",
+            "text": "Kullanım Verileri:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "1ad96b49e23a",
+            "text": " Web Sitesi üzerindeki hareketlerinizle ilgili kullanım verilerini toplayabiliriz. Bunlar; ziyaret ettiğiniz sayfalar, bu sayfalarda geçirdiğiniz süre ve tıkladığınız bağlantılar gibi bilgileri içerir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "ff9486f2fe23",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "86958320a514",
+            "text": "Cihaz Bilgileri:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "3df4d2409d3d",
+            "text": " Web sitesine erişmek için kullandığınız cihaz hakkındaki bilgileri (cihaz türünüz, işletim sisteminiz, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "cc1871753d07",
+            "text": "IP adresiniz",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "2ccb65042074",
+            "text": " ve tarayıcı türünüz gibi) toplayabiliriz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7464dd31bf07",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "036ef61ea854",
+            "text": "Bilgilerinizi Kullanma Şeklimiz",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "cd5796e6dec2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "771656e3cd26",
+            "text": "Sizden topladığımız bilgileri aşağıdaki amaçlar için kullanıyoruz:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "33c7b37cffb7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "deb513766302",
+            "text": "Talep ettiğiniz içerik ve hizmetleri sunmak, web sitesini sağlamak ve işletmek.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "089a98fd1acd",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cdaa71afe393",
+            "text": "Pazarlama ve tanıtım iletileri göndermek (yalnızca bu iletileri almayı kabul ettiyseniz)",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "9144d39fbeaf",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "66f24b3225bb",
+            "text": "Sorularınıza ve taleplerinize yanıt vermek ve müşteri hizmetleri sunmak.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ad54bb9f74b7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "476156eee980",
+            "text": "Web sitesini ve sunduğumuz hizmetleri iyileştirmek.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "3530f0e76e02",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d3cae7120e9a",
+            "text": "Web sitesindeki deneyiminizi size özel hale getirmek (kişiselleştirmek).",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "e063efc97f3d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "910e95a34ed9",
+            "text": "Yasal ve düzenleyici gerekliliklere uymak.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "1e26b0c0500c",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1c3da4c22789",
+            "text": "Bilgilerinizin Paylaşılması",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "45cd0eed4222",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dfeefefa6eef",
+            "text": "Web sitesini işletmemize ve hizmetlerimizi sunmamıza yardımcı olan ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "584a22cf0412",
+            "text": "üçüncü taraf hizmet sağlayıcılarla",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "0ed10cfb4ce7",
+            "text": " bilgilerinizi paylaşabiliriz. Bu hizmet sağlayıcılar, bilgilerinizi gizli tutmak ve yalnızca kendilerine açıkladığımız amaçlar doğrultusunda kullanmakla sözleşme yoluyla yükümlüdürler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a80d691cd279",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1961bd5be990",
+            "text": "Ayrıca, yasal zorunluluk halinde veya yürürlükteki yasalara ya da bize tebliğ edilen hukuki süreçlere uymak ya da Happy Education’ın veya kullanıcılarının haklarını ve mülkiyetini korumak için gerekli olduğuna iyi niyetle inandığımız durumlarda da bilgilerinizi paylaşabiliriz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c30ca29dbd5c",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "259ea8c2766a",
+            "text": "Haklarınız",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "76476b9bd4c7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "35ea228c9b39",
+            "text": "Bizden pazarlama ve tanıtım iletileri almak istemiyorsanız, bu iletişimlerde yer alan ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "8981a087becd",
+            "text": "abonelikten çıkma",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "04aab31e40ab",
+            "text": " talimatlarını takip ederek bu tür iletileri almaktan vazgeçebilirsiniz. Kişisel bilgilerinize erişmek, bu bilgileri güncellemek veya sildirmek için bizimle iletişime geçebilirsiniz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "fc9222a0f926",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "958b82ec8e7a",
+            "text": "Veri Güvenliği",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "45b348f4048c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dd42585ce08d",
+            "text": "Bize sağladığınız bilgileri kaybolma, kötüye kullanım, yetkisiz erişim, ifşa, değiştirme ve yok edilmeye karşı korumak için makul adımlar atıyoruz. Ancak, hiçbir internet aktarımı veya elektronik depolama yöntemi tamamen güvenli değildir; bu nedenle bilgilerinizin ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "9695a6f2407a",
+            "text": "mutlak güvenliğini garanti edemeyiz.",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6cf8edbc87da",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "374b05afd5d3",
+            "text": "Gizlilik Politikasındaki Değişiklikler",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1cc08304accd",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cc4a333a5f2f",
+            "text": "Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Yapılan değişiklikleri web sitesinde yayınlayarak size bildireceğiz. Herhangi bir değişiklik için bu gizlilik politikasını ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "c9b7ea7f2e39",
+            "text": "düzenli olarak gözden geçirmeniz",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "c82308cfd890",
+            "text": " tavsiye edilir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "66594e39935b",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7cdd9a906576",
+            "text": "Bize Ulaşın",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a9b1e412213f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "da46c0996ff6",
+            "text": "Bu Gizlilik Politikası ile ilgili herhangi bir sorunuz olursa, lütfen ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "643dd4e1312e",
+            "text": "[info@happyeducation.uk]",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "fc449926f165",
+            "text": " adresinden bizimle iletişime geçin.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/cropped-happyedu.logo_-350x250.png",
+    "review": {
+      "editorialFlag": "REWRITE (audit): Privacy policy body pastes the Companies House URL (find-and-update.company-information.service.gov.uk/company/11331426) where the website URL should be; no cookie/GDPR/UK-DPA sections\nThis privacy policy is migrated as-is and is NOT approved. The audit found it pastes a Companies House URL where the website URL belongs, and it has no cookie, UK GDPR/DPA 2018, retention or data-subject-rights sections. Do not publish before a solicitor or privacy professional signs it off."
+    },
+    "_migration": {
+      "legacyId": 9972,
+      "legacyPath": "/policy/",
+      "legacyUrl": "https://happyeducation.uk/policy/",
+      "targetPath": "/tr/gizlilik-politikasi/",
+      "bucket": "REWRITE",
+      "inventoryReason": "Privacy policy body pastes the Companies House URL (find-and-update.company-information.service.gov.uk/company/11331426) where the website URL should be; no cookie/GDPR/UK-DPA sections",
+      "sourceLanguage": "TR",
+      "sourceWords": 344,
+      "convertedWords": 343,
+      "headings": [
+        {
+          "style": "h2",
+          "text": "Gizlilik Sözleşmesi"
+        },
+        {
+          "style": "h3",
+          "text": "Topladığımız Bilgiler"
+        },
+        {
+          "style": "h3",
+          "text": "Bilgilerinizi Kullanma Şeklimiz"
+        },
+        {
+          "style": "h3",
+          "text": "Bilgilerinizin Paylaşılması"
+        },
+        {
+          "style": "h3",
+          "text": "Haklarınız"
+        },
+        {
+          "style": "h3",
+          "text": "Veri Güvenliği"
+        },
+        {
+          "style": "h3",
+          "text": "Gizlilik Politikasındaki Değişiklikler"
+        },
+        {
+          "style": "h3",
+          "text": "Bize Ulaşın"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/cropped-happyedu.logo_-350x250.png",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {}
+    }
+  }
+]

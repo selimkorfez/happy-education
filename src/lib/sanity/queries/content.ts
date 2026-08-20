@@ -5,6 +5,20 @@ import type { MediaSource } from '@/components/ui/MediaFrame'
 import type { ReviewData } from '@/components/shared/ReviewMeta'
 import type { Faq } from '@/components/shared/FaqSection'
 import type { Locale } from '@/lib/i18n/config'
+import { isConfigured } from '@/lib/env'
+import { hasLocalContent } from '@/lib/content/local-source'
+import * as local from '@/lib/content/local-queries'
+
+/**
+ * True when the migrated bundle should answer instead of Sanity.
+ *
+ * Sanity always wins. This only fires when no project is configured at all, which
+ * is the pre-import state. See src/lib/content/local-source.ts for why the fallback
+ * exists and when to delete it.
+ */
+function shouldReadLocalBundle(): boolean {
+  return !isConfigured.sanity() && hasLocalContent()
+}
 
 /**
  * Content queries for the routed templates.
@@ -98,6 +112,7 @@ export async function getDestination(
   slug: string,
   section: string,
 ): Promise<DestinationDoc | null> {
+  if (shouldReadLocalBundle()) return local.localGetDestination(locale, slug, section)
   return sanityFetch<DestinationDoc | null>(
     /* groq */ `
       *[_type == "destination" && locale == $locale && slug.current == $slug && section == $section][0]{
@@ -129,6 +144,7 @@ export async function listDestinations(
   locale: Locale,
   section: string,
 ): Promise<Array<{ title: string; slug: string; intro?: string; heroImage?: MediaSource; kind: string }>> {
+  if (shouldReadLocalBundle()) return local.localListDestinations(locale, section)
   return sanityFetch(
     /* groq */ `
       *[_type == "destination" && locale == $locale && section == $section && kind == "country"]
@@ -216,6 +232,7 @@ export async function getInstitution(
   slug: string,
   types: string[],
 ): Promise<InstitutionDoc | null> {
+  if (shouldReadLocalBundle()) return local.localGetInstitution(locale, slug, types)
   return sanityFetch<InstitutionDoc | null>(
     /* groq */ `
       *[_type in $types && locale == $locale && slug.current == $slug][0]{
@@ -245,6 +262,7 @@ export async function listInstitutions(
   types: string[],
   destinationSlug?: string,
 ): Promise<InstitutionCard[]> {
+  if (shouldReadLocalBundle()) return local.localListInstitutions(locale, types, destinationSlug)
   return sanityFetch<InstitutionCard[]>(
     /* groq */ `
       *[
@@ -295,6 +313,7 @@ export async function getSummerProgramme(
   locale: Locale,
   slug: string,
 ): Promise<SummerProgrammeDoc | null> {
+  if (shouldReadLocalBundle()) return local.localGetSummerProgramme(locale, slug)
   return sanityFetch<SummerProgrammeDoc | null>(
     /* groq */ `
       *[_type == "summerProgramme" && locale == $locale && slug.current == $slug][0]{
@@ -324,6 +343,7 @@ export async function listSummerProgrammes(
   locale: Locale,
   format?: 'individual' | 'group',
 ): Promise<Array<{ title: string; slug: string; city?: string; ageRange?: string; format: string; heroImage?: MediaSource }>> {
+  if (shouldReadLocalBundle()) return local.localListSummerProgrammes(locale, format)
   return sanityFetch(
     /* groq */ `
       *[
@@ -355,6 +375,7 @@ export interface TourDoc extends BaseDoc {
 }
 
 export async function getTour(locale: Locale, slug: string): Promise<TourDoc | null> {
+  if (shouldReadLocalBundle()) return local.localGetTour(locale, slug)
   return sanityFetch<TourDoc | null>(
     /* groq */ `
       *[_type == "tour" && locale == $locale && slug.current == $slug][0]{
@@ -377,6 +398,7 @@ export async function getTour(locale: Locale, slug: string): Promise<TourDoc | n
 export async function listTours(
   locale: Locale,
 ): Promise<Array<{ title: string; slug: string; heroImage?: MediaSource; availability?: string }>> {
+  if (shouldReadLocalBundle()) return local.localListTours(locale)
   return sanityFetch(
     /* groq */ `
       *[_type == "tour" && locale == $locale && defined(slug.current)] | order(title asc){
@@ -408,6 +430,7 @@ export interface ArticleDoc extends BaseDoc {
 }
 
 export async function getArticle(locale: Locale, slug: string): Promise<ArticleDoc | null> {
+  if (shouldReadLocalBundle()) return local.localGetArticle(locale, slug)
   return sanityFetch<ArticleDoc | null>(
     /* groq */ `
       *[_type == "article" && locale == $locale && slug.current == $slug][0]{
@@ -444,6 +467,7 @@ export async function getProseDoc(
   slug: string,
   type: 'guide' | 'service' | 'page' | 'legalPage',
 ): Promise<ProseDoc | null> {
+  if (shouldReadLocalBundle()) return local.localGetProseDoc(locale, slug, type)
   return sanityFetch<ProseDoc | null>(
     /* groq */ `
       *[_type == $type && locale == $locale && slug.current == $slug][0]{
@@ -460,6 +484,7 @@ export async function getProseDoc(
 }
 
 export async function getPageByKey(locale: Locale, pageKey: string): Promise<ProseDoc | null> {
+  if (shouldReadLocalBundle()) return local.localGetPageByKey(locale, pageKey)
   return sanityFetch<ProseDoc | null>(
     /* groq */ `
       *[_type == "page" && locale == $locale && pageKey == $pageKey][0]{
@@ -478,6 +503,7 @@ export async function getPageByKey(locale: Locale, pageKey: string): Promise<Pro
 export async function getAllRoutableDocs(): Promise<
   Array<{ _type: string; locale: Locale; slug: string; section?: string; updatedAt?: string }>
 > {
+  if (shouldReadLocalBundle()) return local.localAllRoutable()
   return sanityFetch(
     /* groq */ `
       *[

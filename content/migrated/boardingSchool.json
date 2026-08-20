@@ -1,0 +1,5344 @@
+[
+  {
+    "_id": "boardingSchool-tr-10537",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "Oxford International College Brighton",
+    "slug": {
+      "_type": "slug",
+      "current": "oxford-international-college-brighton"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-10537"
+    },
+    "fees": [
+      {
+        "_type": "sourcedFact",
+        "_key": "53f185ae5bb3",
+        "label": "Legacy site fee",
+        "value": "A Levels: £52,000 | GCSE: £40,000 | (Konaklama ücretleri dahildir.) | Bilgi ve Kayıt",
+        "note": "Carried across from the legacy site. Needs confirmation and an \"as of\" date."
+      }
+    ],
+    "curriculum": [
+      "GCSE",
+      "A Level"
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "f48a05b4258a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "158c9e81e2e2",
+            "text": "Akademik Başarıya ve Kişisel Gelişime Açılan Bir Yol",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "70004ec009d1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e5f658ada5c8",
+            "text": "Oxford International College Brighton, akademik mükemmelliği, kariyer hazırlığını ve kişisel gelişimi merkeze alan vizyoner eğitim anlayışıyla öne çıkan bağımsız bir yatılı okuldur. 13–18 yaş arası öğrenciler için tasarlanan programlar, onların potansiyellerini en üst düzeye çıkarmalarını sağlayan destekleyici bir ortamda sunulur. Öğrenciler, sınavlara ve hayatın her alanına hazırlanmış olarak mezun olur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f6f16e134f81",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b1cb3fa0c0ea",
+            "text": "Neden Oxford International College Brighton?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "760e03e63c39",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "33c88f0bd7aa",
+            "text": "Brighton’ın güvenli, doğal ve ilham verici atmosferinde konumlanmıştır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a416cfa7864d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "410866870e9f",
+            "text": "13–18 yaş arası öğrenciler için akademik, kişisel ve kariyer gelişimini bütüncül şekilde destekler.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "92c613f3399c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8c496d16151a",
+            "text": "Konforlu, modern ve denetimli yatılı konaklama seçenekleri sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "f824794eaad1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "39cfa69d84d5",
+            "text": "Öğrencileri hayata hazırlayan bütüncül bir eğitim modeli uygular.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "27b92ea41abd",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5e9a79e7c737",
+            "text": "Konaklama ve tüm destek hizmetleri eğitim ücretine dahil olarak sunulur.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ac1cfd8547f4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "97fe0f080f56",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "417a7c96aad1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d1bc61090590",
+            "text": "Brighton’ın sahil kasabası havasında, doğal güzelliklerle çevrili Ovingdean bölgesinde yer alan kampüs, öğrencilere huzurlu ve ilham verici bir eğitim ortamı sunar. Tarihi Ovingdean Hall arazisinde konumlanan okul, modern donanımlı yatılı tesisleri, yemyeşil açık alanları ve güvenli yerleşkesiyle öğrencilerin sosyal ve bireysel gelişimini destekler. 24 saat boyunca öğrenci desteği sağlayan sistem, özellikle yurtdışından gelen öğrenciler için güvenli ve konforlu bir ikinci ev niteliğindedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "507eb5153ab2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "149a9384c59f",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "88d979f543e6",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6db330b24504",
+            "text": "Oxford International College Brighton, 13 yaş üzeri öğrencilere hitap eden akademik olarak güçlü ve esnek programlar sunar. Eğitim yaklaşımı, öğrencilerin üniversite hedefleri doğrultusunda bireysel olarak desteklendiği yapılandırılmış bir sistem üzerine kuruludur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "50ca00310a2a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e0d6a9e6a075",
+            "text": "Programlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a7a3bb9624e5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "302d0479241e",
+            "text": "Pre-GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "10a678b70775",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1d4f1e3a1557",
+            "text": "GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "418f1f43dde3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "43d01826770f",
+            "text": "A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a6d387a2602b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fd19b882dc97",
+            "text": "Kolejin temel felsefesi, öğrencilerin bilgi edinmesi, kariyer odaklı düşünme becerilerini geliştirmesi, liderlik potansiyelini fark etmesi ve kendine güvenen bireyler haline gelmesidir. Özellikle A Level programı, öğrencilerin Birleşik Krallık’taki seçkin üniversitelere geçişinde güçlü bir temel sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b72905ad5278",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7fcea86517a3",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2b7c33a84428",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "53280a560933",
+            "text": "Oxford International College Brighton, modern en-suite (özel banyolu) odalarla donatılmış yatılı yaşam alanları sunar. Tüm konaklama birimleri, öğrencinin akademik başarısını destekleyecek şekilde tasarlanmıştır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c3aeb4c1090f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e5a4fc75e290",
+            "text": "Özel banyolu tek kişilik odalar",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "e12c97901bee",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "36f30c1145df",
+            "text": "Ortak sosyal alanlar",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "969564e40b1b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c0b6745301e7",
+            "text": "7/24 öğrenci destek hizmeti",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "88605f557fb0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7586ec0d0bba",
+            "text": "Güvenli ve denetimli bir kampüs ortamı",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "9bd53220e5b4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "629937c864ba",
+            "text": "Konaklama, yıllık eğitim ücretine dahildir.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "5dfdd8ece0cc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "437d06bd9a7a",
+            "text": "Ücretler (Yıllık)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e9ffbee4aa0f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "eba82fc86637",
+            "text": "A Levels: £52,000",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "fc69ccd54de7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c752cf8b23f1",
+            "text": "GCSE: £40,000",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "946fd5a498c3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1fd86c986a78",
+            "text": "(Konaklama ücretleri dahildir.)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "209181722d2a",
+        "src": "https://happyeducation.uk/wp-content/uploads/peacock-room-4_Peacock-Room-Carousel.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "a6c0d8d8129b",
+        "src": "https://happyeducation.uk/wp-content/uploads/Room0194a_About-us-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "07e84b3f6010",
+        "src": "https://happyeducation.uk/wp-content/uploads/Image_OICB_Brighton_2023_293_oicb-5050.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "35622e4b191e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4fab9b0ba057",
+            "text": "Akademik Başarıya ve Kişisel Gelişime Açılan Bir Yol",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "339620fa0323",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6706a1f8adc4",
+            "text": "Oxford International College Brighton, akademik mükemmelliği, kariyer hazırlığını ve kişisel gelişimi merkeze alan vizyoner eğitim anlayışıyla öne çıkan bağımsız bir yatılı okuldur. 13–18 yaş arası öğrenciler için tasarlanan programlar, onların potansiyellerini en üst düzeye çıkarmalarını sağlayan destekleyici bir ortamda sunulur. Öğrenciler, sınavlara ve hayatın her alanına hazırlanmış olarak mezun olur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "614d66592bfe",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d96a46441444",
+            "text": "Neden Oxford International College Brighton?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "893191d87e74",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b52242f1dacc",
+            "text": "Brighton’ın güvenli, doğal ve ilham verici atmosferinde konumlanmıştır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "e34e131d2d81",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1a33406b70a0",
+            "text": "13–18 yaş arası öğrenciler için akademik, kişisel ve kariyer gelişimini bütüncül şekilde destekler.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "bfb20e857044",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "62ad7e79a1e0",
+            "text": "Konforlu, modern ve denetimli yatılı konaklama seçenekleri sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "21f8ed4fb69a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d0a568259110",
+            "text": "Öğrencileri hayata hazırlayan bütüncül bir eğitim modeli uygular.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a11c25219df2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bc2b980f4657",
+            "text": "Konaklama ve tüm destek hizmetleri eğitim ücretine dahil olarak sunulur.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ff5226a14e6a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e87f4e41b2fb",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5015d0511d81",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1c9939117992",
+            "text": "Brighton’ın sahil kasabası havasında, doğal güzelliklerle çevrili Ovingdean bölgesinde yer alan kampüs, öğrencilere huzurlu ve ilham verici bir eğitim ortamı sunar. Tarihi Ovingdean Hall arazisinde konumlanan okul, modern donanımlı yatılı tesisleri, yemyeşil açık alanları ve güvenli yerleşkesiyle öğrencilerin sosyal ve bireysel gelişimini destekler. 24 saat boyunca öğrenci desteği sağlayan sistem, özellikle yurtdışından gelen öğrenciler için güvenli ve konforlu bir ikinci ev niteliğindedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "77875c5df7c1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4d713903d17f",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b112da39fb3e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0fb1bed82780",
+            "text": "Oxford International College Brighton, 13 yaş üzeri öğrencilere hitap eden akademik olarak güçlü ve esnek programlar sunar. Eğitim yaklaşımı, öğrencilerin üniversite hedefleri doğrultusunda bireysel olarak desteklendiği yapılandırılmış bir sistem üzerine kuruludur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0674a3e52f8e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f54d3e18a7ee",
+            "text": "Programlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "656f71a3b459",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c11ecb9bde33",
+            "text": "Pre-GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "e4d0a8dfead6",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "811964f615cb",
+            "text": "GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "7fb9195ec6cc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "19fb20fe5183",
+            "text": "A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "0255ad530d85",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5f19f36a9c92",
+            "text": "Kolejin temel felsefesi, öğrencilerin bilgi edinmesi, kariyer odaklı düşünme becerilerini geliştirmesi, liderlik potansiyelini fark etmesi ve kendine güvenen bireyler haline gelmesidir. Özellikle A Level programı, öğrencilerin Birleşik Krallık’taki seçkin üniversitelere geçişinde güçlü bir temel sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7aac5554794a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1dff566f1449",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "28e05e210fab",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a5cf20db9d78",
+            "text": "Oxford International College Brighton, modern en-suite (özel banyolu) odalarla donatılmış yatılı yaşam alanları sunar. Tüm konaklama birimleri, öğrencinin akademik başarısını destekleyecek şekilde tasarlanmıştır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3fe2669da762",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6b79b215c35b",
+            "text": "Özel banyolu tek kişilik odalar",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "92cb114d46ff",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "404a92519567",
+            "text": "Ortak sosyal alanlar",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "7c12434b898e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f12aea667224",
+            "text": "7/24 öğrenci destek hizmeti",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "81f7872f356c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7b031ad20c7e",
+            "text": "Güvenli ve denetimli bir kampüs ortamı",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a46d5526604e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "78120f26bfa9",
+            "text": "Konaklama, yıllık eğitim ücretine dahildir.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b02d042e3071",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "64585b3b0804",
+            "text": "Ücretler (Yıllık)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "691628265bb3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ef08b58f1974",
+            "text": "A Levels: £52,000",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "1ff65145404a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cb421aceed7b",
+            "text": "GCSE: £40,000",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d076f29540fe",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6c9d867a55eb",
+            "text": "(Konaklama ücretleri dahildir.)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "ba60f30bd1a8",
+        "src": "https://happyeducation.uk/wp-content/uploads/Doverbroecks-6th-form-342_OIC-5050.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "c89a075a410d",
+        "src": "https://happyeducation.uk/wp-content/uploads/OIC_Oxford_March-2023_220_oic-footer.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "ebd03e54ee6d",
+        "src": "https://happyeducation.uk/wp-content/uploads/OIC_Oxford_March-2023_033_OIC-5050.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/peacock-room-4_Peacock-Room-Carousel.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site (A Levels: £52,000 | GCSE: £40,000 | (Konaklama ücretleri dahildir.) | Bilgi ve Kayıt, £52,000, £40,000). Confirm with the provider, add a source and an \"as of\" date, or remove.\nNo headings in the body. Add a real heading outline.\n6 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n3 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"Oxford International College Brighton, modern en-suite (özel banyolu) odalarla donatılmış yatılı yaşam alanları sunar. T\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body.\nLegacy programme strip found (\"Pre-GCSE | GCSE | A Levels | Kolejin temel felsefesi, öğrencilerin bilgi edinmesi, kariyer odaklı düşünme becerilerini g\"). Left in the body rather than duplicated into a structured field.\nMERGED: the body of /yatili-okullar2/oxford-international-college-2/ (310 words) was appended below. De-duplicate the two versions by hand; nothing was deleted automatically. Audit reason: BYTE-IDENTICAL body (Jaccard 1.00) - literal duplicate"
+    },
+    "_migration": {
+      "legacyId": 10537,
+      "legacyPath": "/yatili-okullar2/oxford-international-college-brighton/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/oxford-international-college-brighton/",
+      "targetPath": "/tr/yatili-okullar/oxford-international-college-brighton/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (313w). Extractable: fees=true programmes=true accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 313,
+      "convertedWords": 310,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/peacock-room-4_Peacock-Room-Carousel.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading",
+        "fees": "section-heading",
+        "programmes": "section-heading"
+      },
+      "mergedFrom": [
+        "/yatili-okullar2/oxford-international-college-2/"
+      ]
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-10554",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "North Bridge House School",
+    "slug": {
+      "_type": "slug",
+      "current": "north-bridge-house-school"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-10554"
+    },
+    "fees": [
+      {
+        "_type": "sourcedFact",
+        "_key": "eb2a08916a26",
+        "label": "Legacy site fee",
+        "value": "Eğitim ücretleri kampüse ve sınıf düzeyine göre farklılık göstermektedir. | Bilgi ve Kayıt",
+        "note": "Carried across from the legacy site. Needs confirmation and an \"as of\" date."
+      }
+    ],
+    "curriculum": [
+      "GCSE",
+      "A Level"
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "783d416e81ca",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a867c163a245",
+            "text": "Londra’nın Kalbinde Bütüncül ve Kişiselleştirilmiş Bir Eğitim",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "652055b0e386",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f1758017e1ba",
+            "text": "North Bridge House School, Londra genelinde birden fazla kampüsüyle 2–18 yaş arası öğrencilere yönelik eğitim veren bağımsız bir gündüz okuludur. Akademik başarıyı öğrencinin bireysel potansiyeli ve karakter gelişimiyle harmanlayan kurum, her bir öğrencinin en iyiye ulaşması için kişiselleştirilmiş bir eğitim yaklaşımı sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "48ee1cf1ab30",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "31c9e31b337a",
+            "text": "Neden North Bridge House School?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "92e61c4d5905",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "55ce0dadfdee",
+            "text": "Londra’nın prestijli bölgelerinde, farklı yaş gruplarına uygun kampüs seçenekleri sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "425ce3b945db",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a551ccadd31b",
+            "text": "2–18 yaş arası öğrenciler için kesintisiz, bütüncül ve kişiselleştirilmiş bir eğitim modeli uygular.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "0a398bcf0db9",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "08e5161f54de",
+            "text": "Akademik başarıyı, karakter gelişimi ve psikolojik iyi oluşla dengeler.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "62d8fa3e0bf9",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0608cc6007db",
+            "text": "Her öğrenciye özel ilgiyle potansiyellerini gerçekleştirmelerini sağlar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a53ab0789b66",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "edb7ec73d96f",
+            "text": "Sixth Form düzeyinde kapsamlı üniversiteye hazırlık ve rehberlik hizmetleri sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "1f0fd14a5d5a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "86d3489dcc1e",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d677055c5541",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "90ecce6b177f",
+            "text": "North Bridge House School’un kampüsleri, Londra’nın en prestijli bölgeleri arasında yer alan Hampstead, Regent’s Park, West Hampstead, Canonbury ve Islington gibi lokasyonlara dağılmıştır. Bu çok kampüslü yapı, farklı yaş gruplarındaki öğrencilere özel olarak tasarlanmış eğitim ortamları sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e23df33ece9b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "78115aa14722",
+            "text": "Her kampüs; doğayla iç içe bahçeler, modern sınıflar ve öğrenci destek hizmetleriyle öğrencilerin akademik gelişimini ve psikolojik iyi oluşunu destekleyecek şekilde yapılandırılmıştır. Her yaş grubuna özel öğrenme alanları sayesinde, öğrenciler güvenli ve sıcak bir ortamda öğrenme yolculuklarına devam eder.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "49ff83ff5e11",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c03e516f62d5",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f575420526c8",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "672a4049501d",
+            "text": "North Bridge House School, 2 yaşından 18 yaşına kadar öğrencilere hitap eden kapsamlı bir akademik yapıya sahiptir. Eğitim modeli, öğrencilerin bireysel öğrenme tarzları, yetenekleri ve ilgi alanları göz önünde bulundurularak şekillendirilir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "452e9cc9b5c6",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "476317ecc236",
+            "text": "Programlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "90e9d71aa05a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c148f3732c06",
+            "text": "Nursery",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "1bf2df46bcd5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "41acd4985aa3",
+            "text": "Pre-Prep",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "9797901c8dca",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e2add89de3f6",
+            "text": "Prep",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "8e982429a439",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c3d7032915c1",
+            "text": "Senior School",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a290aaa2797e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fce0b9952dec",
+            "text": "Sixth Form",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "9f060255436b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "13cc8ef429d6",
+            "text": "Okulun güçlü akademik altyapısı, GCSE ve A Level programlarında yüksek başarı oranlarıyla öne çıkar. Bunun yanı sıra, öğrencilerin sosyal becerileri, liderlik özellikleri ve kişisel farkındalıkları da sistemli şekilde geliştirilir. Sixth Form düzeyinde öğrenciler, üniversiteye hazırlık sürecinde özel danışmanlık ve rehberlik desteği alırlar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b422539ddbef",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1aaf5f100936",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4070a3da39a4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ef6ca451e7d7",
+            "text": "North Bridge House School yalnızca gündüz eğitimi veren bir kurumdur. Bu nedenle yatılı konaklama hizmeti sunulmamaktadır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6be2eb91d216",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "24b6ef91f6a4",
+            "text": "Ücretler (Yıllık)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3d5d50c59ef7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d2a705689b0d",
+            "text": "Eğitim ücretleri kampüse ve sınıf düzeyine göre farklılık göstermektedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "907ed64ad433",
+        "src": "https://happyeducation.uk/wp-content/uploads/peacock-room-4_Peacock-Room-Carousel.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "2d3f95965385",
+        "src": "https://happyeducation.uk/wp-content/uploads/Room0194a_About-us-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "62d5a0e0525a",
+        "src": "https://happyeducation.uk/wp-content/uploads/Image_OICB_Brighton_2023_293_oicb-5050.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/peacock-room-4_Peacock-Room-Carousel.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site (Eğitim ücretleri kampüse ve sınıf düzeyine göre farklılık göstermektedir. | Bilgi ve Kayıt). Confirm with the provider, add a source and an \"as of\" date, or remove.\nNo headings in the body. Add a real heading outline.\n6 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n3 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"North Bridge House School yalnızca gündüz eğitimi veren bir kurumdur. Bu nedenle yatılı konaklama hizmeti sunulmamaktadı\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body.\nLegacy programme strip found (\"Nursery | Pre-Prep | Prep | Senior School | Sixth Form | Okulun güçlü akademik altyapısı, GCSE ve A Level programlarında\"). Left in the body rather than duplicated into a structured field."
+    },
+    "_migration": {
+      "legacyId": 10554,
+      "legacyPath": "/yatili-okullar2/north-bridge-house-school/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/north-bridge-house-school/",
+      "targetPath": "/tr/yatili-okullar/north-bridge-house-school/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (301w). Extractable: fees=true programmes=true accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 301,
+      "convertedWords": 298,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/peacock-room-4_Peacock-Room-Carousel.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading",
+        "fees": "section-heading",
+        "programmes": "section-heading"
+      }
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-10609",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "Bosworth Independent School",
+    "slug": {
+      "_type": "slug",
+      "current": "bosworth-independent-school"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-10609"
+    },
+    "country": "İngiltere",
+    "fees": [
+      {
+        "_type": "sourcedFact",
+        "_key": "55a072b5f34e",
+        "label": "Legacy site fee",
+        "value": "Tüm tam zamanlı programlar için yıllık ücret: £28,485 | Yaz Programları (IELTS veya STEM): £1,050 / hafta | Bilgi ve Kayıt",
+        "note": "Carried across from the legacy site. Needs confirmation and an \"as of\" date."
+      }
+    ],
+    "curriculum": [
+      "GCSE",
+      "A Level",
+      "Foundation"
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "21b393594128",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0a42a8765005",
+            "text": "Bireysel Potansiyelin Keşfine Açılan Bir Kapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3b7befc1fd54",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c71195d8ddc4",
+            "text": "İngiltere’nin tarihi Northampton kentinde yer alan Bosworth Independent School, öğrencilerin bireysel potansiyellerini keşfetmelerine ve geliştirmelerine odaklanan kapsamlı bir eğitim sunar. Akademik başarıyı kişisel gelişimle birleştiren okul, öğrencilerini hayata da hazırlayan güçlü bir vizyonla hareket eder.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0c59f168ee3c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0b246fdba8f6",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b172cd03fad8",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "74fe40549409",
+            "text": "Bosworth Independent School’un kampüsü, Northampton Üniversitesi’nin Avenue Campus yerleşkesinde, güvenli ve canlı bir öğrenci topluluğu içinde konumlanmıştır. Modern sınıflar, sosyal alanlar ve yeşil alanlarla çevrili kampüs, öğrencilerin akademik ve sosyal yaşamını düzenleyen ilham verici bir ortam sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b496e15e0ca2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c36ce4cbd0a1",
+            "text": "Yatılı okul, 7/24 denetimli ve House Parent’lar tarafından desteklenen bir sistemle güvenli ve sıcak bir atmosfer sağlar. Öğrenciler, özel banyolu konforlu odalarda kalır, düzenli sosyal etkinliklerle kültürel uyum ve bireysel gelişim desteklenir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3240aa277f11",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "80580c606f1d",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7afca3ce4275",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "da436bf4e85e",
+            "text": "Bosworth Independent School, 13 yaş üzeri uluslararası öğrencilere geniş bir program yelpazesi sunar. Akademik yapı, öğrencilerin bireysel hedeflerine uygun şekilde esnek ve destekleyici biçimde şekillendirilmiştir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7cbc1dec12b2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6805995cf67c",
+            "text": "Programlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "bf2856404e03",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4f8ce733cc9f",
+            "text": "Year 7, 8 ve 9",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "2ec38b11bb2a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1856e9f78280",
+            "text": "Pre-GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "1a8fc97fae77",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "52568878217b",
+            "text": "GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "87fb90dc77e1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a1261dbd54cd",
+            "text": "Pre-A Level",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "9fa7bf39569c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b730b159ef65",
+            "text": "A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "aeefb7dcf62a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0f660f3336b0",
+            "text": "University Foundation Programme (UFP)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "5349a9ce224c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "aa0cd1b0edbc",
+            "text": "Medical & Oxbridge Preparation",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b2f0545e36bf",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6efada7ccf26",
+            "text": "Yaz Programları (STEM & IELTS Hazırlık)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "5d11c53036b5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6e510e0639cb",
+            "text": "Özellikle A Level ve Foundation programları, öğrencilerin İngiltere’nin önde gelen üniversitelerine girişini kolaylaştıran nitelikli bir altyapı sağlar. Üniversite hazırlık süreci boyunca akademik danışmanlık, kariyer yönlendirme ve mülakat desteği sunulmaktadır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6c324a67ad73",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3aecf312c108",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1e0d9ecd7b4a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "95aafdef1230",
+            "text": "Bosworth Independent School, öğrencilerine kapsamlı yatılı olanaklar sunar. En-suite (özel banyolu) oda seçeneklerinin bulunduğu konaklama binaları, House Parent’lar tarafından yönetilir ve 7/24 gözetim altındadır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "877519250e44",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f80474d176b7",
+            "text": "Öne çıkan özellikler:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "bd6882dc8a95",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "149ee9381cd4",
+            "text": "Özel banyolu tek kişilik odalar",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "7d89dc3ff535",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8f89205c3d6f",
+            "text": "Ortak sosyal alanlar ve etkinlik odaları",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "02647fdf3642",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "546bf915b0c2",
+            "text": "Güvenli, destekleyici ve kültürler arası etkileşime açık ortam",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "5a20fe81a098",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "63b62d54fd76",
+            "text": "Konaklama ücretleri eğitim ücretine dahil değildir; yıl bazında ücretlendirilir.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "daf7361ed5b8",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "14e57767589e",
+            "text": "Ücretler (Yıllık)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "29a4a140b4a9",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "850246da8894",
+            "text": "Tüm tam zamanlı programlar için yıllık ücret: £28,485",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c67ca8be5468",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "01e68f800aba",
+            "text": "Yaz Programları (IELTS veya STEM): £1,050 / hafta",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "27f910dc3e0f",
+        "src": "https://happyeducation.uk/wp-content/uploads/kids-walking.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "883de03669f3",
+        "src": "https://happyeducation.uk/wp-content/uploads/2023.04.28-Bosworth-day-2-CATS_0193_DSC01994_FULL-2-scaled.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "0a387e7fd48e",
+        "src": "https://happyeducation.uk/wp-content/uploads/bis-3-students.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/kids-walking.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site (Tüm tam zamanlı programlar için yıllık ücret: £28,485 | Yaz Programları (IELTS veya STEM): £1,050 / hafta | Bilgi ve Kayıt, £28,485, £1,050). Confirm with the provider, add a source and an \"as of\" date, or remove.\nENTRY REQUIREMENTS mentioned (IELTS/TOEFL/GPA). Re-verify against the institution and cite it.\nNo headings in the body. Add a real heading outline.\n7 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n3 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"Bosworth Independent School, öğrencilerine kapsamlı yatılı olanaklar sunar. En-suite (özel banyolu) oda seçeneklerinin b\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body.\nLegacy programme strip found (\"Year 7, 8 ve 9 | Pre-GCSE | GCSE | Pre-A Level | A Levels | University Foundation Programme (UFP) | Medical & Oxbridge P\"). Left in the body rather than duplicated into a structured field."
+    },
+    "_migration": {
+      "legacyId": 10609,
+      "legacyPath": "/yatili-okullar2/bosworth-independent-school/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/bosworth-independent-school/",
+      "targetPath": "/tr/yatili-okullar/bosworth-independent-school/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (275w). Extractable: fees=true programmes=true accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 275,
+      "convertedWords": 274,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/kids-walking.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading",
+        "fees": "section-heading",
+        "programmes": "section-heading"
+      }
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-2777",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "CATS Cambridge",
+    "slug": {
+      "_type": "slug",
+      "current": "cats-cambridge"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-2777"
+    },
+    "country": "İngiltere",
+    "fees": [
+      {
+        "_type": "sourcedFact",
+        "_key": "dabf1e56e8de",
+        "label": "Legacy site fee",
+        "value": "A Levels, GCSE, Pre-A Level ve Foundation programları için ücret £33,990’dır. | Ekstra A Level dersi ücreti £6,600’dır. | Ocak başlangıçlı 5 dönemlik GCSE programı £25,990’dır. | Bilgi ve Kayıt",
+        "note": "Carried across from the legacy site. Needs confirmation and an \"as of\" date."
+      }
+    ],
+    "curriculum": [
+      "GCSE",
+      "A Level",
+      "Foundation"
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "036dcdaac4cd",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "18a4f835dcfe",
+            "text": "Akademik Mükemmelliğe Açılan Bir Kapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5615e2e16648",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d29159b8e3f2",
+            "text": "İngiltere’nin köklü akademik merkezlerinden Cambridge’de bulunan CATS Cambridge, yüksek hedefleri olan uluslararası öğrencilere özel bir eğitim ortamı sağlar. Okul, araştıran, sorgulayan ve geleceğe yön veren bireyler yetiştirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e67c8a8ada3a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a57c9fcf3270",
+            "text": "İngiltere’nin en köklü akademik merkezlerinden biri olan Cambridge’de yer alan CATS Cambridge, yüksek akademik hedefleri olan uluslararası öğrenciler için özel olarak tasarlanmış bir eğitim ortamı sunar. Öğrencilerine güçlü bir akademik temel kazandırır ve araştıran, sorgulayan, geleceğe yön veren bireyler olarak yetişmelerine rehberlik eder.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "438489fea0ba",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f503daf79f0e",
+            "text": "Neden CATS Cambridge?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "28ff5697c40f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0ad743ea36a2",
+            "text": "UK Independent Schools Inspectorate’den yüksek kalite notları almıştır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ea3a13289a9e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "62a857959c2b",
+            "text": "Öğrencileri dünya çapında üniversitelere hazırlar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "62d6f14e6d46",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "71df39831988",
+            "text": "Okul, Cambridge Üniversitesi’ne komşudur.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a2e5108cf2c1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bde178b5229d",
+            "text": "14 yaş üzeri uluslararası öğrencilere çeşitli programlar sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "4323b7d8a830",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cbc7e8071b65",
+            "text": "Modern, denetimli ve öğrenci odaklı yatılı yaşam alanları sağlar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "0ee3be4beed7",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f03f49a34408",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1f212a1e788c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a6c67f4bcb04",
+            "text": "CATS Cambridge, şehrin merkezine ve dünyanın en saygın üniversitelerinden Cambridge Üniversitesi’ne oldukça yakın bir konumda yer alır. Okul kampüsü, 220’si kampüs içinde, 180’i kısa yürüme mesafesinde olmak üzere toplamda 400’e yakın yatılı oda seçeneğiyle modern, güvenli ve konforlu bir yaşam alanı sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "771362a86c84",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b3094927e922",
+            "text": "UK Independent Schools Inspectorate tarafından yapılan son denetimlerde, okulun beş alanda “Excellent”, diğer tüm alanlarda ise “Good” notu alması, eğitim kalitesini ve öğrencilerine sunduğu imkanların kalitesini göstermektedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9795ee257050",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d226346b187d",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8c7bee62708b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "45b06e7e2ec4",
+            "text": "CATS Cambridge 14 yaş ve üzeri öğrencilere hitap eden geniş bir program yelpazesine sahiptir:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "115ed3260a2e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7865190c9c5e",
+            "text": "GCSE & Fast-Track GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "d8bbeed17a80",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4e2682bfbcff",
+            "text": "Pre-A Level",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "9a68d0fbaf45",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a13ce0139867",
+            "text": "A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a478cbe0d7cc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2980a76432b3",
+            "text": "University Foundation Programme (UFP)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "89ef94ced3ae",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "eb67ada945e9",
+            "text": "UK High School Term",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "019b154a8806",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cfdf043f3dd1",
+            "text": "Yaz Programları",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "c27de45355c5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d6e3c82a06b3",
+            "text": "Akademik programlar, öğrencilerin bireysel hedefleri doğrultusunda şekillendirilir. Özellikle A Level ve Foundation programları, İngiltere’deki seçkin üniversitelere geçişte güçlü bir temel sağlar. Yenilikçi eğitim modeli sayesinde öğrenciler sınavlara, üniversite hayatına hazır bir şekilde mezun olur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a80996fe1e7d",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "018d9ff9a284",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e41057e62332",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cd3204653072",
+            "text": "Öğrenciler için hem yemekli hem de yemek hariç konaklama alternatifleri sunan CATS Cambridge, konfor ve güvenliği bir arada sunar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "af97a55721f9",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4517427490ed",
+            "text": "Catered (Yemekli):",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "acce344d3382",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5efc5ad1131c",
+            "text": "Premium tek kişilik, özel banyolu: £21,960",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "2aa9c28eaaa6",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "80ba406afe9c",
+            "text": "Premium (Elizabeth House): £19,710",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b5ef963d12fb",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7c0933e6e990",
+            "text": "Standart tek kişilik, özel banyolu: £18,990",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "cbd9ad15546c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "aac65eec6bfa",
+            "text": "Self-Catered (Yemeksiz):",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "48a5d4025345",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5795629d52f1",
+            "text": "Premium tek kişilik, özel banyolu: £17,955",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "08958e119ba2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5bdf5a62fa06",
+            "text": "Standart tek kişilik, özel banyolu: £14,985",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "07267e0d41ab",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0ad918309051",
+            "text": "Kampüs yaşamı, öğrencinin akademik performansını destekleyecek şekilde düzenlenmiş; sosyal etkileşim, bireysel gelişim ve güvenlik ön planda tutulmuştur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e1d84d3c378f",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "879fab31ffbb",
+            "text": "Ücretler (Yıllık)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8d0d4672384f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c084862d3d91",
+            "text": "A Levels, GCSE, Pre-A Level ve Foundation programları için ücret £33,990’dır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "0002ce30abef",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "da10170869e1",
+            "text": "Ekstra A Level dersi ücreti £6,600’dır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "f194b4e668bf",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b42260cc5038",
+            "text": "Ocak başlangıçlı 5 dönemlik GCSE programı £25,990’dır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "479cf44a3015",
+        "src": "https://happyeducation.uk/wp-content/uploads/Cats-Cambridge.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "84df13d57433",
+        "src": "https://happyeducation.uk/wp-content/uploads/CC2-scaled.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "35be200083cf",
+        "src": "https://happyeducation.uk/wp-content/uploads/CC3-scaled.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/Cats-Cambridge.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site (A Levels, GCSE, Pre-A Level ve Foundation programları için ücret £33,990’dır. | Ekstra A Level dersi ücreti £6,600’dır. | Ocak başlangıçlı 5 dönemlik GCSE programı £25,990’dır. | Bilgi ve Kayıt, £21,960, £19,710, £18,990). Confirm with the provider, add a source and an \"as of\" date, or remove.\n2 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n3 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"Öğrenciler için hem yemekli hem de yemek hariç konaklama alternatifleri sunan CATS Cambridge, konfor ve güvenliği bir ar\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body."
+    },
+    "_migration": {
+      "legacyId": 2777,
+      "legacyPath": "/yatili-okullar2/cats-cambridge-2/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/cats-cambridge-2/",
+      "targetPath": "/tr/yatili-okullar/cats-cambridge/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (355w). Extractable: fees=true programmes=false accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 355,
+      "convertedWords": 352,
+      "headings": [
+        {
+          "style": "h4",
+          "text": "Akademik Mükemmelliğe Açılan Bir Kapı"
+        },
+        {
+          "style": "h4",
+          "text": "Neden CATS Cambridge?"
+        },
+        {
+          "style": "h4",
+          "text": "Lokasyon ve Kampüs Yaşamı"
+        },
+        {
+          "style": "h4",
+          "text": "Eğitim Programları ve Akademik Yapı"
+        },
+        {
+          "style": "h4",
+          "text": "Konaklama Seçenekleri"
+        },
+        {
+          "style": "h4",
+          "text": "Ücretler (Yıllık)"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/Cats-Cambridge.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading",
+        "fees": "section-heading"
+      }
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-5761",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "Guildhouse School London",
+    "slug": {
+      "_type": "slug",
+      "current": "guildhouse-school-london"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-5761"
+    },
+    "curriculum": [
+      "A Level",
+      "Foundation"
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "ab4f001fbd1b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "836dd78d9e5c",
+            "text": "Londra’nın Akademik ve Kültürel Kalbinde Eğitim",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4735509b45e2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e1cfb749f8b6",
+            "text": "Guildhouse School London, Londra’nın seçkin Bloomsbury bölgesinde, akademi ve edebiyatın merkezinde yer alır. Tarihi 17. yüzyıla dayanan regency tarzı şehir evlerinden oluşan kampüsü, modern eğitim teknolojileriyle donatılmıştır. Bloomsbury Meydanı manzaralı sınıfları ve Holborn Metro İstasyonu’na kısa yürüyüş mesafesiyle, öğrencilere hem dinamik bir şehir yaşamı hem de zengin akademik imkanlar sunar. Avrupa’nın lise düzeyindeki tek laboratuvarı, Bloomberg Lab. sayesinde öğrenciler, finans ve teknoloji alanlarında ayrıcalıklı bir eğitim deneyimi yaşar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0886e5ac76b1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "562279346688",
+            "text": "Neden Guildhouse School London?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e6dfa0448739",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "eb22c9485c28",
+            "text": "Geniş akademik program seçenekleriyle farklı hedeflere hitap eder.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "669776a0105e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1d38ca78c34b",
+            "text": "Avrupa’nın lise düzeyindeki tek laboratuvarı, Bloomberg Lab. ile ileri finans ve teknoloji eğitimi sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "c4d92fbfc51c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c953453a12c7",
+            "text": "Londra’nın merkezinde, prestijli bir akademik ortam sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "4ad28e8e954e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7cf07ee2217e",
+            "text": "Modern, güvenli ve öğrenci odaklı yatılı yaşam alanları sağlar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "7ce4788143e3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "89ece3fb3eaf",
+            "text": "Akademik başarıyı ve kişisel gelişimi destekleyen dinamik bir kampüs ortamı sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "dd7b823b0d44",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "aa53e96ae4c4",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d337a61054ca",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "366ca8738571",
+            "text": "Guildhouse School, Londra’nın merkezinde güvenli ve konforlu bir kampüs yaşamı sunar. Öğrenciler için tek ve paylaşımlı, hepsi özel banyolu yatılı odalar mevcuttur. Konaklama seçenekleri modern ve sosyal etkileşimi destekleyici olacak şekilde tasarlanmıştır. Kampüs ise öğrencilerin akademik ve sosyal gelişimini desteklemek üzere düzenlenmiş olup, şehir hayatının sunduğu fırsatlarla da iç içedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1ef857c9911f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0b1979782817",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "27c8643c22f5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c7398497ebb3",
+            "text": "Guildhouse School 15 yaş ve üzeri öğrencilere yönelik geniş bir program yelpazesi sunar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5b8237f6e848",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "07d3c01acc0d",
+            "text": "Pre A Level",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "163cec078a79",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fef61bad7004",
+            "text": "A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "884946d22282",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "17dd1c54bcef",
+            "text": "University Foundation Programme (UFP)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "43003ecd1112",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e020947fdea0",
+            "text": "UK High School Term",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "be0758821bcf",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "89449d825d00",
+            "text": "UAL Foundation Diploma in Art & Design",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b3f45db1a9e1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c1e7bae9fd93",
+            "text": "Yaz Programları",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a3cabc598899",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9e8a7b2576e",
+            "text": "Akademik İngilizce Kursları",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "f3e0755f447d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "54be5cd62bed",
+            "text": "Programlar, öğrencilerin akademik hedeflerine göre esnek ve bireysel olarak planlanır. Öğrenciler sınavlara, üniversite yaşamına ve kariyerlerine de hazırlanmış olur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1a606207c6ae",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4dcec6fa40ac",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b3b8fe5eef3b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "50b2a45c5528",
+            "text": "Guildhouse School, öğrencilere hem tek hem de paylaşımlı odalarda yatılı konaklama imkanı sunar. Tüm odalar özel banyoludur ve konfor ile güvenlik ön plandadır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "f90ec9f26a72",
+        "src": "https://happyeducation.uk/wp-content/uploads/GS1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "a9f1b9de9cd7",
+        "src": "https://happyeducation.uk/wp-content/uploads/GS2.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/GS1.jpg",
+    "review": {
+      "editorialFlag": "No headings in the body. Add a real heading outline.\n4 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n2 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"Guildhouse School, öğrencilere hem tek hem de paylaşımlı odalarda yatılı konaklama imkanı sunar. Tüm odalar özel banyolu\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body."
+    },
+    "_migration": {
+      "legacyId": 5761,
+      "legacyPath": "/yatili-okullar2/guildhouse-school-london-2/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/guildhouse-school-london-2/",
+      "targetPath": "/tr/yatili-okullar/guildhouse-school-london/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (270w). Extractable: fees=false programmes=false accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 270,
+      "convertedWords": 268,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/GS1.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading"
+      }
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-5779",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "The Worthgate School Canterbury",
+    "slug": {
+      "_type": "slug",
+      "current": "the-worthgate-school-canterbury"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-5779"
+    },
+    "curriculum": [
+      "GCSE",
+      "A Level",
+      "IB",
+      "Foundation"
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "2ee66320fd4b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3e3aba1c308f",
+            "text": "Gelenekten Geleceğe İlham Veren Eğitim",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "61c567688951",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "49983602cff4",
+            "text": "70 yılı aşkın süredir öğrencilerini ilham ve güçle donatan Worthgate School, tarihi Canterbury şehrinin sakin ve güvenli bir köşesinde konumlanmıştır. Canterbury, güzelliği ve üç üniversiteye ev sahipliği yapmasıyla bilinir; bu da öğrenciler için zengin bir akademik ve kültürel ortam yaratır. Okul, öğrencilerini büyük başarılar elde etmeleri için motive eder ve destekler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e76344657eba",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "99be47bf89af",
+            "text": "Neden Worthgate School Canterbury?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "37a2dfc10483",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "26d23d7cb123",
+            "text": "Geniş ve çeşitli akademik program seçenekleri sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b236d670fa5b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "50901620b6dd",
+            "text": "70 yılı aşkın eğitim deneyimi ve güçlü akademik geçmişi vardır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "2253a301ae07",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dd4e2bd6fc15",
+            "text": "UK Independent Schools Inspectorate’den “Excellent” eğitim kalitesi belgesi almıştır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "d2fe490fcb95",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c71a03d0ca51",
+            "text": "Tarihi ve güvenli Canterbury şehrinde konumlanmıştır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "752b468e38c4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bd332268931e",
+            "text": "Modern, konforlu ve güvenli yatılı yaşam olanakları sağlar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "d548b42ff031",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9424f9a66114",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "dd85cf1f8b0e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "495bf9078126",
+            "text": "Worthgate School, Viktorya dönemi mimarisine sahip şirin kampüsüyle öğrencilerine güvenli ve konforlu bir yaşam alanı sunar. Kampüs içinde birden fazla öğrenci yurdu bulunur; tüm odalar özel banyoludur ve hem tek hem de paylaşımlı oda seçenekleri mevcuttur. 18 yaş üstü öğrenciler için kampüs dışında konaklama alternatifleri de sunulmaktadır. Kampüs, UK Independent Schools Inspectorate tarafından düzenli olarak denetlenir ve eğitim kalitesi “Excellent” olarak tescillenmiştir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2da43cd0a6c2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dd234b35d491",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c31cd54ba798",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4e40467dc409",
+            "text": "Worthgate School 13 yaş ve üzeri öğrenciler için çeşitli akademik programlar sunar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8d1763bcdfb0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "880ac61c45b9",
+            "text": "Pre GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "52c5cf1aba92",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "094ff96dd031",
+            "text": "GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "287e656b0401",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "06770b18a7f5",
+            "text": "Pre A Level",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "d563b0b5d9e2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8bef480d5087",
+            "text": "International Baccalaureate (IB)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "42f05ba5502c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "286da135727d",
+            "text": "A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "34bb91c500de",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8d09dfb68aa6",
+            "text": "University Foundation Programme (UFP)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "82a7127a893a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "98331493e76a",
+            "text": "UK High School Term",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "4bfaebca3a2e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "07ed46890948",
+            "text": "Akademik İngilizce",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b470d9ca7a28",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "eace8b9081fe",
+            "text": "Yaz Programları",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b3cb4f596dcb",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "76a6a59665e4",
+            "text": "Programlar, öğrencilerin bireysel hedeflerine göre şekillendirilir ve İngiltere’nin seçkin üniversitelerine hazırlık sürecini destekler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9273e548e92d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e8288904db7c",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "62fd46b5dc79",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "12c0c61df194",
+            "text": "Okul, kampüs içinde farklı yurtlarda konaklama imkanı sağlar. Tüm odalar en-suite (özel banyolu) olup, hem tek kişilik hem de paylaşımlı oda seçenekleri mevcuttur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "0dedbbf2de1f",
+        "src": "https://happyeducation.uk/wp-content/uploads/The-Worthgate-School-Canterbury.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "467228031aae",
+        "src": "https://happyeducation.uk/wp-content/uploads/CT3-scaled.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "2edef1f2d3b3",
+        "src": "https://happyeducation.uk/wp-content/uploads/CT4.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/The-Worthgate-School-Canterbury.jpg",
+    "review": {
+      "editorialFlag": "No headings in the body. Add a real heading outline.\n4 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n3 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"Okul, kampüs içinde farklı yurtlarda konaklama imkanı sağlar. Tüm odalar en-suite (özel banyolu) olup, hem tek kişilik h\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body."
+    },
+    "_migration": {
+      "legacyId": 5779,
+      "legacyPath": "/yatili-okullar2/the-worthgate-school-canterbury-2/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/the-worthgate-school-canterbury-2/",
+      "targetPath": "/tr/yatili-okullar/the-worthgate-school-canterbury/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (247w). Extractable: fees=false programmes=false accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 247,
+      "convertedWords": 244,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/The-Worthgate-School-Canterbury.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading"
+      }
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-6928",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "North London Grammar School",
+    "slug": {
+      "_type": "slug",
+      "current": "north-london-grammar-school"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-6928"
+    },
+    "fees": [
+      {
+        "_type": "sourcedFact",
+        "_key": "8c0c1f34f350",
+        "label": "Legacy site fee",
+        "value": "İlkokul KS2 (Yerel öğrenciler): £11,700 | İlkokul KS2 (Uluslararası öğrenciler): £15,375 | Ortaokul (Yerel öğrenciler): £13,050 | Ortaokul (Uluslararası öğrenciler): £17,550 | Yatılı konaklama (8-11. sınıflar, erkekler): £27,600 (eğitim + konaklama + yemek) | Bilgi ve Kayıt",
+        "note": "Carried across from the legacy site. Needs confirmation and an \"as of\" date."
+      }
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "3ae15e7da513",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "059f88150a91",
+            "text": "Londra’da Mükemmeliyetle Büyüyen Bir Eğitim Kurumu",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "494cd62bba10",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "82399576a620",
+            "text": "North London Grammar School, Londra’nın canlı merkezinde yer alan modern ve kapsamlı bir devlet dışı gündüz ve yatılı okul olarak, 7-18 yaş arası öğrencilere kaliteli eğitim sunmaktadır. 2006 yılında Tottenham, Haringey’de Wisdom School olarak kurulan okul, uygun fiyatlı, bağımsız ve akademik mükemmeliyete odaklı bir eğitim hedefiyle yola çıktı. Topluluk tarafından gösterilen yoğun ilgi, bu vizyonun ne kadar doğru olduğunu kanıtladı.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9227ba5b6b78",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "36a15bc5c212",
+            "text": "Neden North London Grammar School?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "032f5510e777",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ebb443456cb8",
+            "text": "Londra’nın kültürel çeşitliliği ve dinamizmi içinde yer alır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "f2a359053446",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "580d88a50436",
+            "text": "Modern ve geniş kampüs olanakları sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "2190ea58a2a1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2d25efea1bf6",
+            "text": "Akademik mükemmeliyet ve bireysel gelişime odaklanır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "02299d5a4a5f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d5154a2c5f59",
+            "text": "Öğrencileri ulusal ve uluslararası platformlara hazırlar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ff1c521b9d7e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6487f842bd1e",
+            "text": "Uluslararası akademik yarışmalarda başarılı öğrenciler yetiştirir.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "3dc23ac6bf65",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6b3e05b21984",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "11733fc5bd45",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bf335344906f",
+            "text": "2015 yılında, okul Barnet’te 50,000 metrekarelik yeni ve ileri teknolojiye sahip kampüsüne taşındı. Bu modern tesis, öğrencilere daha geniş imkanlar sunarak akademik ve sosyal gelişimlerine katkıda bulunuyor. Londra’nın kültürel çeşitliliğini yansıtan okul, farklı geçmişlerden gelen öğrencilerle zengin ve kapsayıcı bir öğrenme ortamı yaratıyor.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "bbb0b0f26e64",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "03ded5e54d18",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d3660a4126bc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8db979d81871",
+            "text": "North London Grammar School, öğrencilere şu seviyelerde eğitim sunar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "27dfe3e2b25e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b6415012cab9",
+            "text": "İlkokul KS2 (3-6. sınıflar)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a7e73fb71a72",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f5f422fab755",
+            "text": "Ortaokul (7-11. sınıflar)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "7ebfc5635e1e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3ced59537d3c",
+            "text": "Okul, akademik mükemmeliyeti teşvik eder, öz disiplin ve entelektüel gelişimi temel alır. Müfredat, öğrencilerin bireysel ihtiyaçlarına göre uyarlanır ve öğretim yöntemleri sürekli geliştirilir. Öğrenciler, ulusal ve uluslararası olimpiyatlarda birçok altın ve gümüş madalya kazanarak dünya sahnesinde de başarı göstermektedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "25d101ca0525",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "340eae43528f",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2dc5a5e039e5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d4e1ec748367",
+            "text": "Yatılı olarak 8-11. sınıflar arasındaki erkek öğrencilere özel konaklama imkanı sunulur. Konaklama, okul eğitimi ve yemekleri içerecek şekilde yıllık £27,600 olarak fiyatlandırılmıştır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "cfb17e793583",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c038045cc795",
+            "text": "Ücretler (Yıllık)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d6fc71d3ecc3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a5e58a004a45",
+            "text": "İlkokul KS2 (Yerel öğrenciler): £11,700",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "742e7e6b5dce",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a45a5bef9a38",
+            "text": "İlkokul KS2 (Uluslararası öğrenciler): £15,375",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ed0296a0e686",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "245f0a1d141a",
+            "text": "Ortaokul (Yerel öğrenciler): £13,050",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "35003bea5bd8",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8ae5f05632ed",
+            "text": "Ortaokul (Uluslararası öğrenciler): £17,550",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "cde0080cdeba",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4949b685a24f",
+            "text": "Yatılı konaklama (8-11. sınıflar, erkekler): £27,600 (eğitim + konaklama + yemek)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "21982625ff8a",
+        "src": "https://happyeducation.uk/wp-content/uploads/DSC_6899.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "fb9b1542769b",
+        "src": "https://happyeducation.uk/wp-content/uploads/nt.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "d32b35776d8b",
+        "src": "https://happyeducation.uk/wp-content/uploads/North-London-Grammar-School.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "fdd8c30c8b14",
+        "src": "https://happyeducation.uk/wp-content/uploads/DSC_7042.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/DSC_6899.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site (İlkokul KS2 (Yerel öğrenciler): £11,700 | İlkokul KS2 (Uluslararası öğrenciler): £15,375 | Ortaokul (Yerel öğrenciler): £13,050 | Ortaokul (Uluslararası öğrenciler): £17,550 | Yatılı konaklama (8-11. sınıflar, erkekler): £27,600 (eğitim + konaklama + yemek) | Bilgi ve Kayıt, £27,600, £11,700, £15,375). Confirm with the provider, add a source and an \"as of\" date, or remove.\nNo headings in the body. Add a real heading outline.\n5 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n4 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"Yatılı olarak 8-11. sınıflar arasındaki erkek öğrencilere özel konaklama imkanı sunulur. Konaklama, okul eğitimi ve yeme\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body."
+    },
+    "_migration": {
+      "legacyId": 6928,
+      "legacyPath": "/yatili-okullar2/north-london-grammar-school-2/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/north-london-grammar-school-2/",
+      "targetPath": "/tr/yatili-okullar/north-london-grammar-school/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (268w). Extractable: fees=true programmes=false accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 268,
+      "convertedWords": 265,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/DSC_6899.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading",
+        "fees": "section-heading"
+      }
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-6950",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "Hendon Prep School",
+    "slug": {
+      "_type": "slug",
+      "current": "hendon-prep-school"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-6950"
+    },
+    "fees": [
+      {
+        "_type": "sourcedFact",
+        "_key": "4782a734f69a",
+        "label": "Legacy site fee",
+        "value": "Preschool için oturum sayısına göre değişen dönemlik ücretler: | 5 Tam Gün (10 oturum): £5,162 | 5 Oturum (minimum): £2,951 | 6 Oturum: £3,540 | 7 Oturum: £4,128 | 8 Oturum: £4,415 | 9 Oturum: £4,966 | Ücretler dönemlik olarak belirlenmiştir ve esnek program seçenekleri sayesinde aileler çocuklarının ihtiyaçlarına uygun bir yapı tercih edebilir. Özellikle okul öncesi eğitimde sunulan farklı oturum",
+        "note": "Carried across from the legacy site. Needs confirmation and an \"as of\" date."
+      }
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "c8c137788d5c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bac20fb34479",
+            "text": "Akademik ve Duygusal Gelişimin Dengeli Adresi",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "585f25afba46",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6bdf6e44ec31",
+            "text": "Londra’nın kuzeyinde yer alan Hendon Prep School, 3 ila 11 yaş arası öğrencilere yönelik bağımsız bir gündüz okulu ve okul öncesi eğitim kurumu olarak dikkat çeker. 2023 yılında UK Independent Schools Inspectorate (ISI) tarafından tüm alanlarda “Excellent” (Mükemmel) derecesiyle değerlendirilen okul, akademik başarıya, öğrencilerin duygusal ve sosyal gelişimine büyük önem verir. Her öğrencinin potansiyelini en üst düzeye çıkarma hedefiyle, birey odaklı ve kapsayıcı bir öğrenim ortamı sunar. Küçük yaşta öğrenmeye duyulan ilgiyi canlı tutmayı ve özgüveni desteklemeyi misyon edinmiştir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d9d808c4dc74",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9df4a0caf1f1",
+            "text": "Neden Hendon Prep School?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "086d7ad655c0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5926b2d5ebbb",
+            "text": "ISI tarafından tüm alanlarda “Excellent” olarak derecelendirilmiştir.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ccec0b2562ee",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "470b05cf0736",
+            "text": "3–11 yaş arası çocuklar için bireyselleştirilmiş bir eğitim modeli sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "5bef00004449",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3297904cb96c",
+            "text": "Akademik gelişim kadar duygusal ve sosyal büyümeyi de destekler.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "cab16243ee55",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "807c9b42380e",
+            "text": "Küçük sınıf yapısı sayesinde öğrencilere özel ilgi sağlanır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "2774c2651d94",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "af94ace8b55c",
+            "text": "Londra’nın güvenli ve aile dostu bir semtinde yer alır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "55b99a46e1fd",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22a61e3699a4",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3627da0597be",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "83ca70ce9210",
+            "text": "Hendon semtinde konumlanan Hendon Prep School, öğrencilerine güvenli, kapsayıcı ve sıcak bir öğrenim ortamı sunar. Küçük ölçekli yapısı sayesinde öğrenciler öğretmenleriyle birebir iletişim kurarken, aile sıcaklığında bir okul topluluğu içinde büyürler. Kampüs; sınıfların yanı sıra oyun alanları, okul öncesi bölümü ve çeşitli etkinlik alanları ile donatılmıştır. Okulun sakin ve yeşil bir bölgede yer alması, çocukların doğayla temas kurarak öğrenim görmesini mümkün kılar. Öğrenciler gün boyunca hem akademik hem sosyal etkinliklerle zenginleştirilmiş bir deneyim yaşar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6a8ad08d2733",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e7f641aae7d5",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "cc449e674275",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c4860f2ea4ad",
+            "text": "Hendon Prep School, öğrencilerin merak duygusunu ve öğrenme sevgisini küçük yaşlardan itibaren teşvik eden bir eğitim yaklaşımı benimser. Her çocuğun bireysel potansiyelini fark edip geliştirmeye yönelik programlar sunar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "171067af43bd",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "12b023034592",
+            "text": "Programlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0f786ced8803",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c454989d0bcc",
+            "text": "Preschool (3–4 yaş)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "e469f0bb3f1f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0d8d979cefb2",
+            "text": "Primary School (Reception – Year 6)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b60f1c92552c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "790946f88c24",
+            "text": "Öğrenciler, yaşlarının ötesinde entelektüel birikim kazanırken, yaratıcı düşünme, öz disiplin ve özgüven gibi beceriler geliştirir. Okulun yaklaşımı, hem akademik mükemmelliği hem de çocukların mutlu bireyler olarak yetişmesini hedefler. Dersler etkileşimli ve oyun temelli yöntemlerle işlenerek, öğrencilerin öğrenme sürecine aktif katılımı sağlanır. Bu sayede öğrenciler yalnızca bilgiyle değil, öğrenmeyi öğrenerek büyürler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "27076fc15ad8",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0ef7e386f7ca",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "bfaea386e414",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "672b70d6bc6a",
+            "text": "Hendon Prep School bir gündüz okuludur; bu nedenle yatılı konaklama imkânı sunulmaz. Öğrenciler her gün okula gelip evlerine dönerler ve aile-okul dengesi korunarak gelişim süreci desteklenir. Ailelerle güçlü iletişim, öğrencilerin hem evde hem okulda desteklendiği bütünsel bir öğrenim deneyimi yaratır. Öğrenci gelişimi, düzenli bireysel takip ve aile işbirliğiyle sürekli izlenir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "31bb156a5264",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c6b435fa51e8",
+            "text": "Ücretler (Dönemlik)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1d18ed6812bc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dfb669de1499",
+            "text": "Preschool için oturum sayısına göre değişen dönemlik ücretler:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c56f88996130",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b09c6a4952cb",
+            "text": "5 Tam Gün (10 oturum): £5,162",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "90aea1ea8058",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8f7cd24329f6",
+            "text": "5 Oturum (minimum): £2,951",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "6d4915954fb3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cdcc5016452c",
+            "text": "6 Oturum: £3,540",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "9aed3ab86d6f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f044e4c0ca84",
+            "text": "7 Oturum: £4,128",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "d58d72573b9b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a4f3fcf004b8",
+            "text": "8 Oturum: £4,415",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "0f05efcb0c49",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e2c4f58f0240",
+            "text": "9 Oturum: £4,966",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "538765e2aed5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0acdc9f1502f",
+            "text": "Ücretler dönemlik olarak belirlenmiştir ve esnek program seçenekleri sayesinde aileler çocuklarının ihtiyaçlarına uygun bir yapı tercih edebilir. Özellikle okul öncesi eğitimde sunulan farklı oturum seçenekleri, her öğrencinin bireysel temposuna uygun bir başlangıç sağlar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "78e192baebc9",
+        "src": "https://happyeducation.uk/wp-content/uploads/HENDON-PREP-SCHOOL.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "1a8f60436f86",
+        "src": "https://happyeducation.uk/wp-content/uploads/ASC_1239.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "7086e17191f7",
+        "src": "https://happyeducation.uk/wp-content/uploads/ASC_1183.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/HENDON-PREP-SCHOOL.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site (Preschool için oturum sayısına göre değişen dönemlik ücretler: | 5 Tam Gün (10 oturum): £5,162 | 5 Oturum (minimum): £2,951 | 6 Oturum: £3,540 | 7 Oturum: £4,128 | 8 Oturum: £4,415 | 9 Oturum: £4,966 | Ücretler dönemlik olarak belirlenmiştir ve esnek program seçenekleri sayesinde aileler çocuklarının ihtiyaçlarına uygun bir yapı tercih edebilir. Özellikle okul öncesi eğitimde sunulan farklı oturum, £5,162, £2,951, £3,540). Confirm with the provider, add a source and an \"as of\" date, or remove.\nNo headings in the body. Add a real heading outline.\n6 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n3 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"Hendon Prep School bir gündüz okuludur; bu nedenle yatılı konaklama imkânı sunulmaz. Öğrenciler her gün okula gelip evle\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body.\nLegacy programme strip found (\"Preschool (3–4 yaş) | Primary School (Reception – Year 6) | Öğrenciler, yaşlarının ötesinde entelektüel birikim kazanırk\"). Left in the body rather than duplicated into a structured field."
+    },
+    "_migration": {
+      "legacyId": 6950,
+      "legacyPath": "/yatili-okullar2/hendon-prep-school-2/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/hendon-prep-school-2/",
+      "targetPath": "/tr/yatili-okullar/hendon-prep-school/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (424w). Extractable: fees=true programmes=true accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 424,
+      "convertedWords": 420,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/HENDON-PREP-SCHOOL.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading",
+        "fees": "section-heading",
+        "programmes": "section-heading"
+      }
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-6962",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "David Game College",
+    "slug": {
+      "_type": "slug",
+      "current": "david-game-college"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-6962"
+    },
+    "fees": [
+      {
+        "_type": "sourcedFact",
+        "_key": "c1a91b76268f",
+        "label": "Legacy site fee",
+        "value": "Two-Year A Level Programı: £31,000 / yıl | One-Year Intensive A Level: £31,000 (toplam) | One-and-a-Half-Year A Level: £55,650 (toplam) | One-Year GCSE & IGCSE: £31,000 | University Foundation Programme: £22,650 – £26,150 | Bilgi ve Kayıt",
+        "note": "Carried across from the legacy site. Needs confirmation and an \"as of\" date."
+      }
+    ],
+    "curriculum": [
+      "GCSE",
+      "A Level",
+      "Foundation"
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "deaffcd22513",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d0902a84d222",
+            "text": "Londra’nın Kalbinde Akademik Yükseliş",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a06095bdc2ab",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "567b2a4342f1",
+            "text": "David Game College, 1974 yılında kurulmuş köklü bir eğitim kurumudur. Londra’nın finans ve kültür merkezi olan City of London bölgesinde yer alan kolej, 18. yüzyıldan kalma tarihi bir binada eğitim vermektedir. Kurum, öğrencilere akademik başarı, kişisel gelişim, özgüven ve üniversiteye hazırlık konusunda kapsamlı bir rehberlik sunar. “Her öğrenci başarabilir” anlayışıyla hareket eden David Game College, öğrencilerinin potansiyellerini keşfetmelerine ve en iyi versiyonlarına ulaşmalarına yardımcı olur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "52d5b40ae7ac",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "73ba59df482d",
+            "text": "Neden David Game College?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5a29e16db9f8",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "633641c9067d",
+            "text": "Londra’nın merkezinde, tarihi bir kampüste eğitim fırsatı sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "dea0c84e39cd",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "920fd42c7af9",
+            "text": "A Level ve Foundation alanlarında uzmanlaşmıştır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "008247f95e2f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "741715a4abf7",
+            "text": "Üniversite mülakatları ve başvuru süreçlerine yönelik birebir rehberlik sağlar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "c4011f0eeb2b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "eecd966a6838",
+            "text": "Medical & Life Sciences ve STEM alanlarında özel programlar sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "bf3686ee1c6e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "76d236449b20",
+            "text": "Oxford, Cambridge, LSE, Imperial gibi seçkin üniversitelere yüksek yerleşim başarısı vardır.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "96a1beb8acae",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2b93fa3622f6",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4e610d112ba9",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f0009ffc5c75",
+            "text": "Okul, Tower Hill ve Aldgate metro istasyonlarına yürüme mesafesinde olup, Londra’nın tarihi ve akademik merkezleriyle iç içe bir konumda yer alır. Grade II koruma statüsündeki binası, klasik mimariyle modern eğitim olanaklarını bir araya getirir. Öğrenciler için huzurlu, güvenli ve ilham verici bir ortam sunan kampüs, birebir akademik destek sunan sınıfları, özel çalışma alanları ve sosyal alanlarıyla tam donanımlı bir eğitim merkezi niteliğindedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d11926ee6ceb",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "453d0c5b7c9e",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c26d26c406f6",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "11980883766f",
+            "text": "David Game College, 13 yaş ve üzeri öğrencilere yönelik çeşitli akademik programlar sunar. Programlar, özellikle A Level ve Foundation düzeylerinde, öğrencilerin hedefledikleri üniversitelere en etkili şekilde hazırlanmaları amacıyla tasarlanmıştır:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "32255855750e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "50eea6e503e1",
+            "text": "Programlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "826fcc7c2215",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "773ecd99bff4",
+            "text": "Two-Year A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "717e6bac277b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "68c936bfdbc1",
+            "text": "One-Year Intensive A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "bccadc8ef629",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "86ba4bab13c9",
+            "text": "One-and-a-Half-Year A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "5b29ce5c2afb",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9a73d0efb260",
+            "text": "One-Year GCSE & IGCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "85b83a2ca52c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dd34ed2156a4",
+            "text": "University Foundation Programme (UFP)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "1375d93e40de",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "952c120d3c5a",
+            "text": "Ayrıca tıp, mühendislik ve yaşam bilimleri gibi alanlarda yoğunlaşmak isteyen öğrenciler için NHS destekli Medical & Life Sciences Programı ve STEM Programı da mevcuttur. Üniversite mülakatlarına hazırlık, kişisel beyan yazımı ve tercih danışmanlığı gibi konularda öğrencilere birebir destek verilir. Okulun mezunları büyük oranda Oxford, Cambridge, Imperial, UCL gibi prestijli üniversitelere yerleşmektedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "58f9b8dc5dbd",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "945fd2aabf90",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "839c4823a8f0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cca67dd5a6fb",
+            "text": "David Game College, öğrencilere modern, güvenli ve konforlu konaklama seçenekleri sunar. Tüm konaklama türleri bağımsız yaşamı teşvik edecek şekilde tasarlanmıştır:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9efffed30616",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8d671b2b6893",
+            "text": "Single: 2-3 kişilik dairelerde, ortak banyo ve mutfak alanı bulunan tek kişilik oda.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "1fcf2728e0db",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f06522f75c62",
+            "text": "En-suite Single: Özel banyolu, panoramik pencereli, modern tasarımlı tek kişilik oda.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "e9d9ddb53fdf",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "106a13f1d32e",
+            "text": "Single Studio: Özel mutfak ve oturma alanı bulunan, bağımsız yaşam için ideal geniş stüdyo daire.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "f4a0e8616544",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3bc04483c712",
+            "text": "Tüm konaklamalarda yerden ısıtma, çalışma masası, çift kişilik yatak ve bol depolama alanı bulunur. Fiyatlar yıllık £21,000 ile £27,300 arasında değişmektedir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "84f9ef6116a7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "42b493a84b9e",
+            "text": "Ücretler (Yıllık)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e72b10d8e197",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "007187c9a1f3",
+            "text": "Two-Year A Level Programı: £31,000 / yıl",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "4ce9a4204e4d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3cff728012b8",
+            "text": "One-Year Intensive A Level: £31,000 (toplam)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "623628681ee8",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "282d23064411",
+            "text": "One-and-a-Half-Year A Level: £55,650 (toplam)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ac7dccb2c8f0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9ad04deb7c3b",
+            "text": "One-Year GCSE & IGCSE: £31,000",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "d9bd79420514",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d8b6b4ef007c",
+            "text": "University Foundation Programme: £22,650 – £26,150",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "d8c714c4df38",
+        "src": "https://happyeducation.uk/wp-content/uploads/David-Game-College.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "e00ada12f3fb",
+        "src": "https://happyeducation.uk/wp-content/uploads/DGCollege2017_Gili_9870.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "568fe453a1a0",
+        "src": "https://happyeducation.uk/wp-content/uploads/DGCollege2017_Gili_9824.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "3694694ec33d",
+        "src": "https://happyeducation.uk/wp-content/uploads/DavidGame2018_Gili_3590.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/David-Game-College.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site (Two-Year A Level Programı: £31,000 / yıl | One-Year Intensive A Level: £31,000 (toplam) | One-and-a-Half-Year A Level: £55,650 (toplam) | One-Year GCSE & IGCSE: £31,000 | University Foundation Programme: £22,650 – £26,150 | Bilgi ve Kayıt, £21,000, £27,300, £31,000). Confirm with the provider, add a source and an \"as of\" date, or remove.\nNo headings in the body. Add a real heading outline.\n6 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n4 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"David Game College, öğrencilere modern, güvenli ve konforlu konaklama seçenekleri sunar. Tüm konaklama türleri bağımsız \"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body.\nLegacy programme strip found (\"Two-Year A Levels | One-Year Intensive A Levels | One-and-a-Half-Year A Levels | One-Year GCSE & IGCSE | University Foun\"). Left in the body rather than duplicated into a structured field."
+    },
+    "_migration": {
+      "legacyId": 6962,
+      "legacyPath": "/yatili-okullar2/david-game-college-2/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/david-game-college-2/",
+      "targetPath": "/tr/yatili-okullar/david-game-college/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (398w). Extractable: fees=true programmes=true accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 398,
+      "convertedWords": 400,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/David-Game-College.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading",
+        "fees": "section-heading",
+        "programmes": "section-heading"
+      }
+    }
+  },
+  {
+    "_id": "boardingSchool-tr-6977",
+    "_type": "boardingSchool",
+    "locale": "tr",
+    "title": "Mill Hill School",
+    "slug": {
+      "_type": "slug",
+      "current": "mill-hill-school"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-boardingSchool-6977"
+    },
+    "fees": [
+      {
+        "_type": "sourcedFact",
+        "_key": "da6fbf61cecc",
+        "label": "Legacy site fee",
+        "value": "Gündüz Eğitimi (Yemek Dahil): £25,800 | Haftalık Yatılı Eğitim (Yemek Dahil): £36,795 | Tam Zamanlı Yatılı Eğitim (Yemek Dahil): £43,590 | Bilgi ve Kayıt",
+        "note": "Carried across from the legacy site. Needs confirmation and an \"as of\" date."
+      }
+    ],
+    "curriculum": [
+      "GCSE"
+    ],
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "cec5006828eb",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6bcf555d1df8",
+            "text": "Londra’da Tarihle İç İçe, Doğayla Yan Yana Bir Eğitim Deneyimi",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1884fc39ca65",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "948bdb5bfa40",
+            "text": "1807 yılında kurulan Mill Hill School, eğitimde kaliteyi tarihi değerlerle harmanlayan köklü bir okuldur. Taze havası, doğal güzelliği ve güvenliğiyle bilinen bir tepe üzerine kurulan okul, bugün 3 ila 18 yaş aralığındaki öğrencilere eğitim sunan bir okul ailesinin parçası olarak hizmet vermektedir. Akademik başarının yanında karakter gelişimini de önceliklendiren yaklaşımıyla öne çıkan Mill Hill, öğrencilerine bilgi yanında vizyon da kazandırır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b37d77549fe2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2d5b4e05a371",
+            "text": "Neden Mill Hill School?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c7b31547b274",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dd0545f83442",
+            "text": "1807’den bu yana süregelen köklü bir eğitim mirasına sahiptir.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "c965f49851d3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cd442c471c54",
+            "text": "Londra’nın kuzeyinde, doğayla iç içe bir kampüste eğitim sunar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "12beb43abd06",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ae7be521a26f",
+            "text": "3-18 yaş arası öğrenciler için kapsamlı eğitim seçenekleri mevcuttur.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "b6aa14fce996",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e4522a21c857",
+            "text": "Yatılı konaklama seçenekleriyle tam destekli bir eğitim ortamı sağlar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a2758a6839a0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d47249b86dca",
+            "text": "Mezunları İngiltere’nin prestijli üniverselerine yüksek oranla yerleşir.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "7cc040673106",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f3c057a51837",
+            "text": "Lokasyon ve Kampüs Yaşamı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8b67c69f5558",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "39065c75980d",
+            "text": "Mill Hill School, Londra’nın kuzeyinde, yemyeşil ağaçlarla çevrili huzurlu bir kampüste yer alır. Kampüs, öğrencilerin akademik, sosyal ve kişisel gelişimlerine olanak tanıyacak şekilde tasarlanmıştır. Tarihi dokusu korunmuş kampüste modern derslikler, sanat ve spor tesisleri ile konforlu yurtlar bir arada sunulmaktadır. Okul, Londra’nın merkezine kolay erişim sağlarken, güvenli ve odaklanmaya elverişli bir atmosfer sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "92aafba8b7cc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3f8fcf47c2f5",
+            "text": "Eğitim Programları ve Akademik Yapı",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8b8d5ce042b2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "539df549222d",
+            "text": "Mill Hill School, geniş bir yaş grubuna eğitim sunarak öğrencilerin erken yaşlardan itibaren akademik ve sosyal alanlarda gelişmelerine destek olur. Öğrencilere, farklı yaş ve akademik seviyelere uygun olacak şekilde aşağıdaki programlar sunulmaktadır:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b2246f18f84e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "db05a77e647c",
+            "text": "Programlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "495cde1298a7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "777a40420cfe",
+            "text": "Primary & Junior School (The Mount, Mill Hill International dahil)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "6796bc84837e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "68b51d5a265b",
+            "text": "GCSE",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "a4dce0841276",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4c2d97cd8fa0",
+            "text": "A Levels",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "d252ce3c8eae",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9de3410ae23",
+            "text": "Sixth Form Programları",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "68603f7dc780",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ca2916a1cac1",
+            "text": "Akademik programlar, öğrencilerin bireysel yeteneklerini keşfetmesine ve üniversiteye güçlü bir hazırlık yapmasına yardımcı olacak şekilde yapılandırılmıştır. Eleştirel düşünme, araştırma becerileri ve entelektüel merak odaklı bir eğitim modeli benimsenir. Mill Hill mezunları sıklıkla İngiltere’nin önde gelen üniversitelerinde eğitimlerine devam eder.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c6cf2ec9576f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c88d44fc4a20",
+            "text": "Konaklama Seçenekleri",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4afa36feb124",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ec8f33e19f02",
+            "text": "Mill Hill School, hem tam zamanlı hem de haftalık yatılı seçenekler sunarak öğrencilere farklı yaşam modelleri sunar. Tüm konaklamalar, yemekler dahil olmak üzere ücretin içindedir:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "47b8c42afc63",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "acb964a65f31",
+            "text": "Weekly Boarding: Pazartesi – Cuma konaklama seçeneği",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "63be4aa3ae29",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "06de25933407",
+            "text": "Full Boarding: Haftanın 7 günü kampüs içi konaklama",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "1ea75a1dd432",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f08b16c98195",
+            "text": "Yurtlar denetimli, sıcak ve sosyal bir ortam sunacak şekilde düzenlenmiştir. Her öğrencinin bireysel konforu ve güvenliği ön planda tutulur. Öğrenciler, kampüsün sunduğu tüm imkanlara kolay erişim sağlayarak akademik ve sosyal yaşamı dengeli şekilde sürdürebilir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7b883f92fee4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "76776f672151",
+            "text": "Ücretler (Yıllık)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "64ccd54457bb",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ddbf2ad0509d",
+            "text": "Gündüz Eğitimi (Yemek Dahil): £25,800",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "ca736f6b45b7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e215e0a73c4d",
+            "text": "Haftalık Yatılı Eğitim (Yemek Dahil): £36,795",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "_key": "e647a3c4999d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "40a0a40d5c58",
+            "text": "Tam Zamanlı Yatılı Eğitim (Yemek Dahil): £43,590",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "d08afecc83d0",
+        "src": "https://happyeducation.uk/wp-content/uploads/Mill-Hill-School.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "997836aba25a",
+        "src": "https://happyeducation.uk/wp-content/uploads/DSC_1921.jpg",
+        "alt": ""
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/Mill-Hill-School.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site (Gündüz Eğitimi (Yemek Dahil): £25,800 | Haftalık Yatılı Eğitim (Yemek Dahil): £36,795 | Tam Zamanlı Yatılı Eğitim (Yemek Dahil): £43,590 | Bilgi ve Kayıt, £25,800, £36,795, £43,590). Confirm with the provider, add a source and an \"as of\" date, or remove.\nNo headings in the body. Add a real heading outline.\n6 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n2 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"Mill Hill School, hem tam zamanlı hem de haftalık yatılı seçenekler sunarak öğrencilere farklı yaşam modelleri sunar. Tü\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body.\nLegacy programme strip found (\"Primary & Junior School (The Mount, Mill Hill International dahil) | GCSE | A Levels | Sixth Form Programları | Akademik\"). Left in the body rather than duplicated into a structured field."
+    },
+    "_migration": {
+      "legacyId": 6977,
+      "legacyPath": "/yatili-okullar2/mill-hill-school-2/",
+      "legacyUrl": "https://happyeducation.uk/yatili-okullar2/mill-hill-school-2/",
+      "targetPath": "/tr/yatili-okullar/mill-hill-school/",
+      "bucket": "KEEP",
+      "inventoryReason": "Boarding school (365w). Extractable: fees=true programmes=true accommodation=true",
+      "sourceLanguage": "TR",
+      "sourceWords": 365,
+      "convertedWords": 363,
+      "headings": [],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/Mill-Hill-School.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "section-heading",
+        "fees": "section-heading",
+        "programmes": "section-heading"
+      }
+    }
+  }
+]

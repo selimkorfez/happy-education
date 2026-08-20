@@ -1,6 +1,13 @@
-import 'server-only'
-import { sanityFetch } from '@/lib/sanity/client'
-import { sectionSegment, type Locale, type SectionKey } from '@/lib/i18n/config'
+import "server-only";
+import { sanityFetch } from "@/lib/sanity/client";
+import {
+  sectionSegment,
+  type Locale,
+  type SectionKey,
+} from "@/lib/i18n/config";
+import { isConfigured } from "@/lib/env";
+import { hasLocalContent } from "@/lib/content/local-source";
+import { localFindTranslatedSlug } from "@/lib/content/local-queries";
 
 /**
  * Resolves the equivalent document in another locale.
@@ -25,24 +32,24 @@ const TRANSLATED_SLUG_QUERY = /* groq */ `
     && defined(slug.current)
   ][0].slug.current
 }.sibling
-`
+`;
 
 /** Document types that can appear under each section. */
 const SECTION_TYPES: Record<SectionKey, string[]> = {
-  universities: ['destination', 'institution'],
-  languageSchools: ['destination', 'languageSchool'],
-  summerSchools: ['summerProgramme', 'page'],
-  boardingSchools: ['boardingSchool', 'destination'],
-  tours: ['tour'],
-  services: ['service'],
-  guides: ['guide', 'page'],
-  insights: ['article'],
-  about: ['page'],
-  contact: ['page'],
-  consultation: ['page'],
-  search: ['page'],
-  legal: ['legalPage'],
-}
+  universities: ["destination", "institution"],
+  languageSchools: ["destination", "languageSchool"],
+  summerSchools: ["summerProgramme", "page"],
+  boardingSchools: ["boardingSchool", "destination"],
+  tours: ["tour"],
+  services: ["service"],
+  guides: ["guide", "page"],
+  insights: ["article"],
+  about: ["page"],
+  contact: ["page"],
+  consultation: ["page"],
+  search: ["page"],
+  legal: ["legalPage"],
+};
 
 export async function findTranslatedPath({
   fromLocale,
@@ -50,33 +57,41 @@ export async function findTranslatedPath({
   section,
   slugPath,
 }: {
-  fromLocale: Locale
-  toLocale: Locale
-  section: SectionKey
-  slugPath: string[]
+  fromLocale: Locale;
+  toLocale: Locale;
+  section: SectionKey;
+  slugPath: string[];
 }): Promise<string | null> {
-  const leaf = slugPath[slugPath.length - 1]
-  if (!leaf) return null
+  const leaf = slugPath[slugPath.length - 1];
+  if (!leaf) return null;
 
-  const translatedSlug = await sanityFetch<string | null>(
-    TRANSLATED_SLUG_QUERY,
-    {
-      types: SECTION_TYPES[section],
-      fromLocale,
-      toLocale,
-      slug: leaf,
-    },
-    { tags: ['translation'], revalidate: 3600 },
-    null,
-  )
+  const readLocalBundle = !isConfigured.sanity() && hasLocalContent();
+  const translatedSlug = readLocalBundle
+    ? localFindTranslatedSlug(
+        fromLocale,
+        toLocale,
+        SECTION_TYPES[section],
+        leaf,
+      )
+    : await sanityFetch<string | null>(
+        TRANSLATED_SLUG_QUERY,
+        {
+          types: SECTION_TYPES[section],
+          fromLocale,
+          toLocale,
+          slug: leaf,
+        },
+        { tags: ["translation"], revalidate: 3600 },
+        null,
+      );
 
-  if (!translatedSlug) return null
+  if (!translatedSlug) return null;
 
   // Preserve any intermediate segments (e.g. a country under a section) by
   // translating only the leaf; deeper structures resolve their own parents when
   // the page renders.
-  const parents = slugPath.slice(0, -1)
-  return `/${toLocale}/${[sectionSegment(toLocale, section), ...parents, translatedSlug].join('/')}`
+  const parents = slugPath.slice(0, -1);
+  return `/${toLocale}/${[sectionSegment(toLocale, section), ...parents, translatedSlug].join("/")}`;
 }
 
 /**
@@ -88,10 +103,10 @@ export async function findAlternates({
   types,
   translationGroupId,
 }: {
-  types: string[]
-  translationGroupId: string | null
+  types: string[];
+  translationGroupId: string | null;
 }): Promise<Array<{ locale: Locale; slug: string }>> {
-  if (!translationGroupId) return []
+  if (!translationGroupId) return [];
 
   return sanityFetch<Array<{ locale: Locale; slug: string }>>(
     /* groq */ `
@@ -101,7 +116,7 @@ export async function findAlternates({
       }
     `,
     { types, groupId: translationGroupId },
-    { tags: ['translation'], revalidate: 3600 },
+    { tags: ["translation"], revalidate: 3600 },
     [],
-  )
+  );
 }

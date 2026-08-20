@@ -1,0 +1,1220 @@
+[
+  {
+    "_id": "tour-tr-13411",
+    "_type": "tour",
+    "locale": "tr",
+    "title": "Turlar",
+    "slug": {
+      "_type": "slug",
+      "current": "turlar"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-tour-13411"
+    },
+    "overview": [
+      {
+        "_type": "imagePlaceholder",
+        "_key": "41f1d08962b7",
+        "src": "https://happyeducation.uk/wp-content/uploads/turlar.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "ec51c2bfb07c",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8484de0f89d7",
+            "text": "Happy Education ile",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1e1432402834",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "73a22256eac4",
+            "text": "Avrupa’nın En Güzel Şehirlerini Keşfedin",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "14b752450f88",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "adc8d1edcf4c",
+            "text": "Happy Education, eğitim danışmanlığının yanı sıra öğrencilere ve ailelere özel turistik turlar da sunmaktadır. İngiltere, Avrupa ve İtalya’nın en popüler şehirlerine düzenlenen bu turlar, kültür ve eğlencenin bir arada yaşandığı unutulmaz bir deneyim fırsatı verir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "83dc396c3638",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2cd4d290dcea",
+            "text": "İngiltere turları,",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "aa30fe42bf97",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b4e8fc65b1bc",
+            "text": "Londra’nın tarihi ve modern dokusunu, Manchester’ın canlı yaşamını ve Oxford’un akademik atmosferini keşfetmenizi sağlar. Uygun İngiltere tur fiyatları ile hem kültürel hem de keyifli bir seyahat deneyimi yaşayabilirsiniz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b53d55c1f4b2",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3dcade9afc1c",
+            "text": "Avrupa turları,",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "913469337183",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fc4f9918aa64",
+            "text": "kıtanın en büyüleyici şehirlerinde unutulmaz bir yolculuk sunar. Amsterdam’ın kanalları, Paris’in romantik atmosferi ve Lüksemburg’un huzurlu şehir yaşamı sizleri bekliyor. Happy Education güvencesiyle her ayrıntının düşünüldüğü bu turlar, kaliteli otel konaklamalarıyla rahat bir seyahat sağlar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d46cd3d17cfd",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0bd24f64bdf4",
+            "text": "İtalya turları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "edcf6cc27c13",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8dc24919bd27",
+            "text": "ise sanat, tarih ve lezzetin buluşma noktasıdır. Roma’nın büyüleyici tarihi, Venedik’in eşsiz kanalları, Floransa’nın sanatsal zenginliği ve Milano’nun modern dokusu, İtalya tur fiyatlarıyla birlikte cazip bir seçenek sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "53b4ecfd1437",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7976f321ed7f",
+            "text": "Happy Education olarak, her turumuzda güven, konfor ve kültürel zenginliği bir araya getiriyor, unutulmaz anılarla dolu bir yolculuk vadediyoruz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0de6a51d16c4",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cefc3778dc09",
+            "text": "İngiltere Turları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "084b07eabe55",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c27577e1b6ae",
+            "text": "Unutulmaz Bir Kültür Yolculuğu",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0afde0e23b6a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7305bd7ae12d",
+            "text": "7 - 8 Gün",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a116e21c89c3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "78830147e60a",
+            "text": "Happy Education güvencesiyle İngiltere’nin büyüsünü keşfedin! Bir haftalık bu özel programda, Londra turu ile şehrin simge yapılarını, Oxford gezisi ile akademik atmosferi, Manchester’ın enerjisini ve Liverpool’un müzik dolu ruhunu deneyimleyebilirsiniz. İngiltere’nin en gözde şehirlerini kapsayan bu rota, hem tarih hem kültür hem de modern yaşamı bir arada sunuyor.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1b16962d5eaf",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "521bc547ccbe",
+            "text": "Happy Education ile İngiltere kültür turları sayesinde hem tarihi keşfedin hem de unutulmaz bir tatil yaşayın!",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "996220f63943",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b505064712c3",
+            "text": "Tur Paketine Dahil Olanlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9dbda3af6215",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2c47fea96980",
+            "text": "Ulaşım",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c2009fa9a6c6",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d07ef79b9472",
+            "text": "Profesyonel tur rehberi ve giriş biletleri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "28851fcdfac7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "362bb198904d",
+            "text": "Otel konaklaması (3 veya 4 yıldız seçenekleri)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "dfd090eca66c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8398b98faac7",
+            "text": "Kahvaltı",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "120d1d0a6330",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ab1741125a2b",
+            "text": "Gezilecek Şehirler ve Öne Çıkan Yerler:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7043cfc42f5b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bdbcaf706f31",
+            "text": "Londra:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "ce2f96071dca",
+            "text": " Buckingham Palace, Big Ben, London Eye, Westminster ve Trafalgar Square",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9c2d91da6a8d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dba0dbb27289",
+            "text": "Oxford:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "8cd3dca74ce9",
+            "text": " Christ Church College, Radcliffe Camera, Bodleian Library",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b800c9ebdc86",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fb5dce128b55",
+            "text": "Manchester:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "8344d7b42d43",
+            "text": " Old Trafford Stadyumu, Science & Industry Museum",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "801c653148bb",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c9fe5aa0cb17",
+            "text": "Liverpool:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "d59ee1a72850",
+            "text": " Royal Albert Dock, The Beatles Museum, St. George’s Hall",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6ad53bb75c80",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a8f9e510a6ae",
+            "text": "York:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "be2edcbc88f7",
+            "text": " York Minster, Jorvik Viking Centre, The Shambles Street",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4e6cf38eeca3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "60c4c3ca025a",
+            "text": "Leeds, Huddersfield ve Bradford:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "cb15c94775d6",
+            "text": " Müzeler ve kültürel merkezler",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b8ec83d76f5e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ec52495a6fd5",
+            "text": "İngiltere tur fiyatları:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7bcfff4d246b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "53d9eb7db61c",
+            "text": "3 Yıldızlı Otel ile Konaklama: 1800 €",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0930c2816115",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b463d3c0b29b",
+            "text": "4 Yıldızlı Otel ile Konaklama: 1990 €",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c1b5f41163dc",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "29a5be0bb772",
+            "text": "Avrupa Turu",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f24e484ecfea",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "30a207b1945c",
+            "text": "7 Gece 8 Günlük Unutulmaz Bir Yolculuk",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "54fe748ca105",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ae7b0b048ee4",
+            "text": "Tur Paketine Dahil Olanlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4c0de9a1eb3d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2842dc8227e2",
+            "text": "3 ve 4 yıldızlı otellerde 7 gece konaklama (kahvaltı dahil)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "62e4672037f7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1ed3b70e1138",
+            "text": "Havalimanı transferleri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5990aba79b1a",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e204c25759c3",
+            "text": "Şehir transferleri özel otobüslerle",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "de3b767e8a94",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d0501807aa22",
+            "text": "Profesyonel İngilizce rehberlik hizmeti",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "978a114808bb",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a7737ae7c57c",
+            "text": "Not: ",
+            "marks": [
+              "strong",
+              "em"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "5069fd90616b",
+            "text": "Müze ve aktivite giriş biletleri ile akşam yemekleri fiyata dahil değildir. Tur fiyatı minimum 12 kişi üzerinden hesaplanmıştır.",
+            "marks": [
+              "em"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "92120312d7b5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6d17c264abbc",
+            "text": "Tur Fiyatı: ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "f6bad8da5476",
+            "text": "1250 €",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "63fed1d7bdee",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1e18551759c6",
+            "text": "Gezilecek Yerler ve Şehirler:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0784675a3f0b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "658aeeaf91a7",
+            "text": "Amsterdam & Çevresi:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "7ee1ea459c1d",
+            "text": " Dam Square, Royal Palace, Zaanse Schans rüzgar gülleri, Giethoorn köyü ve kanalları, Volendam & Marken balıkçı köyleri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "af61ef8b071b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "68bfbf993d3b",
+            "text": "Brüksel & Bruges:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "703af01e0d52",
+            "text": " Grand Place, Atomium, Heysel Stadyumu, Bruges şehir turu ve Belfry Tower",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "73fbb1cae0af",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "30e49673089d",
+            "text": "Paris",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "bd71237f7cec",
+            "text": ": Eyfel Kulesi, Seine Nehri tekne turu, Notre Dame Katedrali, Montmartre Tepesi, Sacré-Coeur Bazilikası, Disneyland gezisi",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "bb0ae80a305f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a6fc0240630c",
+            "text": "Lüksemburg & Metz:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "0e73646cbb8d",
+            "text": " Luxembourg City Tour, Metz Katedrali, German Gate, Temple Neuf Church",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "730665262af3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c931eb32df39",
+            "text": "Schengen & Alsace Bölgesi:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "81aad5d07778",
+            "text": " Strasbourg şehir turu, Rhine Wine Route, Colmar şehir turu",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2a837a556fd3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5ef0cef65338",
+            "text": "Basel:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "0eae80886a58",
+            "text": " Tarihi şehir turu, alışveriş ve havaalanı transferi",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "ad961c6e7d0c",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3fe3f6271cf8",
+            "text": "İtalya Turu",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "514e26879c48",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ecf73929d50c",
+            "text": "7 Gece 8 Günlük Akdeniz Rüyası",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "68adff5f32f3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "16eeb1d8ca18",
+            "text": "Happy Education güvencesiyle Avrupa’nın kalbinde unutulmaz bir yolculuğa hazır olun! ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "f7f2cdda15b0",
+            "text": "Milan’dan Venedik’e, Floransa’dan Roma’ya",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "117cdcfc985a",
+            "text": " uzanan bu 7 gece 8 günlük kültür turunda sanatın, tarihin ve romantizmin buluştuğu şehirleri keşfedin.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8a72282c9d24",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fd1a4d484df4",
+            "text": "Tur Paketine Dahil Olanlar:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1b658b43d197",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3cf881ea1fb5",
+            "text": "3* ve 4* otellerde 7 gece konaklama (kahvaltı dahil)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f63243eacb0c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7d701c272865",
+            "text": "Havalimanı transferleri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9a5e89690afe",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f79405047c34",
+            "text": "Şehir transferleri özel otobüslerle",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b8b6a6f4dfc5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b36e1f1d8fd5",
+            "text": "Profesyonel İngilizce rehberlik hizmeti",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f0f8d64e6dd0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0a36aa4f20b4",
+            "text": "Not: Müze ve aktivite giriş ücretleri ile akşam yemekleri fiyata dahil değildir. Tur fiyatı minimum 12 kişi üzerinden hesaplanmıştır.",
+            "marks": [
+              "em"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3f33564a2f3b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3d42e2a734a0",
+            "text": "Tur Fiyatı:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "077fc48e84f5",
+            "text": " 1550 €",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b084c9b54cc4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ea5cedd4030e",
+            "text": "Gezilecek Yerler ve Şehirler:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d88ff8e261f9",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ee648373d2bb",
+            "text": "Bergamo & Milan:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "8204d8970f6a",
+            "text": " Milano Katedrali, Sforza Kalesi, Milano şehir turu, Como Gölü gezisi",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "62c30cc3c6fc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b4f06baa6e45",
+            "text": "Milan & Venice:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "47a74977a8c9",
+            "text": " Tronchetto Meydanı, San Marco Meydanı ve Bazilikası, Doge Sarayı, gondol turu",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e03c627cb17e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "66b10dc35133",
+            "text": "Venice & Verona:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "52317d7ea63b",
+            "text": " Juliet’in Evi, Arena, Piazza delle Erbe, Garda Gölü",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a7d193a07bc0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ea83c4584266",
+            "text": "Florence:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "70e226c0a15f",
+            "text": " Floransa şehir turu, Santa Maria del Fiore Katedrali, Dante’nin Evi, Pisa’nın eğik kulesi, Siena ve San Gimignano gezileri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f66b0ca418ec",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7a1c4425af1f",
+            "text": "Rome & Vatican:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "99970f45b608",
+            "text": " Roma şehir turu, Pantheon Tapınağı, Trevi Çeşmesi, İspanyol Merdivenleri, Vatikan (Aziz Petrus Meydanı ve Bazilikası)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8a16ef133544",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a5eea3cf3c88",
+            "text": "Rome & Çevresi:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "0446190c0f62",
+            "text": " Albano Gölü, Nemi (Çilek Köyü), outlet alışveriş turu, Roma gece turu",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2fdcf91caa0e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a6b1617a35b8",
+            "text": "Roma’da alışveriş ve havaalanı transferi.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f3acb3a130f2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "77405ff09531",
+            "text": "Happy Education ile İtalya turları; ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "9e0375ea67e4",
+            "text": "sanat, tarih, kültür ve eşsiz Akdeniz atmosferini",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "6646315a540a",
+            "text": " tek seyahatte yaşamak isteyenler için ideal bir deneyim sunuyor. Milano’nun modasını, Venedik’in romantizmini, Floransa’nın sanatını ve Roma’nın tarihini bizimle keşfedin!",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/turlar.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "PRICE/FEE re-check: carried across verbatim from the legacy site. Confirm with the provider, add a source and an \"as of\" date, or remove.\n8 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n1 image(s) with no alt text. Alt text must be written before publication.\nLegacy accommodation strip found (\"1800 €\"). Not written to the accommodation field because on most pages it is a link menu rather than content; the text remains in the body.\n3 link(s) dropped during conversion: # (in-page anchor only); # (in-page anchor only); # (in-page anchor only)."
+    },
+    "_migration": {
+      "legacyId": 13411,
+      "legacyPath": "/turlar/",
+      "legacyUrl": "https://happyeducation.uk/turlar/",
+      "targetPath": "/tr/turlar/",
+      "bucket": "KEEP",
+      "inventoryReason": "716w tour catalogue: England / Europe / Italy itineraries with day-by-day city lists and a EUR price; the only revenue line outside education",
+      "sourceLanguage": "TR",
+      "sourceWords": 716,
+      "convertedWords": 686,
+      "headings": [
+        {
+          "style": "h2",
+          "text": "Happy Education ile"
+        },
+        {
+          "style": "h3",
+          "text": "Avrupa’nın En Güzel Şehirlerini Keşfedin"
+        },
+        {
+          "style": "h3",
+          "text": "İngiltere turları,"
+        },
+        {
+          "style": "h3",
+          "text": "Avrupa turları,"
+        },
+        {
+          "style": "h3",
+          "text": "İtalya turları"
+        },
+        {
+          "style": "h2",
+          "text": "İngiltere Turları"
+        },
+        {
+          "style": "h3",
+          "text": "Unutulmaz Bir Kültür Yolculuğu"
+        },
+        {
+          "style": "h2",
+          "text": "Avrupa Turu"
+        },
+        {
+          "style": "h3",
+          "text": "7 Gece 8 Günlük Unutulmaz Bir Yolculuk"
+        },
+        {
+          "style": "h2",
+          "text": "İtalya Turu"
+        },
+        {
+          "style": "h3",
+          "text": "7 Gece 8 Günlük Akdeniz Rüyası"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/turlar.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "accommodation": "inline-label"
+      }
+    }
+  }
+]

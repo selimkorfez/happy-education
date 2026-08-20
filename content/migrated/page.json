@@ -1,0 +1,6890 @@
+[
+  {
+    "_id": "page-tr-1271",
+    "_type": "page",
+    "locale": "tr",
+    "title": "Hakkımızda",
+    "slug": {
+      "_type": "slug",
+      "current": "hakkimizda"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-page-1271"
+    },
+    "pageKey": "about",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "63ea39fa2692",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f4e5fbfc95a0",
+            "text": "Hakkımızda",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "dde13ebab4af",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0553753ce6bc",
+            "text": "Geleceğini Birlikte Planlayalım",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1db26cd4a4a8",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0836d148df27",
+            "text": "Dünyanın Egitim Kapılarını Aralıyoruz",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "fe36b9cbc938",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c3e750c1aac2",
+            "text": "Happy Education, 2018’de Londra merkezli olarak kurulmuş ve o günden bu yana uluslararası eğitim danışmanlığı alanında faaliyet gösteren bir kurumdur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "ebc10ca48f16",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3800f5728759",
+            "text": "Happy Education olarak, kurulduğumuz günden bu yana uzman kadromuzla, dünyanın en saygın üniversitelerinde lisans ve yüksek lisans eğitimi almaya hak kazanan 500’den fazla öğrenciye tüm başvuru süreçlerinde danışmanlık hizmeti verdik. Ayrıca, 700’den fazla öğrencinin İngiltere, Kanada, Malta ve İrlanda gibi ülkelerdeki prestijli yaz okulları ve dil kurslarında eğitim alarak İngilizcelerini geliştirmelerine rehberlik ettik.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8e0693e45ebf",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5b0d2d78abe8",
+            "text": "Dil kursları, üniversite başvuruları, yaz okulları ve boarding school (yatılı lise) programları başta olmak üzere profesyonel dil eğitimi imkânları sunuyoruz. Yaz okulu programlarımız Endonezya, Romanya, Kazakistan, Azerbaycan, Almanya, Türkiye ve daha birçok ülkeden öğrenci tarafından tercih ediliyor.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "250763de6b35",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b2d8d7c4052b",
+            "text": "Yurt dışında eğitim almayı planlayan öğrencilere karar verme sürecinden okul başvurusuna, kayıt işlemlerinden vize başvurusuna, seyahat ve konaklama düzenlemelerine kadar her adımda rehberlik ediyoruz. Öğrencilerimizin eğitim geçmişini, hedeflerini ve ailelerinin beklentilerini dikkate alarak kişiye özel yol haritaları oluşturuyoruz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "389ebc556709",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fde3b7e93acb",
+            "text": "Misyonumuz, öğrencilerin akademik hedeflerine ulaşmalarına yardımcı olmak ve onları dünyanın önde gelen eğitim kurumlarıyla buluşturmaktır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2474830105b3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0b843c7d3a00",
+            "text": "Vizyonumuz, dünyanın dört bir yanından öğrencilere ücretsiz ve güvenilir eğitim danışmanlığı sunmak; doğru bilgi, doğru okul ve doğru yönlendirme ile hayallerine ulaşmalarını sağlamaktır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "026e10f244c2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d46bf8f61877",
+            "text": "Happy Education olarak, sizin için en doğru yolu birlikte keşfetmeye hazırız.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "d3d2a540196c",
+        "src": "https://happyeducation.uk/wp-content/uploads/gps_2072535.png",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "b25db142be3c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "aac764d20831",
+            "text": "0 +",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8dd3d0f5ebe5",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f6b994cb84a9",
+            "text": "Ülke",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "15c6ee6efdf3",
+        "src": "https://happyeducation.uk/wp-content/uploads/university_9090105.png",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "2be5a354bede",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f90e24048439",
+            "text": "0 +",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3d9ef669e76a",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3294f2d5289e",
+            "text": "Üniversite",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "7b0961499830",
+        "src": "https://happyeducation.uk/wp-content/uploads/university_1944995.png",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "55be90853cb0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "47ca84c47c2d",
+            "text": "0 +",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "019e0b679354",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "235cbff6954b",
+            "text": "Lise",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "70886cf34e4f",
+        "src": "https://happyeducation.uk/wp-content/uploads/graduated_5608987.png",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "d82e2f3f400b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e61c8a9abcda",
+            "text": "0 +",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b02295d7c454",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a6694f37a1d9",
+            "text": "Öğreci",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "4e07dd525619",
+        "src": "https://happyeducation.uk/wp-content/uploads/sefa.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "34c3190dc7f8",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b5ca84a29178",
+            "text": "Sefa Mutlu Koca",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "02cff3d2864e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "42e68838d629",
+            "text": "Müdür",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "6b0871038827",
+        "src": "https://happyeducation.uk/wp-content/uploads/Yusuf.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "70f54a93f72f",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "47e37e6902c8",
+            "text": "Yusuf Baş",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2c2536b31aab",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8bafff655aed",
+            "text": "Üniversite ve Yatılı Okullar Koordinatörü",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "179255bb07f8",
+        "src": "https://happyeducation.uk/wp-content/uploads/fatih.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "183240e093d6",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fe5127d3db8a",
+            "text": "Fatih Özdemir",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b6782d634184",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "feb1e499f6d0",
+            "text": "Dil Kursları ve Yaz Okulları Koordinatörü",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "1928255d7d46",
+        "src": "https://happyeducation.uk/wp-content/uploads/semra.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "de5517c00ba7",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e86ed0c99480",
+            "text": "Semra Atilay",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "df980cd783f1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "33b86d64d005",
+            "text": "Sosyal Medya Yöneticisi",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "e2014613e59a",
+        "src": "https://happyeducation.uk/wp-content/uploads/akjemal.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "5a6b70f27ff3",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "35c0032bbda3",
+            "text": "Akjemal Allaberdiyeva",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "18ee0b5eec58",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4def0664dd41",
+            "text": "Yönetim Danışmanı",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/gps_2072535.png",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "IMMIGRATION content: Happy Education holds no IAA (ex-OISC) registration, so this must read as administrative/application support only, state that the decision rests with the relevant government authority, link to the official source, and promise no outcome. Re-verify every route name and condition against the issuing authority.\n9 image(s) with no alt text. Alt text must be written before publication."
+    },
+    "_migration": {
+      "legacyId": 1271,
+      "legacyPath": "/anasayfa/hakkimizda/",
+      "legacyUrl": "https://happyeducation.uk/anasayfa/hakkimizda/",
+      "targetPath": "/tr/hakkimizda/",
+      "bucket": "KEEP",
+      "inventoryReason": "Genuine About copy incl. founding year 2018, 500+ university placements, 700+ language/summer placements (claims need business verification)",
+      "sourceLanguage": "TR",
+      "sourceWords": 245,
+      "convertedWords": 245,
+      "headings": [
+        {
+          "style": "h2",
+          "text": "Hakkımızda"
+        },
+        {
+          "style": "h3",
+          "text": "Geleceğini Birlikte Planlayalım"
+        },
+        {
+          "style": "h2",
+          "text": "Dünyanın Egitim Kapılarını Aralıyoruz"
+        },
+        {
+          "style": "h3",
+          "text": "Ülke"
+        },
+        {
+          "style": "h3",
+          "text": "Üniversite"
+        },
+        {
+          "style": "h3",
+          "text": "Lise"
+        },
+        {
+          "style": "h3",
+          "text": "Öğreci"
+        },
+        {
+          "style": "h2",
+          "text": "Sefa Mutlu Koca"
+        },
+        {
+          "style": "h2",
+          "text": "Yusuf Baş"
+        },
+        {
+          "style": "h2",
+          "text": "Fatih Özdemir"
+        },
+        {
+          "style": "h2",
+          "text": "Semra Atilay"
+        },
+        {
+          "style": "h2",
+          "text": "Akjemal Allaberdiyeva"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/gps_2072535.png",
+      "logoImageSource": "https://happyeducation.uk/wp-content/uploads/sefa.jpg",
+      "proposedEnPath": null,
+      "hasFieldProvenance": {}
+    }
+  },
+  {
+    "_id": "page-tr-12883",
+    "_type": "page",
+    "locale": "tr",
+    "title": "Home",
+    "slug": {
+      "_type": "slug",
+      "current": "anasayfa"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-page-12883"
+    },
+    "body": [
+      {
+        "_type": "block",
+        "_key": "bc0201274b3f",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "af6fbe3a2cbc",
+            "text": "Hayalinizdeki eğitim için ilk adımı Happy Education ile atın!",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "be68265d497f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c14363dc86f3",
+            "text": "Dünyanın dört bir yanından öğrenciye güvenilir eğitim danışmanlığı sunuyor; doğru bilgi, doğru okul ve doğru yönlendirme ile hayallerine ulaşmalarını sağlıyoruz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "949fa09e1806",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cc2fa4b7be48",
+            "text": "Kişiye özel şeffaf ve uzman  danışmanlık anlayışı",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9409b515a1ae",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "981dac98d1f3",
+            "text": "Happy Education, üniversite, dil okulu ve yaz okulu başta olmak üzere geniş eğitim yelpazesiyle öğrencilerin akademik yolculuklarına eşlik eder. Her öğrenciye özel yol haritası çizerek süreci baştan sona yönetir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3d784f1d55e4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "216e573a60f1",
+            "text": "    İrlanda         ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "6def28def601",
+            "text": "    Amerika         ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "77b82f512a1e",
+            "text": "    İngiltere         ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "b6954987e1dd",
+            "text": "    Avusturalya",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e59538ea879e",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ec998d92b577",
+            "text": "Kariyer Yolculuğunuz Happy Education ile Başlasın.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "707d6bf5930c",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "032cf56ffc6a",
+            "text": "Ücretsiz Eğitim Danışmanlığı",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4c3318f7dcf5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "125d8ca1be2d",
+            "text": "Dil okulu ve üniversite başvurularında ücretsiz destek imkanı.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "430b97ed0381",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a5868b4cab1b",
+            "text": "Dünyanın En İyi Okullarıyla İşbirliği",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4dba5643fc71",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8ed4e0cb54d3",
+            "text": "İngiltere, Amerika, Kanada, İrlanda ve daha pek çok ülkede eğitim fırsatı.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "aa252a386cee",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "12859ff171e2",
+            "text": "Her Öğrenciye Özel Yol Haritası",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "48f11e3a2e0b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f3dc09488691",
+            "text": "Kişiye özel eğitim planı oluşturarak en doğru okula ve programa yönlendirme.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9241a0645de4",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1725895155ed",
+            "text": "Her Adımda Rehberlik",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "da5472ee6954",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ec115b40e23b",
+            "text": "Konaklamadan seyahate kadar her aşamada güvenilir bir rehberlik.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "db8c1fbf3276",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "66082fb7513b",
+            "text": "Dil Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "470d0457a011",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "633b064e2568",
+            "text": "Hayalinizdeki dil eğitimine bir adım daha yaklaşın, size en uygun dil okulunu keşfedin.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e2158541e479",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f210d012eea2",
+            "text": "Üniversiteler",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e1cb354b4853",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "64790ae5d4bc",
+            "text": "Dünyanın önde gelen üniversitelerinde eğitim alma fırsatını kaçırmayın – detaylar için tıklayın.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4831260b0c35",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "527543fd801b",
+            "text": "Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "64fc0eb13809",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bf09c4250426",
+            "text": "Yurtdışında hem dil öğrenme hem de kültürel deneyim fırsatı – Yaz Okulları sayfamıza göz atın.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "b8614c253723",
+        "src": "https://happyeducation.uk/wp-content/uploads/Education-Schoogalleryl.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "68cec290d0e9",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "287fbd5d2a2b",
+            "text": "Tüm sorularınız için buradayız – bizimle iletişime geçin!",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c7057d32ff92",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fd6b146f53f1",
+            "text": "Çalışma Saatleri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "ba0bf406a2ac",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "04d3b77cbe75",
+            "text": "Bizi Arayın!",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1942b8687352",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6bfbdea19534",
+            "text": "+44 7735 826 785",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "57b43676b922",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "05a3040cc90a",
+            "text": "Hayallerinizi keşfetmenizle başlayan yolculuğunuzda, her adımda yanınızdayız.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "975498c4acfd",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "9114823e8fae",
+            "reference": {
+              "_type": "reference",
+              "_ref": "page-tr-1347"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "aa5cc93660df",
+            "text": "İletişim ",
+            "marks": [
+              "9114823e8fae"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4fa8eb82987e",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bd921195551a",
+            "text": "İletişim Formu",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "50f7adeaf804",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d2110d91a28e",
+            "text": "Happy Education ile",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b719d0eabefa",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "06d76dbd6acb",
+            "text": "Tüm danışmanlık hizmetleri tek çatı altında!",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "c168f24ccfc8",
+        "src": "https://happyeducation.uk/wp-content/uploads/universiteler.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "1deeff1b52b3",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4863f462d564",
+            "text": "Üniversiteler",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6fc22476ad04",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7475ca5f1e82",
+            "text": "Dünyanın önde gelen üniverselerinde lisans ve yüksek lisans eğitimi almak isteyen öğrenciler için başvuru, kabul ve vize süreçlerinde kapsamlı danışmanlık.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "a2b1f8a535e6",
+        "src": "https://happyeducation.uk/wp-content/uploads/dil-okullari.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "bf7ea34aab5d",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "464e883292a6",
+            "text": "Dil Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "829efd78d181",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "479a5d3868b2",
+            "text": "Yurt dışında pratik yaparak İngilizce öğrenmek isteyenler için, dünyanın dört bir yanındaki prestijli dil okullarına başvuru ve yerleştirme hizmeti.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "24124ec29ec0",
+        "src": "https://happyeducation.uk/wp-content/uploads/yatili.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "8e9868cb42fb",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7fdd18040136",
+            "text": "Yatılı Okullar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3d7a0d49834e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fff0bcb58596",
+            "text": "Disiplin, özgüven ve uluslararası vizyon kazandıran yatılı okullara yerleşim sürecinde öğrencilere danışmanlık ve rehberlik.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "499b06054e5c",
+        "src": "https://happyeducation.uk/wp-content/uploads/bireysel.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "a892c061e82a",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d3651139e671",
+            "text": "Bireysel Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f9e3d60baed5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "95d716b83832",
+            "text": "Öğrencilerin yaz tatilini verimli geçirmesini sağlayan; dil eğitimi, sosyal aktiviteler ve kültürel gezilerle dolu, hem eğitici hem eğlenceli bireysel yaz okulu programları.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "4a94af270451",
+        "src": "https://happyeducation.uk/wp-content/uploads/grup.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "a28f42a2638b",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2613efdc74c8",
+            "text": "Grup Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6f30d4d7bf36",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a05fa125dc72",
+            "text": "Rehber eşliğinde yurt dışına seyahat eden öğrenci grupları için planlanan, dil eğitimiyle birlikte sosyal etkinlikler, şehir turları ve kültürel keşiflerle zenginleştirilmiş, keyifli bir yaz deneyimi.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "b757a0151bf5",
+        "src": "https://happyeducation.uk/wp-content/uploads/tur.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "d22f7ea1d22b",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "637e410c5654",
+            "text": "Turlar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "89b06ed5bc54",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "75445a6deffb",
+            "text": "Rehberli şehir turları, unutulmaz deneyimler, tarihi ve doğal güzelliklerle dolu geziler, keyifli ve öğretici seyahatler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "2083eb7a6d49",
+        "src": "https://happyeducation.uk/wp-content/uploads/qq.png",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "a99e1de9fdb5",
+        "src": "https://happyeducation.uk/wp-content/uploads/ep.png",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "28fdc980f488",
+        "src": "https://happyeducation.uk/wp-content/uploads/lsi.png",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "b0bb0314a706",
+        "src": "https://happyeducation.uk/wp-content/uploads/ihh.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "2ae590a65666",
+        "src": "https://happyeducation.uk/wp-content/uploads/stgile-1.png",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "ccefae342226",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e4d42ada8659",
+            "text": "DİLARA",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "2cfd6841a60f",
+            "text": " (Westminster Üniversitesinde - Yüksek Lisans )",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0bdbfcf87579",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "73d29b6318e4",
+            "text": "Happy Education’ın desteği ile vize sürecimi ve üniversite başvuru sürecimi rahatlıkla tamamladım. Eğitim hedeflerimi başarmamda bana yardımcı olan Happy Education’a teşekkür ederim.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4d9a22bdea4f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3f5da8a5d1ae",
+            "text": "MELİKE",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "edec94218979",
+            "text": " (Into City of London’da İnsan Hakları ve Hukuk/ hazırlık yılı)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e29b670532ba",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e1aa2767bd70",
+            "text": "Romanya’da lise bitirdikten sonra Happy Education’ın yardımları ile İngiltere’de eğitimime devam ettim. İlgileri için çok teşekkür ederim, hepinize gönül rahatlığıyla tavsiye ederim.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "40dc81fe5c38",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1235cd2b4eb1",
+            "text": "ZEYNEP",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "fb8da0708d6e",
+            "text": " (City Üniversitesi - Biyomedikal Mühendisliği)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "ab9e3d0b0eaa",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c004b9c376c3",
+            "text": "Happy Education’ın yardımlarıyla Londra’ya geldim ve City Üniversitesi Biyomedikal Mühendisliği bölümünden mezun oldum. Happy Education’a çok teşekkür ederim.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "51401c99f262",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9556aeb0139f",
+            "text": "FEYZA",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "5a604c927283",
+            "text": " (UAL - Grafik ve Medya Tasarım)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "cb383d261199",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bd0d1e263cfb",
+            "text": "Hayalimdeki Grafik ve Medya tasarım bölümünden kabul almamda bana yardım eden ve üniversiteye başvuru sürecinde beni çok destekleyen Happy Education’a teşekkür ederim.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "513894d55846",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "be9c375b4a88",
+            "text": "ESRA",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "c528f2b3e8b8",
+            "text": " (English Path - Toronto’da dil kursu öğrencisi)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "def0564fe72e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "78eb0349acfe",
+            "text": "Happy Education’ı seçtiğim için çok mutluyum bana çok yardımcı oldular.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e10d82bf7afa",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "257107385275",
+            "text": "BAYRAM",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "0ef876e9b7ac",
+            "text": " (Westminister Üniversitesi)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "72ffc00f3ee4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2c315b813045",
+            "text": "Bu maceramda emeği geçen öncelikle Sefa Bey’e ve tüm aşamalarda destek olan Fatih Bey’e çok teşekkür ederim. Happy Education iyi ki varsın.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3aac3a0ed1f0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2c7f71e4a2dc",
+            "text": "ASLI ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "27595b20eabc",
+            "text": "(Stafford House’da dil kursu öğrencisi )",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c9afc4b864ed",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "612d7cbf7eaf",
+            "text": "Happy Education’a beni buraya kolaylıkla ve güvenle getirdikleri için teşekkür ederim.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/Education-Schoogalleryl.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "REWRITE (audit): Homepage: 524w Elementor build, 14 images all without alt text, links to 10 dead /irlanda + /course/* URLs; rebuild in the new design system\nIMMIGRATION content: Happy Education holds no IAA (ex-OISC) registration, so this must read as administrative/application support only, state that the decision rests with the relevant government authority, link to the official source, and promise no outcome. Re-verify every route name and condition against the issuing authority.\n12 image(s) with no alt text. Alt text must be written before publication.\nKnown misspelling(s) in body copy: Avusturalya.\n9 link(s) dropped during conversion: # (in-page anchor only); # (in-page anchor only); # (in-page anchor only)."
+    },
+    "_migration": {
+      "legacyId": 12883,
+      "legacyPath": "/",
+      "legacyUrl": "https://happyeducation.uk/",
+      "targetPath": "/tr/",
+      "bucket": "REWRITE",
+      "inventoryReason": "Homepage: 524w Elementor build, 14 images all without alt text, links to 10 dead /irlanda + /course/* URLs; rebuild in the new design system",
+      "sourceLanguage": "TR",
+      "sourceWords": 524,
+      "convertedWords": 512,
+      "headings": [
+        {
+          "style": "h2",
+          "text": "Hayalinizdeki eğitim için ilk adımı Happy Education ile atın!"
+        },
+        {
+          "style": "h2",
+          "text": "Kişiye özel şeffaf ve uzman  danışmanlık anlayışı"
+        },
+        {
+          "style": "h2",
+          "text": "Kariyer Yolculuğunuz Happy Education ile Başlasın."
+        },
+        {
+          "style": "h3",
+          "text": "Ücretsiz Eğitim Danışmanlığı"
+        },
+        {
+          "style": "h3",
+          "text": "Dünyanın En İyi Okullarıyla İşbirliği"
+        },
+        {
+          "style": "h3",
+          "text": "Her Öğrenciye Özel Yol Haritası"
+        },
+        {
+          "style": "h3",
+          "text": "Her Adımda Rehberlik"
+        },
+        {
+          "style": "h2",
+          "text": "Dil Okulları"
+        },
+        {
+          "style": "h3",
+          "text": "Üniversiteler"
+        },
+        {
+          "style": "h3",
+          "text": "Yaz Okulları"
+        },
+        {
+          "style": "h2",
+          "text": "Tüm sorularınız için buradayız – bizimle iletişime geçin!"
+        },
+        {
+          "style": "h3",
+          "text": "Çalışma Saatleri"
+        },
+        {
+          "style": "h3",
+          "text": "Bizi Arayın!"
+        },
+        {
+          "style": "h4",
+          "text": "+44 7735 826 785"
+        },
+        {
+          "style": "h3",
+          "text": "İletişim Formu"
+        },
+        {
+          "style": "h4",
+          "text": "Happy Education ile"
+        },
+        {
+          "style": "h3",
+          "text": "Tüm danışmanlık hizmetleri tek çatı altında!"
+        },
+        {
+          "style": "h3",
+          "text": "Üniversiteler"
+        },
+        {
+          "style": "h3",
+          "text": "Dil Okulları"
+        },
+        {
+          "style": "h3",
+          "text": "Yatılı Okullar"
+        },
+        {
+          "style": "h3",
+          "text": "Bireysel Yaz Okulları"
+        },
+        {
+          "style": "h3",
+          "text": "Grup Yaz Okulları"
+        },
+        {
+          "style": "h3",
+          "text": "Turlar"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/Education-Schoogalleryl.jpg",
+      "logoImageSource": "https://happyeducation.uk/wp-content/uploads/universiteler.jpg",
+      "proposedEnPath": null,
+      "hasFieldProvenance": {}
+    }
+  },
+  {
+    "_id": "page-tr-13153",
+    "_type": "page",
+    "locale": "tr",
+    "title": "Yatılı Okullar",
+    "slug": {
+      "_type": "slug",
+      "current": "yatili-okullar"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-page-13153"
+    },
+    "body": [
+      {
+        "_type": "imagePlaceholder",
+        "_key": "48f3d6055426",
+        "src": "https://happyeducation.uk/wp-content/uploads/yatili-okul.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "a688772694b8",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "df38b8958fcb",
+            "text": "Yatılı Okullar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9fdf3683fa21",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "42d914157d43",
+            "text": "Birleşik Krallık’ta Nitelikli Eğitim ve Güvenli Bir Gelecek",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "995d65ba7ad9",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "71ac728b5856",
+            "text": "Happy Education UK olarak, öğrencilerimizin akademik, kişisel ve sosyal anlamda güçlü bireyler olarak yetişmelerini önemsiyoruz. Bu vizyon doğrultusunda, Birleşik Krallık’taki seçkin yatılı okullar aracılığıyla öğrencilere dünya standartlarında bir eğitim deneyimi sunuyoruz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "14f71c0164d6",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "27500974d723",
+            "reference": {
+              "_type": "reference",
+              "_ref": "page-tr-1347"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0b5c78dc8047",
+            "text": "Yatılı okullar, öğrencilerin bağımsızlık duygusunu geliştirirken disiplinli, çok yönlü ve özgüveni yüksek bireyler olmalarını sağlar. İngiltere, İskoçya ve Galler’de yer alan prestijli kurumlarla işbirliği içinde çalışıyor; öğrenci profiline uygun okul eşleştirmeleri, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "a9e404573b70",
+            "text": "başvuru",
+            "marks": [
+              "27500974d723",
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "031fe5f81f8d",
+            "text": " ",
+            "marks": [
+              "27500974d723"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "3bb28b046c26",
+            "text": "süreci yönetimi ve okul sonrası danışmanlık, adaptasyon desteği gibi tüm adımlarda rehberlik sunuyoruz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6e00b5d8390b",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a3ffa7f32514",
+            "text": "Neden İngiltere’de Yatılı Okul?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "617ca71951ca",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "951e1375eeff",
+            "text": "Birleşik Krallık, dünyanın en köklü ve saygın eğitim sistemlerinden birine sahiptir. Özellikle yatılı okullar (boarding schools), akademik mükemmeliyetin yanı sıra karakter gelişimini de ön planda tutan yapılarıyla öne çıkar. İngiltere’de yatılı okula gitmek, öğrencilere bilgi kazandırırken; onları bağımsız, sorumluluk sahibi ve uluslararası vizyona sahip bireyler haline getirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "20ec361cd8e0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "590ac3003f46",
+            "text": "Yatılı okul deneyimi, öğrencilerin farklı kültürlerden gelen akranlarıyla birlikte yaşamayı öğrenmelerine, zamanlarını verimli kullanmayı keşfetmelerine, akademik ve de sosyal olarak gelişmelerine olanak tanır. Kampüs içi yaşamın güvenli, denetimli ve destekleyici yapısı, aileler için de iç rahatlatıcı bir avantaj sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "bb6d095b2297",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1c369128d631",
+            "text": "İngiltere’de yatılı okulu tercih etmenin başlıca avantajları:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "33ce399573d9",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9ceb4b1c0ad0",
+            "text": "Uluslararası geçerliliğe sahip programlar: A Level, GCSE, International Baccalaureate (IB) gibi dünyaca tanınan eğitim sistemleri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f95b8ab0f5a2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8a11f9772cac",
+            "text": "Üniversiteye hazırlıkta yüksek başarı oranı ve birebir akademik destek",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9f027d99d58b",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6e952d7b4842",
+            "text": "Spor, sanat, liderlik ve girişimcilik gibi alanlarda kişisel gelişimi destekleyen zengin müfredat dışı etkinlikler",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "bb323106c7d7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "66fdde5a686b",
+            "text": "7/24 gözetim ve danışmanlık hizmetleriyle güvenli bir öğrenme ortamı",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8bc88f8bf84c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "73f6c64d074d",
+            "text": "Küresel bakış açısı kazandıran çok uluslu öğrenci topluluğu",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4b9d69b6d502",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "c7440d2a84e7",
+            "reference": {
+              "_type": "reference",
+              "_ref": "page-tr-12883"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dbb4743ae9ab",
+            "text": "Happy Education",
+            "marks": [
+              "c7440d2a84e7",
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "3e6e58119c10",
+            "text": " olarak, bu yolculukta öğrencilerin potansiyellerini en üst seviyeye taşımalarını hedefliyor; akademik başarıyı kişisel gelişimle harmanlayan kurumlarla işbirliği yapıyoruz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "eaa7117ec602",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4d6755e9b416",
+            "text": "Yatılı Okullarda Sunulan Olanaklar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "19446f070a8d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5d489d6e7228",
+            "text": "Birleşik Krallık’taki yatılı okullar, öğrencilere akademik eğitim sunmakla kalmaz; aynı zamanda kapsamlı sosyal, sportif ve kültürel imkanlarla çok yönlü gelişimlerine destek olur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e3a36a92a3db",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "20e91417239b",
+            "text": "Modern Konaklama İmkanları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5cccb4294951",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "09d36395bec9",
+            "text": "Çoğu yatılı okul, öğrencilerin konforu ve güvenliği gözetilerek tasarlanmış yurtlar sunar. Tek veya çift kişilik odalar, özel banyolu seçenekler, sosyal alanlar ve 7/24 güvenlik hizmetleri standarttır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4bce506474de",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1a0a61ed5071",
+            "text": "Zengin Sosyal ve Kültürel Aktiviteler",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "33b755b3b6ae",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9085c8bb1d8b",
+            "text": "Drama, müzik, sanat atölyeleri, kulüpler ve öğrenci birlikleri sayesinde öğrenciler ilgi alanlarını keşfeder ve yeni yetenekler kazanır. Bu aktiviteler aynı zamanda sosyal becerilerin gelişimini teşvik eder.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0630d78270bb",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2fe7fbff5d9d",
+            "text": "Gelişmiş Spor Tesisleri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b787f323ae55",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "021188748943",
+            "text": "Yüzme havuzları, spor salonları, tenis kortları, futbol sahaları gibi çeşitli spor olanakları öğrencilerin fiziksel sağlığını destekler ve takım çalışması becerilerini artırır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "71e8920a1504",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a631077f9506",
+            "text": "Akademik Destek ve Kaynaklar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "529d6be56d0d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5077f15e304e",
+            "text": "Kütüphaneler, laboratuvarlar, bilgisayar odaları ve özel ders olanakları ile öğrenciler akademik başarılarını en üst düzeye çıkarabilir. Ayrıca kariyer ve üniversite danışmanlığı hizmetleri de sağlanır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "26ac891462ab",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "54b9214a3b01",
+            "text": "Sağlık ve Psikolojik Destek",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "002349fb2488",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f3382fd5af95",
+            "text": "Okullar, öğrencilerin sağlığını ön planda tutar; tıbbi merkezler, danışmanlık hizmetleri ve rehberlik programları ile ihtiyaç duyulduğunda destek sağlar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1f4d6da458ab",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "218ba27a17a0",
+            "text": "Uluslararası Öğrenci Toplulukları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5c6580cd7e3f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ffb5f570c55b",
+            "text": "Farklı kültürlerden gelen öğrencilerle bir arada bulunmak, global bir perspektif kazanmayı sağlar ve kültürlerarası etkileşimi artırır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "1c2d1444c4a9",
+        "src": "https://happyeducation.uk/wp-content/uploads/0010_Cats-Cambridge.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "d153b23543b5",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2297c383af67",
+            "text": "CATS Cambridge",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "b9354e4c5877",
+        "src": "https://happyeducation.uk/wp-content/uploads/0003_Guildhouse-School-London.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "89bb830a5fd4",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "539f44e2141b",
+            "text": "Guildhouse School London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "4bd26bbebb24",
+        "src": "https://happyeducation.uk/wp-content/uploads/0002_The-Worthgate-School-Canterbury.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "47cdd4bcd379",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b04b1df26f43",
+            "text": "The Worthgate School",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "14ccfdef5b5f",
+        "src": "https://happyeducation.uk/wp-content/uploads/0000_North-London-Grammar-School.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "382fdee98d01",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "207bdd81b665",
+            "text": "North London Grammar School",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "b38c5d9d240e",
+        "src": "https://happyeducation.uk/wp-content/uploads/0001_HENDON-PREP-SCHOOL.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "821705f3a686",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "730f61bdc9ba",
+            "text": "Hendon Prep School",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "98b2e940db47",
+        "src": "https://happyeducation.uk/wp-content/uploads/0004_David-Game-College.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "71d9cf84b225",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e3e19e73abb6",
+            "text": "David Game College",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "a924702c8446",
+        "src": "https://happyeducation.uk/wp-content/uploads/0006_Mill-Hill-School.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "faf63db3cf49",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1e9e5e2759d8",
+            "text": "Mill Hill School",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "8728bf1bf913",
+        "src": "https://happyeducation.uk/wp-content/uploads/0005_OIC_Oxford_March-2023_159_OIC-promo-footer.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "4678532f88cb",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ce5d42d7d1a6",
+            "text": "Oxford International College",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "d6576a878609",
+        "src": "https://happyeducation.uk/wp-content/uploads/0008_Newton-Building.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "0026ae698dd9",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1023790116b2",
+            "text": "Bosworth Independent School",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "17523be8648b",
+        "src": "https://happyeducation.uk/wp-content/uploads/0009_North-Bridge-ASC_4262-1500x998-2.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "93ebd66acbf9",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "59dd45835730",
+            "text": "North Bridge House School",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "d3bf66ec2a8e",
+        "src": "https://happyeducation.uk/wp-content/uploads/0007_Image_OICB_Brighton_2023_80_oicb-5050-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "8f038fd72246",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "917f38687ef7",
+            "text": "Oxford International College Brighton",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/yatili-okul.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "THIRD-PARTY CLAIM in body copy (institution success rate: \"başarı oranı\"). This is an assertion about the institution, not about Happy Education. Verify it against the institution or the accrediting body, attribute it explicitly, and cite the source. Language schools have a dedicated accreditations field with a verified flag; use it rather than leaving the claim in prose.\n1 bold pseudo-heading(s) carried across as paragraphs. Promote them to real headings in the Studio.\n12 image(s) with no alt text. Alt text must be written before publication.\nLegacy programme strip found (\"A Level, GCSE, International Baccalaureate (IB) gibi dünyaca tanınan eğitim sistemleri\"). Left in the body rather than duplicated into a structured field.\n6 link(s) dropped during conversion: # (in-page anchor only); # (in-page anchor only); # (in-page anchor only)."
+    },
+    "_migration": {
+      "legacyId": 13153,
+      "legacyPath": "/ingiltere-yatili-okullar/",
+      "legacyUrl": "https://happyeducation.uk/ingiltere-yatili-okullar/",
+      "targetPath": "/tr/yatili-okullar/",
+      "bucket": "KEEP",
+      "inventoryReason": "472w UK boarding-schools hub; all 5 of its child links point at dead /boarding-schools/* and /yatili-okullar/* URLs",
+      "sourceLanguage": "TR",
+      "sourceWords": 472,
+      "convertedWords": 472,
+      "headings": [
+        {
+          "style": "h2",
+          "text": "Yatılı Okullar"
+        },
+        {
+          "style": "h3",
+          "text": "Birleşik Krallık’ta Nitelikli Eğitim ve Güvenli Bir Gelecek"
+        },
+        {
+          "style": "h3",
+          "text": "Neden İngiltere’de Yatılı Okul?"
+        },
+        {
+          "style": "h2",
+          "text": "Yatılı Okullarda Sunulan Olanaklar"
+        },
+        {
+          "style": "h3",
+          "text": "Modern Konaklama İmkanları"
+        },
+        {
+          "style": "h3",
+          "text": "Zengin Sosyal ve Kültürel Aktiviteler"
+        },
+        {
+          "style": "h3",
+          "text": "Gelişmiş Spor Tesisleri"
+        },
+        {
+          "style": "h3",
+          "text": "Akademik Destek ve Kaynaklar"
+        },
+        {
+          "style": "h3",
+          "text": "Sağlık ve Psikolojik Destek"
+        },
+        {
+          "style": "h3",
+          "text": "Uluslararası Öğrenci Toplulukları"
+        },
+        {
+          "style": "h4",
+          "text": "CATS Cambridge"
+        },
+        {
+          "style": "h4",
+          "text": "Guildhouse School London"
+        },
+        {
+          "style": "h4",
+          "text": "The Worthgate School"
+        },
+        {
+          "style": "h4",
+          "text": "North London Grammar School"
+        },
+        {
+          "style": "h4",
+          "text": "Hendon Prep School"
+        },
+        {
+          "style": "h4",
+          "text": "David Game College"
+        },
+        {
+          "style": "h4",
+          "text": "Mill Hill School"
+        },
+        {
+          "style": "h4",
+          "text": "Oxford International College"
+        },
+        {
+          "style": "h4",
+          "text": "Bosworth Independent School"
+        },
+        {
+          "style": "h4",
+          "text": "North Bridge House School"
+        },
+        {
+          "style": "h4",
+          "text": "Oxford International College Brighton"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/yatili-okul.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "programmes": "inline-label"
+      }
+    }
+  },
+  {
+    "_id": "page-tr-13185",
+    "_type": "page",
+    "locale": "tr",
+    "title": "Yaz Okulları",
+    "slug": {
+      "_type": "slug",
+      "current": "yaz-okullari"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-page-13185"
+    },
+    "body": [
+      {
+        "_type": "imagePlaceholder",
+        "_key": "ea37c9e1a930",
+        "src": "https://happyeducation.uk/wp-content/uploads/yaz-okulu-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "ef5569f310bb",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22e77e38c04f",
+            "text": "Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0aca06bd146d",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "82f52b2fcc86",
+            "text": "Yaz Boyunca Eğitim, Keşif ve Kişisel Gelişim",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "31be645c0038",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "ffddfc8623ee",
+            "reference": {
+              "_type": "reference",
+              "_ref": "page-tr-12883"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4a67f4325056",
+            "text": "Happy Education",
+            "marks": [
+              "ffddfc8623ee",
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "1a4ed3711eb9",
+            "text": " yaz aylarını öğrenciler için hem dinlenme hem de gelişim fırsatına dönüştürür. öğrencilere İngilizce becerilerini geliştirecekleri ve kültürel açıdan zenginleşecekleri bir ortam sunar. Yaz okulları, öğrencilerin bağımsızlık kazandığı, farklı milletlerden arkadaşlıklar kurduğu ve ilgi alanlarına göre şekillenen programlarla vizyonlarını genişlettiği eşsiz bir ortam sunar. Özellikle 8-18 yaş arası öğrenciler için hazırlanan bu programlar, eğitimle eğlenceyi harmanlayarak unutulmaz bir yaz vadeder.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c9650f512fcc",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "73cd72b4e292",
+            "text": "Program Türleri",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "62495cf7e963",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4d45e2bfe360",
+            "text": "İngiltere ve Amerika’da bulunan yaz okulları, her öğrencinin farklı ilgi ve hedeflerine hitap eden çok çeşitli programlar sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2ad8d49fc9dc",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c304e10004a9",
+            "text": "Dil Odaklı Programlar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "15055db49da2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b6e212ec6288",
+            "text": "Yoğun İngilizce eğitimi sunan bu programlar, öğrencilerin konuşma, yazma, dinleme ve okuma becerilerini hızla geliştirmesine yardımcı olur. Katılımcılar, anadili İngilizce olan eğitmenlerle ders yaparak dili doğal bir ortamda öğrenir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0dd320a125f4",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "03259071b49e",
+            "text": "Sanat ve Spor Programları:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "48bf1524eb45",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d89d7db25c7a",
+            "text": "Tiyatrodan futbola, müzikten yüzmeye kadar birçok alanda sunulan kurslar, öğrencilerin yeteneklerini keşfetmesini sağlar. Aynı zamanda özgüven kazanmalarına ve takım ruhunu deneyimlemelerine katkı sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3f88fd8026d7",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8eb0b8db7ffd",
+            "text": "Akademik ve STEM Odaklı Programlar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9e9b01701544",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "df8b0a341d32",
+            "text": "Matematik, fen bilimleri, robotik, kodlama gibi alanlarda düzenlenen atölyeler, öğrencilerin akademik meraklarını besler. Bu programlar geleceğin mesleklerine hazırlık niteliğinde olup eleştirel düşünme becerilerini geliştirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7d3d00a187c1",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6c29eb2dc679",
+            "text": "Liderlik ve Girişimcilik Programları:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b6c81a270ff3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "aa626c1b38a2",
+            "text": "İş dünyası simülasyonları, münazaralar ve toplumsal projeler aracılığıyla öğrenciler liderlik potansiyellerini keşfeder. Katılımcılar etkili iletişim, zaman yönetimi ve problem çözme gibi beceriler kazanır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "4506ed128405",
+        "src": "https://happyeducation.uk/wp-content/uploads/Sir-Edward-Ely-1-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "7a7fae9d0655",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a7e3b3a26fb1",
+            "text": "Detaylı Bilgi İçin Tıklayın!",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6ef4e1f5f1b9",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7c7496eefcac",
+            "text": "İngiltere Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1d2f8b786986",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "525e73b99a69",
+            "text": "İngiltere köklü eğitim geleneği, tarihi zenginlikleri ve çok kültürlü yapısıyla da öne çıkar. Yaz okulları öğrencilerin İngilizcelerini geliştirirken yeni bir kültürü yakından tanımasına imkân tanır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d58898573237",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bb7e12c4aa3c",
+            "text": "Ana Dilde Eğitim Avantajı:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9a2365a156a1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "628578ac5279",
+            "text": "Öğrenciler, İngilizce’yi anadili İngilizce olan eğitmenlerle öğrenerek hem telaffuzlarını geliştirir hem de dili doğal bir bağlamda kullanma pratiği kazanır. Günlük yaşamda da İngilizce iletişim kurmak, kalıcı öğrenmeyi destekler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "71bdf60d77f5",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "941a232b03cf",
+            "text": "Tarihi ve Kültürel Zenginlik:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "efce9749e3e0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "286c288c943d",
+            "text": "İngiltere; Londra, Oxford, Cambridge gibi şehirleriyle kültürel bir hazinedir. Müzeler, kaleler, tiyatrolar ve doğal parklar öğrencilerin ders dışı zamanlarını anlamlı kılar. Öğrenciler, gezi ve etkinliklerle akademik bilgilerini gerçek yaşamla bütünleştirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "85fb73a20d11",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2be1c13e154e",
+            "text": "Güvenli ve Denetimli Kampüsler:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7a399bd65456",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "bfd2f5b8adfa",
+            "text": "İngiltere’deki yaz okulları, öğrencilerin güvenliğini en üst düzeyde sağlayan sistemlere sahiptir. 7/24 gözetim, danışmanlık ve sağlık hizmetleri aileler için de iç rahatlatıcı bir avantaj sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9f5243427f28",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6587fba88a1f",
+            "text": "Modern ve Güvenli Konaklama Seçenekleri:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5c8353a90374",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8868a81067f5",
+            "text": "Yaz okulları, genellikle üniversite kampüslerinde veya yatılı okulların yurtlarında konaklama imkanı sunar. Tek veya çift kişilik odalar, özel banyolar, 7/24 güvenlik, gözetmen öğretmenler ve sağlık görevlileri konaklamanın asgari şartlarını oluşturur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c41918c6508f",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "abf58bef4761",
+            "text": "Zengin Akademik İçerikler:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a00584afbe3d",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d3b2f0e0812c",
+            "text": "İngilizce dil programları, sınav hazırlık dersleri (IELTS, Cambridge English vb.) veya tematik akademik modüller (STEM, sanat, liderlik, iş dünyası vb.) öğrencilerin hem dil becerilerini geliştirir hem de akademik motivasyonlarını artırır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c2b5f76789b6",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a77c626b2c46",
+            "text": "Spor ve Fiziksel Aktivite İmkanları:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a6ff856c6783",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3419d79d053f",
+            "text": "Futbol, yüzme, tenis, basketbol gibi sporların yanı sıra yoga, dans ve doğa yürüyüşleri gibi etkinlikler düzenli olarak programlara dahil edilir. Bu aktiviteler, öğrencilerin fiziksel sağlığını desteklediği kadar takım ruhunu da güçlendirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c0681dc54cb6",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7e6e54efa673",
+            "text": "Uluslararası Öğrenci Ortamı:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9a8f76e8262f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "480b5f5b6b81",
+            "text": "Dünyanın dört bir yanından gelen öğrencilerle aynı kampüste yaşamak, kültürlerarası iletişim ve küresel bakış açısı kazandırır. Bu çeşitlilik, sosyal becerileri geliştirmenin yanı sıra öğrencilerin farklı bakış açılarını keşfetmelerini sağlar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7f59ab14160b",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "81388beb28bb",
+            "text": "7/24 Destek ve Rehberlik:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8fedb823bdd2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "661e1938c06d",
+            "text": "Yaz okulları öğrencilerin güvenliğini ve refahını en üst düzeyde tutmak için profesyonel ekiplerle çalışır. Öğrenci danışmanları, sağlık görevlileri ve sosyal sorumlular sayesinde her durumda destek sağlanır. Bu destek sistemi, özellikle ilk kez yurt dışı deneyimi yaşayan öğrenciler için büyük bir güvence sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "872d7b4e8685",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "76caa4d7b977",
+            "text": "Aileler İçin Bilgilendirme ve Destek:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6b3532f11fd7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "df3bec4b482d",
+            "text": "Program süresince öğrencinin günlük aktiviteleri, eğitim durumu ve sosyal gelişimi hakkında ailelere düzenli ve şeffaf bilgilendirmeler gönderilir. Olası acil durumlar veya beklenmedik gelişmelerde ailelerle hızlı ve etkili iletişim kurularak gerekli destek anında sağlanır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c8087c3a90ac",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22924fbf9940",
+            "text": "Amerika Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6a12faac716e",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "3a382650c506",
+            "reference": {
+              "_type": "reference",
+              "_ref": "destination-tr-10355"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "09ab93a47e31",
+            "text": "Amerika Birleşik Devletleri dünya çapında prestijli üniversiteleri, kültürel çeşitliliği ve yaratıcı eğitim yaklaşımlarıyla öne çıkar. Yaz okulları, öğrencilere hem ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "d14b8a14abcc",
+            "text": "dil",
+            "marks": [
+              "3a382650c506",
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "d14d045aae3f",
+            "text": " ",
+            "marks": [
+              "3a382650c506"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "5fb178a77ca3",
+            "text": "gelişimi hem de global farkındalık kazandırma açısından eşsiz bir fırsat sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "03bfa0b4870d",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0e13cfaf39b8",
+            "text": "Ana Dilde Eğitim Avantajı:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7cb324a8ef0e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cf892e14ed03",
+            "text": "Öğrenciler, İngilizce’yi anadili İngilizce olan eğitmenlerle öğrenerek telaffuz ve ifade becerilerini ileri seviyeye taşır. Günlük yaşamın her anında İngilizceye maruz kalmak, kalıcı ve etkili dil öğrenimini destekler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "67f0ff1279b8",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e84509f10146",
+            "text": "Akademik ve Teknolojik Altyapı:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "60d8821c7377",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9ad2a1f80632",
+            "text": "ABD yaz okulları, teknolojik donanımı yüksek kampüslerde gerçekleştirilir. Laboratuvarlar, dijital kaynaklar ve yenilikçi öğrenme ortamları öğrencilerin ilgisini çeker. STEM, yapay zekâ, tıp, girişimcilik gibi tematik içerikler, öğrencilerin akademik hedefleriyle birebir örtüşen programlar sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "af0c68a1107d",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8e1e5454c2f6",
+            "text": "Kültürel Çeşitlilik ve Sosyal Etkileşim:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "19eab1c808f5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6ff06a3b2d3e",
+            "text": "Amerika, farklı kültürlerin bir arada yaşadığı bir toplumdur. Yaz okulları, bu çok kültürlü yapıyı öğrencilerin sosyal gelişimi için avantaja dönüştürür. Farklı ülkelerden gelen öğrencilerle etkileşim, gençlere küresel vizyon kazandırır ve yaşam boyu sürecek dostlukların temelini atar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5d9d47a198a5",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "afc808e1421a",
+            "text": "Güvenli ve Profesyonel Rehberlik:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a3434a20916e",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d4b135f99c63",
+            "text": "Kampüsler, öğrencilerin güvenliğini sağlamak için profesyonel ekipler tarafından 7/24 denetlenir. Öğrenciler; danışman öğretmenler, sağlık görevlileri ve sosyal rehberlerle her an destek alabilecekleri bir ortamda bulunur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "ea3f176f937c",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a4e8167654e8",
+            "text": "Modern ve Güvenli Konaklama Seçenekleri:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c3680e389ef5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d137e7a2c67a",
+            "text": "Yaz okulları genellikle üniversite kampüslerinde veya lisanslı öğrenci yurtlarında gerçekleşir. 2–3 kişilik odalar, ortak banyolar, yemek salonları ve sosyal alanlar güvenli ve konforlu bir ortam oluşturur. Genç yaş grupları için denetimli yurtlar ve 7/24 gözetim sistemi mevcuttur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1b13f7d211bd",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5a3750be2cfd",
+            "text": "Sosyal ve Kültürel Etkinlikler:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "362a042df3c2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4d1b4485d297",
+            "text": "Hollywood, Disneyland, New York City turları, müze ziyaretleri ve kültürel geziler sayesinde öğrenciler ABD'nin kültürünü yakından tanıma fırsatı bulur. Akşam etkinlikleri (sinema, spor, yarışmalar vb.) sosyal bağları güçlendirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3e9ec8e3305f",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "452a36007b08",
+            "text": "Spor ve Fiziksel Aktivite İmkânları:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "fc23b47e3eb8",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "43021b49e007",
+            "text": "Tenis, yüzme, basketbol, voleybol, yoga gibi spor etkinlikleri düzenli olarak sunulur. Kampüslerde bulunan spor salonları ve açık alanlar öğrencilerin fiziksel gelişimini destekler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "ce69420d90b8",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1952fdef255f",
+            "text": "7/24 Destek ve Rehberlik:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6432d2bc6cf4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "883e8cab615c",
+            "text": "Kampüs içerisinde görevli rehber öğretmenler ve danışmanlar, öğrencilerin her türlü ihtiyaçlarına çözüm üretir. Sağlık desteği, psikolojik danışmanlık ve acil durum yönetimi profesyonel ekipler tarafından yürütülür.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "690a25457ebc",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2753d3b6ee05",
+            "text": "Aileler İçin Bilgilendirme ve Destek:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5b951eaae6e1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "86ad7d4b17f7",
+            "text": "Öğrencinin günlük programı, akademik performansı ve sosyal katılımı hakkında düzenli güncellemeler paylaşılır. Öğrenciyle ilgili acil durumlar ve ihtiyaçlar için günün her saati iletişim kurulur. Happy Education UK ile Amerika’da yaz okulu, sadece dil eğitimi değil, aynı zamanda unutulmaz bir kişisel gelişim yolculuğudur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "02f667606b4a",
+        "src": "https://happyeducation.uk/wp-content/uploads/elementor/thumbs/shutterstock_1690417807-1-scaled-rgl6q1f7jvizbg8u77opt9xk9oxyugc7s1bub8k7z8.jpg",
+        "alt": "1690417807"
+      },
+      {
+        "_type": "block",
+        "_key": "1bf4d660450f",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a1c664194439",
+            "text": "Bireysel Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "95dffcd3e383",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "366cea508a6f",
+            "text": "Yaz Boyunca Eğitim, Keşif ve Kişisel Gelişim",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2daa8ef87d0f",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "63a56f1e08c2",
+            "reference": {
+              "_type": "reference",
+              "_ref": "page-tr-12883"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5e0b876fa7c5",
+            "text": "Happy Education",
+            "marks": [
+              "63a56f1e08c2",
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "fee14f78552b",
+            "text": " yaz aylarını öğrenciler için hem dinlenme hem de gelişim fırsatına dönüştürür. öğrencilere İngilizce becerilerini geliştirecekleri ve kültürel açıdan zenginleşecekleri bir ortam sunar. Yaz okulları, öğrencilerin bağımsızlık kazandığı, farklı milletlerden arkadaşlıklar kurduğu ve ilgi alanlarına göre şekillenen programlarla vizyonlarını genişlettiği eşsiz bir ortam sunar. Özellikle 8-18 yaş arası öğrenciler için hazırlanan bu programlar, eğitimle eğlenceyi harmanlayarak unutulmaz bir yaz vadeder.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "dacb047e48fe",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "096b09fece3b",
+            "text": "İngiltere köklü eğitim geleneği, tarihi zenginlikleri ve çok kültürlü yapısıyla da öne çıkar. Yaz okulları öğrencilerin İngilizcelerini geliştirirken yeni bir kültürü yakından tanımasına imkân tanır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "40817ba12375",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "54791946825e",
+            "text": "İngiltere Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "17393ef482fb",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "42bf536debab",
+            "text": "Sir Edward - Cambridge",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0f1d2a0b31d4",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "6471143b394a",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13744"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "30be79c88909",
+            "text": "İncele ",
+            "marks": [
+              "6471143b394a"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "618b2bdbb687",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e695bf3f152b",
+            "text": "Sir Micheal - Cambridge",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f9fbdbe5f1f1",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "ca738b84953e",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13749"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1772ecd45aae",
+            "text": "İncele ",
+            "marks": [
+              "ca738b84953e"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c7981e26abdf",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8e5eb15c5f12",
+            "text": "Sir Christopher - Cambridge",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6cc55ef4a71d",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "07a0a2e44e2b",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13754"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ef6000fc711b",
+            "text": "İncele ",
+            "marks": [
+              "07a0a2e44e2b"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8456a2d3fabf",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f27c97864696",
+            "text": "Intensive English - London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "375b63d1da29",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "b95ec321859f",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13779"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4991fcf3c71d",
+            "text": "İncele ",
+            "marks": [
+              "b95ec321859f"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "01219b3b61e9",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fb00c02fa98a",
+            "text": "AI and Computer Science - Oxford",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0139252025db",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "e70a73f6aef9",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13789"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "52b1440c5145",
+            "text": "İncele ",
+            "marks": [
+              "e70a73f6aef9"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0177c2ab2149",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8df1e0d40873",
+            "text": "Engineering Camp - Brighton",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7d3e016f5e04",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "d1040161d69e",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13799"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fd63ad040021",
+            "text": "İncele ",
+            "marks": [
+              "d1040161d69e"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7e0b06c6af13",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0088d9c496cb",
+            "text": "Business and Finance - London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2c6c9ad6f458",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "7bb1ef7d6ac8",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13805"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1aea963c156a",
+            "text": "İncele ",
+            "marks": [
+              "7bb1ef7d6ac8"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "508dfe5f49cc",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b727b6d47f3b",
+            "text": "St. Giles - Cambridge",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8b1cc69f55ad",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "5c5aeebcaa44",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13817"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d016a4ce0a0f",
+            "text": "İncele ",
+            "marks": [
+              "5c5aeebcaa44"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b4ec2fa4e2d2",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2b491fc323a6",
+            "text": "St. Giles - UCL London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7d3dd223f35b",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "63216bac2462",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13822"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ee3f0a5cf807",
+            "text": "İncele ",
+            "marks": [
+              "63216bac2462"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9f6d2434998a",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a5cf66bbc2ce",
+            "text": "St. Giles - Oxford",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "cfa02f45f9e4",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "ba3bdc059b56",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13828"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ac1ea0c7856b",
+            "text": "İncele ",
+            "marks": [
+              "ba3bdc059b56"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "69f64ac93370",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8498494473f0",
+            "text": "Bucksmore Education - Brighton",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "345fd0054d2a",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "05f39a2c7d2b",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13772"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0f878ebed5bc",
+            "text": "İncele ",
+            "marks": [
+              "05f39a2c7d2b"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b0982b173441",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2fe02576a1e8",
+            "text": "LSI - UCL London Central",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1b27537f150c",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "0331ef15771a",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13864"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "559d0459988e",
+            "text": "İncele ",
+            "marks": [
+              "0331ef15771a"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "be0c1a35ef57",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0cd30ea64c55",
+            "text": "LSI - London Hampstead",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "111916bb1aef",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "39288849f2bf",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13858"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "967592997d8e",
+            "text": "İncele ",
+            "marks": [
+              "39288849f2bf"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "518c08070a46",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4a4196ac2715",
+            "text": "English Path - London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e0c21ad9c93d",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "bbe9c485dc44",
+            "reference": {
+              "_type": "reference",
+              "_ref": "languageSchool-tr-13852"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9fd83d6d8fe4",
+            "text": "İncele ",
+            "marks": [
+              "bbe9c485dc44"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8dbaca79fcb4",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "355b82ded5bd",
+            "text": "Football Academy - Brighton",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "377f17f2aa68",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "eb449fe9692d",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13811"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e4a7a897aa68",
+            "text": "İncele ",
+            "marks": [
+              "eb449fe9692d"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8b7d4160fab6",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9acc4ca7fb8d",
+            "text": "Berlitz - Manchester",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f9c9c48a6569",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "fb8a3b2c655b",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-14724"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b8a075623597",
+            "text": "İncele ",
+            "marks": [
+              "fb8a3b2c655b"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f61582782ede",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a6f7bf32f991",
+            "text": "Skola Regent Park - London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "516fc59a5abf",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "efde2ef8e162",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13767"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1a99c9f0ad94",
+            "text": "İncele ",
+            "marks": [
+              "efde2ef8e162"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8cca40caffd1",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2ba7b781b067",
+            "text": "Skola Regent - Gloucester Gate",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a8ab07b1d564",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "cc5e2eb55d96",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-14715"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4e67741c06e8",
+            "text": "İncele ",
+            "marks": [
+              "cc5e2eb55d96"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a75ccc0fe9d0",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a051ae412b8a",
+            "text": "St. Giles Family Programme - London Highgate",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7e99012a1d52",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "1a0840653ed2",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13846"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ba1d91c2eab8",
+            "text": "İncele ",
+            "marks": [
+              "1a0840653ed2"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f5939133da01",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "753dc34b7b54",
+            "text": "St. Giles Family Programme - London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9d390df561c4",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "14c9d8653b28",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13840"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6f7279f89679",
+            "text": "İncele ",
+            "marks": [
+              "14c9d8653b28"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d5e0f0b0365d",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d213fc7175af",
+            "text": "Neden İngiltere Yaz Okulu?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1ffac6dbfb9b",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "63472a26e039",
+            "text": "Ana Dilde Eğitim Avantajı:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "26e7d511b1dc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "34b85271d0c0",
+            "text": "Öğrenciler, İngilizce’yi anadili İngilizce olan eğitmenlerle öğrenerek hem telaffuzlarını geliştirir hem de dili doğal bir bağlamda kullanma pratiği kazanır. Günlük yaşamda da İngilizce iletişim kurmak, kalıcı öğrenmeyi destekler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5feeb7af652f",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2e7354eed0c2",
+            "text": "Tarihi ve Kültürel Zenginlik:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0578ca87eee4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c308c86893e6",
+            "text": "İngiltere; Londra, Oxford, Cambridge gibi şehirleriyle kültürel bir hazinedir. Müzeler, kaleler, tiyatrolar ve doğal parklar öğrencilerin ders dışı zamanlarını anlamlı kılar. Öğrenciler, gezi ve etkinliklerle akademik bilgilerini gerçek yaşamla bütünleştirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8a76dfe2d55f",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "99d0afe95716",
+            "text": "Güvenli ve Denetimli Kampüsler:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2066bc35226c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9f99f6948ed6",
+            "text": "İngiltere’deki yaz okulları, öğrencilerin güvenliğini en üst düzeyde sağlayan sistemlere sahiptir. 7/24 gözetim, danışmanlık ve sağlık hizmetleri aileler için de iç rahatlatıcı bir avantaj sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f10ddbead4a8",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2762a5e11ef1",
+            "text": "Modern ve Güvenli Konaklama Seçenekleri:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f5c168909d64",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e430a00254ce",
+            "text": "Yaz okulları, genellikle üniversite kampüslerinde veya yatılı okulların yurtlarında konaklama imkanı sunar. Tek veya çift kişilik odalar, özel banyolar, 7/24 güvenlik, gözetmen öğretmenler ve sağlık görevlileri konaklamanın asgari şartlarını oluşturur.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "765aa100d20a",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "85804d26eeb2",
+            "text": "Zengin Akademik İçerikler:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "56b12edb4109",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7ff54bbc7ca4",
+            "text": "İngilizce dil programları, sınav hazırlık dersleri (IELTS, Cambridge English vb.) veya tematik akademik modüller (STEM, sanat, liderlik, iş dünyası vb.) öğrencilerin hem dil becerilerini geliştirir hem de akademik motivasyonlarını artırır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a06556cec90d",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "69e5ddb848a2",
+            "text": "Spor ve Fiziksel Aktivite İmkanları:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "12682363203f",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "aa9ca42f3bdd",
+            "text": "Futbol, yüzme, tenis, basketbol gibi sporların yanı sıra yoga, dans ve doğa yürüyüşleri gibi etkinlikler düzenli olarak programlara dahil edilir. Bu aktiviteler, öğrencilerin fiziksel sağlığını desteklediği kadar takım ruhunu da güçlendirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "24ef19c58bf3",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3568bd72db03",
+            "text": "Uluslararası Öğrenci Ortamı:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "396f929fc2f7",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c25c64552d7a",
+            "text": "Dünyanın dört bir yanından gelen öğrencilerle aynı kampüste yaşamak, kültürlerarası iletişim ve küresel bakış açısı kazandırır. Bu çeşitlilik, sosyal becerileri geliştirmenin yanı sıra öğrencilerin farklı bakış açılarını keşfetmelerini sağlar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "dc41ebc78d9f",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5e2021418643",
+            "text": "7/24 Destek ve Rehberlik:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7c23d27a9e74",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "48bc44aa8ad1",
+            "text": "Yaz okulları öğrencilerin güvenliğini ve refahını en üst düzeyde tutmak için profesyonel ekiplerle çalışır. Öğrenci danışmanları, sağlık görevlileri ve sosyal sorumlular sayesinde her durumda destek sağlanır. Bu destek sistemi, özellikle ilk kez yurt dışı deneyimi yaşayan öğrenciler için büyük bir güvence sunar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "19fd09be83b4",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "10bc79df2cb5",
+            "text": "Aileler İçin Bilgilendirme ve Destek:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "0329d0888259",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9789adae72e9",
+            "text": "Program süresince öğrencinin günlük aktiviteleri, eğitim durumu ve sosyal gelişimi hakkında ailelere düzenli ve şeffaf bilgilendirmeler gönderilir. Olası acil durumlar veya beklenmedik gelişmelerde ailelerle hızlı ve etkili iletişim kurularak gerekli destek anında sağlanır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "fbe66a5054b1",
+        "src": "https://happyeducation.uk/wp-content/uploads/Skola-Regents-Park-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "5d154dee4d2b",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "unresolvedLink",
+            "_key": "4555d06ecb4f",
+            "legacyPath": "/skola-regents-park-2/",
+            "reason": "no migrated document at this path"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4e205533d2fe",
+            "text": "Skola Regents Park",
+            "marks": [
+              "4555d06ecb4f"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "87f0537a20c5",
+        "src": "https://happyeducation.uk/wp-content/uploads/Sir-Laurence-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "0bd1940c9c40",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "8eb23a4a1368",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-6410"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e5302e1cc07e",
+            "text": "Sir Laurence Cambridge",
+            "marks": [
+              "8eb23a4a1368"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "d9e24d967714",
+        "src": "https://happyeducation.uk/wp-content/uploads/Sir-Michael-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "273303fea69b",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "8ca7b3f4728e",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-6438"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b76b6e050bd8",
+            "text": "Sir Michael Cambridge",
+            "marks": [
+              "8ca7b3f4728e"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "f8f60c815dc4",
+        "src": "https://happyeducation.uk/wp-content/uploads/Sir-Edward-Ely-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "e8f82c9f0376",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "d16c7e60a2d1",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-6991"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0de3dac29c06",
+            "text": "Sir Edward King’s Ely",
+            "marks": [
+              "d16c7e60a2d1"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "0b5f4df17328",
+        "src": "https://happyeducation.uk/wp-content/uploads/dockland.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "1357fb3cd72b",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "5c321873def2",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7001"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4db12bceb1e1",
+            "text": "Twin London Docklands",
+            "marks": [
+              "5c321873def2"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "b4efe3820596",
+        "src": "https://happyeducation.uk/wp-content/uploads/Twin-Edinburgh-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "9928f7697bd9",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "eb7ac18fa89d",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7011"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "268aeb5ce567",
+            "text": "Twin Edinburgh",
+            "marks": [
+              "eb7ac18fa89d"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "22d2b2d87487",
+        "src": "https://happyeducation.uk/wp-content/uploads/Guildhouse-School-of-London-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "6fdaf400de21",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "unresolvedLink",
+            "_key": "447775127746",
+            "legacyPath": "/guildhouse-school-london/",
+            "reason": "no migrated document at this path"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8716159c0140",
+            "text": "Guildhouse School London",
+            "marks": [
+              "447775127746"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "9809dacd779b",
+        "src": "https://happyeducation.uk/wp-content/uploads/St-Giles-UCL-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "4e625fc52918",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "6c9d84a274aa",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7057"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "7f00d478043c",
+            "text": "St. Giles London Central",
+            "marks": [
+              "6c9d84a274aa"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "2214e73eb764",
+        "src": "https://happyeducation.uk/wp-content/uploads/LSI-Hampstead-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "50a18a359b2f",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "d7a958fa63df",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7070"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dfcedeeac48a",
+            "text": "LSI London Hampstead",
+            "marks": [
+              "d7a958fa63df"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "666d27a42962",
+        "src": "https://happyeducation.uk/wp-content/uploads/EP-London-Stratford-.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "99c74824a863",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "unresolvedLink",
+            "_key": "6af9ad91100d",
+            "legacyPath": "/ep-london-stratford-2/",
+            "reason": "no migrated document at this path"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3fdfa9eeb248",
+            "text": "EP London Stratford",
+            "marks": [
+              "6af9ad91100d"
+            ]
+          }
+        ]
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/yaz-okulu-1.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "ENTRY REQUIREMENTS mentioned (IELTS/TOEFL/GPA). Re-verify against the institution and cite it.\n2 image(s) with no alt text. Alt text must be written before publication.\nLegacy programme strip found (\"İngiltere ve Amerika’da bulunan yaz okulları, her öğrencinin farklı ilgi ve hedeflerine hitap eden çok çeşitli programla\"). Left in the body rather than duplicated into a structured field.\n22 link(s) dropped during conversion: # (in-page anchor only); # (in-page anchor only); # (in-page anchor only).\nMERGED: the body of /bireysel-yaz-okullari/ (529 words) was appended below. De-duplicate the two versions by hand; nothing was deleted automatically. Audit reason: Jaccard 0.41 / containment 0.78 vs /summer-schools/ - re-uses the same programme-type prose\nMERGED: the body of /yaz-okullari/bireysel-yaz-okullari/ (31 words) was appended below. De-duplicate the two versions by hand; nothing was deleted automatically. Audit reason: Link-list stub (31w) duplicating the 529w root hub of the same title"
+    },
+    "_migration": {
+      "legacyId": 13185,
+      "legacyPath": "/summer-schools/",
+      "legacyUrl": "https://happyeducation.uk/summer-schools/",
+      "targetPath": "/tr/yaz-okullari/",
+      "bucket": "KEEP",
+      "inventoryReason": "901w - the longest page on the site; the real summer-schools hub. Note the slug is English while the content is Turkish",
+      "sourceLanguage": "TR",
+      "sourceWords": 901,
+      "convertedWords": 901,
+      "headings": [
+        {
+          "style": "h2",
+          "text": "Yaz Okulları"
+        },
+        {
+          "style": "h3",
+          "text": "Yaz Boyunca Eğitim, Keşif ve Kişisel Gelişim"
+        },
+        {
+          "style": "h2",
+          "text": "Program Türleri"
+        },
+        {
+          "style": "h3",
+          "text": "Dil Odaklı Programlar:"
+        },
+        {
+          "style": "h3",
+          "text": "Sanat ve Spor Programları:"
+        },
+        {
+          "style": "h3",
+          "text": "Akademik ve STEM Odaklı Programlar:"
+        },
+        {
+          "style": "h3",
+          "text": "Liderlik ve Girişimcilik Programları:"
+        },
+        {
+          "style": "h4",
+          "text": "Detaylı Bilgi İçin Tıklayın!"
+        },
+        {
+          "style": "h2",
+          "text": "İngiltere Yaz Okulları"
+        },
+        {
+          "style": "h3",
+          "text": "Ana Dilde Eğitim Avantajı:"
+        },
+        {
+          "style": "h3",
+          "text": "Tarihi ve Kültürel Zenginlik:"
+        },
+        {
+          "style": "h3",
+          "text": "Güvenli ve Denetimli Kampüsler:"
+        },
+        {
+          "style": "h3",
+          "text": "Modern ve Güvenli Konaklama Seçenekleri:"
+        },
+        {
+          "style": "h3",
+          "text": "Zengin Akademik İçerikler:"
+        },
+        {
+          "style": "h3",
+          "text": "Spor ve Fiziksel Aktivite İmkanları:"
+        },
+        {
+          "style": "h3",
+          "text": "Uluslararası Öğrenci Ortamı:"
+        },
+        {
+          "style": "h3",
+          "text": "7/24 Destek ve Rehberlik:"
+        },
+        {
+          "style": "h3",
+          "text": "Aileler İçin Bilgilendirme ve Destek:"
+        },
+        {
+          "style": "h2",
+          "text": "Amerika Yaz Okulları"
+        },
+        {
+          "style": "h3",
+          "text": "Ana Dilde Eğitim Avantajı:"
+        },
+        {
+          "style": "h3",
+          "text": "Akademik ve Teknolojik Altyapı:"
+        },
+        {
+          "style": "h3",
+          "text": "Kültürel Çeşitlilik ve Sosyal Etkileşim:"
+        },
+        {
+          "style": "h3",
+          "text": "Güvenli ve Profesyonel Rehberlik:"
+        },
+        {
+          "style": "h3",
+          "text": "Modern ve Güvenli Konaklama Seçenekleri:"
+        },
+        {
+          "style": "h3",
+          "text": "Sosyal ve Kültürel Etkinlikler:"
+        },
+        {
+          "style": "h3",
+          "text": "Spor ve Fiziksel Aktivite İmkânları:"
+        },
+        {
+          "style": "h3",
+          "text": "7/24 Destek ve Rehberlik:"
+        },
+        {
+          "style": "h3",
+          "text": "Aileler İçin Bilgilendirme ve Destek:"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/yaz-okulu-1.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {
+        "programmes": "section-heading"
+      },
+      "mergedFrom": [
+        "/bireysel-yaz-okullari/",
+        "/yaz-okullari/bireysel-yaz-okullari/"
+      ]
+    }
+  },
+  {
+    "_id": "page-tr-1347",
+    "_type": "page",
+    "locale": "tr",
+    "title": "İletişim",
+    "slug": {
+      "_type": "slug",
+      "current": "iletisim"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-page-1347"
+    },
+    "pageKey": "contact",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "f6687afeaa0d",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "368a208de09e",
+            "text": "Bizimle",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e538fb0e4ce4",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "76148ee4bbad",
+            "text": "İletişime Geçin",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d6ff8d8293e3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b209f66b5589",
+            "text": "Hayalinizdeki okulu bulmaktan vize sürecine kadar, eğitim yolculuğunuzun her adımında yanınızdayız. Bize ulaşın, birlikte en doğru yolu belirleyelim.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4ca994a1bbc9",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d36c47334870",
+            "text": "Takip Et",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4cceaf8c1c8d",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4a727930121f",
+            "text": "Sorularınız İçin",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d0a6bf1dff1e",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8fcdf8effbfa",
+            "text": "Yardımcı Olmaya Hazırız!",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6e984b91ecdc",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2bb2747d473c",
+            "text": "Merkez Ofis",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f0b54bc88062",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "externalLink",
+            "_key": "a79911062352",
+            "href": "https://maps.app.goo.gl/cAgrbFRUF5HWYkcx9"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "24689c964cd5",
+            "text": "Konum ",
+            "marks": [
+              "a79911062352"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c30374aa0a4d",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "36adb9c69e0d",
+            "text": "Telefon",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8b599855dffe",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5b91d2c43c12",
+            "text": "+44 7735 826785",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "51ba32bcd172",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e791a898d58e",
+            "text": "E-Posta",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6423b6761dfd",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e8ee8f5071fb",
+            "text": "admin@happyeducation.uk",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "f9e431eb3e26",
+        "src": "https://happyeducation.uk/wp-content/uploads/Sefa-Mutlu-Kocax-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "d5c7122e32b6",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "97882f513560",
+            "text": "Sefa Mutlu Koca",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "350fba9a3762",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "42ef08143ef7",
+            "text": "Yönetici",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "19bfd4eda370",
+        "src": "https://happyeducation.uk/wp-content/uploads/Yusuf-Basx-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "c3930e76a7a3",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0c415b3b5d55",
+            "text": "Yusuf Baş",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "40fc01916fda",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2e3156be3368",
+            "text": "Üniversite ve Yatılı Okullar Koordinatörü",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "b3866c399eda",
+        "src": "https://happyeducation.uk/wp-content/uploads/Fatih-Ozdemirx-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "092c6e904244",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3e6bd3b4592f",
+            "text": "Fatih Özdemir",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "80461853b5d0",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5bcf758d0fd1",
+            "text": "Dil Kursları ve Yaz Okulları Koordinatörü",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "c911d8d7c540",
+        "src": "https://happyeducation.uk/wp-content/uploads/Semra-Atilayx-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "e78065942124",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "95ecd438d0e8",
+            "text": "Semra Atilay",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "40420821bec9",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5601635d97c4",
+            "text": "Sosyal Medya Yöneticisi",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "b2b53eaaa28e",
+        "src": "https://happyeducation.uk/wp-content/uploads/Akjemal-Allaberdiyevax.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "a548ac32c092",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "edb130e9d8f2",
+            "text": "Akjemal Allaberdiyeva",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "85ecf75f8a87",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5b28f24d4eee",
+            "text": "Yönetim Danışman",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "68a6f8afc6a1",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f86193df27d4",
+            "text": "Support",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b47b57cde056",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3392bcc50fdc",
+            "text": "How Can  We Help?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d184eb4d7e56",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4ecb9700e603",
+            "text": "Our dedicated expert team is here to support and guide you through every step of the process, starting from finding your passion.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3519c6a9719e",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ee61f6900690",
+            "text": "Follow Us",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "40c992f7b793",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2d572676f96c",
+            "text": "Contact Us",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "61ffb5237c7f",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d04b51521dd7",
+            "text": "We are Ready to Help with  your Comments",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9bcb7ef78ded",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2e281f5f44ba",
+            "text": "Office Directories",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "8dc9cc533e2c",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "631def4035a8",
+            "text": "Address will be added here",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "db2120becac1",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "externalLink",
+            "_key": "05ba3704edbc",
+            "href": "https://www.google.com/maps/place/51%C2%B038'00.1%22N+0%C2%B007'48.7%22W/@51.6333611,-0.1301944,17z/data=!3m1!4b1!4m4!3m3!8m2!3d51.6333611!4d-0.1301944?entry=ttu"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6a5049e5693b",
+            "text": "Get Direction ",
+            "marks": [
+              "05ba3704edbc"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2b961a58c0df",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d461f0c0da9c",
+            "text": "Phone",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2f665ab43ed6",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a7d2fa6d6c41",
+            "text": "+44 7735 826785",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d419ed4a432e",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "4f98523a695c",
+            "text": "Email",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "63ca13fdbfdc",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9b46fe11bdfc",
+            "text": "admin@happyeducation.uk",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "a239ce3e4c73",
+        "src": "https://happyeducation.uk/wp-content/uploads/Sefa-Mutlu-Kocax-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "23358593bde6",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "01d3e748b111",
+            "text": "Sefa Mutlu Koca",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a66d6259188d",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8283cb775e69",
+            "text": "Director",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "ba4de7238fa9",
+        "src": "https://happyeducation.uk/wp-content/uploads/Yusuf-Basx-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "900feb7ed068",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "be363c7467c5",
+            "text": "Yusuf Baş",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "05c6e0916421",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "de040f859d12",
+            "text": "University and Boarding Schools Coordinator",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "fc23fc5df001",
+        "src": "https://happyeducation.uk/wp-content/uploads/Fatih-Ozdemirx-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "07e68073f6e9",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "46d051c2e35c",
+            "text": "Fatih Özdemir",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "53093d715ec9",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "dda065c46fb9",
+            "text": "Language Courses & Summer Schools Coordinator",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "c7f913d92a3b",
+        "src": "https://happyeducation.uk/wp-content/uploads/Semra-Atilayx-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "898d00efdbd7",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b4e0650e062b",
+            "text": "Semra Atilay",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "840c137d89b8",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "781e9fd87196",
+            "text": "Social Media Manager",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "a9538e652a87",
+        "src": "https://happyeducation.uk/wp-content/uploads/Akjemal-Allaberdiyevax.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "c82816a477ac",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c9f95d776a71",
+            "text": "Akjemal Allaberdiyeva",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9e380ffcb4b5",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "48c5282ab77e",
+            "text": "Management Consultant",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/Sefa-Mutlu-Kocax-1.jpg",
+    "review": {
+      "timeSensitive": true,
+      "editorialFlag": "IMMIGRATION content: Happy Education holds no IAA (ex-OISC) registration, so this must read as administrative/application support only, state that the decision rests with the relevant government authority, link to the official source, and promise no outcome. Re-verify every route name and condition against the issuing authority.\n5 image(s) with no alt text. Alt text must be written before publication.\nMERGED: the body of /anasayfa/iletisim-2/ (82 words) was appended below. De-duplicate the two versions by hand; nothing was deleted automatically. Audit reason: English twin of the contact page; becomes the seed for /en/contact/ (contains \"Address will be added here\" placeholder)"
+    },
+    "_migration": {
+      "legacyId": 1347,
+      "legacyPath": "/anasayfa/iletisim/",
+      "legacyUrl": "https://happyeducation.uk/anasayfa/iletisim/",
+      "targetPath": "/tr/iletisim/",
+      "bucket": "KEEP",
+      "inventoryReason": "Real contact page: 5 named staff, +44 7735 826785, admin@happyeducation.uk. Office address is missing on both language versions",
+      "sourceLanguage": "TR",
+      "sourceWords": 65,
+      "convertedWords": 65,
+      "headings": [
+        {
+          "style": "h2",
+          "text": "Bizimle"
+        },
+        {
+          "style": "h2",
+          "text": "İletişime Geçin"
+        },
+        {
+          "style": "h2",
+          "text": "Takip Et"
+        },
+        {
+          "style": "h2",
+          "text": "Sorularınız İçin"
+        },
+        {
+          "style": "h2",
+          "text": "Yardımcı Olmaya Hazırız!"
+        },
+        {
+          "style": "h2",
+          "text": "Merkez Ofis"
+        },
+        {
+          "style": "h3",
+          "text": "Telefon"
+        },
+        {
+          "style": "h3",
+          "text": "E-Posta"
+        },
+        {
+          "style": "h2",
+          "text": "Sefa Mutlu Koca"
+        },
+        {
+          "style": "h3",
+          "text": "Yönetici"
+        },
+        {
+          "style": "h2",
+          "text": "Yusuf Baş"
+        },
+        {
+          "style": "h3",
+          "text": "Üniversite ve Yatılı Okullar Koordinatörü"
+        },
+        {
+          "style": "h2",
+          "text": "Fatih Özdemir"
+        },
+        {
+          "style": "h3",
+          "text": "Dil Kursları ve Yaz Okulları Koordinatörü"
+        },
+        {
+          "style": "h2",
+          "text": "Semra Atilay"
+        },
+        {
+          "style": "h3",
+          "text": "Sosyal Medya Yöneticisi"
+        },
+        {
+          "style": "h2",
+          "text": "Akjemal Allaberdiyeva"
+        },
+        {
+          "style": "h3",
+          "text": "Yönetim Danışman"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/Sefa-Mutlu-Kocax-1.jpg",
+      "logoImageSource": "https://happyeducation.uk/wp-content/uploads/Yusuf-Basx-1.jpg",
+      "proposedEnPath": null,
+      "hasFieldProvenance": {},
+      "mergedFrom": [
+        "/anasayfa/iletisim-2/"
+      ]
+    }
+  },
+  {
+    "_id": "page-tr-13874",
+    "_type": "page",
+    "locale": "tr",
+    "title": "Grup Yaz Okulları",
+    "slug": {
+      "_type": "slug",
+      "current": "grup"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-page-13874"
+    },
+    "body": [
+      {
+        "_type": "imagePlaceholder",
+        "_key": "69f766fca801",
+        "src": "https://happyeducation.uk/wp-content/uploads/yaz-okulu-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "c5d8cd09a3a6",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cb36b77ba7a3",
+            "text": "Grup Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b03d8a735b25",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "443065876894",
+            "text": "Happy Education Grup Yaz Okulları, öğrencilerin İngilizce öğrenirken kültürel deneyim kazanmalarını sağlayan kapsamlı programlar içerir. Programlar katılımcılara dersler, workshoplar ve uygulamalı aktiviteler sunarak dil becerilerini geliştirme fırsatı sağlar. Kurs sonunda tüm öğrenciler, katılım ve başarılarını belgeleyen kurs sonu sertifikası alır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3d2beb980fd3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ce6d901f7875",
+            "text": "Programlar prestijli okullarda yürütülür; üniversitelerin itibarı ve sunduğu olanaklar, öğrencilerin eğitim kalitesini doğrudan etkiler. Yaz okulu boyunca düzenlenen kültürel geziler, katılımcıların tarihi ve turistik mekanları keşfetmesini sağlar. Öğrenciler dünyanın dört bir yanından gelen akranlarıyla tanışarak global bir iletişim ağı kurma fırsatı elde eder. Akademik içerik, farklı geçmişlere ve dil seviyelerine sahip öğrenciler için erişilebilir ve ilgi çekici olacak şekilde tasarlanmıştır.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "cb12193e63d1",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "3a4c7f7fab90",
+            "text": "North London Grammar School",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "c724417ebb87",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "79a469eeddc2",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13879"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d882c9f10ba0",
+            "text": "İncele ",
+            "marks": [
+              "79a469eeddc2"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "ca8e9f850c71",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "f31a2cc62cfb",
+            "text": "Queen Mary University of London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "942ad6487e80",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "eda746bf9d9d",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7138"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9790dfae2555",
+            "text": "İncele ",
+            "marks": [
+              "eda746bf9d9d"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "bd37b93a9e72",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ea913fce92c2",
+            "text": "London King's College",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "29a2e090e896",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "7a3f0ce15a56",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13888"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "2bee9b34781a",
+            "text": "İncele ",
+            "marks": [
+              "7a3f0ce15a56"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6ec77faf2001",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "506a1d5c2e11",
+            "text": "University College London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "571c7a1ff8a6",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "9322ac614073",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13893"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "824bc9f4d9f6",
+            "text": "İncele ",
+            "marks": [
+              "9322ac614073"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9ae29dfeddb1",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1cebdd642045",
+            "text": "Kingston University London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d49eeb20db2f",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "e23435cb02e5",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7210"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8776f680de9b",
+            "text": "İncele ",
+            "marks": [
+              "e23435cb02e5"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "dcf6eed8ef41",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5c66ac19d57b",
+            "text": "Abbey College Cambridge",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "48730eb85b5f",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "183e40016232",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13914"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "925884e98778",
+            "text": "İncele ",
+            "marks": [
+              "183e40016232"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "6f8be78e76cb",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "524142fa5b29",
+            "text": "University of Greenwich",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2b5c9426b301",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "3b43ca8cfcfd",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13920"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0f62ee4df7bb",
+            "text": "İncele ",
+            "marks": [
+              "3b43ca8cfcfd"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "3ed9b9d40dc5",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c9f2ee9acc8a",
+            "text": "University of Brunel Uxbridge London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b942ad3f8a3b",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "5cfa528a338e",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7199"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d9f688f8a2f5",
+            "text": "İncele ",
+            "marks": [
+              "5cfa528a338e"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "47f8c295f883",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "badf5ca42152",
+            "text": "University of Kent",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "f4a53a4e16b5",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "f7bdddb20cfb",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13925"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "704645ec2be2",
+            "text": "İncele ",
+            "marks": [
+              "f7bdddb20cfb"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "b8e9968a0c98",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c2c3a35038b0",
+            "text": "University of Westminster London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "13cb0b8cb26c",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "7f0c34dcea83",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13899"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cc1ea3ce18a2",
+            "text": "İncele ",
+            "marks": [
+              "7f0c34dcea83"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "af0af419e563",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6903ef45c11f",
+            "text": "University of Middlesex London",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "aee2e3ffd82c",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "5b086a4689b8",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13942"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "0a14eff9491b",
+            "text": "İncele ",
+            "marks": [
+              "5b086a4689b8"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "2c8cc647818d",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9d5226604664",
+            "text": "İngiltere Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "741ba0f17fe5",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "49b40b158e2a",
+            "text": "İngiltere köklü eğitim geleneği, tarihi zenginlikleri ve çok kültürlü yapısıyla da öne çıkar. Yaz okulları öğrencilerin İngilizcelerini geliştirirken yeni bir kültürü yakından tanımasına imkân tanır. Öğrenciler İngilizce’yi anadili İngilizce olan eğitmenlerle öğrenerek hem telaffuzlarını geliştirir hem de dili doğal bir bağlamda kullanma pratiği kazanır. Günlük yaşamda da İngilizce iletişim kurmak, kalıcı öğrenmeyi destekler.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "1f17a2bd6b49",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "17db87a13511",
+            "text": "İngiltere Londra, Oxford, Cambridge gibi şehirleriyle kültürel bir hazinedir. Müzeler, kaleler, tiyatrolar ve doğal parklar öğrencilerin ders dışı zamanlarını anlamlı kılar. Öğrenciler, gezi ve etkinliklerle akademik bilgilerini gerçek yaşamla bütünleştirir. Futbol, yüzme, tenis, basketbol gibi sporların yanı sıra yoga, dans ve doğa yürüyüşleri gibi etkinlikler düzenli olarak programlara dahil edilir. Bu aktiviteler, öğrencilerin fiziksel sağlığını desteklediği kadar takım ruhunu da güçlendirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "7813c9b1a453",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1444fc373e14",
+            "text": "Amerika Yaz Okulları",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "44dc3b9698cf",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "4ef542d559f6",
+            "reference": {
+              "_type": "reference",
+              "_ref": "destination-tr-10355"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "02b913ccd8ee",
+            "text": "Amerika Birleşik Devletleri dünya çapında prestijli üniversiteleri, kültürel çeşitliliği ve yaratıcı eğitim yaklaşımlarıyla öne çıkar. Yaz okulları, öğrencilere hem ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "_key": "d3e72af4413f",
+            "text": "dil",
+            "marks": [
+              "4ef542d559f6",
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "b7d5ab689f2e",
+            "text": " ",
+            "marks": [
+              "4ef542d559f6"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "90cbcff23805",
+            "text": "gelişimi hem de global farkındalık kazandırma açısından eşsiz bir fırsat sunar. Amerika, farklı kültürlerin bir arada yaşadığı bir toplumdur. Yaz okulları, bu çok kültürlü yapıyı öğrencilerin sosyal gelişimi için avantaja dönüştürür. Farklı ülkelerden gelen öğrencilerle etkileşim, gençlere küresel vizyon kazandırır ve yaşam boyu sürecek dostlukların temelini atar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "9a0a46ba8a69",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "9fd9327e233c",
+            "text": "ABD yaz okulları, teknolojik donanımı yüksek kampüslerde gerçekleştirilir. Laboratuvarlar, dijital kaynaklar ve yenilikçi öğrenme ortamları öğrencilerin ilgisini çeker. STEM, yapay zekâ, tıp, girişimcilik gibi tematik içerikler, öğrencilerin akademik hedefleriyle birebir örtüşen programlar sunar. Hollywood, Disneyland, New York City turları, müze ziyaretleri ve kültürel geziler sayesinde öğrenciler ABD'nin kültürünü yakından tanıma fırsatı bulur. Akşam etkinlikleri (sinema, spor, yarışmalar vb.) sosyal bağları güçlendirir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "a48af9590eb7",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "1e3491be64fb",
+            "text": "Tufts University",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "4b2c7ba5bf56",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "d13c8688e5c9",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13951"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "e703f835198f",
+            "text": "İncele ",
+            "marks": [
+              "d13c8688e5c9"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "209156a6037a",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "fe14c8a17640",
+            "text": "Los Angeles",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "d92ee951963a",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "c6ab6a8c82e1",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13957"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "53dc4d6216b3",
+            "text": "İncele ",
+            "marks": [
+              "c6ab6a8c82e1"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "5450932b589e",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "c0fdef33e146",
+            "text": "New York St Peter",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "e611fd5d3a5c",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "4810391beffa",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13964"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "05503d775f54",
+            "text": "İncele ",
+            "marks": [
+              "4810391beffa"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "963c88bd1c9f",
+        "style": "h4",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "867bd2d6a80d",
+            "text": "Barry University",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "db5bdde36fe5",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "8a574d4e2ccb",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13970"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "d008144f8b06",
+            "text": "İncele ",
+            "marks": [
+              "8a574d4e2ccb"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "284bda2c3e53",
+        "src": "https://happyeducation.uk/wp-content/uploads/UCFB1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "2f8e87c5fb01",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "36fbee9b2669",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7093"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "75e859195d43",
+            "text": "London UCFB Wembley",
+            "marks": [
+              "36fbee9b2669"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "4d51ce4bfdf4",
+        "src": "https://happyeducation.uk/wp-content/uploads/chester-uni-001.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "f8bfe2d8b1e4",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "dae3118820a4",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7105"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "003ca4eea37b",
+            "text": "University of Chester",
+            "marks": [
+              "dae3118820a4"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "1f8e58868b4b",
+        "src": "https://happyeducation.uk/wp-content/uploads/king-s-college-london.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "67059efcfe1e",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "55eafec7eeab",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13888"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "b08e1e26e065",
+            "text": "London King’s College",
+            "marks": [
+              "55eafec7eeab"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "e7c902395e26",
+        "src": "https://happyeducation.uk/wp-content/uploads/QMUL-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "83fdae1d88f0",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "48200e89a3e0",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7138"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ae475faeb4dd",
+            "text": "Queen Mary University of London",
+            "marks": [
+              "48200e89a3e0"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "703941521540",
+        "src": "https://happyeducation.uk/wp-content/uploads/Wellington-College.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "37b4a34d8e2c",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "610ca2a104ff",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7165"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "ee7beb3c5d40",
+            "text": "Windsor",
+            "marks": [
+              "610ca2a104ff"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "e0b881e0da1d",
+        "src": "https://happyeducation.uk/wp-content/uploads/brunel_university_london.jpeg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "48205b951852",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "cde402b95c1d",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7199"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "191b4f756217",
+            "text": "Uxbridge London",
+            "marks": [
+              "cde402b95c1d"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "9f65e139c5a1",
+        "src": "https://happyeducation.uk/wp-content/uploads/Kingston.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "01a86de0abff",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "dfbbf15cf6ab",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7210"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8fc65fd47ce1",
+            "text": "Kingston London",
+            "marks": [
+              "dfbbf15cf6ab"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "d063f956dfe4",
+        "src": "https://happyeducation.uk/wp-content/uploads/Bathx.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "b1cc8040c969",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "d3e59ca78a60",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7227"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "156072109301",
+            "text": "Bath",
+            "marks": [
+              "d3e59ca78a60"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "5659e1f9c7e2",
+        "src": "https://happyeducation.uk/wp-content/uploads/UCL2.png",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "536538b235b3",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "11da1160c78c",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-13893"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "8ccf2b0ea1de",
+            "text": "University College London",
+            "marks": [
+              "11da1160c78c"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "3d8facb89146",
+        "src": "https://happyeducation.uk/wp-content/uploads/CATS-Cambridge-1.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "2a7ab0048682",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "6a17c371b069",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7251"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "cd59e6602ebf",
+            "text": "Cambridge Chercheston",
+            "marks": [
+              "6a17c371b069"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "8021c78b294b",
+        "src": "https://happyeducation.uk/wp-content/uploads/ICE.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "b8ad21ed0a43",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "unresolvedLink",
+            "_key": "4760c6e16d07",
+            "legacyPath": "/islington-centre-for-english/",
+            "reason": "no migrated document at this path"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "669fd1195328",
+            "text": "Islington Centre For English",
+            "marks": [
+              "4760c6e16d07"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "f47a2d9ba656",
+        "src": "https://happyeducation.uk/wp-content/uploads/Guildhouse-School-of-London.jpg",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "f8079a10d26d",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "unresolvedLink",
+            "_key": "fc92f5ed40b1",
+            "legacyPath": "/guildhouse-school-london2/",
+            "reason": "no migrated document at this path"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "80e6e051e291",
+            "text": "Guildhouse School London",
+            "marks": [
+              "fc92f5ed40b1"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "imagePlaceholder",
+        "_key": "1a814a55029b",
+        "src": "https://happyeducation.uk/wp-content/uploads/OHC.png",
+        "alt": ""
+      },
+      {
+        "_type": "block",
+        "_key": "942749824028",
+        "style": "h3",
+        "markDefs": [
+          {
+            "_type": "internalLink",
+            "_key": "e7b125bb83c0",
+            "reference": {
+              "_type": "reference",
+              "_ref": "summerProgramme-tr-7277"
+            }
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "6f24dca626d2",
+            "text": "Oxford House College",
+            "marks": [
+              "e7b125bb83c0"
+            ]
+          }
+        ]
+      }
+    ],
+    "_heroImageSource": "https://happyeducation.uk/wp-content/uploads/yaz-okulu-1.jpg",
+    "review": {
+      "editorialFlag": "1 image(s) with no alt text. Alt text must be written before publication.\n14 link(s) dropped during conversion:  (empty href);  (empty href);  (empty href).\nMERGED: the body of /yaz-okullari/grup-yaz-okullari/ (35 words) was appended below. De-duplicate the two versions by hand; nothing was deleted automatically. Audit reason: Link-list stub (35w) duplicating the 416w root hub of the same title"
+    },
+    "_migration": {
+      "legacyId": 13874,
+      "legacyPath": "/grup-yaz-okullari/",
+      "legacyUrl": "https://happyeducation.uk/grup-yaz-okullari/",
+      "targetPath": "/tr/yaz-okullari/grup/",
+      "bucket": "KEEP",
+      "inventoryReason": "416w group-summer-school hub, the substantive version of this pair",
+      "sourceLanguage": "TR",
+      "sourceWords": 416,
+      "convertedWords": 416,
+      "headings": [
+        {
+          "style": "h2",
+          "text": "Grup Yaz Okulları"
+        },
+        {
+          "style": "h4",
+          "text": "North London Grammar School"
+        },
+        {
+          "style": "h4",
+          "text": "Queen Mary University of London"
+        },
+        {
+          "style": "h4",
+          "text": "London King's College"
+        },
+        {
+          "style": "h4",
+          "text": "University College London"
+        },
+        {
+          "style": "h4",
+          "text": "Kingston University London"
+        },
+        {
+          "style": "h4",
+          "text": "Abbey College Cambridge"
+        },
+        {
+          "style": "h4",
+          "text": "University of Greenwich"
+        },
+        {
+          "style": "h4",
+          "text": "University of Brunel Uxbridge London"
+        },
+        {
+          "style": "h4",
+          "text": "University of Kent"
+        },
+        {
+          "style": "h4",
+          "text": "University of Westminster London"
+        },
+        {
+          "style": "h4",
+          "text": "University of Middlesex London"
+        },
+        {
+          "style": "h2",
+          "text": "İngiltere Yaz Okulları"
+        },
+        {
+          "style": "h2",
+          "text": "Amerika Yaz Okulları"
+        },
+        {
+          "style": "h4",
+          "text": "Tufts University"
+        },
+        {
+          "style": "h4",
+          "text": "Los Angeles"
+        },
+        {
+          "style": "h4",
+          "text": "New York St Peter"
+        },
+        {
+          "style": "h4",
+          "text": "Barry University"
+        }
+      ],
+      "destinationKey": null,
+      "heroImageSource": "https://happyeducation.uk/wp-content/uploads/yaz-okulu-1.jpg",
+      "logoImageSource": null,
+      "proposedEnPath": null,
+      "hasFieldProvenance": {},
+      "mergedFrom": [
+        "/yaz-okullari/grup-yaz-okullari/"
+      ]
+    }
+  }
+]
