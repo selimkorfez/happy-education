@@ -15,6 +15,7 @@ import {
   type ArticleDoc,
   type ProseDoc,
 } from '@/lib/sanity/queries/content'
+import { getStarterDestination, getStarterProse } from '@/lib/content/starter-content'
 import { legalSlug, LEGAL_PAGES, type LegalKey } from '@/lib/legal'
 
 /**
@@ -26,7 +27,8 @@ import { legalSlug, LEGAL_PAGES, type LegalKey } from '@/lib/legal'
  *
  * Section indexes always resolve, even on an empty dataset, so the navigation
  * never points at a 404 before content is imported. Individual documents resolve
- * to null when missing, which becomes a real 404.
+ * to null when missing, except for a small set of deliberately safe starter pages
+ * used while the English editorial tree is being authored.
  */
 
 export type ResolvedRoute =
@@ -119,7 +121,8 @@ export async function resolveRoute({
   if (section === 'guides' || section === 'services') {
     const slug = segments[0]
     if (!slug || segments.length > 1) return null
-    const doc = await getProseDoc(locale, slug, section === 'guides' ? 'guide' : 'service')
+    const type = section === 'guides' ? 'guide' : 'service'
+    const doc = (await getProseDoc(locale, slug, type)) ?? getStarterProse(locale, slug, type)
     return doc ? { kind: 'prose', section, doc } : null
   }
 
@@ -156,7 +159,9 @@ export async function resolveRoute({
     if (!countrySlug || extra.length > 0) return null
 
     if (!leafSlug) {
-      const destination = await getDestination(locale, countrySlug, section)
+      const destination =
+        (await getDestination(locale, countrySlug, section)) ??
+        getStarterDestination(locale, section, countrySlug)
       return destination ? { kind: 'destination', section, doc: destination } : null
     }
 
