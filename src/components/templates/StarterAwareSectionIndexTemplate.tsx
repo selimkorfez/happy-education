@@ -20,11 +20,9 @@ import {
   listEditorialProse,
   listEditorialTours,
 } from '@/lib/content/starter-editorial'
+import { listTurkishStarterProse } from '@/lib/content/starter-turkish-prose'
 
-/**
- * Keeps every top-level preview route useful before the English Sanity tree has
- * been authored. Real CMS content always takes over once Sanity is configured.
- */
+/** Keeps top-level routes useful before the CMS editorial tree is complete. */
 export async function StarterAwareSectionIndexTemplate({
   locale,
   section,
@@ -32,9 +30,7 @@ export async function StarterAwareSectionIndexTemplate({
   locale: Locale
   section: SectionKey
 }) {
-  if (isConfigured.sanity()) {
-    return <SectionIndexTemplate locale={locale} section={section} />
-  }
+  if (isConfigured.sanity()) return <SectionIndexTemplate locale={locale} section={section} />
 
   const copy = SECTION_COPY[section]
   const title = copy?.title[locale] ?? section
@@ -119,11 +115,7 @@ export async function StarterAwareSectionIndexTemplate({
   if (section === 'tours' && locale === 'en') {
     const tours = listEditorialTours(locale)
     if (tours.length > 0) {
-      body = (
-        <CardGrid
-          items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title }))}
-        />
-      )
+      body = <CardGrid items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title }))} />
     }
   }
 
@@ -145,7 +137,8 @@ export async function StarterAwareSectionIndexTemplate({
 
   if (section === 'guides' || section === 'services') {
     const type = section === 'guides' ? 'guide' : 'service'
-    const docs = [...listStarterProse(locale, type), ...listEditorialProse(locale, type)]
+    const extra = locale === 'tr' ? listTurkishStarterProse(type) : listEditorialProse(locale, type)
+    const docs = [...listStarterProse(locale, type), ...extra]
       .filter((item, index, all) => all.findIndex((other) => other.slug === item.slug) === index)
     if (docs.length > 0) {
       body = (
@@ -160,16 +153,12 @@ export async function StarterAwareSectionIndexTemplate({
     }
   }
 
-  if (!body) {
-    return <SectionIndexTemplate locale={locale} section={section} />
-  }
+  if (!body) return <SectionIndexTemplate locale={locale} section={section} />
 
   return (
     <>
       <PageHero locale={locale} crumbs={crumbs} title={title} intro={copy?.description[locale]} />
-      <Container>
-        <div className="py-12">{body}</div>
-      </Container>
+      <Container><div className="py-12">{body}</div></Container>
       <ConsultationBand locale={locale} />
     </>
   )
