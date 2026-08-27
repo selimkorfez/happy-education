@@ -8,15 +8,9 @@ import type {
 /**
  * English catalogue shadows for records that currently exist only in Turkish.
  *
- * The migration deliberately produced a Turkish-only corpus. Hiding every one of
- * those institutions and summer programmes from the English site makes the IA look
- * broken, but copying the Turkish marketing prose into English would also copy
- * stale rankings, fees, visa wording and unsupported claims.
- *
- * These builders take the safer middle path: expose only identity/location fields
- * needed for discovery, add fresh neutral English explanatory copy, and mark the
- * resulting detail page noindex. A genuine English CMS document always wins and
- * automatically replaces the shadow.
+ * These expose only identity/location fields needed for discovery, add fresh
+ * neutral English explanatory copy, and mark detail pages noindex. Genuine
+ * English CMS documents automatically replace them.
  */
 
 export interface InstitutionShadowSource {
@@ -41,11 +35,7 @@ interface DestinationIdentity {
   slug: string
 }
 
-const DESTINATIONS: Array<{
-  title: string
-  slug: string
-  aliases: string[]
-}> = [
+const DESTINATIONS: Array<{ title: string; slug: string; aliases: string[] }> = [
   {
     title: 'United Kingdom',
     slug: 'united-kingdom',
@@ -83,16 +73,12 @@ function normalise(value: string): string {
 function destinationFromValue(value?: string): DestinationIdentity | undefined {
   if (!value) return undefined
   const needle = normalise(value)
-
   for (const destination of DESTINATIONS) {
-    if (normalise(destination.slug) === needle) {
-      return { title: destination.title, slug: destination.slug }
-    }
+    if (normalise(destination.slug) === needle) return { title: destination.title, slug: destination.slug }
     if (destination.aliases.some((alias) => normalise(alias) === needle)) {
       return { title: destination.title, slug: destination.slug }
     }
   }
-
   return undefined
 }
 
@@ -111,7 +97,6 @@ export function englishCountryLabel(value?: string): string | undefined {
   return mapped?.title ?? value
 }
 
-/** A small set of location-name translations that are safe identity labels. */
 export function englishCityLabel(value?: string): string | undefined {
   if (!value) return undefined
   return value
@@ -142,14 +127,12 @@ function institutionCopy(source: InstitutionShadowSource): string[] {
       'Happy Education can help you compare language-school options, organise the application and booking paperwork, and clarify which questions should be confirmed with the school before you commit.',
     ]
   }
-
   if (source._type === 'boardingSchool') {
     return [
       `Use this profile as a starting point for considering ${source.title}. Current admissions requirements, boarding arrangements, fees and availability should be confirmed directly before an application or payment is made.`,
       'For families considering boarding education, the shortlist should cover academic fit as well as pastoral care, accommodation, supervision and safeguarding. Happy Education can help organise the education-application side of that comparison without making guarantees on a school’s behalf.',
     ]
   }
-
   return [
     `Use this profile as a starting point for considering ${source.title}. Current courses, entry requirements, tuition fees and application deadlines can change, so the live institution information should be checked before you apply.`,
     'Happy Education can help you compare universities, organise application documents and plan the application timeline. Admission decisions remain with the university, and this page does not make a ranking, admission or visa-outcome claim.',
@@ -158,6 +141,7 @@ function institutionCopy(source: InstitutionShadowSource): string[] {
 
 export function buildEnglishInstitutionShadow(source: InstitutionShadowSource): InstitutionDoc {
   const destination = englishDestinationForSource(source)
+  const usesNestedCountryRoute = source._type !== 'boardingSchool'
   return {
     _id: `shadow-en-${source._id}`,
     _type: source._type,
@@ -167,23 +151,15 @@ export function buildEnglishInstitutionShadow(source: InstitutionShadowSource): 
     city: englishCityLabel(source.city),
     country: destination?.title ?? englishCountryLabel(source.country),
     overview: portableParagraphs(institutionCopy(source)),
-    destination: destination
+    destination: usesNestedCountryRoute && destination
       ? {
           title: destination.title,
           slug: destination.slug,
-          section:
-            source._type === 'languageSchool'
-              ? 'languageSchools'
-              : source._type === 'boardingSchool'
-                ? 'boardingSchools'
-                : 'universities',
+          section: source._type === 'languageSchool' ? 'languageSchools' : 'universities',
         }
       : undefined,
     seo: { noIndex: true },
-    review: {
-      lastReviewed: '2026-08-28',
-      timeSensitive: false,
-    },
+    review: { lastReviewed: '2026-08-28', timeSensitive: false },
   }
 }
 
@@ -209,7 +185,6 @@ export function institutionMatchesEnglishDestination(
 export function buildEnglishSummerShadow(source: SummerShadowSource): SummerProgrammeDoc {
   const format = source.format === 'group' ? 'group' : 'individual'
   const formatLabel = format === 'group' ? 'group summer programme' : 'individual summer programme'
-
   return {
     _id: `shadow-en-${source._id}`,
     title: source.title,
@@ -230,10 +205,7 @@ export function buildEnglishSummerShadow(source: SummerShadowSource): SummerProg
       'Parents or guardians should review the current programme terms, supervision arrangements, travel requirements and consent documentation before confirming a place.',
     ]),
     seo: { noIndex: true },
-    review: {
-      lastReviewed: '2026-08-28',
-      timeSensitive: false,
-    },
+    review: { lastReviewed: '2026-08-28', timeSensitive: false },
   }
 }
 
