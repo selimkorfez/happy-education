@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react'
 import type { Locale } from '@/lib/i18n/config'
 import type { ResolvedRoute } from '@/lib/routing'
-import { SectionIndexTemplate } from './SectionIndexTemplate'
+import { StarterAwareSectionIndexTemplate } from './StarterAwareSectionIndexTemplate'
 import { DestinationTemplate } from './DestinationTemplate'
 import { InstitutionTemplate } from './InstitutionTemplate'
 import { SummerListingTemplate } from './SummerListingTemplate'
@@ -21,7 +21,7 @@ import { FixedPageTemplate } from './FixedPageTemplate'
 export function renderRoute(locale: Locale, route: ResolvedRoute): ReactElement {
   switch (route.kind) {
     case 'sectionIndex':
-      return <SectionIndexTemplate locale={locale} section={route.section} />
+      return <StarterAwareSectionIndexTemplate locale={locale} section={route.section} />
     case 'destination':
       return <DestinationTemplate locale={locale} section={route.section} doc={route.doc} />
     case 'institution':
