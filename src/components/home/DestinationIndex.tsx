@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame } from '@/components/ui/MediaFrame'
-import { docPath, type Locale } from '@/lib/i18n/config'
+import { docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { countrySlug, countryLabel, type CountryKey } from '@/lib/navigation'
 import { BRAND_IMAGES, DESTINATION_IMAGE } from '@/lib/media/library'
 
@@ -18,6 +18,7 @@ import { BRAND_IMAGES, DESTINATION_IMAGE } from '@/lib/media/library'
 
 interface Destination {
   key: CountryKey
+  section: Extract<SectionKey, 'universities' | 'languageSchools'>
   en: { note: string }
   tr: { note: string }
 }
@@ -25,31 +26,37 @@ interface Destination {
 const DESTINATIONS: Destination[] = [
   {
     key: 'uk',
+    section: 'universities',
     en: { note: 'Universities, language schools, boarding and summer programmes' },
     tr: { note: 'Üniversite, dil okulu, yatılı okul ve yaz programları' },
   },
   {
     key: 'ireland',
+    section: 'universities',
     en: { note: 'English-taught degrees and year-round language study' },
     tr: { note: "İngilizce lisans programları ve yıl boyu dil eğitimi" },
   },
   {
     key: 'usa',
+    section: 'universities',
     en: { note: 'Undergraduate and graduate study across a wide range of states' },
     tr: { note: 'Farklı eyaletlerde lisans ve lisansüstü eğitim' },
   },
   {
     key: 'canada',
+    section: 'universities',
     en: { note: 'Degree programmes and language schools in major cities' },
     tr: { note: 'Büyük şehirlerde lisans programları ve dil okulları' },
   },
   {
     key: 'malta',
+    section: 'languageSchools',
     en: { note: 'English language study in a Mediterranean setting' },
     tr: { note: 'Akdeniz ikliminde İngilizce dil eğitimi' },
   },
   {
     key: 'australia',
+    section: 'universities',
     en: { note: 'Universities and long-stay English courses' },
     tr: { note: 'Üniversiteler ve uzun süreli İngilizce kursları' },
   },
@@ -59,13 +66,13 @@ const HEADING = {
   en: {
     kicker: 'Destinations',
     title: 'Where our students go',
-    body: 'Each destination page covers the education system, entry requirements, realistic costs, accommodation and the application timeline, with the date it was last reviewed.',
+    body: 'Each destination page gives you a structured starting point for comparing study options, locations and the application journey.',
     all: 'All destinations',
   },
   tr: {
     kicker: 'Ülkeler',
     title: 'Öğrencilerimiz nereye gidiyor?',
-    body: 'Her ülke sayfasında eğitim sistemi, kabul koşulları, gerçekçi maliyetler, konaklama ve başvuru takvimi yer alır; sayfanın en son ne zaman gözden geçirildiği de belirtilir.',
+    body: 'Her ülke sayfası eğitim seçeneklerini, konumları ve başvuru sürecini karşılaştırmak için düzenli bir başlangıç noktası sunar.',
     all: 'Tüm ülkeler',
   },
 } as const
@@ -110,7 +117,11 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
         <ul className="flex w-max gap-5 px-5 sm:px-7 lg:px-10">
           {DESTINATIONS.map((destination, index) => {
             const label = countryLabel(locale, destination.key)
-            const href = docPath(locale, 'universities', countrySlug(locale, destination.key))
+            const href = docPath(
+              locale,
+              destination.section,
+              countrySlug(locale, destination.key),
+            )
             const imageKey = DESTINATION_IMAGE[destination.key]
             const image = imageKey ? BRAND_IMAGES[imageKey] : null
 
