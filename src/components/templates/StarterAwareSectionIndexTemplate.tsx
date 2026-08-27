@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { PageHero } from '@/components/shared/PageHero'
@@ -42,7 +43,7 @@ export async function StarterAwareSectionIndexTemplate({
     { label: title },
   ]
 
-  let body: React.ReactNode = null
+  let body: ReactNode = null
 
   if (section === 'universities' || section === 'languageSchools') {
     const destinations = listStarterDestinations(locale, section)
