@@ -10,19 +10,6 @@ import {
 } from '@/lib/i18n/config'
 import { routePath, type ResolvedRoute } from '@/lib/routing'
 
-/**
- * Metadata for a resolved content route.
- *
- * Built from the same `ResolvedRoute` the page body renders, so the description
- * can never drift from the document on screen.
- *
- * hreflang: the two trees use different slugs, so an alternate URL cannot be
- * derived by swapping a path segment. Only the CURRENT locale's canonical is
- * emitted per document unless a real translation is known — advertising an
- * alternate that 404s is worse than omitting it. Section indexes are the exception:
- * both locales always have one, so their alternates are safe to emit.
- */
-
 interface SectionCopy {
   title: Record<Locale, string>
   description: Record<Locale, string>
@@ -147,14 +134,11 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
       const canonical = absoluteUrl(locale, route.section, [])
       const title = copy?.title[locale] ?? t(locale, 'brand.name')
       const description = copy?.description[locale] ?? t(locale, 'meta.defaultDescription')
-
-      // Both locales always have every section index, so alternates are safe here.
       const languages: Record<string, string> = {}
       for (const other of LOCALES) {
         languages[HREFLANG[other]] = absoluteUrl(other, route.section, [])
       }
       languages['x-default'] = absoluteUrl('en', route.section, [])
-
       return {
         ...base(locale, canonical, title, description),
         alternates: { canonical, languages },
@@ -166,15 +150,12 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
       const section = route.pageKey as SectionKey
       const canonical = absoluteUrl(locale, section, [])
       const title = route.doc?.seo?.title ?? route.doc?.title ?? copy.title[locale]
-      const description =
-        route.doc?.seo?.description ?? route.doc?.intro ?? copy.description[locale]
-
+      const description = route.doc?.seo?.description ?? route.doc?.intro ?? copy.description[locale]
       const languages: Record<string, string> = {}
       for (const other of LOCALES) {
         languages[HREFLANG[other]] = absoluteUrl(other, section, [])
       }
       languages['x-default'] = absoluteUrl('en', section, [])
-
       return { ...base(locale, canonical, title, description), alternates: { canonical, languages } }
     }
 
@@ -211,12 +192,15 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
 
     case 'summerProgramme': {
       const canonical = absoluteUrl(locale, 'summerSchools', [route.formatSlug, route.doc.slug])
-      return base(
-        locale,
-        canonical,
-        route.doc.seo?.title ?? route.doc.title,
-        route.doc.seo?.description ?? `${route.doc.title} — ${t(locale, 'brand.name')}`,
-      )
+      return {
+        ...base(
+          locale,
+          canonical,
+          route.doc.seo?.title ?? route.doc.title,
+          route.doc.seo?.description ?? `${route.doc.title} — ${t(locale, 'brand.name')}`,
+        ),
+        robots: route.doc.seo?.noIndex ? { index: false, follow: true } : undefined,
+      }
     }
 
     case 'tour': {
@@ -274,7 +258,6 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
               ? `${title} — Happy Education yasal bilgilendirme.`
               : `${title} — Happy Education legal information.`),
         ),
-        // A legal document that has not been through review must not be indexed.
         robots: route.doc?.solicitorApproved ? undefined : { index: false, follow: true },
       }
     }
