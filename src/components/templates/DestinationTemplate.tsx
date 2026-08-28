@@ -7,16 +7,10 @@ import { ProseSection, FactTable, CardGrid } from './shared'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
+import { illustrativeImageForDestination } from '@/lib/media/library'
 import type { DestinationDoc } from '@/lib/sanity/queries/content'
 
-/**
- * A country or city page.
- *
- * The editorial backbone of the site: this is what a family reads before deciding
- * where to apply, so it leads with substance and carries its review date visibly.
- * Sections render only when the editor has filled them, so a partially written
- * destination looks deliberate rather than skeletal.
- */
+/** A country or city page. */
 export function DestinationTemplate({
   locale,
   section,
@@ -37,6 +31,7 @@ export function DestinationTemplate({
   ]
 
   const labels = COPY[locale]
+  const fallbackImage = illustrativeImageForDestination(doc.parentSlug ?? doc.slug)
 
   return (
     <>
@@ -47,7 +42,8 @@ export function DestinationTemplate({
         title={doc.title}
         intro={doc.intro}
         image={doc.heroImage ?? null}
-        imageAlt={doc.heroImage?.alt ?? doc.title}
+        localImage={doc.heroImage ? undefined : fallbackImage.src}
+        imageAlt={doc.heroImage?.alt ?? fallbackImage.alt}
       />
 
       <Container>
@@ -87,12 +83,6 @@ export function DestinationTemplate({
                 <h2 className="font-display text-[length:var(--text-2xl)] font-semibold text-fg">
                   {labels.visa}
                 </h2>
-                {/*
-                 * Standing disclaimer. Happy Education has no confirmed registration
-                 * with the Immigration Advice Authority, so visa content describes
-                 * the process and points at official sources. It is never advice and
-                 * never predicts an outcome.
-                 */}
                 <p className="mt-3 border-l-2 border-warning bg-paper-sunk p-4 text-sm leading-relaxed text-fg-muted">
                   {labels.visaDisclaimer}
                 </p>
