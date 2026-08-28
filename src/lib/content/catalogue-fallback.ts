@@ -38,11 +38,24 @@ function summerSource(doc: LocalDoc): SummerShadowSource {
   }
 }
 
+/** Migration/navigation artefacts are not real institution records. */
+function isUsableInstitutionSource(source: InstitutionShadowSource): boolean {
+  if (!source.slug) return false
+  const title = source.title.trim().toLocaleLowerCase('tr-TR')
+  const slug = source.slug.trim().toLowerCase()
+  return ![
+    'universiteler',
+    'üniversiteler',
+    'universities',
+    'university',
+  ].includes(title) && !['universiteler', 'universities'].includes(slug)
+}
+
 export function listEnglishInstitutionShadows(types: string[], destinationSlug?: string) {
   return types
     .flatMap((type) => allOfType(type, 'tr'))
     .map(institutionSource)
-    .filter((source) => source.slug && institutionMatchesEnglishDestination(source, destinationSlug))
+    .filter((source) => isUsableInstitutionSource(source) && institutionMatchesEnglishDestination(source, destinationSlug))
     .sort((a, b) => a.title.localeCompare(b.title))
     .map(buildEnglishInstitutionCard)
 }
@@ -50,7 +63,9 @@ export function listEnglishInstitutionShadows(types: string[], destinationSlug?:
 export function getEnglishInstitutionShadow(slug: string, types: string[]) {
   for (const type of types) {
     const doc = allOfType(type, 'tr').find((candidate) => slugOf(candidate) === slug)
-    if (doc) return buildEnglishInstitutionShadow(institutionSource(doc))
+    if (!doc) continue
+    const source = institutionSource(doc)
+    if (isUsableInstitutionSource(source)) return buildEnglishInstitutionShadow(source)
   }
   return null
 }
