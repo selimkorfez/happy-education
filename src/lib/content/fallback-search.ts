@@ -1,6 +1,7 @@
 import 'server-only'
 import { allOfType, deref, slugOf } from './local-source'
 import {
+  englishCatalogueTitle,
   englishCityLabel,
   englishCountryLabel,
   englishDestinationForSource,
@@ -73,10 +74,11 @@ export function searchEnglishFallback(query: string): SearchResult[] {
       const destination = englishDestinationForSource(source)
       const city = englishCityLabel(source.city)
       const country = destination?.title ?? englishCountryLabel(source.country)
-      if (!matches(query, source.title, city, country)) continue
+      const title = englishCatalogueTitle(source.title, source.slug)
+      if (!matches(query, title, source.title, city, country)) continue
       results.push({
         _type: source._type,
-        title: source.title,
+        title,
         slug: source.slug,
         city,
         destinationSlug: source._type === 'boardingSchool' ? undefined : destination?.slug,
@@ -87,8 +89,9 @@ export function searchEnglishFallback(query: string): SearchResult[] {
   for (const doc of allOfType('summerProgramme', 'tr')) {
     const slug = slugOf(doc) ?? ''
     const format = doc.format === 'group' ? 'group' : 'individual'
-    if (!matches(query, doc.title, format === 'group' ? 'group summer school' : 'individual summer school')) continue
-    results.push({ _type: 'summerProgramme', title: doc.title, slug, format })
+    const title = englishCatalogueTitle(doc.title, slug)
+    if (!matches(query, title, doc.title, format === 'group' ? 'group summer school' : 'individual summer school')) continue
+    results.push({ _type: 'summerProgramme', title, slug, format })
   }
 
   for (const tour of listEditorialTours('en')) {
