@@ -37,10 +37,10 @@ test.describe('English interface language boundary', () => {
     await page.goto('/en/universities/united-kingdom')
     const text = await page.locator('body').innerText()
 
-    expect(text).toContain('Cambridge and Chelmsford, England')
-    expect(text).toContain('Bangor, Wales')
-    expect(text).toContain('Edinburgh, Scotland')
-    expect(text).not.toContain('Cambridge ve Chelmsford')
+    expect(text).toMatch(/Cambridge and Chelmsford, England/i)
+    expect(text).toMatch(/Bangor, Wales/i)
+    expect(text).toMatch(/Edinburgh, Scotland/i)
+    expect(text).not.toMatch(/Cambridge ve Chelmsford/i)
   })
 
   test('institutions are not kept under a stale UK migration reference', async ({ page }) => {
