@@ -51,6 +51,17 @@ function institutionSource(type: string): InstitutionShadowSource[] {
   })
 }
 
+function isUsableInstitutionSource(source: InstitutionShadowSource): boolean {
+  const title = source.title.trim().toLocaleLowerCase('tr-TR')
+  const slug = source.slug.trim().toLowerCase()
+  return Boolean(source.slug) && ![
+    'universiteler',
+    'üniversiteler',
+    'universities',
+    'university',
+  ].includes(title) && !['universiteler', 'universities'].includes(slug)
+}
+
 /** Search the useful English preview corpus while the real English CMS tree is empty. */
 export function searchEnglishFallback(query: string): SearchResult[] {
   const results: SearchResult[] = []
@@ -71,6 +82,7 @@ export function searchEnglishFallback(query: string): SearchResult[] {
 
   for (const type of ['institution', 'languageSchool', 'boardingSchool']) {
     for (const source of institutionSource(type)) {
+      if (!isUsableInstitutionSource(source)) continue
       const destination = englishDestinationForSource(source)
       const city = englishCityLabel(source.city)
       const country = destination?.title ?? englishCountryLabel(source.country)
