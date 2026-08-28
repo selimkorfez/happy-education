@@ -99,14 +99,12 @@ function destinationFromValue(value?: string): DestinationIdentity | undefined {
 }
 
 /**
- * Some migrated institution records have a stale destination reference and no
- * usable country field. Infer a destination only from unambiguous geography in the
- * visible location string before trusting that legacy reference.
+ * Some migrated institution records have stale country/destination metadata. Infer
+ * a destination only from unambiguous geography in the visible location string.
  */
 function destinationFromLocation(value?: string): DestinationIdentity | undefined {
   if (!value) return undefined
   const location = ` ${normalise(value)} `
-
   const includesAny = (terms: string[]) => terms.some((term) => location.includes(` ${term} `))
 
   if (includesAny([
@@ -148,16 +146,16 @@ function destinationFromLocation(value?: string): DestinationIdentity | undefine
 }
 
 /**
- * Prefer explicit record geography over the legacy destination reference. The
- * WordPress migration contains a handful of stale destination links, including
- * US/Australian universities attached to the UK page.
+ * The visible location is the strongest signal because the migration contains
+ * records whose country and destination reference are both stale. Fall back to
+ * country, then the legacy destination reference only when location is ambiguous.
  */
 export function englishDestinationForSource(
   source: Pick<InstitutionShadowSource, 'city' | 'country' | 'destination'>,
 ): DestinationIdentity | undefined {
   return (
-    destinationFromValue(source.country) ??
     destinationFromLocation(source.city) ??
+    destinationFromValue(source.country) ??
     destinationFromValue(source.destination?.slug) ??
     destinationFromValue(source.destination?.title)
   )
