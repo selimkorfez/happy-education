@@ -12,6 +12,8 @@ const TURKISH_UI = /(?:İngiltere|İskoçya|Galler|İrlanda|Avustralya|Kanada|Lo
 
 const ENGLISH_SURFACES = [
   '/en/universities/united-kingdom',
+  '/en/universities/united-states',
+  '/en/universities/australia',
   '/en/language-schools/united-kingdom',
   '/en/boarding-schools',
   '/en/summer-schools/individual',
@@ -39,6 +41,19 @@ test.describe('English interface language boundary', () => {
     expect(text).toContain('Bangor, Wales')
     expect(text).toContain('Edinburgh, Scotland')
     expect(text).not.toContain('Cambridge ve Chelmsford')
+  })
+
+  test('institutions are not kept under a stale UK migration reference', async ({ page }) => {
+    await page.goto('/en/universities/united-kingdom')
+    const ukText = await page.locator('body').innerText()
+    expect(ukText).not.toContain('Florida Atlantic University')
+    expect(ukText).not.toContain('The University of Notre Dame')
+
+    await page.goto('/en/universities/united-states')
+    await expect(page.locator('body')).toContainText('Florida Atlantic University')
+
+    await page.goto('/en/universities/australia')
+    await expect(page.locator('body')).toContainText('The University of Notre Dame')
   })
 
   test('English institution detail remains English and uses cleared local imagery', async ({ page }) => {
