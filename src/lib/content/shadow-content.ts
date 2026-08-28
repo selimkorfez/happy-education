@@ -11,6 +11,10 @@ import type {
  * These expose only identity/location fields needed for discovery, add fresh
  * neutral English explanatory copy, and mark detail pages noindex. Genuine
  * English CMS documents automatically replace them.
+ *
+ * Any visible value copied from the Turkish catalogue passes through the controlled
+ * normalisers below. If Turkish-looking UI text still remains after known
+ * translations, we fail closed rather than leaking mixed-language text onto /en.
  */
 
 export interface InstitutionShadowSource {
@@ -39,12 +43,19 @@ const DESTINATIONS: Array<{ title: string; slug: string; aliases: string[] }> = 
   {
     title: 'United Kingdom',
     slug: 'united-kingdom',
-    aliases: ['united kingdom', 'uk', 'u k', 'england', 'britain', 'great britain', 'ingiltere'],
+    aliases: [
+      'united kingdom', 'uk', 'u k', 'england', 'scotland', 'wales', 'northern ireland',
+      'britain', 'great britain', 'ingiltere', 'iskocya', 'galler', 'kuzey irlanda',
+      'birlesik krallik',
+    ],
   },
   {
     title: 'United States',
     slug: 'united-states',
-    aliases: ['united states', 'united states of america', 'usa', 'u s a', 'america', 'amerika', 'abd'],
+    aliases: [
+      'united states', 'united states of america', 'usa', 'u s a', 'america', 'amerika',
+      'abd', 'amerika birlesik devletleri',
+    ],
   },
   { title: 'Canada', slug: 'canada', aliases: ['canada', 'kanada'] },
   { title: 'Ireland', slug: 'ireland', aliases: ['ireland', 'irlanda'] },
@@ -53,6 +64,11 @@ const DESTINATIONS: Array<{ title: string; slug: string; aliases: string[] }> = 
   { title: 'Malta', slug: 'malta', aliases: ['malta'] },
   { title: 'Cyprus', slug: 'cyprus', aliases: ['cyprus', 'kibris', 'kıbrıs'] },
   { title: 'Grenada', slug: 'grenada', aliases: ['grenada'] },
+  {
+    title: 'United Arab Emirates',
+    slug: 'united-arab-emirates',
+    aliases: ['united arab emirates', 'uae', 'bae', 'birlesik arap emirlikleri'],
+  },
 ]
 
 function normalise(value: string): string {
@@ -92,22 +108,119 @@ export function englishDestinationForSource(
   )
 }
 
+const TURKISH_UI_WORDS = new Set([
+  'abd', 'almanya', 'amerika', 'avustralya', 'batı', 'birleşik', 'bireysel', 'çekya',
+  'çocuklar', 'dahil', 'dâhil', 'dil', 'doğu', 'fransa', 'galler', 'gençler', 'grup',
+  'güney', 'hollanda', 'ingiltere', 'i̇ngiltere', 'irlanda', 'i̇rlanda', 'iskoçya',
+  'i̇skoçya', 'ispanya', 'i̇spanya', 'isviçre', 'i̇sviçre', 'italya', 'i̇talya',
+  'japonya', 'kanada', 'kıbrıs', 'kibris', 'kuzey', 'londra', 'macaristan', 'malezya',
+  'okulu', 'okullar', 'öğrenci', 'öğrenciler', 'polonya', 'portekiz', 'programı',
+  'programi', 'şehir', 've', 'yaz', 'yeni', 'yunanistan', 'üniversite', 'üniversitesi',
+])
+
+export function containsTurkishUiText(value?: string): boolean {
+  if (!value) return false
+  if (/[ĞğİıŞşÇçÖöÜü]/.test(value)) return true
+
+  const words = value
+    .toLocaleLowerCase('tr-TR')
+    .replace(/[^a-zçğıöşü0-9]+/giu, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+
+  return words.some((word) => TURKISH_UI_WORDS.has(word))
+}
+
+const LABEL_REPLACEMENTS: Array<[RegExp, string]> = [
+  [/\bAmerika Birleşik Devletleri\b/gi, 'United States'],
+  [/\bBirleşik Arap Emirlikleri\b/gi, 'United Arab Emirates'],
+  [/\bBirleşik Krallık\b/gi, 'United Kingdom'],
+  [/\bKuzey İrlanda\b/gi, 'Northern Ireland'],
+  [/\bBatı Avustralya\b/gi, 'Western Australia'],
+  [/\bGüney Afrika\b/gi, 'South Africa'],
+  [/\bGüney Kore\b/gi, 'South Korea'],
+  [/\bYeni Zelanda\b/gi, 'New Zealand'],
+  [/\bİngiltere\b/gi, 'England'],
+  [/\bİskoçya\b/gi, 'Scotland'],
+  [/\bGaller\b/gi, 'Wales'],
+  [/\bİrlanda\b/gi, 'Ireland'],
+  [/\bAvustralya\b/gi, 'Australia'],
+  [/\bKanada\b/gi, 'Canada'],
+  [/\bAmerika\b/gi, 'United States'],
+  [/\bABD\b/g, 'USA'],
+  [/\bBAE\b/g, 'UAE'],
+  [/\bKıbrıs\b/gi, 'Cyprus'],
+  [/\bAlmanya\b/gi, 'Germany'],
+  [/\bFransa\b/gi, 'France'],
+  [/\bHollanda\b/gi, 'Netherlands'],
+  [/\bİspanya\b/gi, 'Spain'],
+  [/\bİtalya\b/gi, 'Italy'],
+  [/\bİsviçre\b/gi, 'Switzerland'],
+  [/\bİsveç\b/gi, 'Sweden'],
+  [/\bAvusturya\b/gi, 'Austria'],
+  [/\bPolonya\b/gi, 'Poland'],
+  [/\bMacaristan\b/gi, 'Hungary'],
+  [/\bÇekya\b/gi, 'Czechia'],
+  [/\bPortekiz\b/gi, 'Portugal'],
+  [/\bYunanistan\b/gi, 'Greece'],
+  [/\bJaponya\b/gi, 'Japan'],
+  [/\bMalezya\b/gi, 'Malaysia'],
+  [/\bLondra\b/gi, 'London'],
+  [/\bMünih\b/gi, 'Munich'],
+  [/\bKöln\b/gi, 'Cologne'],
+  [/\bViyana\b/gi, 'Vienna'],
+  [/\bFloransa\b/gi, 'Florence'],
+  [/\bMilano\b/gi, 'Milan'],
+  [/\bYaz Okulu\b/gi, 'Summer School'],
+  [/\bDil Okulu\b/gi, 'Language School'],
+  [/\bÜniversitesi\b/gi, 'University'],
+  [/\bÜniversite\b/gi, 'University'],
+  [/\bİngilizce\b/gi, 'English'],
+  [/\bBireysel\b/gi, 'Individual'],
+  [/\bGrup\b/gi, 'Group'],
+  [/\bProgramı\b/gi, 'Programme'],
+  [/\bve\b/gi, 'and'],
+]
+
+function translateKnownLabel(value: string): string {
+  return LABEL_REPLACEMENTS.reduce((text, [pattern, replacement]) => text.replace(pattern, replacement), value)
+    .replace(/\s+/g, ' ')
+    .replace(/\s+,/g, ',')
+    .trim()
+}
+
+function titleFromSlug(slug: string): string {
+  const upper = new Set(['uk', 'usa', 'uae', 'ucl', 'lse', 'mit', 'nyu', 'ielts'])
+  return slug
+    .split('-')
+    .filter(Boolean)
+    .map((word) => {
+      const lower = word.toLowerCase()
+      if (upper.has(lower)) return lower.toUpperCase()
+      return lower.charAt(0).toUpperCase() + lower.slice(1)
+    })
+    .join(' ')
+}
+
+/** Public so the regression suite can enforce English-only catalogue labels. */
+export function englishCatalogueTitle(value: string, slug: string): string {
+  const translated = translateKnownLabel(value)
+  return containsTurkishUiText(translated) ? titleFromSlug(slug) : translated
+}
+
 export function englishCountryLabel(value?: string): string | undefined {
+  if (!value) return undefined
   const mapped = destinationFromValue(value)
-  return mapped?.title ?? value
+  if (mapped) return mapped.title
+  const translated = translateKnownLabel(value)
+  return containsTurkishUiText(translated) ? undefined : translated
 }
 
 export function englishCityLabel(value?: string): string | undefined {
   if (!value) return undefined
-  return value
-    .replace(/\bLondra\b/gi, 'London')
-    .replace(/\bİngiltere\b/gi, 'England')
-    .replace(/\bBatı Avustralya\b/gi, 'Western Australia')
-    .replace(/\bYeni Zelanda\b/gi, 'New Zealand')
-    .replace(/\bİrlanda\b/gi, 'Ireland')
-    .replace(/\bAvustralya\b/gi, 'Australia')
-    .replace(/\bKanada\b/gi, 'Canada')
-    .replace(/\bAmerika Birleşik Devletleri\b/gi, 'United States')
+  const translated = translateKnownLabel(value)
+  return containsTurkishUiText(translated) ? undefined : translated
 }
 
 function portableParagraphs(paragraphs: string[]) {
@@ -120,21 +233,21 @@ function portableParagraphs(paragraphs: string[]) {
   }))
 }
 
-function institutionCopy(source: InstitutionShadowSource): string[] {
+function institutionCopy(source: InstitutionShadowSource, title: string): string[] {
   if (source._type === 'languageSchool') {
     return [
-      `Use this profile as a starting point for considering ${source.title}. Course types, dates, accommodation, entry conditions and prices can change, so the current details should be confirmed before a booking is made.`,
+      `Use this profile as a starting point for considering ${title}. Course types, dates, accommodation, entry conditions and prices can change, so the current details should be confirmed before a booking is made.`,
       'Happy Education can help you compare language-school options, organise the application and booking paperwork, and clarify which questions should be confirmed with the school before you commit.',
     ]
   }
   if (source._type === 'boardingSchool') {
     return [
-      `Use this profile as a starting point for considering ${source.title}. Current admissions requirements, boarding arrangements, fees and availability should be confirmed directly before an application or payment is made.`,
+      `Use this profile as a starting point for considering ${title}. Current admissions requirements, boarding arrangements, fees and availability should be confirmed directly before an application or payment is made.`,
       'For families considering boarding education, the shortlist should cover academic fit as well as pastoral care, accommodation, supervision and safeguarding. Happy Education can help organise the education-application side of that comparison without making guarantees on a school’s behalf.',
     ]
   }
   return [
-    `Use this profile as a starting point for considering ${source.title}. Current courses, entry requirements, tuition fees and application deadlines can change, so the live institution information should be checked before you apply.`,
+    `Use this profile as a starting point for considering ${title}. Current courses, entry requirements, tuition fees and application deadlines can change, so the live institution information should be checked before you apply.`,
     'Happy Education can help you compare universities, organise application documents and plan the application timeline. Admission decisions remain with the university, and this page does not make a ranking, admission or visa-outcome claim.',
   ]
 }
@@ -142,15 +255,16 @@ function institutionCopy(source: InstitutionShadowSource): string[] {
 export function buildEnglishInstitutionShadow(source: InstitutionShadowSource): InstitutionDoc {
   const destination = englishDestinationForSource(source)
   const usesNestedCountryRoute = source._type !== 'boardingSchool'
+  const title = englishCatalogueTitle(source.title, source.slug)
   return {
     _id: `shadow-en-${source._id}`,
     _type: source._type,
-    title: source.title,
+    title,
     slug: source.slug,
     locale: 'en',
     city: englishCityLabel(source.city),
     country: destination?.title ?? englishCountryLabel(source.country),
-    overview: portableParagraphs(institutionCopy(source)),
+    overview: portableParagraphs(institutionCopy(source, title)),
     destination: usesNestedCountryRoute && destination
       ? {
           title: destination.title,
@@ -167,7 +281,7 @@ export function buildEnglishInstitutionCard(source: InstitutionShadowSource): In
   const destination = englishDestinationForSource(source)
   return {
     _type: source._type,
-    title: source.title,
+    title: englishCatalogueTitle(source.title, source.slug),
     slug: source.slug,
     city: englishCityLabel(source.city),
     country: destination?.title ?? englishCountryLabel(source.country),
@@ -185,14 +299,15 @@ export function institutionMatchesEnglishDestination(
 export function buildEnglishSummerShadow(source: SummerShadowSource): SummerProgrammeDoc {
   const format = source.format === 'group' ? 'group' : 'individual'
   const formatLabel = format === 'group' ? 'group summer programme' : 'individual summer programme'
+  const title = englishCatalogueTitle(source.title, source.slug)
   return {
     _id: `shadow-en-${source._id}`,
-    title: source.title,
+    title,
     slug: source.slug,
     locale: 'en',
     format,
     overview: portableParagraphs([
-      `This is an English catalogue profile for ${source.title}, listed as a ${formatLabel}. The current dates, age range, accommodation, supervision, activities and price should be confirmed before a booking is made.`,
+      `This is an English catalogue profile for ${title}, listed as a ${formatLabel}. The current dates, age range, accommodation, supervision, activities and price should be confirmed before a booking is made.`,
       'Happy Education can help families compare the programme with other options and organise the education-booking process. For students under 18, safeguarding and supervision arrangements should be reviewed in writing with the programme provider before commitment.',
     ]),
     providerResponsibilities: portableParagraphs([
@@ -211,7 +326,7 @@ export function buildEnglishSummerShadow(source: SummerShadowSource): SummerProg
 
 export function buildEnglishSummerCard(source: SummerShadowSource) {
   return {
-    title: source.title,
+    title: englishCatalogueTitle(source.title, source.slug),
     slug: source.slug,
     format: source.format === 'group' ? 'group' : 'individual',
   }
