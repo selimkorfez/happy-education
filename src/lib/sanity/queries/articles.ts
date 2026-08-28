@@ -5,19 +5,12 @@ import type { Locale } from '@/lib/i18n/config'
 import { isConfigured } from '@/lib/env'
 import { hasLocalContent } from '@/lib/content/local-source'
 import * as local from '@/lib/content/local-queries'
+import { listEditorialArticles } from '@/lib/content/starter-editorial'
 
-/** Sanity always wins; the migrated bundle answers only before it is configured. */
+/** Sanity always wins; local/starter content answers only before it is configured. */
 function shouldReadLocalBundle(): boolean {
   return !isConfigured.sanity() && hasLocalContent()
 }
-
-/**
- * Article queries.
- *
- * Every projection here selects explicit fields rather than returning whole
- * documents. That keeps the payload small and, more importantly, means an editor
- * adding an internal-only field never leaks it to the client bundle.
- */
 
 export interface ArticleCard {
   title: string
@@ -47,7 +40,11 @@ const CARD_PROJECTION = /* groq */ `
 `
 
 export async function getLatestArticles(locale: Locale, limit = 5): Promise<ArticleCard[]> {
-  if (shouldReadLocalBundle()) return local.localListArticles(locale, limit)
+  if (shouldReadLocalBundle()) {
+    const migrated = local.localListArticles(locale, limit)
+    if (migrated.length > 0) return migrated
+    return listEditorialArticles(locale).slice(0, limit)
+  }
   return sanityFetch<ArticleCard[]>(
     /* groq */ `
       *[_type == "article" && locale == $locale && defined(slug.current) && !(_id in path("drafts.**"))]
@@ -66,7 +63,16 @@ export async function getArticlesByCategory(
   categorySlug: string | null,
   limit = 24,
 ): Promise<ArticleCard[]> {
-  if (shouldReadLocalBundle()) return local.localListArticles(locale, limit, categorySlug)
+  if (shouldReadLocalBundle()) {
+    const migrated = local.localListArticles(locale, limit, categorySlug)
+    if (migrated.length > 0) return migrated
+    const starters = listEditorialArticles(locale)
+    if (!categorySlug) return starters.slice(0, limit)
+    const needle = categorySlug.toLowerCase()
+    return starters
+      .filter((article) => article.category?.toLowerCase().replace(/[^a-z0-9]+/g, '-') === needle)
+      .slice(0, limit)
+  }
   return sanityFetch<ArticleCard[]>(
     /* groq */ `
       *[
@@ -84,8 +90,10 @@ export async function getArticlesByCategory(
   )
 }
 
-/** Slugs for `generateStaticParams`. */
 export async function getAllArticleSlugs(): Promise<Array<{ locale: Locale; slug: string }>> {
+  if (!isConfigured.sanity()) {
+    return listEditorialArticles('en').map((article) => ({ locale: 'en' as const, slug: article.slug }))
+  }
   return sanityFetch<Array<{ locale: Locale; slug: string }>>(
     /* groq */ `
       *[_type == "article" && defined(slug.current)] { locale, "slug": slug.current }

@@ -15,19 +15,15 @@ import {
   type ArticleDoc,
   type ProseDoc,
 } from '@/lib/sanity/queries/content'
+import { getStarterDestination, getStarterProse } from '@/lib/content/starter-content'
+import { getEnglishInstitutionShadow, getEnglishSummerShadow } from '@/lib/content/catalogue-fallback'
+import {
+  getEditorialArticle,
+  getEditorialProse,
+  getEditorialTour,
+} from '@/lib/content/starter-editorial'
+import { getTurkishStarterProse } from '@/lib/content/starter-turkish-prose'
 import { legalSlug, LEGAL_PAGES, type LegalKey } from '@/lib/legal'
-
-/**
- * Turns URL segments into a description of what should render.
- *
- * Resolution is deliberately separated from rendering so that `generateMetadata`
- * and the page body run identical logic. If they diverged, a page could advertise
- * metadata for one document while rendering another.
- *
- * Section indexes always resolve, even on an empty dataset, so the navigation
- * never points at a 404 before content is imported. Individual documents resolve
- * to null when missing, which becomes a real 404.
- */
 
 export type ResolvedRoute =
   | { kind: 'sectionIndex'; section: SectionKey }
@@ -41,14 +37,12 @@ export type ResolvedRoute =
   | { kind: 'legal'; doc: ProseDoc | null; legalKey: LegalKey; slug: string }
   | { kind: 'fixedPage'; pageKey: 'about' | 'contact' | 'consultation'; doc: ProseDoc | null }
 
-/** Institution document types available under each section. */
 const INSTITUTION_TYPES: Partial<Record<SectionKey, string[]>> = {
   universities: ['institution'],
   languageSchools: ['languageSchool'],
   boardingSchools: ['boardingSchool'],
 }
 
-/** Localised slugs for the two summer-school formats. */
 const SUMMER_FORMAT_SLUG: Record<'individual' | 'group', Record<Locale, string>> = {
   individual: { en: 'individual', tr: 'bireysel' },
   group: { en: 'group', tr: 'grup' },
@@ -73,8 +67,6 @@ export async function resolveRoute({
   section: SectionKey
   segments: string[]
 }): Promise<ResolvedRoute | null> {
-  // Search is served by its own route file (see app/[locale]/search/page.tsx),
-  // because it must render dynamically per query.
   if (section === 'search') return null
 
   if (section === 'about' || section === 'contact' || section === 'consultation') {
@@ -83,7 +75,6 @@ export async function resolveRoute({
     return { kind: 'fixedPage', pageKey: section, doc }
   }
 
-  // ---- Legal
   if (section === 'legal') {
     if (segments.length === 0) return { kind: 'sectionIndex', section }
     const slug = segments[0]
@@ -94,107 +85,95 @@ export async function resolveRoute({
     return { kind: 'legal', doc, legalKey: entry.key as LegalKey, slug }
   }
 
-  // ---- Section index
-  if (segments.length === 0) {
-    return { kind: 'sectionIndex', section }
-  }
+  if (segments.length === 0) return { kind: 'sectionIndex', section }
 
-  // ---- Insights (blog)
   if (section === 'insights') {
     const slug = segments[0]
     if (!slug || segments.length > 1) return null
-    const doc = await getArticle(locale, slug)
+    const doc = (await getArticle(locale, slug)) ?? getEditorialArticle(locale, slug)
     return doc ? { kind: 'article', doc } : null
   }
 
-  // ---- Tours
   if (section === 'tours') {
     const slug = segments[0]
     if (!slug || segments.length > 1) return null
-    const doc = await getTour(locale, slug)
+    const doc = (await getTour(locale, slug)) ?? getEditorialTour(locale, slug)
     return doc ? { kind: 'tour', doc } : null
   }
 
-  // ---- Student guides and services
   if (section === 'guides' || section === 'services') {
     const slug = segments[0]
     if (!slug || segments.length > 1) return null
-    const doc = await getProseDoc(locale, slug, section === 'guides' ? 'guide' : 'service')
+    const type = section === 'guides' ? 'guide' : 'service'
+    const doc =
+      (await getProseDoc(locale, slug, type)) ??
+      getStarterProse(locale, slug, type) ??
+      getEditorialProse(locale, type, slug) ??
+      (locale === 'tr' ? getTurkishStarterProse(type, slug) : null)
     return doc ? { kind: 'prose', section, doc } : null
   }
 
-  // ---- Summer schools: /summer-schools/{format}[/{programme}]
   if (section === 'summerSchools') {
     const [formatSlug, programmeSlug, ...extra] = segments
     if (!formatSlug || extra.length > 0) return null
-
     const format = summerFormatFromSlug(locale, formatSlug)
     if (!format) return null
-
     if (!programmeSlug) return { kind: 'summerListing', format, formatSlug }
-
-    const doc = await getSummerProgramme(locale, programmeSlug)
-    return doc ? { kind: 'summerProgramme', doc, formatSlug } : null
+    const doc =
+      (await getSummerProgramme(locale, programmeSlug)) ??
+      (locale === 'en' ? getEnglishSummerShadow(programmeSlug) : null)
+    if (!doc || doc.format !== format) return null
+    return { kind: 'summerProgramme', doc, formatSlug }
   }
 
-  // ---- Boarding schools: flat, /boarding-schools/{school}
   if (section === 'boardingSchools') {
     const slug = segments[0]
     if (!slug || segments.length > 1) return null
-
-    // A country page may also exist under this section.
     const destination = await getDestination(locale, slug, section)
     if (destination) return { kind: 'destination', section, doc: destination }
-
-    const doc = await getInstitution(locale, slug, INSTITUTION_TYPES[section] ?? [])
+    const types = INSTITUTION_TYPES[section] ?? []
+    const doc =
+      (await getInstitution(locale, slug, types)) ??
+      (locale === 'en' ? getEnglishInstitutionShadow(slug, types) : null)
     return doc ? { kind: 'institution', section, doc } : null
   }
 
-  // ---- Universities and language schools: /{section}/{country}[/{institution}]
   if (section === 'universities' || section === 'languageSchools') {
     const [countrySlug, leafSlug, ...extra] = segments
     if (!countrySlug || extra.length > 0) return null
-
     if (!leafSlug) {
-      const destination = await getDestination(locale, countrySlug, section)
+      const destination =
+        (await getDestination(locale, countrySlug, section)) ??
+        getStarterDestination(locale, section, countrySlug)
       return destination ? { kind: 'destination', section, doc: destination } : null
     }
-
-    const doc = await getInstitution(locale, leafSlug, INSTITUTION_TYPES[section] ?? [])
-    return doc ? { kind: 'institution', section, doc } : null
+    const types = INSTITUTION_TYPES[section] ?? []
+    const doc =
+      (await getInstitution(locale, leafSlug, types)) ??
+      (locale === 'en' ? getEnglishInstitutionShadow(leafSlug, types) : null)
+    if (!doc) return null
+    if (locale === 'en' && doc.destination?.slug && doc.destination.slug !== countrySlug) return null
+    return { kind: 'institution', section, doc }
   }
 
   return null
 }
 
-/** Canonical path for a resolved route, used for metadata and hreflang. */
 export function routePath(locale: Locale, route: ResolvedRoute): string[] {
   switch (route.kind) {
-    case 'sectionIndex':
-      return []
-    case 'destination':
-      return route.doc.parentSlug ? [route.doc.parentSlug, route.doc.slug] : [route.doc.slug]
-    case 'institution':
-      return route.doc.destination?.slug
-        ? [route.doc.destination.slug, route.doc.slug]
-        : [route.doc.slug]
-    case 'summerListing':
-      return [route.formatSlug]
-    case 'summerProgramme':
-      return [route.formatSlug, route.doc.slug]
+    case 'sectionIndex': return []
+    case 'destination': return route.doc.parentSlug ? [route.doc.parentSlug, route.doc.slug] : [route.doc.slug]
+    case 'institution': return route.doc.destination?.slug ? [route.doc.destination.slug, route.doc.slug] : [route.doc.slug]
+    case 'summerListing': return [route.formatSlug]
+    case 'summerProgramme': return [route.formatSlug, route.doc.slug]
     case 'tour':
-    case 'article':
-      return [route.doc.slug]
-    case 'prose':
-      return [route.doc.slug]
-    case 'legal':
-      return [route.slug]
-    case 'fixedPage':
-      return []
+    case 'article': return [route.doc.slug]
+    case 'prose': return [route.doc.slug]
+    case 'legal': return [route.slug]
+    case 'fixedPage': return []
   }
 }
 
-/** The legal slug for a key, exposed for the section index. */
 export function legalIndexEntries(locale: Locale) {
   return LEGAL_PAGES.map((p) => ({ key: p.key as LegalKey, slug: legalSlug(locale, p.key as LegalKey) }))
 }

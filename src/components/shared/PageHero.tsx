@@ -1,14 +1,16 @@
+import type { StaticImageData } from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
 import { Breadcrumbs, type Crumb } from './Breadcrumbs'
+import { BRAND_IMAGES } from '@/lib/media/library'
 import type { Locale } from '@/lib/i18n/config'
 
 /**
  * Standard hero for interior pages.
  *
- * The heading sits on the page ground rather than over the photograph, so contrast
- * never depends on a scrim over an unpredictable image. The image is a companion
- * panel, not a backdrop.
+ * A cleared local AI illustration is used whenever a CMS/legacy photograph is not
+ * available. That keeps migrated WordPress media with unknown licensing blocked
+ * while avoiding empty image panels on the rebuilt site.
  */
 export function PageHero({
   locale,
@@ -17,6 +19,7 @@ export function PageHero({
   title,
   intro,
   image,
+  localImage,
   imageAlt,
 }: {
   locale: Locale
@@ -25,8 +28,14 @@ export function PageHero({
   title: string
   intro?: string
   image?: MediaSource | null
+  localImage?: StaticImageData | null
   imageAlt?: string
 }) {
+  const hasMedia = image !== undefined || localImage !== undefined
+  const shouldUseAiFallback = hasMedia && !image && !localImage
+  const resolvedLocalImage = localImage ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.src : null)
+  const resolvedAlt = imageAlt ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.alt : title)
+
   return (
     <section className="border-b border-border">
       <Container>
@@ -47,11 +56,12 @@ export function PageHero({
             ) : null}
           </div>
 
-          {image !== undefined ? (
+          {hasMedia ? (
             <div className="lg:col-span-5">
               <MediaFrame
                 image={image ?? null}
-                alt={imageAlt ?? title}
+                local={resolvedLocalImage}
+                alt={resolvedAlt}
                 width={800}
                 height={560}
                 priority
