@@ -99,16 +99,65 @@ function destinationFromValue(value?: string): DestinationIdentity | undefined {
 }
 
 /**
- * Prefer the institution's explicit country field over the legacy destination
- * reference. The WordPress migration contains a handful of stale destination links
- * (for example US/Australian universities attached to the UK page), while the
- * institution's own country field is the more specific source for routing.
+ * Some migrated institution records have a stale destination reference and no
+ * usable country field. Infer a destination only from unambiguous geography in the
+ * visible location string before trusting that legacy reference.
+ */
+function destinationFromLocation(value?: string): DestinationIdentity | undefined {
+  if (!value) return undefined
+  const location = ` ${normalise(value)} `
+
+  const includesAny = (terms: string[]) => terms.some((term) => location.includes(` ${term} `))
+
+  if (includesAny([
+    'usa', 'u s a', 'abd', 'florida', 'california', 'new york', 'massachusetts', 'texas',
+    'boca raton', 'boston', 'chicago', 'miami', 'san francisco', 'los angeles',
+  ])) return { title: 'United States', slug: 'united-states' }
+
+  if (includesAny([
+    'australia', 'avustralya', 'new south wales', 'western australia', 'queensland',
+    'victoria', 'sydney', 'melbourne', 'fremantle', 'broome', 'perth', 'brisbane',
+    'adelaide',
+  ])) return { title: 'Australia', slug: 'australia' }
+
+  if (includesAny([
+    'united kingdom', 'england', 'ingiltere', 'scotland', 'iskocya', 'wales', 'galler',
+    'northern ireland', 'kuzey irlanda', 'london', 'londra', 'birmingham', 'edinburgh',
+    'cardiff', 'glasgow', 'manchester', 'bristol', 'leeds', 'liverpool', 'sheffield',
+    'nottingham', 'leicester', 'cambridge', 'oxford', 'durham', 'belfast',
+  ])) return { title: 'United Kingdom', slug: 'united-kingdom' }
+
+  if (includesAny([
+    'canada', 'kanada', 'ontario', 'toronto', 'vancouver', 'british columbia', 'montreal',
+    'quebec', 'ottawa',
+  ])) return { title: 'Canada', slug: 'canada' }
+
+  if (includesAny(['ireland', 'irlanda', 'dublin', 'cork', 'galway', 'limerick'])) {
+    return { title: 'Ireland', slug: 'ireland' }
+  }
+
+  if (includesAny(['new zealand', 'yeni zelanda', 'auckland', 'wellington', 'christchurch'])) {
+    return { title: 'New Zealand', slug: 'new-zealand' }
+  }
+
+  if (includesAny(['malta', 'valletta', 'sliema', 'st julians'])) {
+    return { title: 'Malta', slug: 'malta' }
+  }
+
+  return undefined
+}
+
+/**
+ * Prefer explicit record geography over the legacy destination reference. The
+ * WordPress migration contains a handful of stale destination links, including
+ * US/Australian universities attached to the UK page.
  */
 export function englishDestinationForSource(
-  source: Pick<InstitutionShadowSource, 'country' | 'destination'>,
+  source: Pick<InstitutionShadowSource, 'city' | 'country' | 'destination'>,
 ): DestinationIdentity | undefined {
   return (
     destinationFromValue(source.country) ??
+    destinationFromLocation(source.city) ??
     destinationFromValue(source.destination?.slug) ??
     destinationFromValue(source.destination?.title)
   )
@@ -139,12 +188,6 @@ export function containsTurkishUiText(value?: string): boolean {
   return words.some((word) => TURKISH_UI_WORDS.has(word))
 }
 
-/**
- * Do not use \b around replacements beginning/ending with Turkish Unicode letters:
- * JavaScript's word-boundary semantics are ASCII-centric and caused values such as
- * “İngiltere” to survive untranslated. Exact catalogue phrases are safe to replace
- * without those boundaries here.
- */
 const LABEL_REPLACEMENTS: Array<[RegExp, string]> = [
   [/Amerika Birleşik Devletleri/gi, 'United States'],
   [/Birleşik Arap Emirlikleri/gi, 'United Arab Emirates'],
@@ -218,7 +261,6 @@ function titleFromSlug(slug: string): string {
     .join(' ')
 }
 
-/** Public so the regression suite can enforce English-only catalogue labels. */
 export function englishCatalogueTitle(value: string, slug: string): string {
   const translated = translateKnownLabel(value)
   return containsTurkishUiText(translated) ? titleFromSlug(slug) : translated
