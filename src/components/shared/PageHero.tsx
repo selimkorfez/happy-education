@@ -2,9 +2,16 @@ import type { StaticImageData } from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
 import { Breadcrumbs, type Crumb } from './Breadcrumbs'
+import { BRAND_IMAGES } from '@/lib/media/library'
 import type { Locale } from '@/lib/i18n/config'
 
-/** Standard hero for interior pages. */
+/**
+ * Standard hero for interior pages.
+ *
+ * A cleared local AI illustration is used whenever a CMS/legacy photograph is not
+ * available. That keeps migrated WordPress media with unknown licensing blocked
+ * while avoiding empty image panels on the rebuilt site.
+ */
 export function PageHero({
   locale,
   crumbs,
@@ -25,6 +32,9 @@ export function PageHero({
   imageAlt?: string
 }) {
   const hasMedia = image !== undefined || localImage !== undefined
+  const shouldUseAiFallback = hasMedia && !image && !localImage
+  const resolvedLocalImage = localImage ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.src : null)
+  const resolvedAlt = imageAlt ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.alt : title)
 
   return (
     <section className="border-b border-border">
@@ -50,8 +60,8 @@ export function PageHero({
             <div className="lg:col-span-5">
               <MediaFrame
                 image={image ?? null}
-                local={localImage ?? null}
-                alt={imageAlt ?? title}
+                local={resolvedLocalImage}
+                alt={resolvedAlt}
                 width={800}
                 height={560}
                 priority
