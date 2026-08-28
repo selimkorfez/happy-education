@@ -8,7 +8,7 @@ import { expect, test } from '@playwright/test'
  * surfaces that reuse that data rather than testing only one screenshot route.
  */
 
-const TURKISH_UI = /\b(?:İngiltere|İskoçya|Galler|İrlanda|Avustralya|Kanada|Londra|ABD|BAE|Yaz Okulu|Dil Okulu|Üniversitesi|Bireysel|Programı)\b/iu
+const TURKISH_UI = /(?:İngiltere|İskoçya|Galler|İrlanda|Avustralya|Kanada|Londra|\bABD\b|\bBAE\b|Yaz Okulu|Dil Okulu|Üniversitesi|Bireysel|Programı)/iu
 
 const ENGLISH_SURFACES = [
   '/en/universities/united-kingdom',
