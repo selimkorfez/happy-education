@@ -98,13 +98,19 @@ function destinationFromValue(value?: string): DestinationIdentity | undefined {
   return undefined
 }
 
+/**
+ * Prefer the institution's explicit country field over the legacy destination
+ * reference. The WordPress migration contains a handful of stale destination links
+ * (for example US/Australian universities attached to the UK page), while the
+ * institution's own country field is the more specific source for routing.
+ */
 export function englishDestinationForSource(
   source: Pick<InstitutionShadowSource, 'country' | 'destination'>,
 ): DestinationIdentity | undefined {
   return (
+    destinationFromValue(source.country) ??
     destinationFromValue(source.destination?.slug) ??
-    destinationFromValue(source.destination?.title) ??
-    destinationFromValue(source.country)
+    destinationFromValue(source.destination?.title)
   )
 }
 
