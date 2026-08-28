@@ -12,30 +12,15 @@ import destAustralia from '../../../public/media/destination-australia.jpg'
 /**
  * Brand image library.
  *
- * These are commissioned ILLUSTRATIVE images generated with Higgsfield
- * (`soul_location`), colour-directed to the Happy Education palette: warm amber
- * light against charcoal shadow, matching the logo's orange-on-charcoal identity.
- *
- * Provenance is recorded honestly and deliberately:
- *   - every entry is `aiGenerated: true`
- *   - every scene is a PLACE or an EMPTY INTERIOR. None depicts a person as a
- *     Happy Education student, staff member or client, and none is presented as a
- *     photograph of a real Happy Education premises, cohort or event.
- *
- * That distinction is the line the brief draws. Illustrative destination imagery is
- * legitimate; a synthetic person captioned as a real student is not, and no part of
- * this library may be used for a testimonial, a team portrait or an office photo.
- *
- * For launch, genuine licensed photography of the actual destinations would carry
- * more weight with parents than any generated image. These are production-quality
- * and honest, but they are the floor, not the ceiling. See docs/MIGRATION.md.
+ * These are commissioned illustrative images generated with Higgsfield
+ * (`soul_location`) and colour-directed to the Happy Education palette.
+ * They are explicitly non-documentary and may be used as visual fallbacks when a
+ * migrated WordPress image cannot be republished because its licence is unknown.
  */
 
 export interface BrandImage {
   src: StaticImageData
-  /** Written for a screen reader: what the image shows, not what it represents. */
   alt: string
-  /** True when the image adds nothing beyond decoration in its usual placement. */
   decorativeByDefault: boolean
   provenance: {
     holder: string
@@ -108,7 +93,6 @@ export const BRAND_IMAGES = {
 
 export type BrandImageKey = keyof typeof BRAND_IMAGES
 
-/** Maps a destination country key to its library image, where one exists. */
 export const DESTINATION_IMAGE: Partial<Record<string, BrandImageKey>> = {
   uk: 'unitedKingdom',
   ireland: 'ireland',
@@ -118,11 +102,35 @@ export const DESTINATION_IMAGE: Partial<Record<string, BrandImageKey>> = {
   australia: 'australia',
 }
 
+const DESTINATION_SLUG_IMAGE: Partial<Record<string, BrandImageKey>> = {
+  'united-kingdom': 'unitedKingdom',
+  ingiltere: 'unitedKingdom',
+  ireland: 'ireland',
+  irlanda: 'ireland',
+  'united-states': 'unitedStates',
+  amerika: 'unitedStates',
+  abd: 'unitedStates',
+  canada: 'canada',
+  kanada: 'canada',
+  malta: 'malta',
+  australia: 'australia',
+  avustralya: 'australia',
+}
+
 export function brandImage(key: BrandImageKey): BrandImage {
   return BRAND_IMAGES[key]
 }
 
-/** Every AI-generated asset, for the provenance section of the QA report. */
+/**
+ * Returns a commissioned AI illustration for a destination slug. Unknown
+ * destinations deliberately fall back to the neutral library interior rather than
+ * a copyrighted WordPress asset or an empty placeholder.
+ */
+export function illustrativeImageForDestination(slug?: string): BrandImage {
+  const key = slug ? DESTINATION_SLUG_IMAGE[slug.toLowerCase()] : undefined
+  return key ? BRAND_IMAGES[key] : BRAND_IMAGES.libraryInterior
+}
+
 export function aiGeneratedAssets(): Array<{ key: string; alt: string; generatedWith?: string }> {
   return Object.entries(BRAND_IMAGES)
     .filter(([, image]) => image.provenance.aiGenerated)
