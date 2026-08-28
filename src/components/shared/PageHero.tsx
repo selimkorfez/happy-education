@@ -1,15 +1,10 @@
+import type { StaticImageData } from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
 import { Breadcrumbs, type Crumb } from './Breadcrumbs'
 import type { Locale } from '@/lib/i18n/config'
 
-/**
- * Standard hero for interior pages.
- *
- * The heading sits on the page ground rather than over the photograph, so contrast
- * never depends on a scrim over an unpredictable image. The image is a companion
- * panel, not a backdrop.
- */
+/** Standard hero for interior pages. */
 export function PageHero({
   locale,
   crumbs,
@@ -17,6 +12,7 @@ export function PageHero({
   title,
   intro,
   image,
+  localImage,
   imageAlt,
 }: {
   locale: Locale
@@ -25,8 +21,11 @@ export function PageHero({
   title: string
   intro?: string
   image?: MediaSource | null
+  localImage?: StaticImageData | null
   imageAlt?: string
 }) {
+  const hasMedia = image !== undefined || localImage !== undefined
+
   return (
     <section className="border-b border-border">
       <Container>
@@ -47,10 +46,11 @@ export function PageHero({
             ) : null}
           </div>
 
-          {image !== undefined ? (
+          {hasMedia ? (
             <div className="lg:col-span-5">
               <MediaFrame
                 image={image ?? null}
+                local={localImage ?? null}
                 alt={imageAlt ?? title}
                 width={800}
                 height={560}
