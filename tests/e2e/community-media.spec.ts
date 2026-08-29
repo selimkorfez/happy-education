@@ -33,10 +33,11 @@ test.describe('licensed documentary media', () => {
     await expect(page.getByText('Photo being verified')).toHaveCount(0)
     const cards = page.locator('article').filter({ has: page.locator('h3') })
     const cardCount = await cards.count()
-    expect(cardCount).toBeGreaterThan(20)
+    expect(cardCount).toBeGreaterThan(100)
 
     const images = page.locator('article img')
-    expect(await images.count()).toBeGreaterThan(20)
+    expect(await images.count()).toBe(cardCount)
+    await expect(page.locator('main img[src*="happyeducation.uk/wp-content"]')).toHaveCount(0)
   })
 
   test('country city previews are real photos and no longer dead internal links', async ({ page }) => {
@@ -61,10 +62,11 @@ test.describe('licensed documentary media', () => {
     }
   })
 
-  test('university browse cards label representative imagery honestly', async ({ page }) => {
+  test('university browse cards label and attribute representative imagery honestly', async ({ page }) => {
     await page.goto('/en/universities')
     await dismissConsent(page)
     await expect(page.getByText(/Campus photo|Location photo/).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: /ARU/i }).first()).toBeVisible()
   })
 })
 
