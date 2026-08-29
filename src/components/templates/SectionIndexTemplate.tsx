@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { PageHero } from '@/components/shared/PageHero'
+import type { SectionVisualVariant } from '@/components/shared/SectionVisual'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { InstitutionBrowser } from '@/components/content/InstitutionBrowser'
 import { SortableCardGrid } from '@/components/content/SortableCardGrid'
@@ -24,7 +25,7 @@ export async function SectionIndexTemplate({ locale, section }: { locale: Locale
 
   return (
     <>
-      <PageHero locale={locale} crumbs={crumbs} eyebrow={locale === 'tr' ? 'Keşfet' : 'Explore'} title={copy?.title[locale] ?? section} intro={copy?.description[locale]} />
+      <PageHero locale={locale} crumbs={crumbs} eyebrow={locale === 'tr' ? 'Keşfet' : 'Explore'} title={copy?.title[locale] ?? section} intro={copy?.description[locale]} visualVariant={visualForSection(section)} />
       <section className="bg-paper py-10 sm:py-14 lg:py-16">
         <Container>{body}</Container>
       </section>
@@ -161,6 +162,20 @@ function SectionHeading({ kicker, title, body }: { locale: Locale; kicker: strin
       <p className="max-w-[58ch] text-base leading-relaxed text-fg-muted lg:justify-self-end">{body}</p>
     </div>
   )
+}
+
+function visualForSection(section: SectionKey): SectionVisualVariant | undefined {
+  switch (section) {
+    case 'universities': return 'universities'
+    case 'languageSchools': return 'language'
+    case 'boardingSchools': return 'boarding'
+    case 'summerSchools': return 'summer'
+    case 'tours': return 'tours'
+    case 'insights': return 'insights'
+    case 'guides': return 'guides'
+    case 'services': return 'services'
+    default: return undefined
+  }
 }
 
 function slugifyCountry(country: string): string {
