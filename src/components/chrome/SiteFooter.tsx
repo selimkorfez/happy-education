@@ -80,7 +80,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 <ul className="mt-4 flex flex-wrap gap-2 text-sm">
                   {SOCIAL.map((account) => (
                     <li key={account.platform}>
-                      <a href={account.url} target="_blank" rel="noopener noreferrer me" className="inline-flex min-h-10 items-center rounded-full border border-white/15 px-3 text-fg-muted-on-ink no-underline transition hover:bg-white/8 hover:text-fg-on-ink">
+                      <a href={account.url} target="_blank" rel="noopener noreferrer me" className="inline-flex min-h-11 items-center rounded-full border border-white/15 px-3 text-fg-muted-on-ink no-underline transition hover:bg-white/8 hover:text-fg-on-ink">
                         {account.platform}<span className="sr-only"> ({t(locale, 'a11y.opensInNewTab')})</span>
                       </a>
                     </li>
