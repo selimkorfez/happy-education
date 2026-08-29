@@ -32,6 +32,7 @@ export function DestinationTemplate({
 
   const labels = COPY[locale]
   const fallbackImage = illustrativeImageForDestination(doc.parentSlug ?? doc.slug)
+  const useEditorialVisual = Boolean(doc.parentSlug) || section === 'languageSchools'
   const pageLinks: Array<{ href: string; label: string }> = []
   if (doc.whyStudyHere) pageLinks.push({ href: '#why', label: labels.whyStudyHere })
   if (doc.applicationJourney) pageLinks.push({ href: '#applying', label: labels.applicationJourney })
@@ -48,8 +49,9 @@ export function DestinationTemplate({
         title={doc.title}
         intro={doc.intro}
         image={doc.heroImage ?? null}
-        localImage={doc.heroImage ? undefined : fallbackImage.src}
+        localImage={doc.heroImage || useEditorialVisual ? undefined : fallbackImage.src}
         imageAlt={doc.heroImage?.alt ?? fallbackImage.alt}
+        visualVariant={doc.parentSlug ? 'city' : section === 'languageSchools' ? 'language' : undefined}
       />
 
       {pageLinks.length > 1 ? (
