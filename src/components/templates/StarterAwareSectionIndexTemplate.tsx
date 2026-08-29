@@ -28,15 +28,47 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
 
   if (section === 'universities' || section === 'languageSchools') {
     const destinations = listStarterDestinations(locale, section)
-    if (destinations.length > 0) {
+    const institutions = locale === 'en'
+      ? listEnglishInstitutionShadows(section === 'universities' ? ['institution'] : ['languageSchool'])
+      : []
+
+    if (destinations.length > 0 || institutions.length > 0) {
       body = (
-        <BrowseBlock
-          kicker={locale === 'tr' ? 'Ülke seçin' : 'Choose a destination'}
-          title={locale === 'tr' ? 'Önce nereye gitmek istediğinize bakın.' : 'Start with where this could take you.'}
-          body={locale === 'tr' ? 'Ülke sayfalarında kurumları, şehirleri ve pratik sonraki adımları tek yerde inceleyin.' : 'Open a destination to browse institutions, cities and practical next steps in one place.'}
-        >
-          <SortableCardGrid locale={locale} items={destinations.map((destination) => ({ href: docPath(locale, section, destination.slug), title: destination.title, excerpt: destination.intro }))} />
-        </BrowseBlock>
+        <div className="space-y-16 lg:space-y-20">
+          {destinations.length > 0 ? (
+            <BrowseBlock
+              kicker={locale === 'tr' ? 'Ülke seçin' : 'Choose a destination'}
+              title={locale === 'tr' ? 'Önce nereye gitmek istediğinize bakın.' : 'Start with where this could take you.'}
+              body={locale === 'tr' ? 'Ülke sayfalarında kurumları, şehirleri ve pratik sonraki adımları tek yerde inceleyin.' : 'Open a destination to browse institutions, cities and practical next steps in one place.'}
+            >
+              <SortableCardGrid locale={locale} items={destinations.map((destination) => ({ href: docPath(locale, section, destination.slug), title: destination.title, excerpt: destination.intro }))} />
+            </BrowseBlock>
+          ) : null}
+
+          {institutions.length > 0 ? (
+            <section className="border-t border-border/70 pt-12 sm:pt-14">
+              <BrowseBlock
+                kicker={section === 'universities' ? 'Browse universities' : 'Browse schools'}
+                title={section === 'universities' ? 'All universities in one place.' : 'All language schools in one place.'}
+                body={section === 'universities'
+                  ? 'Start with the curated Popular order, switch to A–Z, or search directly by university, city or country.'
+                  : 'Start with the curated Popular order, switch to A–Z, or search directly by school, city or country.'}
+              >
+                <InstitutionBrowser
+                  locale={locale}
+                  items={institutions.map((institution) => ({
+                    href: institution.country
+                      ? docPath(locale, section, slugifyCountry(institution.country), institution.slug)
+                      : docPath(locale, section, institution.slug),
+                    title: institution.title,
+                    city: institution.city,
+                    country: institution.country,
+                  }))}
+                />
+              </BrowseBlock>
+            </section>
+          ) : null}
+        </div>
       )
     }
   }
@@ -144,4 +176,8 @@ function visualForSection(section: SectionKey): SectionVisualVariant | undefined
     case 'services': return 'services'
     default: return undefined
   }
+}
+
+function slugifyCountry(country: string): string {
+  return country.toLowerCase().replace(/ı/g, 'i').replace(/İ/g, 'i').replace(/ğ/g, 'g').replace(/ş/g, 's').replace(/ç/g, 'c').replace(/ö/g, 'o').replace(/ü/g, 'u').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 }
