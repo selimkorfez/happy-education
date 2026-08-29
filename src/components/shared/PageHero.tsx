@@ -33,6 +33,7 @@ export function PageHero({
   const shouldUseAiFallback = hasExplicitMedia && !image && !localImage && !visualVariant
   const resolvedLocalImage = localImage ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.src : null)
   const resolvedAlt = imageAlt ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.alt : title)
+  const editorialLabel = locale === 'tr' ? `${title} illüstrasyonu` : `${title} illustration`
 
   return (
     <section className="he-gradient-wash relative overflow-hidden border-b border-border/70 pb-10 pt-2 sm:pb-14 lg:pb-16">
@@ -62,7 +63,7 @@ export function PageHero({
             <div className="relative">
               <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-[0_24px_65px_rgba(35,35,38,0.13)] sm:p-3">
                 {visualVariant && !image && !localImage ? (
-                  <SectionVisual variant={visualVariant} label={imageAlt ?? `${title} illustration`} locale={locale} />
+                  <SectionVisual variant={visualVariant} label={editorialLabel} locale={locale} />
                 ) : (
                   <MediaFrame
                     image={image ?? null}
