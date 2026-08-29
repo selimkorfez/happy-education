@@ -35,6 +35,7 @@ export function InstitutionTemplate({
 
   const website = safeExternalHref(doc.officialWebsite)
   const verifiedAccreditations = (doc.accreditations ?? []).filter((a) => a.verified)
+  const visualVariant = section === 'languageSchools' ? 'language' : section === 'boardingSchools' ? 'boarding' : 'universities'
 
   return (
     <>
@@ -45,6 +46,7 @@ export function InstitutionTemplate({
         title={doc.title}
         image={doc.heroImage ?? null}
         imageAlt={doc.heroImage?.alt ?? doc.title}
+        visualVariant={visualVariant}
       />
 
       <section className="bg-paper">
