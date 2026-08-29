@@ -61,7 +61,7 @@ export function DestinationTemplate({
                   <li key={item.href}>
                     <a
                       href={item.href}
-                      className="inline-flex min-h-10 items-center rounded-full border border-border bg-paper px-4 text-sm font-bold text-fg no-underline transition hover:border-brand/35 hover:bg-brand-soft"
+                      className="inline-flex min-h-11 items-center rounded-full border border-border bg-paper px-4 text-sm font-bold text-fg no-underline transition hover:border-brand/35 hover:bg-brand-soft"
                     >
                       {item.label}
                     </a>
@@ -112,7 +112,7 @@ export function DestinationTemplate({
                         <li key={city.slug}>
                           <a
                             href={docPath(locale, section, doc.slug, city.slug)}
-                            className="group flex min-h-10 items-center justify-between rounded-xl bg-white/70 px-3 font-bold text-fg no-underline transition hover:bg-white"
+                            className="group flex min-h-11 items-center justify-between rounded-xl bg-white/70 px-3 font-bold text-fg no-underline transition hover:bg-white"
                           >
                             {city.title}
                             <span aria-hidden="true" className="text-brand-strong transition-transform group-hover:translate-x-1">→</span>
@@ -126,7 +126,7 @@ export function DestinationTemplate({
                 <div className="rounded-[1.3rem] border border-border/70 bg-brand-soft/70 p-5">
                   <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{labels.needHelp}</p>
                   <p className="mt-2 text-sm font-semibold leading-relaxed text-fg">{labels.needHelpBody}</p>
-                  <a href={sectionPath(locale, 'consultation')} className="mt-4 inline-flex min-h-10 items-center text-sm font-bold text-brand-strong underline underline-offset-4">
+                  <a href={sectionPath(locale, 'consultation')} className="mt-4 inline-flex min-h-11 items-center text-sm font-bold text-brand-strong underline underline-offset-4">
                     {labels.talkToUs} →
                   </a>
                 </div>
