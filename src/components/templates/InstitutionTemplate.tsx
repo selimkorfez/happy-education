@@ -45,7 +45,7 @@ export function InstitutionTemplate({
         eyebrow={[doc.city, doc.country].filter(Boolean).join(', ') || sectionCopy?.title[locale]}
         title={doc.title}
         image={doc.heroImage ?? null}
-        imageAlt={doc.heroImage?.alt ?? doc.title}
+        imageAlt={doc.heroImage?.alt}
         visualVariant={visualVariant}
       />
 
@@ -90,23 +90,12 @@ export function InstitutionTemplate({
                         </tr>
                       </thead>
                       <tbody>
-                        {doc.rankings.map((rank, i) => (
-                          <tr key={i}>
-                            <th scope="row" className="font-medium">
-                              {rank.source?.url ? (
-                                <a
-                                  href={safeExternalHref(rank.source.url) ?? '#'}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="font-bold text-brand-strong underline underline-offset-2"
-                                >
-                                  {rank.organisation}
-                                </a>
-                              ) : rank.organisation}
-                            </th>
-                            <td>{rank.category}</td>
-                            <td>{rank.year}</td>
-                            <td>{rank.position}</td>
+                        {doc.rankings.map((ranking, index) => (
+                          <tr key={`${ranking.organisation}-${ranking.year}-${index}`}>
+                            <td>{ranking.organisation}</td>
+                            <td>{ranking.category}</td>
+                            <td>{ranking.year}</td>
+                            <td>{ranking.position}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -115,69 +104,50 @@ export function InstitutionTemplate({
                 </section>
               ) : null}
 
+              {verifiedAccreditations.length > 0 ? (
+                <section className="border-t border-border/70 py-10 sm:py-12">
+                  <h2 className="text-[length:var(--text-2xl)] font-bold text-fg">{copy.accreditations}</h2>
+                  <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {verifiedAccreditations.map((item, index) => (
+                      <li key={`${item.body}-${index}`} className="rounded-[1rem] border border-border/70 bg-mint-soft/60 p-4 text-sm font-bold leading-relaxed text-fg">
+                        {item.body}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
+
               <ReviewMeta locale={locale} review={doc.review} className="my-10" />
             </div>
 
             <aside>
               <div className="sticky top-32 space-y-5">
-                <div className="rounded-[1.35rem] border border-brand/20 bg-brand-soft/70 p-5 shadow-[0_10px_28px_rgba(35,35,38,0.05)]">
-                  <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.considering}</p>
-                  <h2 className="mt-2 text-lg font-bold text-fg">{copy.askTitle}</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-fg-muted">{copy.askBody}</p>
-                  <Link
-                    href={sectionPath(locale, 'consultation')}
-                    className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand px-5 text-sm font-bold text-fg no-underline shadow-[0_8px_20px_rgba(244,116,38,0.18)] transition hover:-translate-y-0.5"
-                  >
-                    {copy.askCta} <span aria-hidden="true" className="ml-2">↗</span>
-                  </Link>
-                </div>
-
                 <DetailList
                   title={copy.atAGlance}
                   items={[
-                    { label: copy.city, value: doc.city },
-                    { label: copy.country, value: doc.country },
+                    { label: copy.location, value: [doc.city, doc.country].filter(Boolean).join(', ') || undefined },
                     { label: copy.founded, value: doc.founded },
-                    { label: copy.degreeLevels, value: doc.degreeLevels },
-                    { label: copy.subjectAreas, value: doc.subjectAreas },
-                    { label: copy.intakes, value: doc.intakes },
-                    { label: copy.courseTypes, value: doc.courseTypes },
-                    { label: copy.lessonsPerWeek, value: doc.lessonsPerWeek },
-                    { label: copy.levels, value: doc.levels },
-                    { label: copy.minimumAge, value: doc.minimumAge },
+                    { label: copy.degreeLevels, value: doc.degreeLevels?.join(', ') },
+                    { label: copy.courseTypes, value: doc.courseTypes?.join(', ') },
                     { label: copy.ageRange, value: doc.ageRange },
-                    { label: copy.curriculum, value: doc.curriculum },
-                    { label: copy.facilities, value: doc.facilities },
+                    { label: copy.minimumAge, value: doc.minimumAge ? String(doc.minimumAge) : undefined },
                   ]}
                 />
 
-                {verifiedAccreditations.length > 0 ? (
-                  <div className="rounded-[1.25rem] border border-border/70 bg-mint-soft/65 p-5">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.07em] text-fg">{copy.accreditation}</h2>
-                    <p className="mt-2 text-xs leading-relaxed text-fg-muted">{copy.accreditationNote}</p>
-                    <ul className="mt-4 space-y-2 text-sm font-semibold text-fg">
-                      {verifiedAccreditations.map((a) => <li key={a.body}>{a.body}</li>)}
-                    </ul>
-                  </div>
-                ) : null}
-
-                {website ? (
-                  <div className="rounded-[1.25rem] border border-border/70 bg-white p-5">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.07em] text-fg">{copy.officialSite}</h2>
-                    <p className="mt-3 text-sm">
-                      <ExternalLink href={website} srSuffix={t(locale, 'a11y.opensInNewTab')}>
-                        {new URL(website).hostname.replace(/^www\./, '')}
-                      </ExternalLink>
-                    </p>
-                  </div>
-                ) : null}
+                <div className="rounded-[1.3rem] border border-border/70 bg-ink-surface p-5 text-fg-on-ink shadow-[0_16px_42px_rgba(35,35,38,0.1)]">
+                  <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-on-ink">{copy.nextStep}</p>
+                  <h2 className="mt-2 text-lg font-bold text-fg-on-ink">{copy.nextStepTitle}</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-fg-muted-on-ink">{copy.nextStepBody}</p>
+                  <Link href={sectionPath(locale, 'consultation')} className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand px-5 text-sm font-bold text-fg no-underline transition hover:-translate-y-0.5">
+                    {copy.consultation} <span aria-hidden="true" className="ml-2">→</span>
+                  </Link>
+                  {website ? <ExternalLink href={website} className="mt-3 w-full justify-center border-white/25 text-fg-on-ink hover:bg-white/10">{copy.officialWebsite}</ExternalLink> : null}
+                </div>
               </div>
             </aside>
           </div>
         </Container>
       </section>
-
-      <FaqSection locale={locale} faqs={doc.faqs ?? []} />
 
       {doc.relatedArticles && doc.relatedArticles.length > 0 ? (
         <section className="border-t border-border/70 bg-white py-14 sm:py-16">
@@ -185,14 +155,13 @@ export function InstitutionTemplate({
             <p className="text-sm font-bold uppercase tracking-[0.1em] text-brand-strong">{copy.keepReading}</p>
             <h2 className="mt-2 text-[length:var(--text-3xl)] font-bold text-fg">{copy.relatedReading}</h2>
             <div className="mt-8">
-              <CardGrid
-                items={doc.relatedArticles.map((a) => ({ href: docPath(locale, 'insights', a.slug), title: a.title }))}
-              />
+              <CardGrid items={doc.relatedArticles.map((article) => ({ href: docPath(locale, 'insights', article.slug), title: article.title }))} />
             </div>
           </Container>
         </section>
       ) : null}
 
+      <FaqSection locale={locale} faqs={doc.faqs ?? []} />
       <ConsultationBand locale={locale} />
     </>
   )
@@ -200,13 +169,71 @@ export function InstitutionTemplate({
 
 const COPY = {
   en: {
-    overview: 'Overview', entryGuidance: 'Entry guidance', englishRequirements: 'English language requirements', fees: 'Fees', scholarships: 'Scholarships', accommodation: 'Accommodation', startDates: 'Start dates', socialProgramme: 'Social programme', boardingOptions: 'Boarding', admissions: 'Admissions', safeguarding: 'Safeguarding',
-    safeguardingNote: "This describes the school's own arrangements. Happy Education does not supervise students on site and cannot guarantee another organisation's procedures.",
-    rankings: 'Rankings', rankingOrg: 'Published by', rankingCategory: 'Category', rankingYear: 'Year', rankingPosition: 'Position', atAGlance: 'At a glance', city: 'City', country: 'Country', founded: 'Founded', degreeLevels: 'Degree levels', subjectAreas: 'Subject areas', intakes: 'Intakes', courseTypes: 'Course types', lessonsPerWeek: 'Lessons per week', levels: 'Levels', minimumAge: 'Minimum age', ageRange: 'Age range', curriculum: 'Curriculum', facilities: 'Facilities', accreditation: 'Accreditation', accreditationNote: "The school's accreditation, verified against the accrediting body.", officialSite: 'Official website', relatedReading: 'Related reading', keepReading: 'Worth reading next',
-    considering: 'Considering this option?', askTitle: 'See how it fits your plans.', askBody: 'Tell us what you want to study and what matters to you. We can help you compare this institution with realistic alternatives.', askCta: 'Ask about this institution',
+    overview: 'About this institution',
+    entryGuidance: 'Entry guidance',
+    englishRequirements: 'English language requirements',
+    fees: 'Fees',
+    scholarships: 'Scholarships and funding',
+    accommodation: 'Accommodation',
+    startDates: 'Start dates',
+    socialProgramme: 'Student life and social programme',
+    boardingOptions: 'Boarding options',
+    admissions: 'Admissions',
+    safeguarding: 'Safeguarding information',
+    safeguardingNote: 'This information relates to the institution’s own safeguarding arrangements. Happy Education does not make safety guarantees on another organisation’s behalf.',
+    rankings: 'Published rankings',
+    rankingOrg: 'Organisation',
+    rankingCategory: 'Category',
+    rankingYear: 'Year',
+    rankingPosition: 'Position',
+    accreditations: 'Verified accreditations',
+    atAGlance: 'At a glance',
+    location: 'Location',
+    founded: 'Founded',
+    degreeLevels: 'Degree levels',
+    courseTypes: 'Course types',
+    ageRange: 'Age range',
+    minimumAge: 'Minimum age',
+    nextStep: 'Considering this option?',
+    nextStepTitle: 'Turn one profile into a real shortlist.',
+    nextStepBody: 'We can help compare this institution with alternatives and organise the application steps that follow.',
+    consultation: 'Talk it through',
+    officialWebsite: 'Official website',
+    keepReading: 'Keep exploring',
+    relatedReading: 'Related reading',
   },
   tr: {
-    overview: 'Genel bakış', entryGuidance: 'Kabul koşulları', englishRequirements: 'İngilizce dil koşulları', fees: 'Ücretler', scholarships: 'Burslar', accommodation: 'Konaklama', startDates: 'Başlangıç tarihleri', socialProgramme: 'Sosyal program', boardingOptions: 'Yatılı seçenekleri', admissions: 'Başvuru süreci', safeguarding: 'Çocuk koruma', safeguardingNote: 'Bu bölüm okulun kendi uygulamalarını anlatır. Happy Education öğrencileri okulda gözetmez ve başka bir kurumun prosedürlerini garanti edemez.', rankings: 'Sıralamalar', rankingOrg: 'Yayımlayan', rankingCategory: 'Kategori', rankingYear: 'Yıl', rankingPosition: 'Sıra', atAGlance: 'Özet bilgiler', city: 'Şehir', country: 'Ülke', founded: 'Kuruluş', degreeLevels: 'Program düzeyleri', subjectAreas: 'Öne çıkan alanlar', intakes: 'Dönemler', courseTypes: 'Kurs türleri', lessonsPerWeek: 'Haftalık ders', levels: 'Seviyeler', minimumAge: 'Asgari yaş', ageRange: 'Yaş aralığı', curriculum: 'Müfredat', facilities: 'Olanaklar', accreditation: 'Akreditasyon', accreditationNote: 'Okulun akreditasyonu, ilgili kurum nezdinde doğrulanmıştır.', officialSite: 'Resmî web sitesi', relatedReading: 'İlgili yazılar', keepReading: 'Sonraki okuma',
-    considering: 'Bu seçeneği düşünüyor musunuz?', askTitle: 'Planınıza nasıl uyduğunu değerlendirin.', askBody: 'Ne okumak istediğinizi ve sizin için neyin önemli olduğunu anlatın. Bu kurumu gerçekçi alternatiflerle karşılaştırmanıza yardımcı olabiliriz.', askCta: 'Bu kurum hakkında sor',
+    overview: 'Kurum hakkında',
+    entryGuidance: 'Kabul rehberi',
+    englishRequirements: 'İngilizce dil koşulları',
+    fees: 'Ücretler',
+    scholarships: 'Burslar ve finansman',
+    accommodation: 'Konaklama',
+    startDates: 'Başlangıç tarihleri',
+    socialProgramme: 'Öğrenci hayatı ve sosyal program',
+    boardingOptions: 'Yatılılık seçenekleri',
+    admissions: 'Kabul süreci',
+    safeguarding: 'Çocuk koruma bilgileri',
+    safeguardingNote: 'Bu bilgiler kurumun kendi çocuk koruma düzenlemeleriyle ilgilidir. Happy Education başka bir kuruluş adına güvenlik garantisi vermez.',
+    rankings: 'Yayımlanmış sıralamalar',
+    rankingOrg: 'Kuruluş',
+    rankingCategory: 'Kategori',
+    rankingYear: 'Yıl',
+    rankingPosition: 'Sıra',
+    accreditations: 'Doğrulanmış akreditasyonlar',
+    atAGlance: 'Özet bilgiler',
+    location: 'Konum',
+    founded: 'Kuruluş',
+    degreeLevels: 'Derece seviyeleri',
+    courseTypes: 'Kurs türleri',
+    ageRange: 'Yaş aralığı',
+    minimumAge: 'Minimum yaş',
+    nextStep: 'Bu seçeneği mi düşünüyorsunuz?',
+    nextStepTitle: 'Tek bir profili gerçek bir kısa listeye dönüştürün.',
+    nextStepBody: 'Bu kurumu alternatiflerle karşılaştırmanıza ve sonraki başvuru adımlarını düzenlemenize yardımcı olabiliriz.',
+    consultation: 'Birlikte değerlendirelim',
+    officialWebsite: 'Resmî web sitesi',
+    keepReading: 'Keşfetmeye devam edin',
+    relatedReading: 'İlgili yazılar',
   },
 } as const
