@@ -97,7 +97,7 @@ const EN_DESTINATIONS: Partial<Record<SectionKey, StarterDestination[]>> = {
       slug: 'malta',
       title: 'English courses in Malta',
       intro: 'Explore English-language study in Malta and compare course formats, school locations and the kind of study experience you are looking for.',
-      cities: ['Valletta'],
+      cities: ['Valletta', 'Sliema', "St Julian's"],
     },
     {
       slug: 'australia',
