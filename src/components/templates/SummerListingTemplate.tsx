@@ -28,7 +28,7 @@ export async function SummerListingTemplate({
 
   return (
     <>
-      <PageHero locale={locale} crumbs={crumbs} title={copy.title} intro={copy.intro} />
+      <PageHero locale={locale} crumbs={crumbs} title={copy.title} intro={copy.intro} visualVariant="summer" />
       <Container>
         <div className="py-12">
           {programmes.length === 0 ? (
