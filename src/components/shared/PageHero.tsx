@@ -2,16 +2,11 @@ import type { StaticImageData } from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
 import { Breadcrumbs, type Crumb } from './Breadcrumbs'
+import { SectionVisual, type SectionVisualVariant } from './SectionVisual'
 import { BRAND_IMAGES } from '@/lib/media/library'
 import type { Locale } from '@/lib/i18n/config'
 
-/**
- * Shared interior hero.
- *
- * This is intentionally more visual than the original document-style header:
- * layered surface, softer geometry, image treatment and compact metadata. Cleared
- * local AI artwork remains the fallback when legacy media rights are unknown.
- */
+/** Shared interior hero with either cleared photography or a page-specific editorial visual. */
 export function PageHero({
   locale,
   crumbs,
@@ -21,6 +16,7 @@ export function PageHero({
   image,
   localImage,
   imageAlt,
+  visualVariant,
 }: {
   locale: Locale
   crumbs: Crumb[]
@@ -30,9 +26,11 @@ export function PageHero({
   image?: MediaSource | null
   localImage?: StaticImageData | null
   imageAlt?: string
+  visualVariant?: SectionVisualVariant
 }) {
-  const hasMedia = image !== undefined || localImage !== undefined
-  const shouldUseAiFallback = hasMedia && !image && !localImage
+  const hasExplicitMedia = image !== undefined || localImage !== undefined
+  const hasVisual = hasExplicitMedia || Boolean(visualVariant)
+  const shouldUseAiFallback = hasExplicitMedia && !image && !localImage && !visualVariant
   const resolvedLocalImage = localImage ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.src : null)
   const resolvedAlt = imageAlt ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.alt : title)
 
@@ -44,7 +42,7 @@ export function PageHero({
       </Container>
 
       <Container>
-        <div className={`relative z-10 grid items-center gap-8 ${hasMedia ? 'lg:grid-cols-[0.95fr_1.05fr] lg:gap-14' : ''}`}>
+        <div className={`relative z-10 grid items-center gap-8 ${hasVisual ? 'lg:grid-cols-[0.95fr_1.05fr] lg:gap-14' : ''}`}>
           <div className="py-3 lg:py-8">
             {eyebrow ? (
               <span className="he-pill text-brand-strong">
@@ -60,20 +58,24 @@ export function PageHero({
             ) : null}
           </div>
 
-          {hasMedia ? (
+          {hasVisual ? (
             <div className="relative">
               <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-[0_24px_65px_rgba(35,35,38,0.13)] sm:p-3">
-                <MediaFrame
-                  image={image ?? null}
-                  local={resolvedLocalImage}
-                  alt={resolvedAlt}
-                  width={1100}
-                  height={760}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 52vw"
-                  className="aspect-[10/7] w-full overflow-hidden rounded-[1.35rem] [&_img]:transition-transform [&_img]:duration-700 hover:[&_img]:scale-[1.025]"
-                  placeholderLabel={`Hero image: ${title}`}
-                />
+                {visualVariant && !image && !localImage ? (
+                  <SectionVisual variant={visualVariant} label={imageAlt ?? `${title} illustration`} />
+                ) : (
+                  <MediaFrame
+                    image={image ?? null}
+                    local={resolvedLocalImage}
+                    alt={resolvedAlt}
+                    width={1100}
+                    height={760}
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 52vw"
+                    className="aspect-[10/7] w-full overflow-hidden rounded-[1.35rem] [&_img]:transition-transform [&_img]:duration-700 hover:[&_img]:scale-[1.025]"
+                    placeholderLabel={`Hero image: ${title}`}
+                  />
+                )}
               </div>
               <div aria-hidden="true" className="absolute -bottom-4 -left-4 -z-10 h-24 w-24 rounded-[1.5rem] bg-brand-soft sm:-left-6" />
             </div>
