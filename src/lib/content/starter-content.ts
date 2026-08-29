@@ -26,6 +26,7 @@ type StarterDestination = {
   slug: string
   title: string
   intro: string
+  cities: string[]
 }
 
 const EN_DESTINATIONS: Partial<Record<SectionKey, StarterDestination[]>> = {
@@ -33,76 +34,76 @@ const EN_DESTINATIONS: Partial<Record<SectionKey, StarterDestination[]>> = {
     {
       slug: 'united-kingdom',
       title: 'Study in the United Kingdom',
-      intro:
-        'Explore university study in the UK and use this page as a starting point for choosing a course, location and application route that fits your plans.',
+      intro: 'Explore university study in the UK and use this page as a starting point for choosing a course, location and application route that fits your plans.',
+      cities: ['London', 'Birmingham', 'Manchester', 'Edinburgh', 'Cardiff', 'Cambridge', 'Oxford', 'Bristol'],
     },
     {
       slug: 'united-states',
       title: 'Study in the United States',
-      intro:
-        'Explore university study in the United States and the questions to consider when comparing institutions, locations and degree options.',
+      intro: 'Explore university study in the United States and the questions to consider when comparing institutions, locations and degree options.',
+      cities: ['New York', 'Boston', 'Chicago', 'Los Angeles', 'San Francisco'],
     },
     {
       slug: 'canada',
       title: 'Study in Canada',
-      intro:
-        'Explore university study in Canada and the practical decisions involved in comparing programmes, locations and application timelines.',
+      intro: 'Explore university study in Canada and the practical decisions involved in comparing programmes, locations and application timelines.',
+      cities: ['Toronto', 'Vancouver', 'Montreal'],
     },
     {
       slug: 'ireland',
       title: 'Study in Ireland',
-      intro:
-        'Explore university study in Ireland and the factors to compare when choosing a programme, institution and place to live.',
+      intro: 'Explore university study in Ireland and the factors to compare when choosing a programme, institution and place to live.',
+      cities: ['Dublin', 'Cork', 'Galway'],
     },
     {
       slug: 'australia',
       title: 'Study in Australia',
-      intro:
-        'Explore university study in Australia and the main questions to work through when comparing courses, institutions and locations.',
+      intro: 'Explore university study in Australia and the main questions to work through when comparing courses, institutions and locations.',
+      cities: ['Sydney', 'Melbourne', 'Brisbane', 'Perth'],
     },
     {
       slug: 'new-zealand',
       title: 'Study in New Zealand',
-      intro:
-        'Explore university study in New Zealand and build a clear shortlist around your subject, preferred location and application plan.',
+      intro: 'Explore university study in New Zealand and build a clear shortlist around your subject, preferred location and application plan.',
+      cities: ['Auckland', 'Wellington', 'Christchurch'],
     },
   ],
   languageSchools: [
     {
       slug: 'united-kingdom',
       title: 'English courses in the United Kingdom',
-      intro:
-        'Compare English-language study options in the UK by city, course type, study length and the kind of experience you want outside the classroom.',
+      intro: 'Compare English-language study options in the UK by city, course type, study length and the kind of experience you want outside the classroom.',
+      cities: ['London', 'Cambridge', 'Oxford', 'Manchester'],
     },
     {
       slug: 'ireland',
       title: 'English courses in Ireland',
-      intro:
-        'Explore English-language study in Ireland and compare schools by location, course format, study length and your personal goals.',
+      intro: 'Explore English-language study in Ireland and compare schools by location, course format, study length and your personal goals.',
+      cities: ['Dublin', 'Cork', 'Galway'],
     },
     {
       slug: 'united-states',
       title: 'English courses in the United States',
-      intro:
-        'Explore English-language study in the United States and compare options around your preferred city, course intensity and study goals.',
+      intro: 'Explore English-language study in the United States and compare options around your preferred city, course intensity and study goals.',
+      cities: ['New York', 'Boston', 'Los Angeles', 'San Francisco'],
     },
     {
       slug: 'canada',
       title: 'English courses in Canada',
-      intro:
-        'Explore English-language study in Canada and compare locations, course formats and study lengths before building a shortlist.',
+      intro: 'Explore English-language study in Canada and compare locations, course formats and study lengths before building a shortlist.',
+      cities: ['Toronto', 'Vancouver', 'Montreal'],
     },
     {
       slug: 'malta',
       title: 'English courses in Malta',
-      intro:
-        'Explore English-language study in Malta and compare course formats, school locations and the kind of study experience you are looking for.',
+      intro: 'Explore English-language study in Malta and compare course formats, school locations and the kind of study experience you are looking for.',
+      cities: ['Valletta'],
     },
     {
       slug: 'australia',
       title: 'English courses in Australia',
-      intro:
-        'Explore English-language study in Australia and compare schools by city, course type, study length and your longer-term plans.',
+      intro: 'Explore English-language study in Australia and compare schools by city, course type, study length and your longer-term plans.',
+      cities: ['Sydney', 'Melbourne', 'Brisbane'],
     },
   ],
 }
@@ -132,6 +133,10 @@ function starterDestination(section: SectionKey, entry: StarterDestination): Des
     kind: 'country',
     section,
     intro: entry.intro,
+    keyCities: entry.cities.map((title) => ({
+      title,
+      slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''),
+    })),
     whyStudyHere: block(
       isUniversity
         ? 'The right destination depends on your subject, academic profile, preferred location, budget and longer-term plans. We can help you compare realistic options rather than start with a generic ranking list.'
@@ -162,8 +167,7 @@ const STARTER_PROSE: Array<{
     type: 'guide',
     slug: 'parent-guide',
     title: 'A parent’s guide to studying abroad',
-    summary:
-      'A practical starting point for families comparing overseas study options, costs, safeguarding, accommodation and the application process.',
+    summary: 'A practical starting point for families comparing overseas study options, costs, safeguarding, accommodation and the application process.',
     paragraphs: [
       'Start with the student rather than the destination. The most useful shortlist balances academic fit, independence, budget, preferred environment and the level of support the student is likely to need.',
       'Before paying a deposit, ask for the current programme details, accommodation arrangements, cancellation terms and the responsibilities of the school or provider. For younger students, safeguarding and supervision should be clear in writing.',
@@ -176,8 +180,7 @@ const STARTER_PROSE: Array<{
     type: 'guide',
     slug: 'veli-rehberi',
     title: 'Veliler için yurt dışı eğitim rehberi',
-    summary:
-      'Yurt dışı eğitim seçeneklerini, bütçeyi, konaklamayı, güvenliği ve başvuru sürecini karşılaştıran aileler için pratik bir başlangıç rehberi.',
+    summary: 'Yurt dışı eğitim seçeneklerini, bütçeyi, konaklamayı, güvenliği ve başvuru sürecini karşılaştıran aileler için pratik bir başlangıç rehberi.',
     paragraphs: [
       'Ülkeden önce öğrenciden başlayın. Sağlıklı bir kısa liste; akademik uyumu, öğrencinin bağımsızlık düzeyini, bütçeyi, tercih edilen yaşam ortamını ve ihtiyaç duyacağı desteği birlikte değerlendirir.',
       'Herhangi bir ödeme yapmadan önce programın güncel içeriğini, konaklama düzenini, iptal koşullarını ve okul ya da sağlayıcının sorumluluklarını yazılı olarak kontrol edin. Küçük yaştaki öğrenciler için gözetim ve güvenlik düzenlemeleri özellikle açık olmalıdır.',
