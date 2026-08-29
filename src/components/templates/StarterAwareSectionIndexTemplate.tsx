@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/Container'
 import { PageHero } from '@/components/shared/PageHero'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { InstitutionBrowser } from '@/components/content/InstitutionBrowser'
-import { CardGrid } from './shared'
+import { SortableCardGrid } from '@/components/content/SortableCardGrid'
 import { SectionIndexTemplate } from './SectionIndexTemplate'
 import { docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
@@ -48,7 +48,8 @@ export async function StarterAwareSectionIndexTemplate({
               : 'Open a destination to browse institutions, cities and practical next steps in one place.'}
           />
           <div className="mt-8">
-            <CardGrid
+            <SortableCardGrid
+              locale={locale}
               items={destinations.map((destination) => ({
                 href: docPath(locale, section, destination.slug),
                 title: destination.title,
@@ -152,7 +153,7 @@ export async function StarterAwareSectionIndexTemplate({
       body = (
         <div>
           <SectionIntro kicker="Travel with purpose" title="Learning does not have to stay in a classroom." body="Explore enquiry-led educational group travel designed around a clear itinerary and practical coordination." />
-          <div className="mt-8"><CardGrid items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title }))} /></div>
+          <div className="mt-8"><SortableCardGrid locale={locale} items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title }))} /></div>
         </div>
       )
     }
@@ -165,7 +166,8 @@ export async function StarterAwareSectionIndexTemplate({
         <div>
           <SectionIntro kicker="Useful before you decide" title="Practical reads for the questions behind the decision." body="Short, useful guides to help you compare options and know what to ask before committing." />
           <div className="mt-8">
-            <CardGrid
+            <SortableCardGrid
+              locale={locale}
               items={articles.map((article) => ({
                 href: docPath(locale, section, article.slug),
                 title: article.title,
@@ -195,7 +197,8 @@ export async function StarterAwareSectionIndexTemplate({
             body={locale === 'tr' ? 'Uzun açıklamalar yerine ihtiyacınız olan konuya doğrudan gidin.' : 'Go straight to the part of the process you are trying to work out rather than reading one giant wall of information.'}
           />
           <div className="mt-8">
-            <CardGrid
+            <SortableCardGrid
+              locale={locale}
               items={docs.map((doc) => ({
                 href: docPath(locale, section, doc.slug),
                 title: doc.title,
