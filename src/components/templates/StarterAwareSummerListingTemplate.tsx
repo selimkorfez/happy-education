@@ -1,7 +1,7 @@
 import { Container } from '@/components/ui/Container'
 import { PageHero } from '@/components/shared/PageHero'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
-import { CardGrid } from './shared'
+import { SortableCardGrid } from '@/components/content/SortableCardGrid'
 import { SummerListingTemplate } from './SummerListingTemplate'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
@@ -47,7 +47,8 @@ export async function StarterAwareSummerListingTemplate({
       <PageHero locale={locale} crumbs={crumbs} title={copy.title} intro={copy.intro} />
       <Container>
         <div className="py-12">
-          <CardGrid
+          <SortableCardGrid
+            locale={locale}
             items={programmes.map((programme) => ({
               href: docPath(locale, 'summerSchools', formatSlug, programme.slug),
               title: programme.title,
