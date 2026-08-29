@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/test'
 
-async function titles(page: import('@playwright/test').Page) {
-  return page.locator('main h3').evaluateAll((nodes) => nodes.map((node) => node.textContent?.trim() ?? '').filter(Boolean))
+async function titles(page: import('@playwright/test').Page, institutionOnly = false) {
+  const root = institutionOnly ? page.getByTestId('institution-browser-list') : page.locator('main')
+  return root.locator('h3').evaluateAll((nodes) => nodes.map((node) => node.textContent?.trim() ?? '').filter(Boolean))
 }
 
 function sortedEnglish(values: string[]) {
@@ -19,7 +20,7 @@ test.describe('browse sorting', () => {
 
     await az.click()
     await expect(az).toHaveAttribute('aria-pressed', 'true')
-    const alphabetic = await titles(page)
+    const alphabetic = await titles(page, true)
     expect(alphabetic.length).toBeGreaterThan(2)
     expect(alphabetic).toEqual(sortedEnglish(alphabetic))
   })

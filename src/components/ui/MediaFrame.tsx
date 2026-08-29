@@ -1,25 +1,15 @@
 import Image, { type StaticImageData } from 'next/image'
 import { imageUrl, blurDataUrl, type ImageWithMeta } from '@/lib/sanity/image'
+import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 import { isProduction } from '@/lib/env'
 
 /**
  * Every photograph on this site goes through here.
  *
- * Two things it enforces:
- *
- * 1. Provenance. A CMS image is only rendered when it carries a licence record.
- *    The legacy WordPress library is full of commercial stock whose licence status
- *    is unknown (the homepage banner is a studio stock shot; one partner logo is
- *    literally named "png-clipart-…"). Rendering those on a rebuilt site would
- *    carry the same exposure forward, so an image without provenance does not ship.
- *
- * 2. Alt text. `alt` is required by the type. Decorative images must opt in
- *    explicitly with `decorative`, which emits alt="" — there is no way to
- *    accidentally omit it.
- *
- * With no image supplied it renders a plain brand panel. That is a deliberate,
- * composed state rather than a broken one, and outside production it is labelled
- * so nobody mistakes it for finished work.
+ * CMS photography is fail-closed unless its licence has been cleared. Verified
+ * public reuse photography is supplied through `external`; each entry carries its
+ * creator/source/licence record and the component renders that attribution with the
+ * image. Local commissioned brand assets keep their provenance in media/library.ts.
  */
 
 export interface MediaSource extends ImageWithMeta {
@@ -34,10 +24,12 @@ export interface MediaSource extends ImageWithMeta {
 
 interface MediaFrameProps {
   image?: MediaSource | null
+  /** Verified external documentary photo with a public reuse licence. */
+  external?: LicensedExternalImage | null
   /**
    * A statically imported asset from the brand library. Takes precedence over
-   * `image`, and is used for the built-in destination and hero imagery whose
-   * provenance is already recorded in src/lib/media/library.ts.
+   * `image`, and is used for built-in brand imagery whose provenance is recorded
+   * in src/lib/media/library.ts.
    */
   local?: StaticImageData | null
   alt: string
@@ -54,6 +46,7 @@ interface MediaFrameProps {
 
 export function MediaFrame({
   image,
+  external,
   local,
   alt,
   decorative = false,
@@ -64,6 +57,43 @@ export function MediaFrame({
   className = '',
   placeholderLabel,
 }: MediaFrameProps) {
+  if (external?.cleared) {
+    return (
+      <figure className={`group/media relative overflow-hidden ${className}`}>
+        <Image
+          src={external.src}
+          alt={decorative ? '' : alt || external.alt}
+          width={width}
+          height={height}
+          sizes={sizes}
+          priority={priority}
+          loading={priority ? undefined : 'lazy'}
+          className="h-full w-full object-cover"
+        />
+        <figcaption className="absolute bottom-2 right-2 max-w-[88%] rounded-lg bg-black/70 px-2.5 py-1.5 text-[0.65rem] leading-snug text-white shadow-sm backdrop-blur-sm transition-opacity sm:opacity-80 sm:group-hover/media:opacity-100 sm:group-focus-within/media:opacity-100">
+          Photo: 
+          <a
+            href={external.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-white underline decoration-white/70 underline-offset-2"
+          >
+            {external.creator}
+          </a>{' '}
+          ·{' '}
+          <a
+            href={external.licenceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-white underline decoration-white/70 underline-offset-2"
+          >
+            {external.licence}
+          </a>
+        </figcaption>
+      </figure>
+    )
+  }
+
   // Local brand assets carry their provenance in the library and need no CMS
   // licence gate. Next generates AVIF/WebP variants and the blur placeholder from
   // the static import, so there is no layout shift and no oversized original.
@@ -111,11 +141,9 @@ export function MediaFrame({
         className="h-full w-full object-cover"
       />
       {image.caption || image.attribution ? (
-        <figcaption className="mt-2 text-xs text-fg-muted">
+        <figcaption className="absolute bottom-2 right-2 max-w-[88%] rounded-lg bg-black/70 px-2.5 py-1.5 text-[0.65rem] leading-snug text-white backdrop-blur-sm">
           {image.caption}
-          {image.attribution ? (
-            <span className="ml-1 text-fg-muted">({image.attribution})</span>
-          ) : null}
+          {image.attribution ? <span className="ml-1">({image.attribution})</span> : null}
         </figcaption>
       ) : null}
     </figure>
@@ -141,17 +169,11 @@ function PhotographyPlaceholder({
       className={`relative flex items-end overflow-hidden bg-paper-sunk ${className}`}
       role="presentation"
     >
-      {/* A single flat brand block, no gradient, no glow. */}
       <div aria-hidden="true" className="absolute inset-0 bg-brand opacity-[0.13]" />
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 w-1/3 border-l border-brand/25"
-      />
+      <div aria-hidden="true" className="absolute inset-y-0 right-0 w-1/3 border-l border-brand/25" />
       {!isProduction ? (
         <p className="relative m-4 max-w-[36ch] bg-fg px-3 py-2 text-xs leading-snug text-paper">
-          {blocked
-            ? 'Image withheld: licence not cleared. '
-            : 'Photography placeholder (development only). '}
+          {blocked ? 'Image withheld: licence not cleared. ' : 'Photography placeholder (development only). '}
           {label}
         </p>
       ) : null}

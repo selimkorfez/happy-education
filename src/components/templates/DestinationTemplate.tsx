@@ -4,11 +4,16 @@ import { FaqSection } from '@/components/shared/FaqSection'
 import { ReviewMeta } from '@/components/shared/ReviewMeta'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { InstitutionBrowser } from '@/components/content/InstitutionBrowser'
+import { CityPreviewGrid } from '@/components/content/CityPreviewGrid'
 import { ProseSection, FactTable, CardGrid } from './shared'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
 import { illustrativeImageForDestination } from '@/lib/media/library'
+import {
+  licensedMediaForDestination,
+  licensedMediaForInstitutionOrPlace,
+} from '@/lib/media/licensed-media'
 import type { DestinationDoc } from '@/lib/sanity/queries/content'
 
 export function DestinationTemplate({
@@ -31,14 +36,19 @@ export function DestinationTemplate({
   ]
 
   const labels = COPY[locale]
+  const cmsImageCleared = doc.heroImage?.licence?.cleared === true
+  const documentaryImage = cmsImageCleared
+    ? null
+    : licensedMediaForDestination(doc.slug) ?? licensedMediaForDestination(doc.title)
   const fallbackImage = illustrativeImageForDestination(doc.parentSlug ?? doc.slug)
-  const useEditorialVisual = Boolean(doc.parentSlug) || section === 'languageSchools'
+  const useEditorialVisual = !cmsImageCleared && !documentaryImage && (Boolean(doc.parentSlug) || section === 'languageSchools')
   const pageLinks: Array<{ href: string; label: string }> = []
   if (doc.whyStudyHere) pageLinks.push({ href: '#why', label: labels.whyStudyHere })
   if (doc.applicationJourney) pageLinks.push({ href: '#applying', label: labels.applicationJourney })
   if (doc.entryRequirements) pageLinks.push({ href: '#entry', label: labels.entryRequirements })
   if (doc.accommodation) pageLinks.push({ href: '#accommodation', label: labels.accommodation })
   if (doc.visaOverview) pageLinks.push({ href: '#visa', label: labels.visa })
+  if (doc.keyCities && doc.keyCities.length > 0) pageLinks.push({ href: '#cities', label: labels.keyCities })
 
   return (
     <>
@@ -48,10 +58,11 @@ export function DestinationTemplate({
         eyebrow={sectionCopy?.title[locale]}
         title={doc.title}
         intro={doc.intro}
-        image={doc.heroImage ?? null}
-        localImage={doc.heroImage || useEditorialVisual ? undefined : fallbackImage.src}
-        imageAlt={doc.heroImage?.alt ?? fallbackImage.alt}
-        visualVariant={doc.parentSlug ? 'city' : section === 'languageSchools' ? 'language' : undefined}
+        image={cmsImageCleared ? doc.heroImage : null}
+        externalImage={documentaryImage}
+        localImage={cmsImageCleared || documentaryImage || useEditorialVisual ? undefined : fallbackImage.src}
+        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage?.alt ?? fallbackImage.alt}
+        visualVariant={useEditorialVisual ? (doc.parentSlug ? 'city' : 'language') : undefined}
       />
 
       {pageLinks.length > 1 ? (
@@ -104,27 +115,7 @@ export function DestinationTemplate({
             </div>
 
             <aside>
-              <div className="sticky top-32 space-y-5">
-                {doc.keyCities && doc.keyCities.length > 0 ? (
-                  <nav aria-labelledby="key-cities" className="rounded-[1.3rem] border border-border/70 bg-sky-soft/65 p-5">
-                    <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{labels.explore}</p>
-                    <h2 id="key-cities" className="mt-2 text-lg font-bold text-fg">{labels.keyCities}</h2>
-                    <ul className="mt-4 space-y-2 text-sm">
-                      {doc.keyCities.map((city) => (
-                        <li key={city.slug}>
-                          <a
-                            href={docPath(locale, section, doc.slug, city.slug)}
-                            className="group flex min-h-11 items-center justify-between rounded-xl bg-white/70 px-3 font-bold text-fg no-underline transition hover:bg-white"
-                          >
-                            {city.title}
-                            <span aria-hidden="true" className="text-brand-strong transition-transform group-hover:translate-x-1">→</span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                ) : null}
-
+              <div className="sticky top-32">
                 <div className="rounded-[1.3rem] border border-border/70 bg-brand-soft/70 p-5">
                   <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{labels.needHelp}</p>
                   <p className="mt-2 text-sm font-semibold leading-relaxed text-fg">{labels.needHelpBody}</p>
@@ -137,6 +128,23 @@ export function DestinationTemplate({
           </div>
         </Container>
       </section>
+
+      {doc.keyCities && doc.keyCities.length > 0 ? (
+        <section id="cities" className="scroll-mt-28 border-t border-border/70 bg-paper-sunk py-14 sm:py-16 lg:py-20">
+          <Container>
+            <div className="grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.1em] text-brand-strong">{labels.explore}</p>
+                <h2 className="mt-2 max-w-[16ch] text-[length:var(--text-3xl)] font-bold text-fg">{labels.cityGalleryTitle}</h2>
+              </div>
+              <p className="max-w-[55ch] text-base leading-relaxed text-fg-muted lg:justify-self-end">{labels.cityGalleryIntro}</p>
+            </div>
+            <div className="mt-8">
+              <CityPreviewGrid locale={locale} cities={doc.keyCities} />
+            </div>
+          </Container>
+        </section>
+      ) : null}
 
       {doc.institutions && doc.institutions.length > 0 ? (
         <section className="border-t border-border/70 bg-white py-14 sm:py-16 lg:py-20">
@@ -155,6 +163,7 @@ export function DestinationTemplate({
                   href: docPath(locale, section, doc.slug, inst.slug),
                   title: inst.title,
                   city: inst.city,
+                  image: licensedMediaForInstitutionOrPlace(inst.title, inst.city, doc.slug),
                 }))}
               />
             </div>
@@ -191,11 +200,11 @@ const COPY = {
   en: {
     onThisPage: 'On this page', whyStudyHere: 'Why study here', educationSystem: 'How the education system works', applicationJourney: 'The application journey', entryRequirements: 'Entry requirements', englishRequirements: 'English language requirements', costs: 'Fees and living costs', scholarships: 'Scholarships and funding', accommodation: 'Accommodation', visa: 'Student visa overview',
     visaDisclaimer: 'This is a general overview of the process, not immigration advice. Requirements change, and the decision on any application rests with the relevant government authority. Always check the official guidance, and speak to a regulated immigration adviser if you need advice on your own circumstances.',
-    explore: 'Explore the destination', keyCities: 'Key student cities', browse: 'Browse your options', institutions: 'Institutions to explore here', institutionIntro: 'Search the catalogue by institution or city, then open a profile when you want more detail.', relatedReading: 'Related reading', keepReading: 'Keep exploring', needHelp: 'Need a shortlist?', needHelpBody: 'Tell us what you want to study and what matters most. We can help narrow the options into something manageable.', talkToUs: 'Talk to an adviser',
+    explore: 'Explore the destination', keyCities: 'Student cities', cityGalleryTitle: 'See the cities behind the shortlist.', cityGalleryIntro: 'Real, reusable photography gives you a clearer sense of the places students may actually live and study. These are location previews, not campus claims.', browse: 'Browse your options', institutions: 'Institutions to explore here', institutionIntro: 'Search the catalogue by institution or city, then open a profile when you want more detail.', relatedReading: 'Related reading', keepReading: 'Keep exploring', needHelp: 'Need a shortlist?', needHelpBody: 'Tell us what you want to study and what matters most. We can help narrow the options into something manageable.', talkToUs: 'Talk to an adviser',
   },
   tr: {
     onThisPage: 'Bu sayfada', whyStudyHere: 'Neden burada okumalı?', educationSystem: 'Eğitim sistemi nasıl işliyor?', applicationJourney: 'Başvuru süreci', entryRequirements: 'Kabul koşulları', englishRequirements: 'İngilizce dil koşulları', costs: 'Öğrenim ücretleri ve yaşam maliyeti', scholarships: 'Burslar ve finansman', accommodation: 'Konaklama', visa: 'Öğrenci vizesine genel bakış',
     visaDisclaimer: 'Bu bölüm sürecin genel bir özetidir; göçmenlik danışmanlığı değildir. Koşullar değişebilir ve her başvuruya ilişkin karar ilgili ülkenin yetkili makamına aittir. Resmî kaynakları mutlaka kontrol edin; kendi durumunuza özel danışmanlık gerekiyorsa yetkili bir göçmenlik danışmanına başvurun.',
-    explore: 'Ülkeyi keşfet', keyCities: 'Öne çıkan öğrenci şehirleri', browse: 'Seçeneklere göz atın', institutions: 'Bu ülkedeki kurumları keşfedin', institutionIntro: 'Kurum veya şehir adına göre arayın; daha fazla bilgi için ilgili profili açın.', relatedReading: 'İlgili yazılar', keepReading: 'Keşfetmeye devam edin', needHelp: 'Kısa liste mi lazım?', needHelpBody: 'Ne okumak istediğinizi ve sizin için neyin önemli olduğunu anlatın. Seçenekleri daha yönetilebilir bir listeye indirebiliriz.', talkToUs: 'Danışmanla konuş',
+    explore: 'Ülkeyi keşfet', keyCities: 'Öğrenci şehirleri', cityGalleryTitle: 'Kısa listenin arkasındaki şehirleri görün.', cityGalleryIntro: 'Gerçek ve yeniden kullanım hakkı doğrulanmış fotoğraflar, öğrencilerin yaşayabileceği ve eğitim görebileceği yerleri daha iyi tanımanıza yardımcı olur. Bunlar konum önizlemeleridir; kampüs fotoğrafı iddiası taşımaz.', browse: 'Seçeneklere göz atın', institutions: 'Bu ülkedeki kurumları keşfedin', institutionIntro: 'Kurum veya şehir adına göre arayın; daha fazla bilgi için ilgili profili açın.', relatedReading: 'İlgili yazılar', keepReading: 'Keşfetmeye devam edin', needHelp: 'Kısa liste mi lazım?', needHelpBody: 'Ne okumak istediğinizi ve sizin için neyin önemli olduğunu anlatın. Seçenekleri daha yönetilebilir bir listeye indirebiliriz.', talkToUs: 'Danışmanla konuş',
   },
 } as const

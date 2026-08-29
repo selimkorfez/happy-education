@@ -10,6 +10,7 @@ import { safeExternalHref } from '@/lib/links'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
+import { licensedMediaForInstitutionOrPlace } from '@/lib/media/licensed-media'
 import type { InstitutionDoc } from '@/lib/sanity/queries/content'
 
 export function InstitutionTemplate({
@@ -35,7 +36,17 @@ export function InstitutionTemplate({
 
   const website = safeExternalHref(doc.officialWebsite)
   const verifiedAccreditations = (doc.accreditations ?? []).filter((a) => a.verified)
-  const visualVariant = section === 'languageSchools' ? 'language' : section === 'boardingSchools' ? 'boarding' : 'universities'
+  const cmsImageCleared = doc.heroImage?.licence?.cleared === true
+  const documentaryImage = cmsImageCleared
+    ? null
+    : licensedMediaForInstitutionOrPlace(doc.title, doc.city, doc.destination?.slug ?? doc.country)
+  const visualVariant = !cmsImageCleared && !documentaryImage
+    ? section === 'languageSchools'
+      ? 'language'
+      : section === 'boardingSchools'
+        ? 'boarding'
+        : 'universities'
+    : undefined
 
   return (
     <>
@@ -44,8 +55,9 @@ export function InstitutionTemplate({
         crumbs={crumbs}
         eyebrow={[doc.city, doc.country].filter(Boolean).join(', ') || sectionCopy?.title[locale]}
         title={doc.title}
-        image={doc.heroImage ?? null}
-        imageAlt={doc.heroImage?.alt}
+        image={cmsImageCleared ? doc.heroImage : null}
+        externalImage={documentaryImage}
+        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage?.alt}
         visualVariant={visualVariant}
       />
 

@@ -15,6 +15,12 @@ import {
   type ArticleDoc,
   type ProseDoc,
 } from '@/lib/sanity/queries/content'
+import {
+  listApprovedTestimonials,
+  listSocialPosts,
+  type SocialPostCard,
+  type TestimonialCard,
+} from '@/lib/sanity/queries/community'
 import { getStarterDestination, getStarterProse } from '@/lib/content/starter-content'
 import { getEnglishInstitutionShadow, getEnglishSummerShadow } from '@/lib/content/catalogue-fallback'
 import {
@@ -33,6 +39,8 @@ export type ResolvedRoute =
   | { kind: 'summerProgramme'; doc: SummerProgrammeDoc; formatSlug: string }
   | { kind: 'tour'; doc: TourDoc }
   | { kind: 'article'; doc: ArticleDoc }
+  | { kind: 'socialHub'; posts: SocialPostCard[]; slug: string }
+  | { kind: 'studentStories'; testimonials: TestimonialCard[]; slug: string }
   | { kind: 'prose'; section: SectionKey; doc: ProseDoc }
   | { kind: 'legal'; doc: ProseDoc | null; legalKey: LegalKey; slug: string }
   | { kind: 'fixedPage'; pageKey: 'about' | 'contact' | 'consultation'; doc: ProseDoc | null }
@@ -48,6 +56,11 @@ const SUMMER_FORMAT_SLUG: Record<'individual' | 'group', Record<Locale, string>>
   group: { en: 'group', tr: 'grup' },
 }
 
+const COMMUNITY_SLUG = {
+  social: { en: 'from-our-socials', tr: 'sosyal-medyadan' },
+  stories: { en: 'student-stories', tr: 'ogrenci-hikayeleri' },
+} as const
+
 function summerFormatFromSlug(locale: Locale, slug: string): 'individual' | 'group' | null {
   if (SUMMER_FORMAT_SLUG.individual[locale] === slug) return 'individual'
   if (SUMMER_FORMAT_SLUG.group[locale] === slug) return 'group'
@@ -56,6 +69,14 @@ function summerFormatFromSlug(locale: Locale, slug: string): 'individual' | 'gro
 
 export function summerFormatSlug(locale: Locale, format: 'individual' | 'group'): string {
   return SUMMER_FORMAT_SLUG[format][locale]
+}
+
+export function socialContentSlug(locale: Locale): string {
+  return COMMUNITY_SLUG.social[locale]
+}
+
+export function studentStoriesSlug(locale: Locale): string {
+  return COMMUNITY_SLUG.stories[locale]
 }
 
 export async function resolveRoute({
@@ -90,6 +111,12 @@ export async function resolveRoute({
   if (section === 'insights') {
     const slug = segments[0]
     if (!slug || segments.length > 1) return null
+    if (slug === socialContentSlug(locale)) {
+      return { kind: 'socialHub', posts: await listSocialPosts(locale), slug }
+    }
+    if (slug === studentStoriesSlug(locale)) {
+      return { kind: 'studentStories', testimonials: await listApprovedTestimonials(locale), slug }
+    }
     const doc = (await getArticle(locale, slug)) ?? getEditorialArticle(locale, slug)
     return doc ? { kind: 'article', doc } : null
   }
@@ -168,6 +195,8 @@ export function routePath(locale: Locale, route: ResolvedRoute): string[] {
     case 'summerProgramme': return [route.formatSlug, route.doc.slug]
     case 'tour':
     case 'article': return [route.doc.slug]
+    case 'socialHub':
+    case 'studentStories': return [route.slug]
     case 'prose': return [route.doc.slug]
     case 'legal': return [route.slug]
     case 'fixedPage': return []

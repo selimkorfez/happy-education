@@ -1,9 +1,11 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
 import type { Locale } from '@/lib/i18n/config'
+import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 
 export interface SortableCardItem {
   href: string
@@ -11,14 +13,15 @@ export interface SortableCardItem {
   meta?: string
   excerpt?: string
   image?: MediaSource | null
+  externalImage?: LicensedExternalImage | null
   imageAlt?: string
 }
 
 type SortMode = 'popular' | 'az'
 
 const COPY = {
-  en: { sort: 'Sort by', popular: 'Popular', az: 'A–Z', note: 'Curated starting order, not a live ranking.', explore: 'Explore' },
-  tr: { sort: 'Sırala', popular: 'Popüler', az: 'A–Z', note: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.', explore: 'Keşfet' },
+  en: { sort: 'Sort by', popular: 'Popular', az: 'A–Z', note: 'Curated starting order, not a live ranking.', explore: 'Explore', credit: 'Photo credit' },
+  tr: { sort: 'Sırala', popular: 'Popüler', az: 'A–Z', note: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.', explore: 'Keşfet', credit: 'Fotoğraf kredisi' },
 } as const
 
 export function SortableCardGrid({ locale, items }: { locale: Locale; items: SortableCardItem[] }) {
@@ -50,17 +53,37 @@ export function SortableCardGrid({ locale, items }: { locale: Locale; items: Sor
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {sorted.map((item) => (
           <li key={item.href}>
-            <Link href={item.href} className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white no-underline shadow-[0_10px_32px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_48px_rgba(35,35,38,0.10)]">
-              {item.image !== undefined ? (
+            <article className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_10px_32px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_48px_rgba(35,35,38,0.10)]">
+              {item.externalImage ? (
+                <div className="relative aspect-[3/2] overflow-hidden bg-paper-sunk">
+                  <Image
+                    src={item.externalImage.src}
+                    alt={item.externalImage.alt}
+                    width={720}
+                    height={480}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.045]"
+                  />
+                  <a
+                    href={item.externalImage.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${copy.credit}: ${item.externalImage.creator}, ${item.externalImage.licence}`}
+                    className="absolute bottom-2 right-2 rounded-md bg-black/70 px-2 py-1 text-[0.62rem] font-semibold text-white no-underline backdrop-blur-sm hover:bg-black/80"
+                  >
+                    {item.externalImage.licence}
+                  </a>
+                </div>
+              ) : item.image !== undefined ? (
                 <div className="overflow-hidden"><MediaFrame image={item.image ?? null} alt={item.imageAlt ?? item.title} decorative width={720} height={480} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="aspect-[3/2] w-full [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.045]" placeholderLabel={item.title} /></div>
               ) : null}
-              <div className="flex flex-1 flex-col p-5 sm:p-6">
+              <Link href={item.href} className="flex flex-1 flex-col p-5 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset sm:p-6">
                 {item.meta ? <p className="text-xs font-bold uppercase tracking-[0.08em] text-brand-strong">{item.meta}</p> : null}
                 <h3 className="mt-1.5 text-xl font-bold text-fg">{item.title}</h3>
                 {item.excerpt ? <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-fg-muted">{item.excerpt}</p> : null}
                 <span aria-hidden="true" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-strong">{copy.explore} <span className="transition-transform duration-200 group-hover:translate-x-1">→</span></span>
-              </div>
-            </Link>
+              </Link>
+            </article>
           </li>
         ))}
       </ul>

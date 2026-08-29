@@ -47,9 +47,6 @@ const securityHeaders = [
   // Cross-origin isolation hardening.
   { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
   { key: 'Cross-Origin-Resource-Policy', value: 'same-origin' },
-
-  // X-XSS-Protection is deliberately omitted: it is deprecated and its filter has
-  // itself been a source of vulnerabilities. CSP is the control.
 ]
 
 const nextConfig: NextConfig = {
@@ -59,46 +56,35 @@ const nextConfig: NextConfig = {
   // Linting runs as a separate CI step (`npm run lint`) in Next 16.
   typescript: { ignoreBuildErrors: false },
 
-  // Trailing slashes off: one canonical form per URL, no duplicate-content pairs.
   trailingSlash: false,
-
   poweredByHeader: false,
 
   images: {
-    // Sanity's CDN is the only remote image source. Nothing is ever hotlinked
-    // from the legacy WordPress host.
-    remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io', pathname: '/**' }],
+    // Sanity remains the CMS source. Wikimedia Commons is additionally allowed for
+    // the small audited open-licence registry in src/lib/media/licensed-media.ts.
+    // No arbitrary external hostname is accepted and legacy WordPress remains out.
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.sanity.io', pathname: '/**' },
+      { protocol: 'https', hostname: 'commons.wikimedia.org', pathname: '/wiki/Special:Redirect/file/**' },
+      { protocol: 'https', hostname: 'upload.wikimedia.org', pathname: '/**' },
+    ],
     formats: ['image/avif', 'image/webp'],
-    // Matches the layout breakpoints in the design system.
     deviceSizes: [320, 375, 390, 640, 768, 1024, 1280, 1440, 1920],
     imageSizes: [64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30,
-    // SVG from the CMS is never rendered through the image optimiser.
     dangerouslyAllowSVG: false,
   },
 
   experimental: {
-    // Rich text and schema helpers are server-only; keep them out of the client graph.
     optimizePackageImports: ['@sanity/image-url'],
   },
 
   async redirects() {
-    /*
-     * The legacy WordPress URL map, read from redirects.csv at build time.
-     *
-     * 301s are emitted here so they are served by the edge without invoking a
-     * function. The 410s are NOT redirects and cannot be expressed here; they are
-     * handled in the proxy, which returns a real 410 Gone for genuinely obsolete
-     * URLs rather than a soft 404.
-     */
     return getRedirects()
   },
 
   async rewrites() {
     return [
-      // The Turkish search URL is /tr/arama, but both locales are served by the
-      // same route file. Rewriting keeps the public URL localised without
-      // duplicating the page or forcing the catch-all route to render dynamically.
       { source: '/tr/arama', destination: '/tr/search' },
     ]
   },
@@ -110,13 +96,10 @@ const nextConfig: NextConfig = {
         headers: securityHeaders,
       },
       {
-        // Immutable build assets.
         source: '/_next/static/:path*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
       {
-        // Never cache anything that mutates state or carries a signature.
-        // Cloudflare must also be configured to bypass cache on /api/*.
         source: '/api/:path*',
         headers: [
           { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate, max-age=0' },
