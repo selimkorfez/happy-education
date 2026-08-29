@@ -1,8 +1,8 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
+import { MediaFrame } from '@/components/ui/MediaFrame'
 import type { Locale } from '@/lib/i18n/config'
 import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 
@@ -18,10 +18,10 @@ type SortMode = 'popular' | 'az'
 
 const COPY = {
   en: {
-    search: 'Search institutions', placeholder: 'Try a university, city or country', count: 'options', empty: 'No institutions match that search yet.', clear: 'Clear search', preview: 'Quick preview', open: 'Open profile', sort: 'Sort by', popular: 'Popular', az: 'A–Z', popularNote: 'Curated starting order, not a live ranking.', photo: 'Photo credit', campus: 'Campus photo', location: 'Location photo', pending: 'Photo being verified',
+    search: 'Search institutions', placeholder: 'Try a university, city or country', count: 'options', empty: 'No institutions match that search yet.', clear: 'Clear search', preview: 'Quick preview', open: 'Open profile', sort: 'Sort by', popular: 'Popular', az: 'A–Z', popularNote: 'Curated starting order, not a live ranking.', campus: 'Campus photo', location: 'Location photo', pending: 'Photo being verified',
   },
   tr: {
-    search: 'Kurumlarda ara', placeholder: 'Üniversite, şehir veya ülke arayın', count: 'seçenek', empty: 'Bu aramayla eşleşen kurum bulunamadı.', clear: 'Aramayı temizle', preview: 'Hızlı önizleme', open: 'Profili aç', sort: 'Sırala', popular: 'Popüler', az: 'A–Z', popularNote: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.', photo: 'Fotoğraf kredisi', campus: 'Kampüs fotoğrafı', location: 'Konum fotoğrafı', pending: 'Fotoğraf doğrulanıyor',
+    search: 'Kurumlarda ara', placeholder: 'Üniversite, şehir veya ülke arayın', count: 'seçenek', empty: 'Bu aramayla eşleşen kurum bulunamadı.', clear: 'Aramayı temizle', preview: 'Hızlı önizleme', open: 'Profili aç', sort: 'Sırala', popular: 'Popüler', az: 'A–Z', popularNote: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.', campus: 'Kampüs fotoğrafı', location: 'Konum fotoğrafı', pending: 'Fotoğraf doğrulanıyor',
   },
 } as const
 
@@ -73,27 +73,18 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
               <li key={item.href}>
                 <article className="group relative flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_8px_26px_rgba(35,35,38,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(35,35,38,0.09)] focus-within:z-20">
                   {item.image ? (
-                    <div className="relative aspect-[16/9] overflow-hidden bg-paper-sunk">
-                      <Image
-                        src={item.image.src}
+                    <div className="relative overflow-hidden bg-paper-sunk">
+                      <MediaFrame
+                        external={item.image}
                         alt={item.image.alt}
                         width={900}
                         height={506}
                         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                        className="aspect-[16/9] w-full [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]"
                       />
-                      <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.06em] text-fg shadow-sm backdrop-blur-sm">
+                      <span className="pointer-events-none absolute left-2 top-2 z-10 rounded-full bg-white/90 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.06em] text-fg shadow-sm backdrop-blur-sm">
                         {item.image.kind === 'campus' ? copy.campus : copy.location}
                       </span>
-                      <a
-                        href={item.image.sourceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${copy.photo}: ${item.image.creator}, ${item.image.licence}`}
-                        className="absolute bottom-2 right-2 rounded-md bg-black/70 px-2 py-1 text-[0.62rem] font-semibold text-white no-underline backdrop-blur-sm hover:bg-black/80"
-                      >
-                        {item.image.licence}
-                      </a>
                     </div>
                   ) : (
                     <div className="grid aspect-[16/9] place-items-center bg-paper-sunk px-5 text-center text-xs font-bold uppercase tracking-[0.08em] text-fg-muted">
