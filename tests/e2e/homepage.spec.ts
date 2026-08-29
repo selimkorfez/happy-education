@@ -1,9 +1,9 @@
 import { expect, test } from '@playwright/test'
 
 /**
- * The two locale homepages are the only routes guaranteed to exist while the rest
- * of the site is being built, so they carry the checks that apply site-wide:
- * document language, a single h1, and the security headers the proxy sets.
+ * The two locale homepages carry the checks that apply site-wide: document
+ * language, a single h1, primary navigation paths, and the security headers the
+ * proxy sets. Copy assertions follow the current approved homepage experience.
  */
 
 test.describe('English homepage', () => {
@@ -12,7 +12,7 @@ test.describe('English homepage', () => {
 
     await expect(page.locator('html')).toHaveAttribute('lang', 'en-GB')
     await expect(page.locator('h1')).toHaveCount(1)
-    await expect(page.locator('h1')).toHaveText('Education beyond borders')
+    await expect(page.locator('h1')).toHaveText('Your next chapter starts somewhere new.')
     await expect(page).toHaveTitle(/Happy Education/)
   })
 
@@ -33,10 +33,10 @@ test.describe('English homepage', () => {
     await page.goto('/en')
 
     await expect(
-      page.getByRole('link', { name: 'Speak to an adviser' }).first(),
+      page.getByRole('link', { name: /Plan my next step/ }).first(),
     ).toHaveAttribute('href', '/en/free-consultation')
     await expect(
-      page.getByRole('link', { name: 'Explore destinations' }).first(),
+      page.getByRole('link', { name: 'Explore study options' }).first(),
     ).toHaveAttribute('href', '/en/universities')
   })
 
@@ -56,7 +56,7 @@ test.describe('Turkish homepage', () => {
 
     await expect(page.locator('html')).toHaveAttribute('lang', 'tr-TR')
     await expect(page.locator('h1')).toHaveCount(1)
-    await expect(page.locator('h1')).toHaveText('Sınırların ötesinde eğitim')
+    await expect(page.locator('h1')).toHaveText('Yeni bölümünüz başka bir yerde başlasın.')
   })
 
   test('links into the Turkish tree, never the English one', async ({ page }) => {
