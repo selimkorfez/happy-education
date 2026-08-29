@@ -51,13 +51,59 @@ function isUsableInstitutionSource(source: InstitutionShadowSource): boolean {
   ].includes(title) && !['universiteler', 'universities'].includes(slug)
 }
 
+/**
+ * Editorial Popular order for the temporary pre-CMS catalogue.
+ *
+ * There is no behavioural popularity dataset yet, so we must not manufacture a
+ * numeric ranking. This simply brings a small group of frequently recognised
+ * study-abroad institutions/providers to the front, then preserves the migration
+ * order for everything else. The UI explicitly says this is curated rather than a
+ * live ranking. Once Sanity/analytics has a real popularity signal this function
+ * can be replaced without changing the browser UI.
+ */
+function curatedPopularity(source: InstitutionShadowSource): number {
+  const title = source.title.toLocaleLowerCase('en-GB')
+  const patterns = source._type === 'languageSchool'
+    ? [
+        'ec english',
+        'kaplan',
+        'oxford international',
+        'st giles',
+        'international house',
+        'lsi',
+        'kings',
+        'stafford house',
+        'bell',
+      ]
+    : source._type === 'boardingSchool'
+      ? []
+      : [
+          'university of oxford',
+          'university of cambridge',
+          'imperial college london',
+          'university college london',
+          'ucl',
+          "king's college london",
+          'london school of economics',
+          'university of manchester',
+          'university of edinburgh',
+          'university of birmingham',
+          'university of bristol',
+          'university of warwick',
+        ]
+
+  const index = patterns.findIndex((pattern) => title.includes(pattern))
+  return index === -1 ? 10_000 : index
+}
+
 export function listEnglishInstitutionShadows(types: string[], destinationSlug?: string) {
   return types
     .flatMap((type) => allOfType(type, 'tr'))
     .map(institutionSource)
     .filter((source) => isUsableInstitutionSource(source) && institutionMatchesEnglishDestination(source, destinationSlug))
-    .sort((a, b) => a.title.localeCompare(b.title))
-    .map(buildEnglishInstitutionCard)
+    .map((source, sourceIndex) => ({ source, sourceIndex }))
+    .sort((a, b) => curatedPopularity(a.source) - curatedPopularity(b.source) || a.sourceIndex - b.sourceIndex)
+    .map(({ source }) => buildEnglishInstitutionCard(source))
 }
 
 export function getEnglishInstitutionShadow(slug: string, types: string[]) {
@@ -74,7 +120,6 @@ export function listEnglishSummerShadows(format?: 'individual' | 'group') {
   return allOfType('summerProgramme', 'tr')
     .map(summerSource)
     .filter((source) => !format || (source.format === 'group' ? 'group' : 'individual') === format)
-    .sort((a, b) => a.title.localeCompare(b.title))
     .map(buildEnglishSummerCard)
 }
 
