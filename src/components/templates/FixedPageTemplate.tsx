@@ -31,6 +31,7 @@ export function FixedPageTemplate({
         title={doc?.title ?? copy.title}
         intro={doc?.intro ?? copy.intro}
         image={doc?.heroImage ?? null}
+        visualVariant={pageKey}
       />
 
       <section className="bg-paper py-8 sm:py-12 lg:py-16">
@@ -44,7 +45,7 @@ export function FixedPageTemplate({
               ) : (
                 <div className="space-y-5">
                   <span className="inline-flex rounded-full bg-brand-soft px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-strong">
-                    {pageKey === 'consultation' ? copy.formKicker : copy.formKicker}
+                    {copy.formKicker}
                   </span>
                   <h2 className="max-w-[16ch] text-[length:var(--text-3xl)] font-bold text-fg">{copy.formTitle}</h2>
                   <p className="max-w-[58ch] text-base leading-relaxed text-fg-muted">{copy.formBody}</p>
