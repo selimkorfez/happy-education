@@ -33,6 +33,7 @@ export function TourTemplate({ locale, doc }: { locale: Locale; doc: TourDoc }) 
         title={doc.title}
         image={doc.heroImage ?? null}
         imageAlt={doc.heroImage?.alt ?? doc.title}
+        visualVariant="tours"
       />
 
       <Container>
