@@ -16,6 +16,10 @@ import { listStarterDestinations, listStarterProse } from '@/lib/content/starter
 import { listEnglishInstitutionShadows, listEnglishSummerShadows } from '@/lib/content/catalogue-fallback'
 import { listEditorialArticles, listEditorialProse, listEditorialTours } from '@/lib/content/starter-editorial'
 import { listTurkishStarterProse } from '@/lib/content/starter-turkish-prose'
+import {
+  licensedMediaForDestination,
+  licensedMediaForInstitutionOrPlace,
+} from '@/lib/media/licensed-media'
 
 /** Keeps top-level routes useful and visually complete before the CMS tree is live. */
 export async function StarterAwareSectionIndexTemplate({ locale, section }: { locale: Locale; section: SectionKey }) {
@@ -41,7 +45,15 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
               title={locale === 'tr' ? 'Önce nereye gitmek istediğinize bakın.' : 'Start with where this could take you.'}
               body={locale === 'tr' ? 'Ülke sayfalarında kurumları, şehirleri ve pratik sonraki adımları tek yerde inceleyin.' : 'Open a destination to browse institutions, cities and practical next steps in one place.'}
             >
-              <SortableCardGrid locale={locale} items={destinations.map((destination) => ({ href: docPath(locale, section, destination.slug), title: destination.title, excerpt: destination.intro }))} />
+              <SortableCardGrid
+                locale={locale}
+                items={destinations.map((destination) => ({
+                  href: docPath(locale, section, destination.slug),
+                  title: destination.title,
+                  excerpt: destination.intro,
+                  externalImage: licensedMediaForDestination(destination.slug),
+                }))}
+              />
             </BrowseBlock>
           ) : null}
 
@@ -63,6 +75,7 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
                     title: institution.title,
                     city: institution.city,
                     country: institution.country,
+                    image: licensedMediaForInstitutionOrPlace(institution.title, institution.city),
                   }))}
                 />
               </BrowseBlock>
@@ -78,7 +91,16 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
     if (schools.length > 0) {
       body = (
         <BrowseBlock kicker="Compare schools" title="Look beyond the prospectus." body="Browse the current catalogue by school and location, then open a profile to start comparing academic fit, boarding life and support.">
-          <InstitutionBrowser locale={locale} items={schools.map((school) => ({ href: docPath(locale, section, school.slug), title: school.title, city: school.city, country: school.country }))} />
+          <InstitutionBrowser
+            locale={locale}
+            items={schools.map((school) => ({
+              href: docPath(locale, section, school.slug),
+              title: school.title,
+              city: school.city,
+              country: school.country,
+              image: licensedMediaForInstitutionOrPlace(school.title, school.city),
+            }))}
+          />
         </BrowseBlock>
       )
     }
