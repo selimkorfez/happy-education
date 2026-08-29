@@ -8,7 +8,12 @@ import {
   type Locale,
   type SectionKey,
 } from '@/lib/i18n/config'
-import { routePath, type ResolvedRoute } from '@/lib/routing'
+import {
+  routePath,
+  socialContentSlug,
+  studentStoriesSlug,
+  type ResolvedRoute,
+} from '@/lib/routing'
 
 interface SectionCopy {
   title: Record<Locale, string>
@@ -135,14 +140,9 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
       const title = copy?.title[locale] ?? t(locale, 'brand.name')
       const description = copy?.description[locale] ?? t(locale, 'meta.defaultDescription')
       const languages: Record<string, string> = {}
-      for (const other of LOCALES) {
-        languages[HREFLANG[other]] = absoluteUrl(other, route.section, [])
-      }
+      for (const other of LOCALES) languages[HREFLANG[other]] = absoluteUrl(other, route.section, [])
       languages['x-default'] = absoluteUrl('en', route.section, [])
-      return {
-        ...base(locale, canonical, title, description),
-        alternates: { canonical, languages },
-      }
+      return { ...base(locale, canonical, title, description), alternates: { canonical, languages } }
     }
 
     case 'fixedPage': {
@@ -152,9 +152,7 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
       const title = route.doc?.seo?.title ?? route.doc?.title ?? copy.title[locale]
       const description = route.doc?.seo?.description ?? route.doc?.intro ?? copy.description[locale]
       const languages: Record<string, string> = {}
-      for (const other of LOCALES) {
-        languages[HREFLANG[other]] = absoluteUrl(other, section, [])
-      }
+      for (const other of LOCALES) languages[HREFLANG[other]] = absoluteUrl(other, section, [])
       languages['x-default'] = absoluteUrl('en', section, [])
       return { ...base(locale, canonical, title, description), alternates: { canonical, languages } }
     }
@@ -164,53 +162,29 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
       const doc = route.doc
       const canonical = absoluteUrl(locale, route.section, routePath(locale, route))
       const title = doc.seo?.title ?? doc.title
-      const description =
-        doc.seo?.description ??
-        ('intro' in doc && doc.intro ? doc.intro : `${doc.title} — ${t(locale, 'brand.name')}`)
-      return {
-        ...base(locale, canonical, title, description),
-        robots: doc.seo?.noIndex ? { index: false, follow: true } : undefined,
-      }
+      const description = doc.seo?.description ?? ('intro' in doc && doc.intro ? doc.intro : `${doc.title} — ${t(locale, 'brand.name')}`)
+      return { ...base(locale, canonical, title, description), robots: doc.seo?.noIndex ? { index: false, follow: true } : undefined }
     }
 
     case 'summerListing': {
       const canonical = absoluteUrl(locale, 'summerSchools', [route.formatSlug])
       const isGroup = route.format === 'group'
-      const title = isGroup
-        ? locale === 'tr'
-          ? 'Grup yaz okulları'
-          : 'Group summer schools'
-        : locale === 'tr'
-          ? 'Bireysel yaz okulları'
-          : 'Individual summer schools'
-      const description =
-        locale === 'tr'
-          ? 'Konaklama, dersler ve sosyal program dâhil gözetimli yaz okulu programları.'
-          : 'Supervised summer school programmes including accommodation, lessons and a social programme.'
+      const title = isGroup ? (locale === 'tr' ? 'Grup yaz okulları' : 'Group summer schools') : (locale === 'tr' ? 'Bireysel yaz okulları' : 'Individual summer schools')
+      const description = locale === 'tr' ? 'Konaklama, dersler ve sosyal program dâhil gözetimli yaz okulu programları.' : 'Supervised summer school programmes including accommodation, lessons and a social programme.'
       return base(locale, canonical, title, description)
     }
 
     case 'summerProgramme': {
       const canonical = absoluteUrl(locale, 'summerSchools', [route.formatSlug, route.doc.slug])
       return {
-        ...base(
-          locale,
-          canonical,
-          route.doc.seo?.title ?? route.doc.title,
-          route.doc.seo?.description ?? `${route.doc.title} — ${t(locale, 'brand.name')}`,
-        ),
+        ...base(locale, canonical, route.doc.seo?.title ?? route.doc.title, route.doc.seo?.description ?? `${route.doc.title} — ${t(locale, 'brand.name')}`),
         robots: route.doc.seo?.noIndex ? { index: false, follow: true } : undefined,
       }
     }
 
     case 'tour': {
       const canonical = absoluteUrl(locale, 'tours', [route.doc.slug])
-      return base(
-        locale,
-        canonical,
-        route.doc.seo?.title ?? route.doc.title,
-        route.doc.seo?.description ?? `${route.doc.title} — ${t(locale, 'brand.name')}`,
-      )
+      return base(locale, canonical, route.doc.seo?.title ?? route.doc.title, route.doc.seo?.description ?? `${route.doc.title} — ${t(locale, 'brand.name')}`)
     }
 
     case 'article': {
@@ -235,14 +209,33 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
       }
     }
 
+    case 'socialHub': {
+      const canonical = absoluteUrl(locale, 'insights', [route.slug])
+      const title = locale === 'tr' ? 'Sosyal medyadan | Happy Education' : 'From our socials | Happy Education'
+      const description = locale === 'tr'
+        ? 'Happy Education sosyal medya içerikleri; her paylaşımın ne anlattığı ve neden hazırlandığına dair ek bağlamla birlikte.'
+        : 'Selected Happy Education social content with extra context on what each post is about and why it was created.'
+      const languages: Record<string, string> = {}
+      for (const other of LOCALES) languages[HREFLANG[other]] = absoluteUrl(other, 'insights', [socialContentSlug(other)])
+      languages['x-default'] = absoluteUrl('en', 'insights', [socialContentSlug('en')])
+      return { ...base(locale, canonical, title, description), alternates: { canonical, languages } }
+    }
+
+    case 'studentStories': {
+      const canonical = absoluteUrl(locale, 'insights', [route.slug])
+      const title = locale === 'tr' ? 'Öğrenci hikâyeleri | Happy Education' : 'Student stories | Happy Education'
+      const description = locale === 'tr'
+        ? 'Doğrulanmış ve yayın izni kaydedilmiş Happy Education öğrenci deneyimleri.'
+        : 'Verified Happy Education student experiences published only after publication permission has been recorded.'
+      const languages: Record<string, string> = {}
+      for (const other of LOCALES) languages[HREFLANG[other]] = absoluteUrl(other, 'insights', [studentStoriesSlug(other)])
+      languages['x-default'] = absoluteUrl('en', 'insights', [studentStoriesSlug('en')])
+      return { ...base(locale, canonical, title, description), alternates: { canonical, languages } }
+    }
+
     case 'prose': {
       const canonical = absoluteUrl(locale, route.section, [route.doc.slug])
-      return base(
-        locale,
-        canonical,
-        route.doc.seo?.title ?? route.doc.title,
-        route.doc.seo?.description ?? route.doc.summary ?? route.doc.title,
-      )
+      return base(locale, canonical, route.doc.seo?.title ?? route.doc.title, route.doc.seo?.description ?? route.doc.summary ?? route.doc.title)
     }
 
     case 'legal': {
@@ -253,10 +246,7 @@ export function buildRouteMetadata(locale: Locale, route: ResolvedRoute): Metada
           locale,
           canonical,
           title,
-          route.doc?.seo?.description ??
-            (locale === 'tr'
-              ? `${title} — Happy Education yasal bilgilendirme.`
-              : `${title} — Happy Education legal information.`),
+          route.doc?.seo?.description ?? (locale === 'tr' ? `${title} — Happy Education yasal bilgilendirme.` : `${title} — Happy Education legal information.`),
         ),
         robots: route.doc?.solicitorApproved ? undefined : { index: false, follow: true },
       }
