@@ -14,7 +14,7 @@ export function CookiePreferencesButton({ locale }: { locale: Locale }) {
     <button
       type="button"
       onClick={openPreferences}
-      className="text-left text-sm text-fg-muted underline-offset-4 hover:text-fg hover:underline"
+      className="text-left text-sm font-medium text-fg-muted-on-ink underline-offset-4 transition hover:text-fg-on-ink hover:underline"
     >
       {t(locale, 'footer.cookiePreferences')}
     </button>

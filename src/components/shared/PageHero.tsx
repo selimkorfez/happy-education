@@ -2,16 +2,11 @@ import type { StaticImageData } from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
 import { Breadcrumbs, type Crumb } from './Breadcrumbs'
+import { SectionVisual, type SectionVisualVariant } from './SectionVisual'
 import { BRAND_IMAGES } from '@/lib/media/library'
 import type { Locale } from '@/lib/i18n/config'
 
-/**
- * Standard hero for interior pages.
- *
- * A cleared local AI illustration is used whenever a CMS/legacy photograph is not
- * available. That keeps migrated WordPress media with unknown licensing blocked
- * while avoiding empty image panels on the rebuilt site.
- */
+/** Shared interior hero with either cleared photography or a page-specific editorial visual. */
 export function PageHero({
   locale,
   crumbs,
@@ -21,6 +16,7 @@ export function PageHero({
   image,
   localImage,
   imageAlt,
+  visualVariant,
 }: {
   locale: Locale
   crumbs: Crumb[]
@@ -30,45 +26,59 @@ export function PageHero({
   image?: MediaSource | null
   localImage?: StaticImageData | null
   imageAlt?: string
+  visualVariant?: SectionVisualVariant
 }) {
-  const hasMedia = image !== undefined || localImage !== undefined
-  const shouldUseAiFallback = hasMedia && !image && !localImage
+  const hasExplicitMedia = image !== undefined || localImage !== undefined
+  const hasVisual = hasExplicitMedia || Boolean(visualVariant)
+  const shouldUseAiFallback = hasExplicitMedia && !image && !localImage && !visualVariant
   const resolvedLocalImage = localImage ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.src : null)
   const resolvedAlt = imageAlt ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.alt : title)
+  const editorialLabel = locale === 'tr' ? `${title} illüstrasyonu` : `${title} illustration`
 
   return (
-    <section className="border-b border-border">
+    <section className="he-gradient-wash relative overflow-hidden border-b border-border/70 pb-10 pt-2 sm:pb-14 lg:pb-16">
+      <div aria-hidden="true" className="absolute -right-28 top-8 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
       <Container>
         <Breadcrumbs locale={locale} crumbs={crumbs} />
       </Container>
 
       <Container>
-        <div className="grid gap-8 pb-12 lg:grid-cols-12 lg:gap-12 lg:pb-16">
-          <div className="lg:col-span-7">
+        <div className={`relative z-10 grid items-center gap-8 ${hasVisual ? 'lg:grid-cols-[0.95fr_1.05fr] lg:gap-14' : ''}`}>
+          <div className="py-3 lg:py-8">
             {eyebrow ? (
-              <p className="text-sm font-semibold uppercase tracking-[0.08em] text-brand-strong">
+              <span className="he-pill text-brand-strong">
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
                 {eyebrow}
-              </p>
+              </span>
             ) : null}
-            <h1 className="mt-3 text-[length:var(--text-4xl)] font-semibold text-fg">{title}</h1>
+            <h1 className="mt-5 max-w-[14ch] text-[length:var(--text-4xl)] font-bold text-fg lg:text-[length:var(--text-5xl)]">
+              {title}
+            </h1>
             {intro ? (
-              <p className="mt-5 max-w-[60ch] text-lg leading-relaxed text-fg-muted">{intro}</p>
+              <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-fg-muted">{intro}</p>
             ) : null}
           </div>
 
-          {hasMedia ? (
-            <div className="lg:col-span-5">
-              <MediaFrame
-                image={image ?? null}
-                local={resolvedLocalImage}
-                alt={resolvedAlt}
-                width={800}
-                height={560}
-                priority
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="aspect-[10/7] w-full"
-                placeholderLabel={`Hero image: ${title}`}
-              />
+          {hasVisual ? (
+            <div className="relative">
+              <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-[0_24px_65px_rgba(35,35,38,0.13)] sm:p-3">
+                {visualVariant && !image && !localImage ? (
+                  <SectionVisual variant={visualVariant} label={editorialLabel} locale={locale} />
+                ) : (
+                  <MediaFrame
+                    image={image ?? null}
+                    local={resolvedLocalImage}
+                    alt={resolvedAlt}
+                    width={1100}
+                    height={760}
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 52vw"
+                    className="aspect-[10/7] w-full overflow-hidden rounded-[1.35rem] [&_img]:transition-transform [&_img]:duration-700 hover:[&_img]:scale-[1.025]"
+                    placeholderLabel={`Hero image: ${title}`}
+                  />
+                )}
+              </div>
+              <div aria-hidden="true" className="absolute -bottom-4 -left-4 -z-10 h-24 w-24 rounded-[1.5rem] bg-brand-soft sm:-left-6" />
             </div>
           ) : null}
         </div>

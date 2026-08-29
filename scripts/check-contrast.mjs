@@ -1,43 +1,37 @@
 /**
- * Design-system guard: verifies every foreground/background pairing used in the
- * Happy Education design system meets WCAG 2.2 AA.
- *
- * Run: node scripts/check-contrast.mjs
- * Exits non-zero if any required pairing fails, so it can gate CI.
+ * Design-system guard: verifies foreground/background pairings used by the Happy
+ * Education visual system meet WCAG 2.2 AA. Decorative gradients and translucent
+ * layers are never relied on for text contrast: text is paired with a known solid
+ * token beneath it.
  */
 
 const TOKENS = {
-  // Surfaces — warm paper neutrals, never pure #ffffff as the page ground.
-  'paper': '#FAF8F5',
-  'paper-sunk': '#F2EDE4',
+  'paper': '#FBFAF8',
+  'paper-sunk': '#F4F1EB',
   'card': '#FFFFFF',
   'ink-surface': '#232326',
   'ink-surface-soft': '#313135',
+  'brand-soft': '#FFF0E5',
+  'sky-soft': '#EDF5FF',
+  'mint-soft': '#EEF8F3',
+  'lilac-soft': '#F5F0FF',
 
-  // Foregrounds
   'fg': '#1B1B1D',
   'fg-muted': '#56565C',
   'fg-on-ink': '#F5F2EC',
   'fg-muted-on-ink': '#B4B2AE',
 
-  // Brand — sampled from happyedu.logo_.png (1131px original).
-  // The mark sweeps #EF5D2A -> #F68E1F over a #3A3A3C wordmark.
-  'brand': '#F47426', // identity/graphic use only — fails text contrast by design
-  'brand-strong': '#B8490A', // interactive text + filled buttons
+  'brand': '#F47426',
+  'brand-strong': '#B8490A',
   'brand-pressed': '#8A3706',
-  'brand-on-ink': '#F79A4A', // brand tint legible on dark surfaces
+  'brand-on-ink': '#F79A4A',
 
-  // Status
   'success': '#1F6B45',
   'warning': '#8A5A05',
   'error': '#A32319',
   'focus': '#1F5FBF',
 
-  // Lines
-  // `border` is decorative only (hairline rules, section dividers) and carries no
-  // information, so WCAG 1.4.11 does not apply to it.
-  // `border-input` bounds an interactive control, so it must clear 3:1.
-  'border': '#DED7CB',
+  'border': '#E4DED5',
   'border-input': '#8C8073',
 }
 
@@ -60,13 +54,7 @@ function contrast(a, b) {
   return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05)
 }
 
-/**
- * @typedef {{fg: string, bg: string, min: number, use: string}} Pairing
- * `min` is the WCAG 2.2 threshold that applies:
- *   4.5 normal text, 3.0 large text (>=24px, or >=18.66px bold) and UI components/graphics.
- */
 const REQUIRED = [
-  // Body text on light surfaces
   { fg: 'fg', bg: 'paper', min: 4.5, use: 'body text on page' },
   { fg: 'fg', bg: 'paper-sunk', min: 4.5, use: 'body text on sunk surface' },
   { fg: 'fg', bg: 'card', min: 4.5, use: 'body text on card' },
@@ -74,12 +62,24 @@ const REQUIRED = [
   { fg: 'fg-muted', bg: 'paper-sunk', min: 4.5, use: 'secondary text on sunk surface' },
   { fg: 'fg-muted', bg: 'card', min: 4.5, use: 'secondary text on card' },
 
-  // Text on dark surfaces
+  // Soft modern surfaces used by cards and pills.
+  { fg: 'fg', bg: 'brand-soft', min: 4.5, use: 'body text on warm brand tint' },
+  { fg: 'fg-muted', bg: 'brand-soft', min: 4.5, use: 'secondary text on warm brand tint' },
+  { fg: 'brand-strong', bg: 'brand-soft', min: 4.5, use: 'brand label on warm brand tint' },
+  { fg: 'fg', bg: 'sky-soft', min: 4.5, use: 'body text on sky tint' },
+  { fg: 'fg-muted', bg: 'sky-soft', min: 4.5, use: 'secondary text on sky tint' },
+  { fg: 'brand-strong', bg: 'sky-soft', min: 4.5, use: 'brand label on sky tint' },
+  { fg: 'fg', bg: 'mint-soft', min: 4.5, use: 'body text on mint tint' },
+  { fg: 'fg-muted', bg: 'mint-soft', min: 4.5, use: 'secondary text on mint tint' },
+  { fg: 'brand-strong', bg: 'mint-soft', min: 4.5, use: 'brand label on mint tint' },
+  { fg: 'fg', bg: 'lilac-soft', min: 4.5, use: 'body text on lilac tint' },
+  { fg: 'fg-muted', bg: 'lilac-soft', min: 4.5, use: 'secondary text on lilac tint' },
+  { fg: 'brand-strong', bg: 'lilac-soft', min: 4.5, use: 'brand label on lilac tint' },
+
   { fg: 'fg-on-ink', bg: 'ink-surface', min: 4.5, use: 'body text on dark section' },
   { fg: 'fg-on-ink', bg: 'ink-surface-soft', min: 4.5, use: 'body text on soft dark' },
   { fg: 'fg-muted-on-ink', bg: 'ink-surface', min: 4.5, use: 'secondary text on dark' },
 
-  // Interactive
   { fg: 'brand-strong', bg: 'paper', min: 4.5, use: 'link text on page' },
   { fg: 'brand-strong', bg: 'paper-sunk', min: 4.5, use: 'link text on sunk surface' },
   { fg: 'brand-strong', bg: 'card', min: 4.5, use: 'link text on card' },
@@ -87,16 +87,13 @@ const REQUIRED = [
   { fg: 'card', bg: 'brand-pressed', min: 4.5, use: 'label on pressed primary button' },
   { fg: 'brand-on-ink', bg: 'ink-surface', min: 4.5, use: 'link text on dark section' },
 
-  // Status text
   { fg: 'success', bg: 'paper', min: 4.5, use: 'success message' },
   { fg: 'warning', bg: 'paper', min: 4.5, use: 'warning message' },
   { fg: 'error', bg: 'paper', min: 4.5, use: 'error message' },
   { fg: 'error', bg: 'card', min: 4.5, use: 'field error on card' },
 
-  // Brand orange is used as a large FILL behind dark ink, never as text on paper.
   { fg: 'fg', bg: 'brand', min: 4.5, use: 'ink text on brand-orange panel' },
 
-  // Non-text: focus ring and control boundaries must clear 3:1 (WCAG 2.2 1.4.11 / 2.4.11)
   { fg: 'focus', bg: 'paper', min: 3.0, use: 'focus ring on page' },
   { fg: 'focus', bg: 'card', min: 3.0, use: 'focus ring on card' },
   { fg: 'focus', bg: 'paper-sunk', min: 3.0, use: 'focus ring on sunk surface' },
@@ -105,7 +102,6 @@ const REQUIRED = [
   { fg: 'border-input', bg: 'paper-sunk', min: 3.0, use: 'input border on sunk surface' },
 ]
 
-/** Pairings we deliberately do NOT use for text. Asserted to fail, so misuse is caught. */
 const FORBIDDEN_FOR_TEXT = [
   { fg: 'brand', bg: 'paper', use: 'brand orange as body text' },
   { fg: 'brand', bg: 'card', use: 'brand orange as body text on card' },
@@ -145,5 +141,4 @@ for (const p of FORBIDDEN_FOR_TEXT) {
 lines.push('')
 lines.push(failures === 0 ? `All ${REQUIRED.length} required pairings pass.` : `${failures} FAILURE(S).`)
 console.log(lines.join('\n'))
-
 process.exit(failures === 0 ? 0 : 1)

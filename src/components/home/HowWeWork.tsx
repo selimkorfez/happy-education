@@ -1,76 +1,36 @@
 import { Container } from '@/components/ui/Container'
 import type { Locale } from '@/lib/i18n/config'
 
-/**
- * How the service actually works.
- *
- * A numbered journey rather than a row of icon cards. Each step says what happens
- * and, where it matters, what does not happen — which is more useful to a family
- * weighing up an agency than a list of adjectives.
- *
- * The visa step is written to describe administrative support only. Happy Education
- * has no confirmed IAA registration, so the wording must never imply regulated
- * immigration advice. See src/lib/business-facts.ts.
- */
-
 const STEPS = {
   en: [
-    {
-      title: 'A first conversation',
-      body: 'We ask what you want to study, where, when and what the budget realistically is. If we think a plan will not work, we say so at this stage rather than after you have paid a deposit.',
-    },
-    {
-      title: 'A shortlist you can compare',
-      body: 'You get a written shortlist of institutions and courses with entry requirements, tuition, living costs and intake dates side by side, so the comparison is yours to make.',
-    },
-    {
-      title: 'Applications, prepared properly',
-      body: 'We prepare and submit the applications, check documents against each institution’s requirements, and keep track of deadlines and conditional offers.',
-    },
-    {
-      title: 'Offers, deposits and enrolment',
-      body: 'We explain what each offer commits you to, what is refundable, and what has to happen by when to hold a place.',
-    },
-    {
-      title: 'Visa and travel administration',
-      body: 'We help you assemble and submit the paperwork and point you to the official government guidance. Immigration decisions are made by the relevant authority. We do not give regulated immigration advice and we cannot guarantee any outcome.',
-    },
-    {
-      title: 'Arrival and the first weeks',
-      body: 'Accommodation, airport transfer, registration and the practical questions that come up once you land.',
-    },
+    { title: 'Tell us what matters', body: 'Course, country, timing, budget and what you actually want from the experience.', short: 'Talk' },
+    { title: 'Build a shortlist', body: 'Compare realistic institutions and routes side by side instead of drowning in endless options.', short: 'Compare' },
+    { title: 'Get application-ready', body: 'Documents, requirements and deadlines organised into a clear plan you can follow.', short: 'Prepare' },
+    { title: 'Submit and track', body: 'Applications go in properly and the important updates, offers and conditions stay visible.', short: 'Apply' },
+    { title: 'Handle the practical bits', body: 'Deposits, enrolment steps, travel paperwork and official guidance brought into one timeline.', short: 'Plan' },
+    { title: 'Arrive knowing what’s next', body: 'Accommodation, transfers, registration and the practical questions around your first weeks.', short: 'Go' },
   ],
   tr: [
-    {
-      title: 'İlk görüşme',
-      body: 'Ne okumak istediğinizi, nerede, ne zaman ve bütçenizin gerçekte ne olduğunu konuşuruz. Bir planın yürümeyeceğini düşünüyorsak bunu depozito ödedikten sonra değil, bu aşamada söyleriz.',
-    },
-    {
-      title: 'Karşılaştırabileceğiniz bir liste',
-      body: 'Kabul koşulları, öğrenim ücreti, yaşam maliyeti ve dönem tarihleri yan yana olacak şekilde yazılı bir okul ve bölüm listesi hazırlarız. Karşılaştırmayı siz yaparsınız.',
-    },
-    {
-      title: 'Başvuruların düzgün hazırlanması',
-      body: 'Başvuruları hazırlar ve gönderiririz; belgeleri her kurumun kendi koşullarına göre kontrol eder, tarihleri ve şartlı kabulleri takip ederiz.',
-    },
-    {
-      title: 'Kabul, depozito ve kayıt',
-      body: 'Her kabulün sizi neye bağladığını, hangi ödemenin iade edilebilir olduğunu ve yeri tutmak için neyin ne zamana kadar yapılması gerektiğini anlatırız.',
-    },
-    {
-      title: 'Vize ve seyahat işlemleri',
-      body: 'Evrakların hazırlanmasında ve gönderilmesinde destek olur, resmî kaynaklara yönlendiririz. Vize kararı ilgili ülkenin yetkili makamına aittir. Düzenlemeye tabi göçmenlik danışmanlığı vermiyoruz ve hiçbir sonucu garanti edemeyiz.',
-    },
-    {
-      title: 'Varış ve ilk haftalar',
-      body: 'Konaklama, havalimanı transferi, kayıt işlemleri ve yerleştikten sonra ortaya çıkan pratik sorular.',
-    },
+    { title: 'Önceliklerinizi anlatın', body: 'Bölüm, ülke, zamanlama, bütçe ve bu deneyimden gerçekten ne beklediğinizi konuşalım.', short: 'Konuş' },
+    { title: 'Kısa liste oluşturun', body: 'Sonsuz seçenekler arasında kaybolmak yerine gerçekçi kurumları ve yolları yan yana karşılaştırın.', short: 'Karşılaştır' },
+    { title: 'Başvuruya hazırlanın', body: 'Belgeler, koşullar ve tarihler takip edebileceğiniz net bir plana dönüşsün.', short: 'Hazırla' },
+    { title: 'Başvurun ve takip edin', body: 'Başvurular doğru şekilde gönderilsin; önemli güncellemeler, kabuller ve koşullar görünür kalsın.', short: 'Başvur' },
+    { title: 'Pratik işleri planlayın', body: 'Depozito, kayıt, seyahat evrakları ve resmî yönlendirmeler tek bir takvimde toplansın.', short: 'Planla' },
+    { title: 'Sonraki adımı bilerek varın', body: 'Konaklama, transfer, kayıt ve ilk haftalardaki pratik sorular önceden netleşsin.', short: 'Git' },
   ],
 } as const
 
 const HEADING = {
-  en: { kicker: 'How we work', title: 'From first question to first term' },
-  tr: { kicker: 'Nasıl çalışıyoruz', title: 'İlk sorudan ilk döneme' },
+  en: {
+    kicker: 'How it works',
+    title: 'Less guesswork. More momentum.',
+    body: 'The process becomes much easier when every decision has a clear next step. We keep the moving parts organised without pretending there is one perfect route for everyone.',
+  },
+  tr: {
+    kicker: 'Nasıl ilerliyor',
+    title: 'Daha az belirsizlik. Daha fazla ilerleme.',
+    body: 'Her kararın net bir sonraki adımı olduğunda süreç çok daha kolay ilerler. Herkes için tek bir doğru yol varmış gibi davranmadan tüm parçaları düzenli tutuyoruz.',
+  },
 } as const
 
 export function HowWeWork({ locale }: { locale: Locale }) {
@@ -78,33 +38,36 @@ export function HowWeWork({ locale }: { locale: Locale }) {
   const steps = STEPS[locale]
 
   return (
-    <section className="border-b border-border py-16 sm:py-20">
+    <section className="border-b border-border/70 bg-white py-16 sm:py-20 lg:py-24">
       <Container>
-        <p className="text-sm font-semibold uppercase tracking-[0.08em] text-brand-strong">
-          {heading.kicker}
-        </p>
-        <h2 className="mt-3 max-w-[24ch] text-[length:var(--text-4xl)] font-semibold text-fg">
-          {heading.title}
-        </h2>
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-strong">{heading.kicker}</p>
+            <h2 className="mt-3 max-w-[12ch] text-[length:var(--text-4xl)] text-fg">{heading.title}</h2>
+          </div>
+          <p className="max-w-[62ch] text-lg leading-relaxed text-fg-muted lg:justify-self-end">{heading.body}</p>
+        </div>
 
-        <ol className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step, index) => (
-            <li key={step.title}>
-              <div className="flex items-center gap-3">
-                <span
-                  aria-hidden="true"
-                  className="flex h-8 w-8 shrink-0 items-center justify-center bg-brand font-display text-sm font-semibold tabular-nums text-fg"
-                >
-                  {index + 1}
-                </span>
-                <h3 className="font-display text-lg font-semibold text-fg">{step.title}</h3>
-              </div>
-              <p className="mt-3 max-w-[46ch] text-base leading-relaxed text-fg-muted">
-                {step.body}
-              </p>
-            </li>
-          ))}
-        </ol>
+        <div className="relative mt-14">
+          <div aria-hidden="true" className="absolute left-6 top-5 hidden h-[calc(100%-2.5rem)] w-px bg-border md:block lg:left-0 lg:top-7 lg:h-px lg:w-full" />
+
+          <ol className="relative grid gap-4 md:gap-5 lg:grid-cols-6">
+            {steps.map((step, index) => (
+              <li key={step.title} className="group relative">
+                <div className="h-full rounded-[1.35rem] border border-border/70 bg-paper p-5 transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:bg-white hover:shadow-[0_16px_38px_rgba(35,35,38,0.08)] lg:pt-7">
+                  <div className="flex items-center gap-3 lg:block">
+                    <span className="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full bg-ink-surface text-sm font-black tabular-nums text-white shadow-[0_0_0_6px_var(--color-paper)] transition-colors group-hover:bg-brand">
+                      {index + 1}
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.1em] text-brand-strong lg:mt-5 lg:block">{step.short}</span>
+                  </div>
+                  <h3 className="mt-4 text-lg font-bold text-fg">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-fg-muted">{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </Container>
     </section>
   )
