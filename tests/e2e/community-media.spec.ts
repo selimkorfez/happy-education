@@ -47,7 +47,7 @@ test.describe('licensed documentary media', () => {
       ['/en/universities/ireland', 3],
       ['/en/universities/australia', 4],
       ['/en/universities/new-zealand', 3],
-      ['/en/language-schools/malta', 1],
+      ['/en/language-schools/malta', 3],
     ] as const
 
     for (const [path, expectedImages] of cases) {
