@@ -8,19 +8,9 @@ import { t } from '@/lib/i18n/dictionary'
 import type { Locale } from '@/lib/i18n/config'
 
 /**
- * Desktop primary navigation.
- *
- * Implemented as a set of disclosure buttons rather than an ARIA `menu`, because
- * these open panels of links, not a menu of commands — the disclosure pattern is
- * what screen-reader users expect here and it keeps normal link semantics intact.
- *
- * Behaviour:
- *   - click or Enter/Space toggles a panel
- *   - Escape closes and returns focus to the trigger
- *   - Tab out of the panel closes it
- *   - pointer hover opens after a short intent delay, so sweeping the cursor
- *     across the bar does not flicker panels open
- * There is no motion beyond the panel appearing; nothing slides, fades or lifts.
+ * Accessible desktop disclosure navigation with modern visual treatment.
+ * Keyboard, pointer and focus behaviour remains native and predictable while the
+ * presentation uses softer panels, depth and short state transitions.
  */
 export function PrimaryNav({ groups, locale }: { groups: NavGroup[]; locale: Locale }) {
   const [openKey, setOpenKey] = useState<string | null>(null)
@@ -28,17 +18,14 @@ export function PrimaryNav({ groups, locale }: { groups: NavGroup[]; locale: Loc
   const navRef = useRef<HTMLElement | null>(null)
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  // Any navigation closes the panel.
-  // eslint-disable-next-line react-hooks/set-state-in-effect -- synchronising local state with an external system (URL, cookie or DOM), which is the case the rule's own guidance permits but cannot detect.
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- synchronising local state with the URL.
   useEffect(() => setOpenKey(null), [pathname])
 
   useEffect(() => {
     if (!openKey) return
     function onKeyDown(event: KeyboardEvent) {
       if (event.key !== 'Escape') return
-      const trigger = navRef.current?.querySelector<HTMLButtonElement>(
-        `[data-nav-trigger="${openKey}"]`,
-      )
+      const trigger = navRef.current?.querySelector<HTMLButtonElement>(`[data-nav-trigger="${openKey}"]`)
       setOpenKey(null)
       trigger?.focus()
     }
@@ -61,7 +48,6 @@ export function PrimaryNav({ groups, locale }: { groups: NavGroup[]; locale: Loc
   useEffect(() => clearHover, [clearHover])
 
   const handleFocusOut = useCallback((event: React.FocusEvent<HTMLElement>) => {
-    // Closing only when focus genuinely leaves the nav keeps Shift+Tab working.
     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setOpenKey(null)
   }, [])
 
@@ -77,7 +63,7 @@ export function PrimaryNav({ groups, locale }: { groups: NavGroup[]; locale: Loc
       }}
       onPointerEnter={clearHover}
     >
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-0.5">
         {groups.map((group) => {
           const isActive = pathname === group.href || pathname.startsWith(`${group.href}/`)
           return (
@@ -87,18 +73,14 @@ export function PrimaryNav({ groups, locale }: { groups: NavGroup[]; locale: Loc
                   group={group}
                   isActive={isActive}
                   isOpen={openKey === group.key}
-                  onToggle={() => setOpenKey((k) => (k === group.key ? null : group.key))}
+                  onToggle={() => setOpenKey((key) => (key === group.key ? null : group.key))}
                   onHoverOpen={() => {
                     clearHover()
                     hoverTimer.current = setTimeout(() => setOpenKey(group.key), 90)
                   }}
                 />
               ) : (
-                <Link
-                  href={group.href}
-                  aria-current={isActive ? 'page' : undefined}
-                  className={linkClass(isActive)}
-                >
+                <Link href={group.href} aria-current={isActive ? 'page' : undefined} className={linkClass(isActive)}>
                   {group.label}
                 </Link>
               )}
@@ -112,9 +94,10 @@ export function PrimaryNav({ groups, locale }: { groups: NavGroup[]; locale: Loc
 
 function linkClass(isActive: boolean) {
   return [
-    'inline-flex items-center gap-1 whitespace-nowrap px-3 py-2 text-[0.9375rem] font-medium no-underline',
-    'underline-offset-[6px] hover:underline hover:decoration-2',
-    isActive ? 'text-fg underline decoration-brand decoration-2' : 'text-fg-muted hover:text-fg',
+    'inline-flex min-h-11 items-center gap-1 whitespace-nowrap rounded-full px-3.5 text-[0.9rem] font-semibold no-underline transition duration-200',
+    isActive
+      ? 'bg-brand-soft text-brand-strong'
+      : 'text-fg-muted hover:bg-white hover:text-fg',
   ].join(' ')
 }
 
@@ -142,7 +125,7 @@ function NavDisclosure({
         aria-controls={panelId}
         onClick={onToggle}
         onPointerEnter={onHoverOpen}
-        className={linkClass(isActive)}
+        className={linkClass(isActive || isOpen)}
       >
         {group.label}
         <Chevron open={isOpen} />
@@ -151,24 +134,20 @@ function NavDisclosure({
       {isOpen ? (
         <div
           id={panelId}
-          className="absolute left-0 top-full z-50 min-w-[16rem] border border-border bg-card py-2"
+          className="he-enter absolute left-0 top-[calc(100%+0.55rem)] z-50 min-w-[19rem] overflow-hidden rounded-[1.25rem] border border-border/80 bg-white p-2 shadow-[0_22px_55px_rgba(35,35,38,0.14)]"
         >
-          <ul>
+          <ul className="space-y-1">
             <li>
-              <Link href={group.href} className={panelLinkClass('font-semibold text-fg')}>
+              <Link href={group.href} className="group flex min-h-11 items-center justify-between rounded-xl bg-paper-sunk px-4 text-sm font-bold text-fg no-underline transition hover:bg-brand-soft">
                 {group.label}
+                <span aria-hidden="true" className="text-brand-strong transition-transform group-hover:translate-x-1">→</span>
               </Link>
-            </li>
-            <li aria-hidden="true">
-              <hr className="my-2 border-0 border-t border-border" />
             </li>
             {group.children?.map((child) => (
               <li key={child.href}>
-                <Link href={child.href} className={panelLinkClass('text-fg-muted')}>
-                  {child.label}
-                  {child.description ? (
-                    <span className="mt-0.5 block text-xs text-fg-muted">{child.description}</span>
-                  ) : null}
+                <Link href={child.href} className="block min-h-11 rounded-xl px-4 py-3 text-sm text-fg-muted no-underline transition hover:bg-paper hover:text-fg">
+                  <span className="font-bold text-fg">{child.label}</span>
+                  {child.description ? <span className="mt-0.5 block max-w-[30ch] text-xs leading-relaxed text-fg-muted">{child.description}</span> : null}
                 </Link>
               </li>
             ))}
@@ -179,22 +158,10 @@ function NavDisclosure({
   )
 }
 
-function panelLinkClass(extra: string) {
-  return `block px-4 py-2 text-sm no-underline hover:bg-paper-sunk hover:text-fg ${extra}`
-}
-
-/** Rotation is a static state change, not an animation. */
 function Chevron({ open }: { open: boolean }) {
   return (
-    <svg
-      aria-hidden="true"
-      width="10"
-      height="10"
-      viewBox="0 0 10 10"
-      fill="none"
-      className={open ? 'rotate-180' : ''}
-    >
-      <path d="M1 3.5 5 7l4-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
+    <svg aria-hidden="true" width="11" height="11" viewBox="0 0 10 10" fill="none" className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>
+      <path d="M1 3.5 5 7l4-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
