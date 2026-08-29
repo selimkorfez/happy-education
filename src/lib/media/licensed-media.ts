@@ -137,13 +137,6 @@ const INSTITUTIONS: Record<string, LicensedExternalImage> = {
     licenceUrl: CC_BY_SA_4,
     kind: 'campus',
   }),
-  'the university of warwick': commonsImage('The University of Warwick.jpg', {
-    alt: 'University of Warwick campus signage',
-    creator: 'Stamhaney88',
-    licence: 'CC BY-SA 4.0',
-    licenceUrl: CC_BY_SA_4,
-    kind: 'campus',
-  }),
   'university of edinburgh': commonsImage('University of Edinburgh.jpg', {
     alt: 'A University of Edinburgh building in Edinburgh',
     creator: 'miketnorton',
@@ -262,12 +255,46 @@ const PLACES: Record<string, LicensedExternalImage> = {
   }),
 }
 
+/**
+ * Country pages deliberately use a recognisable study city rather than pretending a
+ * single photograph can represent an entire nation. The alt text says what is
+ * actually pictured and the page heading carries the country context separately.
+ */
+const DESTINATION_PLACE: Record<string, keyof typeof PLACES> = {
+  'united kingdom': 'london',
+  'united-kingdom': 'london',
+  uk: 'london',
+  ingiltere: 'london',
+  'united states': 'new york',
+  'united-states': 'new york',
+  usa: 'new york',
+  amerika: 'new york',
+  canada: 'toronto',
+  kanada: 'toronto',
+  ireland: 'dublin',
+  irlanda: 'dublin',
+  australia: 'sydney',
+  avustralya: 'sydney',
+  'new zealand': 'auckland',
+  'new-zealand': 'auckland',
+  'yeni zelanda': 'auckland',
+  'yeni-zelanda': 'auckland',
+  malta: 'valletta',
+}
+
 function normalise(value?: string): string {
   return (value ?? '')
     .toLocaleLowerCase('en-GB')
     .replace(/[’‘]/g, "'")
-    .replace(/\bthe\s+university\s+of\s+warwick\b/, 'university of warwick')
-    .replace(/[^a-z0-9' ]+/g, ' ')
+    .replace(/ı/g, 'i')
+    .replace(/ğ/g, 'g')
+    .replace(/ş/g, 's')
+    .replace(/ç/g, 'c')
+    .replace(/ö/g, 'o')
+    .replace(/ü/g, 'u')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9' -]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
 }
@@ -279,7 +306,7 @@ export function licensedMediaForInstitution(title?: string): LicensedExternalIma
 
 /**
  * City fields in the migrated corpus often contain a region/country after a comma.
- * Match the most specific first segment we have verified rather than guessing.
+ * Match the most specific known place rather than guessing from a country label.
  */
 export function licensedMediaForPlace(value?: string): LicensedExternalImage | null {
   const key = normalise(value)
@@ -288,6 +315,12 @@ export function licensedMediaForPlace(value?: string): LicensedExternalImage | n
     if (key === place || key.startsWith(`${place} `) || key.includes(` ${place} `)) return image
   }
   return null
+}
+
+export function licensedMediaForDestination(value?: string): LicensedExternalImage | null {
+  const key = normalise(value)
+  const place = DESTINATION_PLACE[key]
+  return place ? PLACES[place] : licensedMediaForPlace(value)
 }
 
 export function licensedMediaForInstitutionOrPlace(
