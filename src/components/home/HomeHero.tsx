@@ -11,7 +11,7 @@ const COPY = {
     headingA: 'Your next chapter',
     headingB: 'starts somewhere new.',
     lead:
-      'We help students and families turn a huge study-abroad decision into a clear plan — from choosing the right route to getting the application over the line.',
+      'We help students and families turn a huge study-abroad decision into a clear plan, from choosing the right route to getting the application over the line.',
     primary: 'Plan my next step',
     secondary: 'Explore study options',
     trusted: 'Straight-talking guidance',
@@ -24,7 +24,7 @@ const COPY = {
     headingA: 'Yeni bölümünüz',
     headingB: 'başka bir yerde başlasın.',
     lead:
-      'Yurt dışı eğitim kararını karmaşık bir süreç olmaktan çıkarıp net bir plana dönüştürüyoruz — doğru seçeneği bulmaktan başvuruyu tamamlamaya kadar.',
+      'Yurt dışı eğitim kararını karmaşık bir süreç olmaktan çıkarıp net bir plana dönüştürüyoruz, doğru seçeneği bulmaktan başvuruyu tamamlamaya kadar.',
     primary: 'Sonraki adımımı planla',
     secondary: 'Eğitim seçeneklerini keşfet',
     trusted: 'Açık ve dürüst danışmanlık',
@@ -94,7 +94,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-fg-muted">
               {[copy.trusted, copy.personal, copy.supported].map((item) => (
                 <li key={item} className="flex items-center gap-2">
-                  <span aria-hidden="true" className="grid h-5 w-5 place-items-center rounded-full bg-mint-soft text-success">✓</span>
+                  <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-success" />
                   {item}
                 </li>
               ))}
@@ -135,12 +135,12 @@ export function HomeHero({ locale }: { locale: Locale }) {
               </div>
             </div>
 
-            <div className="he-float absolute -left-4 top-10 hidden rounded-2xl border border-border/80 bg-sky-soft px-4 py-3 shadow-lg sm:block lg:-left-8">
+            <div className="he-float absolute -left-4 top-10 hidden rounded-2xl border border-border/80 bg-sky-soft px-4 py-3 shadow-[0_12px_26px_rgba(35,35,38,0.11)] sm:block lg:-left-8">
               <p className="text-xs font-bold text-fg-muted">{locale === 'tr' ? '01 · KEŞFET' : '01 · EXPLORE'}</p>
               <p className="mt-0.5 text-sm font-bold text-fg">{locale === 'tr' ? 'Ülke + program' : 'Country + course'}</p>
             </div>
 
-            <div className="he-float-delayed absolute -right-3 bottom-20 hidden rounded-2xl border border-border/80 bg-brand-soft px-4 py-3 shadow-lg sm:block lg:-right-6">
+            <div className="he-float-delayed absolute -right-3 bottom-20 hidden rounded-2xl border border-border/80 bg-brand-soft px-4 py-3 shadow-[0_12px_26px_rgba(35,35,38,0.11)] sm:block lg:-right-6">
               <p className="text-xs font-bold text-fg-muted">{locale === 'tr' ? '02 · PLANLA' : '02 · PLAN'}</p>
               <p className="mt-0.5 text-sm font-bold text-fg">{locale === 'tr' ? 'Başvuruyu netleştir' : 'Make it actionable'}</p>
             </div>
