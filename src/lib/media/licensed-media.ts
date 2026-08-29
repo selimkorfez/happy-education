@@ -1,20 +1,15 @@
 import 'server-only'
 
 /**
- * Reusable documentary photography with an explicit public reuse licence.
+ * Documentary photography allowed on Happy Education pages.
  *
- * Rules for this registry:
- * - Source must expose a verifiable licence page.
- * - Prefer CC0 / public domain; CC BY / CC BY-SA is accepted with attribution.
- * - No scraped Google Images, university marketing-library guesses or legacy WP stock.
- * - Prefer architecture/cityscapes without identifiable people as the subject.
- * - `sourceUrl` always points to the licence/provenance page, not merely the JPEG.
- *
- * Wikimedia files are requested through Special:Redirect at a bounded width. Next's
- * image optimiser caches the result; the source page remains the legal attribution
- * target shown by MediaFrame.
+ * Admission rules:
+ * - the source page must state a public reuse licence;
+ * - CC0/Public Domain is preferred, CC BY/CC BY-SA is accepted with attribution;
+ * - no Google Images, legacy WordPress stock, guessed university marketing rights,
+ *   social-media downloads or images whose main subject is an identifiable person;
+ * - source/creator/licence metadata travels with every image and is rendered by the UI.
  */
-
 export type OpenLicence =
   | 'CC0 1.0'
   | 'Public domain'
@@ -32,234 +27,119 @@ export interface LicensedExternalImage {
   licence: OpenLicence
   licenceUrl: string
   kind: 'campus' | 'city'
-  /** Human subjects are not the subject of any image admitted to this registry. */
   privacy: 'architecture-or-cityscape'
   cleared: true
 }
 
-const COMMONS = 'https://commons.wikimedia.org/wiki/File:'
-const CC0 = 'https://creativecommons.org/publicdomain/zero/1.0/'
-const CC_BY_2 = 'https://creativecommons.org/licenses/by/2.0/'
-const CC_BY_3 = 'https://creativecommons.org/licenses/by/3.0/'
-const CC_BY_4 = 'https://creativecommons.org/licenses/by/4.0/'
-const CC_BY_SA_2 = 'https://creativecommons.org/licenses/by-sa/2.0/'
-const CC_BY_SA_4 = 'https://creativecommons.org/licenses/by-sa/4.0/'
+const LICENCE_URL: Record<OpenLicence, string> = {
+  'CC0 1.0': 'https://creativecommons.org/publicdomain/zero/1.0/',
+  'Public domain': 'https://creativecommons.org/publicdomain/mark/1.0/',
+  'CC BY 2.0': 'https://creativecommons.org/licenses/by/2.0/',
+  'CC BY 3.0': 'https://creativecommons.org/licenses/by/3.0/',
+  'CC BY 4.0': 'https://creativecommons.org/licenses/by/4.0/',
+  'CC BY-SA 2.0': 'https://creativecommons.org/licenses/by-sa/2.0/',
+  'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/',
+}
 
-function commonsImage(
+function commons(
   file: string,
-  data: Omit<LicensedExternalImage, 'src' | 'sourceUrl' | 'privacy' | 'cleared'>,
+  alt: string,
+  creator: string,
+  licence: OpenLicence,
+  kind: 'campus' | 'city' = 'city',
 ): LicensedExternalImage {
   return {
-    ...data,
     src: `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(file)}?width=1800`,
-    sourceUrl: `${COMMONS}${encodeURIComponent(file).replace(/%20/g, '_')}`,
+    alt,
+    creator,
+    sourceUrl: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file).replace(/%20/g, '_')}`,
+    licence,
+    licenceUrl: LICENCE_URL[licence],
+    kind,
     privacy: 'architecture-or-cityscape',
     cleared: true,
   }
 }
 
-/**
- * Institution-specific photos. These are used only when the file page clearly
- * identifies the institution/campus. Everything else falls back to a truthful city
- * or destination image rather than pretending a generic campus is the university.
- */
+/** Campus files used only where the source page clearly identifies the institution. */
 const INSTITUTIONS: Record<string, LicensedExternalImage> = {
-  'anglia ruskin university': commonsImage('Anglia Ruskin University Cambridge Campus.jpg', {
-    alt: 'The Cambridge campus of Anglia Ruskin University', creator: 'ARU', licence: 'CC BY-SA 4.0', licenceUrl: CC_BY_SA_4, kind: 'campus',
-  }),
-  'university of oxford': commonsImage('University Of Oxford The Bridge Of Sighs.jpg', {
-    alt: 'The Bridge of Sighs at the University of Oxford', creator: 'Michael D Beckwith', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'campus',
-  }),
-  'university of cambridge': commonsImage("University of Cambridge, King's College.jpg", {
-    alt: "King's College at the University of Cambridge", creator: 'Nine402', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'campus',
-  }),
-  'imperial college london': commonsImage('Imperial College London Dyson Building.jpg', {
-    alt: 'The Dyson Building at Imperial College London', creator: 'WhisperToMe', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'campus',
-  }),
-  "king's college london": commonsImage("Strand Building, King's College London.jpg", {
-    alt: "The Strand Building at King's College London", creator: 'Shadowssettle', licence: 'CC BY-SA 4.0', licenceUrl: CC_BY_SA_4, kind: 'campus',
-  }),
-  'london school of economics': commonsImage('LSE Buildings (4770697517).jpg', {
-    alt: 'Buildings on the London School of Economics campus', creator: 'SomeDriftwood', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'campus',
-  }),
-  'london school of economics and political science': commonsImage('LSE Buildings (4770697517).jpg', {
-    alt: 'Buildings on the London School of Economics campus', creator: 'SomeDriftwood', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'campus',
-  }),
-  'university of birmingham': commonsImage('University of Birmingham campus from the north.jpg', {
-    alt: 'The University of Birmingham campus seen from the north', creator: 'Rcsprinter123', licence: 'CC BY 3.0', licenceUrl: CC_BY_3, kind: 'campus',
-  }),
-  'university of manchester': commonsImage('University of Manchester.jpg', {
-    alt: 'Whitworth Hall at the University of Manchester', creator: 'Bradshaw79', licence: 'CC BY-SA 4.0', licenceUrl: CC_BY_SA_4, kind: 'campus',
-  }),
-  'university of bristol': commonsImage('University of Bristol.jpg', {
-    alt: 'A University of Bristol campus sign and building', creator: 'Simon Cobb', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'campus',
-  }),
-  'university of warwick': commonsImage('The University of Warwick.jpg', {
-    alt: 'University of Warwick campus signage', creator: 'Stamhaney88', licence: 'CC BY-SA 4.0', licenceUrl: CC_BY_SA_4, kind: 'campus',
-  }),
-  'university of edinburgh': commonsImage('University of Edinburgh.jpg', {
-    alt: 'A University of Edinburgh building in Edinburgh', creator: 'miketnorton', licence: 'CC BY 2.0', licenceUrl: CC_BY_2, kind: 'campus',
-  }),
+  'anglia ruskin university': commons('Anglia Ruskin University Cambridge Campus.jpg', 'The Cambridge campus of Anglia Ruskin University', 'ARU', 'CC BY-SA 4.0', 'campus'),
+  'university of oxford': commons('University Of Oxford The Bridge Of Sighs.jpg', 'The Bridge of Sighs at the University of Oxford', 'Michael D Beckwith', 'CC0 1.0', 'campus'),
+  'university of cambridge': commons("University of Cambridge, King's College.jpg", "King's College at the University of Cambridge", 'Nine402', 'CC0 1.0', 'campus'),
+  'imperial college london': commons('Imperial College London Dyson Building.jpg', 'The Dyson Building at Imperial College London', 'WhisperToMe', 'CC0 1.0', 'campus'),
+  "king's college london": commons("Strand Building, King's College London.jpg", "The Strand Building at King's College London", 'Shadowssettle', 'CC BY-SA 4.0', 'campus'),
+  'london school of economics': commons('LSE Buildings (4770697517).jpg', 'Buildings on the London School of Economics campus', 'SomeDriftwood', 'CC0 1.0', 'campus'),
+  'london school of economics and political science': commons('LSE Buildings (4770697517).jpg', 'Buildings on the London School of Economics campus', 'SomeDriftwood', 'CC0 1.0', 'campus'),
+  'university of birmingham': commons('University of Birmingham campus from the north.jpg', 'The University of Birmingham campus seen from the north', 'Rcsprinter123', 'CC BY 3.0', 'campus'),
+  'university of manchester': commons('University of Manchester.jpg', 'Whitworth Hall at the University of Manchester', 'Bradshaw79', 'CC BY-SA 4.0', 'campus'),
+  'university of bristol': commons('University of Bristol.jpg', 'A University of Bristol campus sign and building', 'Simon Cobb', 'CC0 1.0', 'campus'),
+  'university of warwick': commons('The University of Warwick.jpg', 'University of Warwick campus signage', 'Stamhaney88', 'CC BY-SA 4.0', 'campus'),
+  'university of edinburgh': commons('University of Edinburgh.jpg', 'A University of Edinburgh building in Edinburgh', 'miketnorton', 'CC BY 2.0', 'campus'),
 }
 
 /**
- * City photography. This list covers every city presented by the starter country
- * pages plus common cities in the migrated university catalogue. A city photo is
- * labelled as a location image in the UI and is never described as a campus photo.
+ * City/location files. This covers every city exposed by the current English country
+ * previews and the most common locations in the migrated university catalogue.
  */
 const PLACES: Record<string, LicensedExternalImage> = {
-  london: commonsImage('London Skyline 2021.jpg', {
-    alt: 'The London skyline seen from Greenwich Park', creator: 'Farbades420', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  oxford: commonsImage('University Of Oxford The Bridge Of Sighs.jpg', {
-    alt: 'The Bridge of Sighs in Oxford', creator: 'Michael D Beckwith', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  cambridge: commonsImage("University of Cambridge, King's College.jpg", {
-    alt: "King's College in Cambridge", creator: 'Nine402', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  birmingham: commonsImage('Birmingham UK skyline.jpg', {
-    alt: 'The Birmingham city skyline', creator: 'newkemall', licence: 'CC BY 2.0', licenceUrl: CC_BY_2, kind: 'city',
-  }),
-  manchester: commonsImage('Manchester Skyline 2018.jpg', {
-    alt: 'The Manchester skyline', creator: 'Manc360', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  edinburgh: commonsImage('Skyline of Quartermile, Edinburgh, in June 2024.jpg', {
-    alt: 'A city view across Quartermile and the Meadows in Edinburgh', creator: 'McPhail', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  cardiff: commonsImage('Cardiff skyline - geograph.org.uk - 6839069.jpg', {
-    alt: 'The Cardiff skyline', creator: 'Gareth James', licence: 'CC BY-SA 2.0', licenceUrl: CC_BY_SA_2, kind: 'city',
-  }),
-  bristol: commonsImage('The Bristol skyline from Cabot Tower - January 2019.jpg', {
-    alt: 'The Bristol skyline seen from Cabot Tower', creator: 'Graeme Churchard', licence: 'CC BY 2.0', licenceUrl: CC_BY_2, kind: 'city',
-  }),
-  leicester: commonsImage('Central Leicester Skyline.jpg', {
-    alt: 'The central Leicester skyline', creator: 'DougPR', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  nottingham: commonsImage('Nottingham skyline.jpg', {
-    alt: 'The Nottingham skyline', creator: 'Willednic', licence: 'CC BY 3.0', licenceUrl: CC_BY_3, kind: 'city',
-  }),
-  sheffield: commonsImage('Sheffield Skyline from Park Hill.jpg', {
-    alt: 'The Sheffield skyline seen from Park Hill', creator: 'Coolmule0', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  leeds: commonsImage('Leeds-city-skyline.png', {
-    alt: 'The Leeds city skyline', creator: 'Leedsfan2', licence: 'CC BY 4.0', licenceUrl: CC_BY_4, kind: 'city',
-  }),
-  liverpool: commonsImage('Liverpool Skyline 2.JPG', {
-    alt: 'The Liverpool skyline', creator: 'Tetrisforaliens', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  dublin: commonsImage('River-liffey.jpg', {
-    alt: 'The River Liffey and central Dublin', creator: 'Dave Meier', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  cork: commonsImage('Cork city, Ireland.jpg', {
-    alt: 'A city view across Cork, Ireland', creator: 'Marina Melik-Adamyan', licence: 'CC BY-SA 4.0', licenceUrl: CC_BY_SA_4, kind: 'city',
-  }),
-  galway: commonsImage('GALWAY.jpg', {
-    alt: 'A city view in Galway, Ireland', creator: 'August Dominus', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  'new york': commonsImage('Iconic Skyline of New York City.jpg', {
-    alt: 'The New York City skyline', creator: 'Farida Belal', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  boston: commonsImage('Boston-skyline.jpg', {
-    alt: 'The Boston skyline across the harbour', creator: 'Joe Valentine', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  chicago: commonsImage('Chicago skyline (215488049).jpg', {
-    alt: 'The Chicago skyline', creator: 'Christian Stankevitz', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  'los angeles': commonsImage('Los Angeles Skyline; August 30, 2022.jpg', {
-    alt: 'The Los Angeles skyline', creator: 'ItzAPotato2009', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  'san francisco': commonsImage('San Francisco city skyline.jpg', {
-    alt: 'The San Francisco skyline', creator: 'Lisafern', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  toronto: commonsImage('Toronto skyline.png', {
-    alt: "The Toronto skyline viewed from Ward's Island", creator: 'Bpp88520', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  vancouver: commonsImage("Vancouver’s skyline as seen from lonsdale quay.jpg", {
-    alt: 'The Vancouver skyline seen from Lonsdale Quay', creator: 'Lizardhugger92', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  montreal: commonsImage('Montreal Skyline.jpg', {
-    alt: 'The Montreal skyline', creator: 'CanadianPhotographer', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  sydney: commonsImage('Sydney skyline (23700049033).jpg', {
-    alt: 'The Sydney skyline', creator: 'www.Pixel.la Free Stock Photos / Ed Gregory', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  melbourne: commonsImage('City of Melbourne Skyline From Docklands.JPG', {
-    alt: 'The Melbourne skyline seen from Docklands', creator: 'Maximus Lu', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  brisbane: commonsImage('Brisbane skyline.JPG', {
-    alt: 'The Brisbane skyline', creator: 'Dinkum', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  perth: commonsImage('Perth skyline 2024.jpg', {
-    alt: 'The Perth skyline seen from South Perth', creator: 'GenericWikiUser1', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  auckland: commonsImage('Auckland skyline (33576959126).jpg', {
-    alt: 'The Auckland skyline and harbour', creator: 'Bernard Spragg. NZ', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  wellington: commonsImage('Wellington New Zealand 2006.jpg', {
-    alt: 'Wellington city and harbour in New Zealand', creator: 'Phillip Capper', licence: 'CC BY 2.0', licenceUrl: CC_BY_2, kind: 'city',
-  }),
-  christchurch: commonsImage('Christchurch Skyline.jpg', {
-    alt: 'The Christchurch skyline in New Zealand', creator: 'Francis Vallance (Heritage Warrior)', licence: 'CC BY 2.0', licenceUrl: CC_BY_2, kind: 'city',
-  }),
-  valletta: commonsImage('VALLETTA.jpg', {
-    alt: 'A city view in Valletta, Malta', creator: 'August Dominus', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
-  nicosia: commonsImage("Nicosia's Skyline.jpg", {
-    alt: 'The Nicosia skyline in Cyprus', creator: 'ConstantinosTziak', licence: 'CC BY-SA 4.0', licenceUrl: CC_BY_SA_4, kind: 'city',
-  }),
-  "st george's": commonsImage('Grenada.jpg', {
-    alt: "A city and harbour view in St George's, Grenada", creator: 'Ian Mackenzie', licence: 'CC BY 2.0', licenceUrl: CC_BY_2, kind: 'city',
-  }),
-  'uae desert': commonsImage('Desert in Dubai.jpg', {
-    alt: 'Desert landscape in the United Arab Emirates', creator: 'Tim de Groot', licence: 'CC0 1.0', licenceUrl: CC0, kind: 'city',
-  }),
+  london: commons('London Skyline 2021.jpg', 'The London skyline seen from Greenwich Park', 'Farbades420', 'CC0 1.0'),
+  oxford: commons('University Of Oxford The Bridge Of Sighs.jpg', 'The Bridge of Sighs in Oxford', 'Michael D Beckwith', 'CC0 1.0'),
+  cambridge: commons("University of Cambridge, King's College.jpg", "King's College in Cambridge", 'Nine402', 'CC0 1.0'),
+  birmingham: commons('Birmingham UK skyline.jpg', 'The Birmingham city skyline', 'newkemall', 'CC BY 2.0'),
+  manchester: commons('Manchester Skyline 2018.jpg', 'The Manchester skyline', 'Manc360', 'CC0 1.0'),
+  edinburgh: commons('Skyline of Quartermile, Edinburgh, in June 2024.jpg', 'A city view across Quartermile and the Meadows in Edinburgh', 'McPhail', 'CC0 1.0'),
+  cardiff: commons('Cardiff skyline - geograph.org.uk - 6839069.jpg', 'The Cardiff skyline', 'Gareth James', 'CC BY-SA 2.0'),
+  bristol: commons('The Bristol skyline from Cabot Tower - January 2019.jpg', 'The Bristol skyline seen from Cabot Tower', 'Graeme Churchard', 'CC BY 2.0'),
+  leicester: commons('Central Leicester Skyline.jpg', 'The central Leicester skyline', 'DougPR', 'CC0 1.0'),
+  nottingham: commons('Nottingham skyline.jpg', 'The Nottingham skyline', 'Willednic', 'CC BY 3.0'),
+  sheffield: commons('Sheffield Skyline from Park Hill.jpg', 'The Sheffield skyline seen from Park Hill', 'Coolmule0', 'CC0 1.0'),
+  leeds: commons('Leeds-city-skyline.png', 'The Leeds city skyline', 'Leedsfan2', 'CC BY 4.0'),
+  liverpool: commons('Liverpool Skyline 2.JPG', 'The Liverpool skyline', 'Tetrisforaliens', 'CC0 1.0'),
+  dublin: commons('River-liffey.jpg', 'The River Liffey and central Dublin', 'Dave Meier', 'CC0 1.0'),
+  cork: commons('Cork city, Ireland.jpg', 'A city view across Cork, Ireland', 'Marina Melik-Adamyan', 'CC BY-SA 4.0'),
+  galway: commons('GALWAY.jpg', 'A city view in Galway, Ireland', 'August Dominus', 'CC0 1.0'),
+  'new york': commons('Iconic Skyline of New York City.jpg', 'The New York City skyline', 'Farida Belal', 'CC0 1.0'),
+  boston: commons('Boston-skyline.jpg', 'The Boston skyline across the harbour', 'Joe Valentine', 'CC0 1.0'),
+  chicago: commons('Chicago skyline (215488049).jpg', 'The Chicago skyline', 'Christian Stankevitz', 'CC0 1.0'),
+  'los angeles': commons('Los Angeles Skyline; August 30, 2022.jpg', 'The Los Angeles skyline', 'ItzAPotato2009', 'CC0 1.0'),
+  'san francisco': commons('San Francisco city skyline.jpg', 'The San Francisco skyline', 'Lisafern', 'CC0 1.0'),
+  toronto: commons('Toronto skyline.png', "The Toronto skyline viewed from Ward's Island", 'Bpp88520', 'CC0 1.0'),
+  vancouver: commons("Vancouver’s skyline as seen from lonsdale quay.jpg", 'The Vancouver skyline seen from Lonsdale Quay', 'Lizardhugger92', 'CC0 1.0'),
+  montreal: commons('Montreal Skyline.jpg', 'The Montreal skyline', 'CanadianPhotographer', 'CC0 1.0'),
+  sydney: commons('Sydney skyline (23700049033).jpg', 'The Sydney skyline', 'www.Pixel.la Free Stock Photos / Ed Gregory', 'CC0 1.0'),
+  melbourne: commons('City of Melbourne Skyline From Docklands.JPG', 'The Melbourne skyline seen from Docklands', 'Maximus Lu', 'CC0 1.0'),
+  brisbane: commons('Brisbane skyline.JPG', 'The Brisbane skyline', 'Dinkum', 'CC0 1.0'),
+  perth: commons('Perth skyline 2024.jpg', 'The Perth skyline seen from South Perth', 'GenericWikiUser1', 'CC0 1.0'),
+  auckland: commons('Auckland skyline (33576959126).jpg', 'The Auckland skyline and harbour', 'Bernard Spragg. NZ', 'CC0 1.0'),
+  wellington: commons('Wellington New Zealand 2006.jpg', 'Wellington city and harbour in New Zealand', 'Phillip Capper', 'CC BY 2.0'),
+  christchurch: commons('Christchurch Skyline.jpg', 'The Christchurch skyline in New Zealand', 'Francis Vallance (Heritage Warrior)', 'CC BY 2.0'),
+  valletta: commons('VALLETTA.jpg', 'A city view in Valletta, Malta', 'August Dominus', 'CC0 1.0'),
+  nicosia: commons("Nicosia's Skyline.jpg", 'The Nicosia skyline in Cyprus', 'ConstantinosTziak', 'CC BY-SA 4.0'),
+  "st george's": commons('Grenada.jpg', "A city and harbour view in St George's, Grenada", 'Ian Mackenzie', 'CC BY 2.0'),
+  'uae desert': commons('Desert in Dubai.jpg', 'Desert landscape in the United Arab Emirates', 'Tim de Groot', 'CC0 1.0'),
 }
 
-/** Common alternate spellings/translations in the migration. */
 const PLACE_ALIAS: Record<string, keyof typeof PLACES> = {
   'new york city': 'new york',
   londra: 'london',
   edinburg: 'edinburgh',
   sidney: 'sydney',
-  montreal: 'montreal',
-  nicosia: 'nicosia',
-  lefkosa: 'nicosia',
   lefkosa: 'nicosia',
   dubai: 'uae desert',
   'abu dhabi': 'uae desert',
 }
 
-/**
- * Country pages deliberately use a recognisable study city or geographic scene
- * rather than pretending a single photograph represents an entire nation.
- */
 const DESTINATION_PLACE: Record<string, keyof typeof PLACES> = {
-  'united kingdom': 'london',
-  'united-kingdom': 'london',
-  uk: 'london',
-  ingiltere: 'london',
-  'united states': 'new york',
-  'united-states': 'new york',
-  usa: 'new york',
-  amerika: 'new york',
-  canada: 'toronto',
-  kanada: 'toronto',
-  ireland: 'dublin',
-  irlanda: 'dublin',
-  australia: 'sydney',
-  avustralya: 'sydney',
-  'new zealand': 'auckland',
-  'new-zealand': 'auckland',
-  'yeni zelanda': 'auckland',
-  'yeni-zelanda': 'auckland',
+  'united kingdom': 'london', 'united-kingdom': 'london', uk: 'london', ingiltere: 'london',
+  'united states': 'new york', 'united-states': 'new york', usa: 'new york', amerika: 'new york',
+  canada: 'toronto', kanada: 'toronto',
+  ireland: 'dublin', irlanda: 'dublin',
+  australia: 'sydney', avustralya: 'sydney',
+  'new zealand': 'auckland', 'new-zealand': 'auckland', 'yeni zelanda': 'auckland', 'yeni-zelanda': 'auckland',
   malta: 'valletta',
-  cyprus: 'nicosia',
-  kibris: 'nicosia',
+  cyprus: 'nicosia', kibris: 'nicosia',
   grenada: "st george's",
-  'united arab emirates': 'uae desert',
-  'united-arab-emirates': 'uae desert',
-  uae: 'uae desert',
-  bae: 'uae desert',
+  'united arab emirates': 'uae desert', 'united-arab-emirates': 'uae desert', uae: 'uae desert', bae: 'uae desert',
 }
 
 function normalise(value?: string): string {
@@ -280,27 +160,22 @@ function normalise(value?: string): string {
 }
 
 export function licensedMediaForInstitution(title?: string): LicensedExternalImage | null {
-  const key = normalise(title)
-  return INSTITUTIONS[key] ?? null
+  return INSTITUTIONS[normalise(title)] ?? null
 }
 
-/**
- * City fields often contain multiple campuses or a region/country after a comma.
- * Match any known city token; aliases cover translated migration labels.
- */
 export function licensedMediaForPlace(value?: string): LicensedExternalImage | null {
   const key = normalise(value)
   if (!key) return null
 
-  const alias = PLACE_ALIAS[key]
-  if (alias) return PLACES[alias] ?? null
+  const directAlias = PLACE_ALIAS[key]
+  if (directAlias) return PLACES[directAlias] ?? null
 
   for (const [place, image] of Object.entries(PLACES)) {
     if (key === place || key.startsWith(`${place} `) || key.includes(` ${place} `) || key.includes(`, ${place}`)) return image
   }
 
-  for (const [candidate, target] of Object.entries(PLACE_ALIAS)) {
-    if (key === candidate || key.startsWith(`${candidate} `) || key.includes(` ${candidate} `) || key.includes(`, ${candidate}`)) {
+  for (const [alias, target] of Object.entries(PLACE_ALIAS)) {
+    if (key === alias || key.startsWith(`${alias} `) || key.includes(` ${alias} `) || key.includes(`, ${alias}`)) {
       return PLACES[target] ?? null
     }
   }
@@ -314,33 +189,20 @@ export function licensedMediaForDestination(value?: string): LicensedExternalIma
   return place ? (PLACES[place] ?? null) : licensedMediaForPlace(value)
 }
 
-/**
- * Complete institution fallback hierarchy.
- *
- * 1. verified campus photo;
- * 2. verified city photo;
- * 3. verified representative destination image.
- *
- * This guarantees a real, licensed photograph for catalogue institutions whose
- * destination is known, without ever mislabelling a destination image as campus.
- */
+/** Campus -> exact city -> representative destination. */
 export function licensedMediaForInstitutionOrPlace(
   title?: string,
   city?: string,
   destinationOrCountry?: string,
 ): LicensedExternalImage | null {
-  return (
-    licensedMediaForInstitution(title) ??
-    licensedMediaForPlace(city) ??
-    licensedMediaForDestination(destinationOrCountry)
-  )
+  return licensedMediaForInstitution(title)
+    ?? licensedMediaForPlace(city)
+    ?? licensedMediaForDestination(destinationOrCountry)
 }
 
 export function allLicensedExternalMedia(): LicensedExternalImage[] {
   const unique = new Map<string, LicensedExternalImage>()
-  for (const image of [...Object.values(INSTITUTIONS), ...Object.values(PLACES)]) {
-    unique.set(image.sourceUrl, image)
-  }
+  for (const image of [...Object.values(INSTITUTIONS), ...Object.values(PLACES)]) unique.set(image.sourceUrl, image)
   return [...unique.values()]
 }
 
