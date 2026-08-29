@@ -320,7 +320,7 @@ export function licensedMediaForPlace(value?: string): LicensedExternalImage | n
 export function licensedMediaForDestination(value?: string): LicensedExternalImage | null {
   const key = normalise(value)
   const place = DESTINATION_PLACE[key]
-  return place ? PLACES[place] : licensedMediaForPlace(value)
+  return place ? (PLACES[place] ?? null) : licensedMediaForPlace(value)
 }
 
 export function licensedMediaForInstitutionOrPlace(
