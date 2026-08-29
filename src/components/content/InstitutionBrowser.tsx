@@ -1,24 +1,27 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
+import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 
 export interface InstitutionBrowserItem {
   href: string
   title: string
   city?: string
   country?: string
+  image?: LicensedExternalImage | null
 }
 
 type SortMode = 'popular' | 'az'
 
 const COPY = {
   en: {
-    search: 'Search institutions', placeholder: 'Try a university, city or country', count: 'options', empty: 'No institutions match that search yet.', clear: 'Clear search', preview: 'Quick preview', open: 'Open profile', sort: 'Sort by', popular: 'Popular', az: 'A–Z', popularNote: 'Curated starting order, not a live ranking.',
+    search: 'Search institutions', placeholder: 'Try a university, city or country', count: 'options', empty: 'No institutions match that search yet.', clear: 'Clear search', preview: 'Quick preview', open: 'Open profile', sort: 'Sort by', popular: 'Popular', az: 'A–Z', popularNote: 'Curated starting order, not a live ranking.', photo: 'Photo credit',
   },
   tr: {
-    search: 'Kurumlarda ara', placeholder: 'Üniversite, şehir veya ülke arayın', count: 'seçenek', empty: 'Bu aramayla eşleşen kurum bulunamadı.', clear: 'Aramayı temizle', preview: 'Hızlı önizleme', open: 'Profili aç', sort: 'Sırala', popular: 'Popüler', az: 'A–Z', popularNote: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.',
+    search: 'Kurumlarda ara', placeholder: 'Üniversite, şehir veya ülke arayın', count: 'seçenek', empty: 'Bu aramayla eşleşen kurum bulunamadı.', clear: 'Aramayı temizle', preview: 'Hızlı önizleme', open: 'Profili aç', sort: 'Sırala', popular: 'Popüler', az: 'A–Z', popularNote: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.', photo: 'Fotoğraf kredisi',
   },
 } as const
 
@@ -64,16 +67,42 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
       </div>
 
       {filtered.length > 0 ? (
-        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((item, index) => {
             const location = [item.city, item.country].filter(Boolean).join(', ')
             return (
               <li key={item.href}>
-                <Link href={item.href} className="group relative flex min-h-[10.5rem] h-full flex-col overflow-visible rounded-[1.3rem] border border-border/70 bg-white p-5 no-underline shadow-[0_8px_26px_rgba(35,35,38,0.05)] transition duration-250 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(35,35,38,0.09)] focus-visible:z-20">
-                  <div className="flex items-start justify-between gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-soft text-xs font-black tabular-nums text-brand-strong">{String(index + 1).padStart(2, '0')}</span><span aria-hidden="true" className="text-brand-strong transition-transform duration-200 group-hover:translate-x-1">→</span></div>
-                  <div className="mt-auto pt-6">{location ? <p className="text-xs font-bold uppercase tracking-[0.07em] text-fg-muted">{location}</p> : null}<h3 className="mt-1.5 text-lg font-bold leading-snug text-fg">{item.title}</h3></div>
-                  <span aria-hidden="true" className="pointer-events-none absolute -right-2 top-12 z-20 hidden w-[11.5rem] translate-y-1 rounded-[1rem] border border-border/70 bg-ink-surface px-4 py-3 text-left text-fg-on-ink opacity-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 lg:block"><span className="block text-[0.68rem] font-bold uppercase tracking-[0.09em] text-brand-on-ink">{copy.preview}</span>{location ? <span className="mt-1 block text-xs leading-relaxed text-fg-muted-on-ink">{location}</span> : null}<span className="mt-2 block text-xs font-bold text-fg-on-ink">{copy.open} →</span></span>
-                </Link>
+                <article className="group relative flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_8px_26px_rgba(35,35,38,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(35,35,38,0.09)] focus-within:z-20">
+                  {item.image ? (
+                    <div className="relative aspect-[16/9] overflow-hidden bg-paper-sunk">
+                      <Image
+                        src={item.image.src}
+                        alt={item.image.alt}
+                        width={900}
+                        height={506}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                      />
+                      <a
+                        href={item.image.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${copy.photo}: ${item.image.creator}, ${item.image.licence}`}
+                        className="absolute bottom-2 right-2 rounded-md bg-black/70 px-2 py-1 text-[0.62rem] font-semibold text-white no-underline backdrop-blur-sm hover:bg-black/80"
+                      >
+                        {item.image.licence}
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="relative h-2 bg-brand-soft"><span className="absolute inset-y-0 left-0 w-1/3 bg-brand/55" /></div>
+                  )}
+
+                  <Link href={item.href} className="flex flex-1 flex-col p-5 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset">
+                    <div className="flex items-start justify-between gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-soft text-xs font-black tabular-nums text-brand-strong">{String(index + 1).padStart(2, '0')}</span><span aria-hidden="true" className="text-brand-strong transition-transform duration-200 group-hover:translate-x-1">→</span></div>
+                    <div className="mt-auto pt-6">{location ? <p className="text-xs font-bold uppercase tracking-[0.07em] text-fg-muted">{location}</p> : null}<h3 className="mt-1.5 text-lg font-bold leading-snug text-fg">{item.title}</h3></div>
+                    <span aria-hidden="true" className="pointer-events-none absolute -right-2 top-12 z-20 hidden w-[11.5rem] translate-y-1 rounded-[1rem] border border-border/70 bg-ink-surface px-4 py-3 text-left text-fg-on-ink opacity-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 lg:block"><span className="block text-[0.68rem] font-bold uppercase tracking-[0.09em] text-brand-on-ink">{copy.preview}</span>{location ? <span className="mt-1 block text-xs leading-relaxed text-fg-muted-on-ink">{location}</span> : null}<span className="mt-2 block text-xs font-bold text-fg-on-ink">{copy.open} →</span></span>
+                  </Link>
+                </article>
               </li>
             )
           })}
