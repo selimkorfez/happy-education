@@ -1,6 +1,6 @@
-import { expect, test } from '@playwright/test'
+import { expect, test, type Page } from '@playwright/test'
 
-async function dismissConsent(page: Parameters<typeof test>[0]['page']) {
+async function dismissConsent(page: Page) {
   const reject = page.getByRole('button', { name: /reject|reddet/i })
   if (await reject.isVisible().catch(() => false)) await reject.click()
 }
