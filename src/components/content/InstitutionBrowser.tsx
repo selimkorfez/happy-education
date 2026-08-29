@@ -18,10 +18,10 @@ type SortMode = 'popular' | 'az'
 
 const COPY = {
   en: {
-    search: 'Search institutions', placeholder: 'Try a university, city or country', count: 'options', empty: 'No institutions match that search yet.', clear: 'Clear search', preview: 'Quick preview', open: 'Open profile', sort: 'Sort by', popular: 'Popular', az: 'A–Z', popularNote: 'Curated starting order, not a live ranking.', photo: 'Photo credit',
+    search: 'Search institutions', placeholder: 'Try a university, city or country', count: 'options', empty: 'No institutions match that search yet.', clear: 'Clear search', preview: 'Quick preview', open: 'Open profile', sort: 'Sort by', popular: 'Popular', az: 'A–Z', popularNote: 'Curated starting order, not a live ranking.', photo: 'Photo credit', campus: 'Campus photo', location: 'Location photo', pending: 'Photo being verified',
   },
   tr: {
-    search: 'Kurumlarda ara', placeholder: 'Üniversite, şehir veya ülke arayın', count: 'seçenek', empty: 'Bu aramayla eşleşen kurum bulunamadı.', clear: 'Aramayı temizle', preview: 'Hızlı önizleme', open: 'Profili aç', sort: 'Sırala', popular: 'Popüler', az: 'A–Z', popularNote: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.', photo: 'Fotoğraf kredisi',
+    search: 'Kurumlarda ara', placeholder: 'Üniversite, şehir veya ülke arayın', count: 'seçenek', empty: 'Bu aramayla eşleşen kurum bulunamadı.', clear: 'Aramayı temizle', preview: 'Hızlı önizleme', open: 'Profili aç', sort: 'Sırala', popular: 'Popüler', az: 'A–Z', popularNote: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.', photo: 'Fotoğraf kredisi', campus: 'Kampüs fotoğrafı', location: 'Konum fotoğrafı', pending: 'Fotoğraf doğrulanıyor',
   },
 } as const
 
@@ -37,7 +37,6 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
       ? items.filter((item) => [item.title, item.city, item.country].filter(Boolean).join(' ').toLocaleLowerCase(language).includes(needle))
       : [...items]
 
-    // “Popular” preserves the curated/source order. We do not imply live popularity analytics.
     if (sortMode === 'az') matches.sort((a, b) => a.title.localeCompare(b.title, language, { sensitivity: 'base' }))
     return matches
   }, [items, language, query, sortMode])
@@ -83,6 +82,9 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
                         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
                       />
+                      <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.06em] text-fg shadow-sm backdrop-blur-sm">
+                        {item.image.kind === 'campus' ? copy.campus : copy.location}
+                      </span>
                       <a
                         href={item.image.sourceUrl}
                         target="_blank"
@@ -94,7 +96,9 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
                       </a>
                     </div>
                   ) : (
-                    <div className="relative h-2 bg-brand-soft"><span className="absolute inset-y-0 left-0 w-1/3 bg-brand/55" /></div>
+                    <div className="grid aspect-[16/9] place-items-center bg-paper-sunk px-5 text-center text-xs font-bold uppercase tracking-[0.08em] text-fg-muted">
+                      {copy.pending}
+                    </div>
                   )}
 
                   <Link href={item.href} className="flex flex-1 flex-col p-5 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset">
