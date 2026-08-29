@@ -26,10 +26,45 @@ test.describe('licensed documentary media', () => {
     await expect(page.locator('main img[src*="happyeducation.uk/wp-content"]')).toHaveCount(0)
   })
 
-  test('university browse cards expose licensed photography where a verified mapping exists', async ({ page }) => {
+  test('every university in the main English browser receives real licensed photography', async ({ page }) => {
     await page.goto('/en/universities')
     await dismissConsent(page)
-    await expect(page.getByRole('img', { name: /Cambridge campus of Anglia Ruskin University/i })).toBeVisible()
+
+    await expect(page.getByText('Photo being verified')).toHaveCount(0)
+    const cards = page.locator('article').filter({ has: page.locator('h3') })
+    const cardCount = await cards.count()
+    expect(cardCount).toBeGreaterThan(20)
+
+    const images = page.locator('article img')
+    expect(await images.count()).toBeGreaterThan(20)
+  })
+
+  test('country city previews are real photos and no longer dead internal links', async ({ page }) => {
+    const cases = [
+      ['/en/universities/united-kingdom', 8],
+      ['/en/universities/united-states', 5],
+      ['/en/universities/canada', 3],
+      ['/en/universities/ireland', 3],
+      ['/en/universities/australia', 4],
+      ['/en/universities/new-zealand', 3],
+      ['/en/language-schools/malta', 1],
+    ] as const
+
+    for (const [path, expectedImages] of cases) {
+      await page.goto(path)
+      await dismissConsent(page)
+      const cities = page.locator('#cities')
+      await expect(cities).toBeVisible()
+      await expect(cities.getByText('Photo being verified')).toHaveCount(0)
+      await expect(cities.locator('img')).toHaveCount(expectedImages)
+      await expect(cities.locator(`a[href^="${path}/"]`)).toHaveCount(0)
+    }
+  })
+
+  test('university browse cards label representative imagery honestly', async ({ page }) => {
+    await page.goto('/en/universities')
+    await dismissConsent(page)
+    await expect(page.getByText(/Campus photo|Location photo/).first()).toBeVisible()
   })
 })
 
