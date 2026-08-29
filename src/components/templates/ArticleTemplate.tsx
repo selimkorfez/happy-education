@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Breadcrumbs } from '@/components/shared/Breadcrumbs'
+import { SectionVisual } from '@/components/shared/SectionVisual'
 import { MediaFrame } from '@/components/ui/MediaFrame'
 import { PortableText, extractHeadings } from '@/components/content/PortableText'
 import { FaqSection } from '@/components/shared/FaqSection'
@@ -32,7 +33,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
         <header className="he-gradient-wash border-b border-border/70 pb-10 sm:pb-14">
           <Container>
             <Breadcrumbs locale={locale} crumbs={crumbs} />
-            <div className="grid items-end gap-8 pt-4 lg:grid-cols-[1fr_0.38fr] lg:gap-12">
+            <div className="grid items-end gap-8 pt-4 lg:grid-cols-[1fr_0.42fr] lg:gap-12">
               <div>
                 {doc.category ? (
                   <span className="he-pill text-brand-strong">{doc.category.title}</span>
@@ -41,12 +42,19 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
                 {doc.excerpt ? <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-fg-muted">{doc.excerpt}</p> : null}
               </div>
 
-              <div className="rounded-[1.25rem] border border-border/70 bg-white/75 p-5 text-sm text-fg-muted shadow-[0_10px_28px_rgba(35,35,38,0.05)] backdrop-blur-sm">
-                <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.articleDetails}</p>
-                <div className="mt-3 space-y-2">
-                  {showAuthor ? <p className="font-semibold text-fg">{doc.author?.name}{doc.author?.role ? `, ${doc.author.role}` : ''}</p> : null}
-                  {doc.publishedAt ? <p><time dateTime={doc.publishedAt}>{formatDate(doc.publishedAt, locale)}</time></p> : null}
-                  {doc.readingMinutes ? <p>{doc.readingMinutes} {t(locale, 'common.readingTime')}</p> : null}
+              <div className="space-y-4">
+                {!doc.leadImage ? (
+                  <div className="overflow-hidden rounded-[1.35rem] border border-white/70 bg-white p-2 shadow-[0_18px_45px_rgba(35,35,38,0.08)]">
+                    <SectionVisual variant="insights" label={`${doc.title} editorial illustration`} />
+                  </div>
+                ) : null}
+                <div className="rounded-[1.25rem] border border-border/70 bg-white/75 p-5 text-sm text-fg-muted shadow-[0_10px_28px_rgba(35,35,38,0.05)] backdrop-blur-sm">
+                  <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.articleDetails}</p>
+                  <div className="mt-3 space-y-2">
+                    {showAuthor ? <p className="font-semibold text-fg">{doc.author?.name}{doc.author?.role ? `, ${doc.author.role}` : ''}</p> : null}
+                    {doc.publishedAt ? <p><time dateTime={doc.publishedAt}>{formatDate(doc.publishedAt, locale)}</time></p> : null}
+                    {doc.readingMinutes ? <p>{doc.readingMinutes} {t(locale, 'common.readingTime')}</p> : null}
+                  </div>
                 </div>
               </div>
             </div>
