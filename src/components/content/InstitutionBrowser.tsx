@@ -11,6 +11,8 @@ export interface InstitutionBrowserItem {
   country?: string
 }
 
+type SortMode = 'popular' | 'az'
+
 const COPY = {
   en: {
     search: 'Search institutions',
@@ -20,6 +22,10 @@ const COPY = {
     clear: 'Clear search',
     preview: 'Quick preview',
     open: 'Open profile',
+    sort: 'Sort by',
+    popular: 'Popular',
+    az: 'A–Z',
+    popularNote: 'Curated starting order — not a live ranking.',
   },
   tr: {
     search: 'Kurumlarda ara',
@@ -29,6 +35,10 @@ const COPY = {
     clear: 'Aramayı temizle',
     preview: 'Hızlı önizleme',
     open: 'Profili aç',
+    sort: 'Sırala',
+    popular: 'Popüler',
+    az: 'A–Z',
+    popularNote: 'Editoryal başlangıç sırası — canlı bir sıralama değildir.',
   },
 } as const
 
@@ -40,45 +50,81 @@ export function InstitutionBrowser({
   items: InstitutionBrowserItem[]
 }) {
   const [query, setQuery] = useState('')
+  const [sortMode, setSortMode] = useState<SortMode>('popular')
   const copy = COPY[locale]
+  const language = locale === 'tr' ? 'tr-TR' : 'en-GB'
 
   const filtered = useMemo(() => {
-    const needle = query.trim().toLocaleLowerCase(locale === 'tr' ? 'tr-TR' : 'en-GB')
-    if (!needle) return items
-    return items.filter((item) =>
-      [item.title, item.city, item.country]
-        .filter(Boolean)
-        .join(' ')
-        .toLocaleLowerCase(locale === 'tr' ? 'tr-TR' : 'en-GB')
-        .includes(needle),
-    )
-  }, [items, locale, query])
+    const needle = query.trim().toLocaleLowerCase(language)
+    const matches = needle
+      ? items.filter((item) =>
+          [item.title, item.city, item.country]
+            .filter(Boolean)
+            .join(' ')
+            .toLocaleLowerCase(language)
+            .includes(needle),
+        )
+      : [...items]
+
+    // “Popular” deliberately preserves the curated/source order. We do not imply
+    // that we have live popularity analytics until real behavioural data exists.
+    if (sortMode === 'az') {
+      matches.sort((a, b) => a.title.localeCompare(b.title, language, { sensitivity: 'base' }))
+    }
+
+    return matches
+  }, [items, language, query, sortMode])
 
   return (
     <div>
-      {items.length > 8 ? (
-        <div className="mb-7 flex flex-col gap-3 rounded-[1.35rem] border border-border/70 bg-paper-sunk/65 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
-          <label className="relative block flex-1 sm:max-w-[30rem]">
-            <span className="sr-only">{copy.search}</span>
-            <span aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-fg-muted">
-              <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
-                <circle cx="7.5" cy="7.5" r="5.25" stroke="currentColor" strokeWidth="1.6" />
-                <path d="m11.5 11.5 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-              </svg>
-            </span>
-            <input
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder={copy.placeholder}
-              className="min-h-12 w-full rounded-full border border-border-input bg-white py-3 pl-11 pr-4 text-sm text-fg shadow-[0_5px_16px_rgba(35,35,38,0.04)] placeholder:text-fg-muted/75"
-            />
-          </label>
-          <p className="text-sm font-bold tabular-nums text-fg-muted">
+      <div className="mb-7 flex flex-col gap-4 rounded-[1.35rem] border border-border/70 bg-paper-sunk/65 p-4 sm:p-5 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="text-xs font-bold uppercase tracking-[0.08em] text-fg-muted">{copy.sort}</span>
+          <div className="inline-flex rounded-full border border-border/80 bg-white p-1 shadow-[0_5px_16px_rgba(35,35,38,0.04)]" role="group" aria-label={copy.sort}>
+            <button
+              type="button"
+              aria-pressed={sortMode === 'popular'}
+              onClick={() => setSortMode('popular')}
+              className={`min-h-10 rounded-full px-4 text-sm font-bold transition ${sortMode === 'popular' ? 'bg-ink-surface text-fg-on-ink shadow-sm' : 'text-fg-muted hover:bg-paper hover:text-fg'}`}
+            >
+              {copy.popular}
+            </button>
+            <button
+              type="button"
+              aria-pressed={sortMode === 'az'}
+              onClick={() => setSortMode('az')}
+              className={`min-h-10 rounded-full px-4 text-sm font-bold transition ${sortMode === 'az' ? 'bg-ink-surface text-fg-on-ink shadow-sm' : 'text-fg-muted hover:bg-paper hover:text-fg'}`}
+            >
+              {copy.az}
+            </button>
+          </div>
+          {sortMode === 'popular' ? <span className="text-xs font-medium text-fg-muted">{copy.popularNote}</span> : null}
+        </div>
+
+        <div className="flex min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+          {items.length > 8 ? (
+            <label className="relative block flex-1 sm:max-w-[30rem]">
+              <span className="sr-only">{copy.search}</span>
+              <span aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-fg-muted">
+                <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
+                  <circle cx="7.5" cy="7.5" r="5.25" stroke="currentColor" strokeWidth="1.6" />
+                  <path d="m11.5 11.5 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                </svg>
+              </span>
+              <input
+                type="search"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={copy.placeholder}
+                className="min-h-12 w-full rounded-full border border-border-input bg-white py-3 pl-11 pr-4 text-sm text-fg shadow-[0_5px_16px_rgba(35,35,38,0.04)] placeholder:text-fg-muted/75"
+              />
+            </label>
+          ) : null}
+          <p className="shrink-0 text-sm font-bold tabular-nums text-fg-muted">
             {filtered.length} {copy.count}
           </p>
         </div>
-      ) : null}
+      </div>
 
       {filtered.length > 0 ? (
         <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
