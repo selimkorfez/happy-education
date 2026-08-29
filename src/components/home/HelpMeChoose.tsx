@@ -2,112 +2,91 @@ import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 
-/**
- * "What are you looking for?"
- *
- * An indexed editorial list, not three feature cards. Each row is a real
- * destination in the information architecture, so this doubles as the primary
- * wayfinding device for visitors who do not yet know the vocabulary.
- *
- * Hover changes colour and underlines. Nothing lifts or slides.
- */
-
 interface Choice {
   section: SectionKey
   slug?: { en: string; tr: string }
-  en: { title: string; body: string }
-  tr: { title: string; body: string }
+  tone: string
+  mark: string
+  en: { title: string; body: string; tag: string }
+  tr: { title: string; body: string; tag: string }
 }
 
 const CHOICES: Choice[] = [
   {
     section: 'universities',
-    en: {
-      title: 'University study',
-      body: 'Bachelor’s and master’s degrees abroad, from shortlisting courses to submitting the application.',
-    },
-    tr: {
-      title: 'Üniversite eğitimi',
-      body: 'Yurt dışında lisans ve yüksek lisans: bölüm listesini çıkarmaktan başvuruyu göndermeye kadar.',
-    },
+    tone: 'bg-brand-soft',
+    mark: '↗',
+    en: { title: 'University study', body: 'Build a degree shortlist around your course, location, budget and application profile.', tag: 'Bachelor’s + Master’s' },
+    tr: { title: 'Üniversite eğitimi', body: 'Bölüm, şehir, bütçe ve akademik profiliniz etrafında gerçekçi bir üniversite listesi oluşturun.', tag: 'Lisans + Yüksek lisans' },
   },
   {
     section: 'languageSchools',
-    en: {
-      title: 'Language education',
-      body: 'General and exam-focused English courses, from two weeks to a full academic year.',
-    },
-    tr: {
-      title: 'Dil eğitimi',
-      body: 'Genel İngilizce ve sınav odaklı kurslar; iki haftadan bir akademik yıla kadar.',
-    },
+    tone: 'bg-sky-soft',
+    mark: 'Aa',
+    en: { title: 'Language education', body: 'Compare destinations and course formats for general English, exams or longer-term study.', tag: '2 weeks → academic year' },
+    tr: { title: 'Dil eğitimi', body: 'Genel İngilizce, sınav hazırlığı veya uzun dönem eğitim için ülke ve kurs seçeneklerini karşılaştırın.', tag: '2 hafta → akademik yıl' },
   },
   {
     section: 'summerSchools',
-    en: {
-      title: 'Summer programmes',
-      body: 'Supervised summer schools for younger students, individually or as a group, with accommodation included.',
-    },
-    tr: {
-      title: 'Yaz okulları',
-      body: 'Küçük yaş grupları için gözetimli yaz okulları; bireysel ya da grup, konaklama dâhil.',
-    },
+    tone: 'bg-mint-soft',
+    mark: '☀',
+    en: { title: 'Summer programmes', body: 'Find supervised summer experiences that combine learning, activities and international student life.', tag: 'Younger students' },
+    tr: { title: 'Yaz okulları', body: 'Eğitim, aktiviteler ve uluslararası öğrenci deneyimini bir araya getiren gözetimli yaz programlarını keşfedin.', tag: 'Genç öğrenciler' },
   },
   {
     section: 'boardingSchools',
-    en: {
-      title: 'Boarding school',
-      body: 'Secondary education in the UK, including GCSE and A Level routes and the admissions timeline.',
-    },
-    tr: {
-      title: 'Yatılı okul',
-      body: "İngiltere'de ortaöğretim: GCSE ve A Level yolları ile başvuru takvimi.",
-    },
+    tone: 'bg-lilac-soft',
+    mark: '⌂',
+    en: { title: 'Boarding school', body: 'Compare academic fit, boarding life, pastoral care and admissions routes for school-age students.', tag: 'GCSE + A Level routes' },
+    tr: { title: 'Yatılı okul', body: 'Okul çağındaki öğrenciler için akademik uyum, yatılı yaşam, destek ve kabul yollarını karşılaştırın.', tag: 'GCSE + A Level yolları' },
   },
   {
     section: 'tours',
-    en: {
-      title: 'Group travel',
-      body: 'Organised educational tours for schools and groups, with itineraries and supervision arranged.',
-    },
-    tr: {
-      title: 'Grup seyahatleri',
-      body: 'Okullar ve gruplar için eğitim turları; program ve refakat düzenlemeleri dâhil.',
-    },
+    tone: 'bg-[#fff7dd]',
+    mark: '✦',
+    en: { title: 'Group travel', body: 'Educational group experiences with a structured itinerary, coordination and practical support.', tag: 'Schools + groups' },
+    tr: { title: 'Grup seyahatleri', body: 'Planlı program, koordinasyon ve pratik destek içeren eğitim odaklı grup deneyimleri.', tag: 'Okullar + gruplar' },
   },
   {
     section: 'guides',
     slug: { en: 'applications', tr: 'basvuru-sureci' },
-    en: {
-      title: 'Application support',
-      body: 'How applications, offers, deposits and enrolment actually work, step by step.',
-    },
-    tr: {
-      title: 'Başvuru desteği',
-      body: 'Başvuru, kabul, depozito ve kayıt süreçleri adım adım nasıl işliyor?',
-    },
+    tone: 'bg-[#f1f5f0]',
+    mark: '✓',
+    en: { title: 'Application support', body: 'Understand the moving parts — documents, offers, deposits, deadlines and what happens next.', tag: 'Step-by-step' },
+    tr: { title: 'Başvuru desteği', body: 'Belgeler, kabuller, depozitolar, tarihler ve sonraki adımların nasıl ilerlediğini netleştirin.', tag: 'Adım adım' },
   },
 ]
 
 const HEADING = {
-  en: { kicker: 'Where to start', title: 'What are you looking for?' },
-  tr: { kicker: 'Nereden başlamalı', title: 'Ne arıyorsunuz?' },
+  en: {
+    kicker: 'Find your route',
+    title: 'Start with what you want to do.',
+    body: 'You do not need to know the exact school or city yet. Pick the kind of experience you are considering and explore from there.',
+    explore: 'Explore',
+  },
+  tr: {
+    kicker: 'Yolunuzu bulun',
+    title: 'Ne yapmak istediğinizle başlayın.',
+    body: 'Henüz okul veya şehri netleştirmiş olmanız gerekmiyor. Düşündüğünüz eğitim türünü seçin ve oradan ilerleyin.',
+    explore: 'Keşfet',
+  },
 } as const
 
 export function HelpMeChoose({ locale }: { locale: Locale }) {
   const heading = HEADING[locale]
 
   return (
-    <section className="border-b border-border py-16 sm:py-20">
+    <section className="border-b border-border/70 bg-white py-16 sm:py-20 lg:py-24">
       <Container>
-        <p className="text-sm font-semibold uppercase tracking-[0.08em] text-brand-strong">
-          {heading.kicker}
-        </p>
-        <h2 className="mt-3 max-w-[20ch] text-[length:var(--text-4xl)] font-semibold text-fg">
-          {heading.title}
-        </h2>
+        <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-strong">{heading.kicker}</p>
+            <h2 className="mt-3 max-w-[13ch] text-[length:var(--text-4xl)] text-fg">{heading.title}</h2>
+          </div>
+          <p className="max-w-[62ch] text-lg leading-relaxed text-fg-muted lg:justify-self-end">{heading.body}</p>
+        </div>
 
-        <ul className="mt-10 border-t border-border">
+        <ul className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {CHOICES.map((choice, index) => {
             const copy = choice[locale]
             const href = choice.slug
@@ -115,38 +94,29 @@ export function HelpMeChoose({ locale }: { locale: Locale }) {
               : sectionPath(locale, choice.section)
 
             return (
-              <li key={copy.title} className="border-b border-border">
+              <li key={copy.title}>
                 <Link
                   href={href}
-                  className="group flex items-baseline gap-5 py-6 no-underline sm:gap-8"
+                  className="group relative flex min-h-[17rem] h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-card p-6 no-underline shadow-[0_10px_35px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1.5 hover:border-brand/25 hover:shadow-[0_22px_55px_rgba(35,35,38,0.10)]"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="w-8 shrink-0 font-display text-sm tabular-nums text-fg-muted"
-                  >
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span className="flex-1">
-                    <span className="block text-xl font-semibold text-fg underline-offset-[6px] group-hover:underline group-hover:decoration-brand group-hover:decoration-2 sm:text-2xl">
-                      {copy.title}
+                  <div className={`absolute -right-10 -top-10 h-36 w-36 rounded-full ${choice.tone} transition-transform duration-500 group-hover:scale-125`} />
+
+                  <div className="relative flex items-start justify-between gap-4">
+                    <span className={`grid h-12 min-w-12 place-items-center rounded-2xl ${choice.tone} px-3 text-base font-black text-fg`}>
+                      {choice.mark}
                     </span>
-                    <span className="mt-1.5 block max-w-[62ch] text-base leading-relaxed text-fg-muted">
-                      {copy.body}
+                    <span className="text-xs font-bold tabular-nums text-fg-muted">0{index + 1}</span>
+                  </div>
+
+                  <div className="relative mt-auto pt-10">
+                    <p className="text-xs font-bold uppercase tracking-[0.1em] text-fg-muted">{copy.tag}</p>
+                    <h3 className="mt-2 text-2xl font-bold text-fg">{copy.title}</h3>
+                    <p className="mt-3 max-w-[43ch] text-sm leading-relaxed text-fg-muted">{copy.body}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-strong">
+                      {heading.explore}
+                      <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                     </span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="shrink-0 self-center text-fg-muted group-hover:text-brand-strong"
-                  >
-                    <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
-                      <path
-                        d="M13.5 1 19 6l-5.5 5M19 6H1"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="square"
-                      />
-                    </svg>
-                  </span>
+                  </div>
                 </Link>
               </li>
             )
