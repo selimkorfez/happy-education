@@ -111,7 +111,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
                   <div className="rounded-[1.3rem] border border-border/70 bg-brand-soft/70 p-5">
                     <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.question}</p>
                     <p className="mt-2 text-sm font-semibold leading-relaxed text-fg">{copy.questionBody}</p>
-                    <Link href={sectionPath(locale, 'contact')} className="mt-4 inline-flex min-h-10 items-center text-sm font-bold text-brand-strong underline underline-offset-4">{copy.askUs} →</Link>
+                    <Link href={sectionPath(locale, 'contact')} className="mt-4 inline-flex min-h-11 items-center text-sm font-bold text-brand-strong underline underline-offset-4">{copy.askUs} →</Link>
                   </div>
                 </div>
               </aside>
@@ -130,7 +130,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
             <ul className="mt-5 flex flex-wrap gap-2 text-sm">
               {doc.relatedDestinations.map((dest) => (
                 <li key={dest.slug}>
-                  <Link href={docPath(locale, 'universities', dest.slug)} className="inline-flex min-h-10 items-center rounded-full border border-border bg-paper px-4 font-bold text-fg no-underline transition hover:border-brand/30 hover:bg-brand-soft">{dest.title} <span aria-hidden="true" className="ml-2">→</span></Link>
+                  <Link href={docPath(locale, 'universities', dest.slug)} className="inline-flex min-h-11 items-center rounded-full border border-border bg-paper px-4 font-bold text-fg no-underline transition hover:border-brand/30 hover:bg-brand-soft">{dest.title} <span aria-hidden="true" className="ml-2">→</span></Link>
                 </li>
               ))}
             </ul>
