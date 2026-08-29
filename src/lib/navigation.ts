@@ -54,12 +54,10 @@ function countryLinks(locale: Locale, section: 'universities' | 'languageSchools
 }
 
 function insightsLinks(locale: Locale): NavLink[] {
+  // The parent Insights item already links to the article index. Keeping the index
+  // again as a child created a duplicate href and made keyboard/navigation tests
+  // ambiguous, so the disclosure now contains only the two distinct community hubs.
   return [
-    {
-      label: locale === 'tr' ? 'Tüm yazılar' : 'Articles & guides',
-      href: sectionPath(locale, 'insights'),
-      description: locale === 'tr' ? 'Yurt dışı eğitim rehberleri ve pratik yazılar.' : 'Practical study-abroad articles and explainers.',
-    },
     {
       label: locale === 'tr' ? 'Sosyal medyadan' : 'From our socials',
       href: docPath(locale, 'insights', locale === 'tr' ? 'sosyal-medyadan' : 'from-our-socials'),
