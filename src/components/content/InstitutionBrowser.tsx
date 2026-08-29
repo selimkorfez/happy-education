@@ -42,7 +42,7 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
   }, [items, language, query, sortMode])
 
   return (
-    <div>
+    <div data-testid="institution-browser">
       <div className="mb-7 flex flex-col gap-4 rounded-[1.35rem] border border-border/70 bg-paper-sunk/65 p-4 sm:p-5 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-bold uppercase tracking-[0.08em] text-fg-muted">{copy.sort}</span>
@@ -66,7 +66,7 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
       </div>
 
       {filtered.length > 0 ? (
-        <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <ul data-testid="institution-browser-list" className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((item, index) => {
             const location = [item.city, item.country].filter(Boolean).join(', ')
             return (
