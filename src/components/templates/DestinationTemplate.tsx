@@ -9,6 +9,10 @@ import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/c
 import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
 import { illustrativeImageForDestination } from '@/lib/media/library'
+import {
+  licensedMediaForDestination,
+  licensedMediaForInstitutionOrPlace,
+} from '@/lib/media/licensed-media'
 import type { DestinationDoc } from '@/lib/sanity/queries/content'
 
 export function DestinationTemplate({
@@ -31,8 +35,12 @@ export function DestinationTemplate({
   ]
 
   const labels = COPY[locale]
+  const cmsImageCleared = doc.heroImage?.licence?.cleared === true
+  const documentaryImage = cmsImageCleared
+    ? null
+    : licensedMediaForDestination(doc.slug) ?? licensedMediaForDestination(doc.title)
   const fallbackImage = illustrativeImageForDestination(doc.parentSlug ?? doc.slug)
-  const useEditorialVisual = Boolean(doc.parentSlug) || section === 'languageSchools'
+  const useEditorialVisual = !cmsImageCleared && !documentaryImage && (Boolean(doc.parentSlug) || section === 'languageSchools')
   const pageLinks: Array<{ href: string; label: string }> = []
   if (doc.whyStudyHere) pageLinks.push({ href: '#why', label: labels.whyStudyHere })
   if (doc.applicationJourney) pageLinks.push({ href: '#applying', label: labels.applicationJourney })
@@ -48,10 +56,11 @@ export function DestinationTemplate({
         eyebrow={sectionCopy?.title[locale]}
         title={doc.title}
         intro={doc.intro}
-        image={doc.heroImage ?? null}
-        localImage={doc.heroImage || useEditorialVisual ? undefined : fallbackImage.src}
-        imageAlt={doc.heroImage?.alt ?? fallbackImage.alt}
-        visualVariant={doc.parentSlug ? 'city' : section === 'languageSchools' ? 'language' : undefined}
+        image={cmsImageCleared ? doc.heroImage : null}
+        externalImage={documentaryImage}
+        localImage={cmsImageCleared || documentaryImage || useEditorialVisual ? undefined : fallbackImage.src}
+        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage?.alt ?? fallbackImage.alt}
+        visualVariant={useEditorialVisual ? (doc.parentSlug ? 'city' : 'language') : undefined}
       />
 
       {pageLinks.length > 1 ? (
@@ -155,6 +164,7 @@ export function DestinationTemplate({
                   href: docPath(locale, section, doc.slug, inst.slug),
                   title: inst.title,
                   city: inst.city,
+                  image: licensedMediaForInstitutionOrPlace(inst.title, inst.city),
                 }))}
               />
             </div>
