@@ -13,59 +13,17 @@ interface Destination {
 }
 
 const DESTINATIONS: Destination[] = [
-  {
-    key: 'uk',
-    section: 'universities',
-    en: { note: 'Universities, language schools, boarding and summer programmes', cue: 'The widest mix' },
-    tr: { note: 'Üniversite, dil okulu, yatılı okul ve yaz programları', cue: 'En geniş seçenek' },
-  },
-  {
-    key: 'ireland',
-    section: 'universities',
-    en: { note: 'English-taught degrees and year-round language study', cue: 'Compact + welcoming' },
-    tr: { note: 'İngilizce lisans programları ve yıl boyu dil eğitimi', cue: 'Kompakt + sıcak' },
-  },
-  {
-    key: 'usa',
-    section: 'universities',
-    en: { note: 'Undergraduate and graduate study across a wide range of states', cue: 'Big-campus energy' },
-    tr: { note: 'Farklı eyaletlerde lisans ve lisansüstü eğitim', cue: 'Büyük kampüs deneyimi' },
-  },
-  {
-    key: 'canada',
-    section: 'universities',
-    en: { note: 'Degree programmes and language schools in major cities', cue: 'City + campus balance' },
-    tr: { note: 'Büyük şehirlerde lisans programları ve dil okulları', cue: 'Şehir + kampüs dengesi' },
-  },
-  {
-    key: 'malta',
-    section: 'languageSchools',
-    en: { note: 'English language study in a Mediterranean setting', cue: 'Learn by the sea' },
-    tr: { note: 'Akdeniz ikliminde İngilizce dil eğitimi', cue: 'Deniz kenarında öğren' },
-  },
-  {
-    key: 'australia',
-    section: 'universities',
-    en: { note: 'Universities and long-stay English courses', cue: 'Study further away' },
-    tr: { note: 'Üniversiteler ve uzun süreli İngilizce kursları', cue: 'Daha uzağı keşfet' },
-  },
+  { key: 'uk', section: 'universities', en: { note: 'Universities, language schools, boarding and summer programmes', cue: 'The widest mix' }, tr: { note: 'Üniversite, dil okulu, yatılı okul ve yaz programları', cue: 'En geniş seçenek' } },
+  { key: 'ireland', section: 'universities', en: { note: 'English-taught degrees and year-round language study', cue: 'Compact + welcoming' }, tr: { note: 'İngilizce lisans programları ve yıl boyu dil eğitimi', cue: 'Kompakt + sıcak' } },
+  { key: 'usa', section: 'universities', en: { note: 'Undergraduate and graduate study across a wide range of states', cue: 'Big-campus energy' }, tr: { note: 'Farklı eyaletlerde lisans ve lisansüstü eğitim', cue: 'Büyük kampüs deneyimi' } },
+  { key: 'canada', section: 'universities', en: { note: 'Degree programmes and language schools in major cities', cue: 'City + campus balance' }, tr: { note: 'Büyük şehirlerde lisans programları ve dil okulları', cue: 'Şehir + kampüs dengesi' } },
+  { key: 'malta', section: 'languageSchools', en: { note: 'English language study in a Mediterranean setting', cue: 'Learn by the sea' }, tr: { note: 'Akdeniz ikliminde İngilizce dil eğitimi', cue: 'Deniz kenarında öğren' } },
+  { key: 'australia', section: 'universities', en: { note: 'Universities and long-stay English courses', cue: 'Study further away' }, tr: { note: 'Üniversiteler ve uzun süreli İngilizce kursları', cue: 'Daha uzağı keşfet' } },
 ]
 
 const HEADING = {
-  en: {
-    kicker: 'Pick a place',
-    title: 'Where could this take you?',
-    body: 'Browse a few of the destinations students ask us about most. Each one opens into study options, cities and practical next steps.',
-    all: 'Browse all options',
-    open: 'Open destination',
-  },
-  tr: {
-    kicker: 'Bir yer seçin',
-    title: 'Bu yol sizi nereye götürebilir?',
-    body: 'Öğrencilerin en sık sorduğu ülkelerden bazılarını keşfedin. Her sayfada eğitim seçenekleri, şehirler ve sonraki adımlar var.',
-    all: 'Tüm seçeneklere bak',
-    open: 'Ülkeyi aç',
-  },
+  en: { kicker: 'Pick a place', title: 'Where could this take you?', body: 'Browse a few of the destinations students ask us about most. Each one opens into study options, cities and practical next steps.', all: 'Browse all options', open: 'Open destination' },
+  tr: { kicker: 'Bir yer seçin', title: 'Bu yol sizi nereye götürebilir?', body: 'Öğrencilerin en sık sorduğu ülkelerden bazılarını keşfedin. Her sayfada eğitim seçenekleri, şehirler ve sonraki adımlar var.', all: 'Tüm seçeneklere bak', open: 'Ülkeyi aç' },
 } as const
 
 export function DestinationIndex({ locale }: { locale: Locale }) {
@@ -81,10 +39,7 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
             <h2 className="mt-3 max-w-[14ch] text-[length:var(--text-4xl)] text-fg-on-ink">{heading.title}</h2>
             <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-fg-muted-on-ink">{heading.body}</p>
           </div>
-          <Link
-            href={docPath(locale, 'universities')}
-            className="inline-flex min-h-11 items-center rounded-full border border-white/15 bg-white/8 px-5 text-sm font-bold text-fg-on-ink no-underline transition hover:bg-white/14"
-          >
+          <Link href={docPath(locale, 'universities')} className="inline-flex min-h-11 items-center rounded-full border border-white/15 bg-white/8 px-5 text-sm font-bold text-fg-on-ink no-underline transition hover:bg-white/14">
             {heading.all} <span aria-hidden="true" className="ml-2">→</span>
           </Link>
         </div>
@@ -101,10 +56,7 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
 
             return (
               <li key={destination.key} className="w-[18rem] shrink-0 sm:w-[21rem]">
-                <Link
-                  href={href}
-                  className="group relative block aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-ink-surface-soft no-underline shadow-[0_20px_55px_rgba(0,0,0,0.18)]"
-                >
+                <article className="group relative aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-ink-surface-soft shadow-[0_20px_55px_rgba(0,0,0,0.18)]">
                   <MediaFrame
                     external={image}
                     alt={image?.alt ?? label}
@@ -115,18 +67,18 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
                     className="absolute inset-0 h-full w-full [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.055]"
                     placeholderLabel={`Destination photograph: ${label}`}
                   />
-                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/12 to-black/5" />
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/12 to-black/5" />
 
-                  <div className="absolute inset-x-0 bottom-0 p-6">
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-6">
                     <span className="inline-flex rounded-full bg-white/14 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-md">{copy.cue}</span>
                     <h3 className="mt-3 text-3xl font-bold text-white">{label}</h3>
                     <p className="mt-2 max-w-[30ch] text-sm leading-relaxed text-white/78">{copy.note}</p>
-                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white">
+                    <Link href={href} className="pointer-events-auto mt-5 inline-flex min-h-11 items-center gap-2 rounded-full bg-white/12 px-4 text-sm font-bold text-white no-underline backdrop-blur-sm transition hover:bg-white/20">
                       {heading.open}
                       <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1.5">→</span>
-                    </span>
+                    </Link>
                   </div>
-                </Link>
+                </article>
               </li>
             )
           })}
