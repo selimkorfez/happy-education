@@ -45,7 +45,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
               <div className="space-y-4">
                 {!doc.leadImage ? (
                   <div className="overflow-hidden rounded-[1.35rem] border border-white/70 bg-white p-2 shadow-[0_18px_45px_rgba(35,35,38,0.08)]">
-                    <SectionVisual variant="insights" label={`${doc.title} editorial illustration`} />
+                    <SectionVisual variant="insights" label={`${doc.title} editorial illustration`} locale={locale} />
                   </div>
                 ) : null}
                 <div className="rounded-[1.25rem] border border-border/70 bg-white/75 p-5 text-sm text-fg-muted shadow-[0_10px_28px_rgba(35,35,38,0.05)] backdrop-blur-sm">
