@@ -141,7 +141,7 @@ export function InstitutionTemplate({
                   <Link href={sectionPath(locale, 'consultation')} className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand px-5 text-sm font-bold text-fg no-underline transition hover:-translate-y-0.5">
                     {copy.consultation} <span aria-hidden="true" className="ml-2">→</span>
                   </Link>
-                  {website ? <ExternalLink href={website} className="mt-3 w-full justify-center border-white/25 text-fg-on-ink hover:bg-white/10">{copy.officialWebsite}</ExternalLink> : null}
+                  {website ? <ExternalLink href={website} srSuffix={copy.opensNewTab} className="mt-3 w-full justify-center border-white/25 text-fg-on-ink hover:bg-white/10">{copy.officialWebsite}</ExternalLink> : null}
                 </div>
               </div>
             </aside>
@@ -199,6 +199,7 @@ const COPY = {
     nextStepBody: 'We can help compare this institution with alternatives and organise the application steps that follow.',
     consultation: 'Talk it through',
     officialWebsite: 'Official website',
+    opensNewTab: 'opens in a new tab',
     keepReading: 'Keep exploring',
     relatedReading: 'Related reading',
   },
@@ -233,6 +234,7 @@ const COPY = {
     nextStepBody: 'Bu kurumu alternatiflerle karşılaştırmanıza ve sonraki başvuru adımlarını düzenlemenize yardımcı olabiliriz.',
     consultation: 'Birlikte değerlendirelim',
     officialWebsite: 'Resmî web sitesi',
+    opensNewTab: 'yeni sekmede açılır',
     keepReading: 'Keşfetmeye devam edin',
     relatedReading: 'İlgili yazılar',
   },
