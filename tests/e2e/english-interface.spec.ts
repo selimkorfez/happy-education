@@ -56,16 +56,26 @@ test.describe('English interface language boundary', () => {
     await expect(page.locator('body')).toContainText('The University of Notre Dame')
   })
 
-  test('English institution detail remains English and uses cleared local imagery', async ({ page }) => {
+  test('English institution detail remains English and uses a copyright-safe hero visual', async ({ page }) => {
     await page.goto('/en/universities/united-kingdom/anglia-ruskin-university')
     await expect(page.locator('h1')).toContainText('Anglia Ruskin University')
 
     const text = await page.locator('body').innerText()
     expect(text).not.toMatch(TURKISH_UI)
 
-    const heroImage = page.locator('main img').first()
-    await expect(heroImage).toBeVisible()
-    await expect(heroImage).not.toHaveAttribute('src', /happyeducation\.uk\/wp-content/i)
+    const localImage = page.locator('main img').first()
+    const editorialVisual = page.getByRole('img', { name: /Anglia Ruskin University illustration/i }).first()
+    const hasLocalImage = await localImage.count() > 0
+
+    if (hasLocalImage) {
+      await expect(localImage).toBeVisible()
+      await expect(localImage).not.toHaveAttribute('src', /happyeducation\.uk\/wp-content/i)
+    } else {
+      await expect(editorialVisual).toBeVisible()
+    }
+
+    const wordpressImages = page.locator('main img[src*="happyeducation.uk/wp-content"]')
+    await expect(wordpressImages).toHaveCount(0)
   })
 
   test('English destination hero uses a cleared local AI illustration', async ({ page }) => {
