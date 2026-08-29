@@ -75,7 +75,7 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
                     title: institution.title,
                     city: institution.city,
                     country: institution.country,
-                    image: licensedMediaForInstitutionOrPlace(institution.title, institution.city),
+                    image: licensedMediaForInstitutionOrPlace(institution.title, institution.city, institution.country),
                   }))}
                 />
               </BrowseBlock>
@@ -98,7 +98,7 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
               title: school.title,
               city: school.city,
               country: school.country,
-              image: licensedMediaForInstitutionOrPlace(school.title, school.city),
+              image: licensedMediaForInstitutionOrPlace(school.title, school.city, school.country),
             }))}
           />
         </BrowseBlock>
