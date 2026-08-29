@@ -128,7 +128,7 @@ export function IncludedExcluded({
             <ul className="mt-5 space-y-3 text-base text-fg-muted">
               {inc.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-white text-xs font-black text-success">✓</span>
+                  <span aria-hidden="true" className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-white text-xs font-black text-success">+</span>
                   <span>{item}</span>
                 </li>
               ))}
