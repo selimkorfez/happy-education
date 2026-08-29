@@ -15,7 +15,7 @@ const CHOICES: Choice[] = [
   {
     section: 'universities',
     tone: 'bg-brand-soft',
-    mark: '↗',
+    mark: 'UNI',
     en: { title: 'University study', body: 'Build a degree shortlist around your course, location, budget and application profile.', tag: 'Bachelor’s + Master’s' },
     tr: { title: 'Üniversite eğitimi', body: 'Bölüm, şehir, bütçe ve akademik profiliniz etrafında gerçekçi bir üniversite listesi oluşturun.', tag: 'Lisans + Yüksek lisans' },
   },
@@ -29,21 +29,21 @@ const CHOICES: Choice[] = [
   {
     section: 'summerSchools',
     tone: 'bg-mint-soft',
-    mark: '☀',
+    mark: 'SUM',
     en: { title: 'Summer programmes', body: 'Find supervised summer experiences that combine learning, activities and international student life.', tag: 'Younger students' },
     tr: { title: 'Yaz okulları', body: 'Eğitim, aktiviteler ve uluslararası öğrenci deneyimini bir araya getiren gözetimli yaz programlarını keşfedin.', tag: 'Genç öğrenciler' },
   },
   {
     section: 'boardingSchools',
     tone: 'bg-lilac-soft',
-    mark: '⌂',
+    mark: 'SCH',
     en: { title: 'Boarding school', body: 'Compare academic fit, boarding life, pastoral care and admissions routes for school-age students.', tag: 'GCSE + A Level routes' },
     tr: { title: 'Yatılı okul', body: 'Okul çağındaki öğrenciler için akademik uyum, yatılı yaşam, destek ve kabul yollarını karşılaştırın.', tag: 'GCSE + A Level yolları' },
   },
   {
     section: 'tours',
     tone: 'bg-[#fff7dd]',
-    mark: '✦',
+    mark: 'GO',
     en: { title: 'Group travel', body: 'Educational group experiences with a structured itinerary, coordination and practical support.', tag: 'Schools + groups' },
     tr: { title: 'Grup seyahatleri', body: 'Planlı program, koordinasyon ve pratik destek içeren eğitim odaklı grup deneyimleri.', tag: 'Okullar + gruplar' },
   },
@@ -51,8 +51,8 @@ const CHOICES: Choice[] = [
     section: 'guides',
     slug: { en: 'applications', tr: 'basvuru-sureci' },
     tone: 'bg-[#f1f5f0]',
-    mark: '✓',
-    en: { title: 'Application support', body: 'Understand the moving parts — documents, offers, deposits, deadlines and what happens next.', tag: 'Step-by-step' },
+    mark: 'APP',
+    en: { title: 'Application support', body: 'Understand the moving parts: documents, offers, deposits, deadlines and what happens next.', tag: 'Step-by-step' },
     tr: { title: 'Başvuru desteği', body: 'Belgeler, kabuller, depozitolar, tarihler ve sonraki adımların nasıl ilerlediğini netleştirin.', tag: 'Adım adım' },
   },
 ]
@@ -102,7 +102,7 @@ export function HelpMeChoose({ locale }: { locale: Locale }) {
                   <div className={`absolute -right-10 -top-10 h-36 w-36 rounded-full ${choice.tone} transition-transform duration-500 group-hover:scale-125`} />
 
                   <div className="relative flex items-start justify-between gap-4">
-                    <span className={`grid h-12 min-w-12 place-items-center rounded-2xl ${choice.tone} px-3 text-base font-black text-fg`}>
+                    <span className={`grid h-12 min-w-12 place-items-center rounded-2xl ${choice.tone} px-3 text-xs font-black tracking-[0.06em] text-fg`}>
                       {choice.mark}
                     </span>
                     <span className="text-xs font-bold tabular-nums text-fg-muted">0{index + 1}</span>
