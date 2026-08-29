@@ -1,29 +1,26 @@
 @import 'tailwindcss';
 
 /*
- * Happy Education design system
+ * Happy Education — contemporary visual system
  * -----------------------------------------------------------------------------
- * Palette is sampled from the real brand artwork (happyedu.logo_.png, 1131px):
- * a warm orange sweep #EF5D2A -> #F68E1F over a #3A3A3C charcoal wordmark.
- *
- * Every pairing in here is verified by `node scripts/check-contrast.mjs`,
- * which fails the build if a token change breaks WCAG 2.2 AA. Change a colour
- * there first, not here.
- *
- * Deliberate constraints, to keep this from drifting into generic template land:
- *   - the page ground is warm paper, never #ffffff
- *   - brand orange is a FILL, never body text (it is 2.69:1 on paper)
- *   - radii are small and mostly 0; this is an editorial layout, not a card deck
- *   - no gradients, no glows, no blur surfaces, no shadow-based hierarchy
+ * The first implementation leaned heavily into heritage editorial styling.
+ * This pass keeps the trustworthy brand palette and accessibility constraints,
+ * but moves the product toward a modern international education/lifestyle brand:
+ * sans-led type, layered surfaces, generous modern geometry, image-led layouts,
+ * subtle depth and restrained motion.
  */
 
 @theme {
   /* ---- Surfaces ---- */
-  --color-paper: #faf8f5;
-  --color-paper-sunk: #f2ede4;
+  --color-paper: #fbfaf8;
+  --color-paper-sunk: #f4f1eb;
   --color-card: #ffffff;
   --color-ink-surface: #232326;
   --color-ink-surface-soft: #313135;
+  --color-brand-soft: #fff0e5;
+  --color-sky-soft: #edf5ff;
+  --color-mint-soft: #eef8f3;
+  --color-lilac-soft: #f5f0ff;
 
   /* ---- Foregrounds ---- */
   --color-fg: #1b1b1d;
@@ -32,8 +29,8 @@
   --color-fg-muted-on-ink: #b4b2ae;
 
   /* ---- Brand ---- */
-  --color-brand: #f47426; /* large fills / identity only */
-  --color-brand-strong: #b8490a; /* interactive text, filled buttons */
+  --color-brand: #f47426;
+  --color-brand-strong: #b8490a;
   --color-brand-pressed: #8a3706;
   --color-brand-on-ink: #f79a4a;
 
@@ -44,49 +41,44 @@
   --color-focus: #1f5fbf;
 
   /* ---- Lines ---- */
-  --color-border: #ded7cb; /* decorative hairlines */
-  --color-border-input: #8c8073; /* control boundaries, 3:1 verified */
+  --color-border: #e4ded5;
+  --color-border-input: #8c8073;
 
   /* ---- Type ---- */
-  /* Fraunces: editorial serif with genuine character, full Latin Extended (Turkish).
-     Figtree: humanist geometric sans that sits comfortably with the rounded logo.
-     Neither Inter, Geist nor Space Grotesk appears anywhere in this project. */
-  --font-display: var(--font-fraunces), 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-display: var(--font-figtree), ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif;
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif;
+  --font-editorial: var(--font-fraunces), 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
 
-  /* Type scale — 1.200 minor third at body, opening up at display sizes.
-     Sizes are clamped so 320px phones and 1440px displays both read well. */
-  --text-xs: 0.8125rem; /* 13px  — meta, captions */
-  --text-sm: 0.9063rem; /* 14.5px — labels, secondary */
-  --text-base: 1.0313rem; /* 16.5px — body; slightly over 16 for comfortable reading */
-  --text-lg: 1.1875rem; /* 19px  — lead paragraphs */
-  --text-xl: 1.375rem; /* 22px */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9063rem;
+  --text-base: 1.0313rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
   --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem);
   --text-3xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.375rem);
-  --text-4xl: clamp(2.125rem, 1.7rem + 2.1vw, 3.125rem);
-  --text-5xl: clamp(2.5rem, 1.85rem + 3.25vw, 4rem);
+  --text-4xl: clamp(2.125rem, 1.7rem + 2.1vw, 3.25rem);
+  --text-5xl: clamp(2.75rem, 1.9rem + 4vw, 4.75rem);
 
-  --leading-tight: 1.12;
-  --leading-snug: 1.28;
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
   --leading-normal: 1.6;
   --leading-relaxed: 1.72;
 
-  /* ---- Radii — restrained on purpose ---- */
+  /* ---- Geometry ---- */
   --radius-none: 0;
-  --radius-xs: 2px;
-  --radius-sm: 3px;
-  --radius-md: 4px;
-  --radius-full: 9999px; /* reserved for genuine circles (avatars), not buttons */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
 
   /* ---- Measure ---- */
-  --container-prose: 68ch; /* keeps paragraphs off the 90-character disaster line */
+  --container-prose: 68ch;
   --container-page: 78rem;
   --container-wide: 90rem;
 }
 
-/*
- * Base layer
- */
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
@@ -123,16 +115,16 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 700;
     line-height: var(--leading-tight);
-    letter-spacing: -0.012em;
+    letter-spacing: -0.035em;
     text-wrap: balance;
   }
 
   h5,
   h6 {
     font-family: var(--font-sans);
-    font-weight: 650;
+    font-weight: 700;
     line-height: var(--leading-snug);
   }
 
@@ -140,22 +132,16 @@
     text-wrap: pretty;
   }
 
-  /*
-   * Focus: a single high-contrast ring used everywhere. Never removed.
-   * :focus-visible so mouse users do not see rings on click, keyboard users always do.
-   */
   :focus-visible {
     outline: 3px solid var(--color-focus);
-    outline-offset: 2px;
-    border-radius: var(--radius-xs);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
   }
 
-  /* Dark sections need a ring that survives the dark ground. */
   .on-ink :focus-visible {
     outline-color: #9dc0ff;
   }
 
-  /* Turkish typography: prevent the browser from applying English casing rules. */
   [lang='tr'] {
     font-variant-ligatures: common-ligatures;
   }
@@ -165,7 +151,6 @@
     color: var(--color-fg);
   }
 
-  /* Tables must never silently overflow the page on mobile. */
   table {
     border-collapse: collapse;
     width: 100%;
@@ -179,17 +164,12 @@
     height: auto;
   }
 
-  /* Give anchor targets breathing room under the sticky header. */
   :target {
     scroll-margin-top: 6rem;
   }
 }
 
 @layer components {
-  /*
-   * Editorial prose. Used for CMS rich text.
-   * Constrained to --container-prose so lines stay in the 55-75 character band.
-   */
   .prose-he {
     max-width: var(--container-prose);
     font-size: var(--text-base);
@@ -241,9 +221,9 @@
   }
 
   .prose-he blockquote {
-    border-inline-start: 2px solid var(--color-brand);
+    border-inline-start: 3px solid var(--color-brand);
     padding-inline-start: 1.1em;
-    font-family: var(--font-display);
+    font-family: var(--font-editorial);
     font-size: var(--text-lg);
   }
 
@@ -260,21 +240,45 @@
   }
 
   .prose-he th {
-    font-weight: 650;
+    font-weight: 700;
     background-color: var(--color-paper-sunk);
+  }
+
+  /* Modern reusable visual primitives. */
+  .he-surface {
+    border: 1px solid color-mix(in srgb, var(--color-border) 82%, transparent);
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 18px 55px rgba(35, 35, 38, 0.08);
+  }
+
+  .he-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.78);
+    padding: 0.45rem 0.8rem;
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+
+  .he-gradient-wash {
+    background:
+      radial-gradient(circle at 14% 20%, rgba(244, 116, 38, 0.14), transparent 34%),
+      radial-gradient(circle at 85% 8%, rgba(68, 135, 255, 0.10), transparent 30%),
+      linear-gradient(180deg, #fffdfb 0%, var(--color-paper) 72%);
   }
 }
 
 @layer utilities {
-  /* Horizontal-scroll container for wide tables and rails.
-     Focusable so keyboard users can scroll it (WCAG 2.1.1). */
   .scroll-x {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
   }
 
-  /* Screen-reader-only, un-hides on focus for skip links. */
   .sr-only-focusable:not(:focus):not(:focus-within) {
     position: absolute;
     width: 1px;
@@ -285,5 +289,50 @@
     clip-path: inset(50%);
     white-space: nowrap;
     border-width: 0;
+  }
+
+  .he-float {
+    animation: he-float 6s ease-in-out infinite;
+  }
+
+  .he-float-delayed {
+    animation: he-float 7.5s ease-in-out 0.8s infinite;
+  }
+
+  .he-enter {
+    animation: he-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .he-enter-delay-1 {
+    animation-delay: 90ms;
+  }
+
+  .he-enter-delay-2 {
+    animation-delay: 180ms;
+  }
+
+  .he-enter-delay-3 {
+    animation-delay: 270ms;
+  }
+}
+
+@keyframes he-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes he-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
   }
 }
