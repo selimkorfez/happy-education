@@ -3,7 +3,8 @@ import { Container } from '@/components/ui/Container'
 import { PageHero } from '@/components/shared/PageHero'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { InstitutionBrowser } from '@/components/content/InstitutionBrowser'
-import { CardGrid, EmptySection } from './shared'
+import { SortableCardGrid } from '@/components/content/SortableCardGrid'
+import { EmptySection } from './shared'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
@@ -51,7 +52,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
             <section>
               <SectionHeading locale={locale} kicker={locale === 'tr' ? 'Ülke seçin' : 'Choose a destination'} title={locale === 'tr' ? 'Ülkeye göre keşfedin' : 'Explore by destination'} body={locale === 'tr' ? 'Önce ülkeyi seçip ardından kurumları, şehirleri ve ilgili seçenekleri inceleyin.' : 'Start with a country, then move into institutions, cities and the options available there.'} />
               <div className="mt-8">
-                <CardGrid items={destinations.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.intro, image: d.heroImage ?? null }))} />
+                <SortableCardGrid locale={locale} items={destinations.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.intro, image: d.heroImage ?? null }))} />
               </div>
             </section>
           ) : null}
@@ -121,20 +122,20 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     case 'tours': {
       const tours = await listTours(locale)
       if (tours.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <CardGrid items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title, image: tour.heroImage ?? null }))} />
+      return <SortableCardGrid locale={locale} items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title, image: tour.heroImage ?? null }))} />
     }
 
     case 'insights': {
       const articles = await getArticlesByCategory(locale, null, 60)
       if (articles.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <CardGrid items={articles.map((a) => ({ href: docPath(locale, section, a.slug), title: a.title, meta: a.category, excerpt: a.excerpt, image: a.image ?? null, imageAlt: a.imageAlt ?? a.title }))} />
+      return <SortableCardGrid locale={locale} items={articles.map((a) => ({ href: docPath(locale, section, a.slug), title: a.title, meta: a.category, excerpt: a.excerpt, image: a.image ?? null, imageAlt: a.imageAlt ?? a.title }))} />
     }
 
     case 'guides':
     case 'services': {
       const docs = await getProseIndex(locale, section === 'guides' ? 'guide' : 'service')
       if (docs.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <CardGrid items={docs.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.summary }))} />
+      return <SortableCardGrid locale={locale} items={docs.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.summary }))} />
     }
 
     case 'legal':
