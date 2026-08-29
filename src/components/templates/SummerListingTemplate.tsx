@@ -1,7 +1,8 @@
 import { Container } from '@/components/ui/Container'
 import { PageHero } from '@/components/shared/PageHero'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
-import { CardGrid, EmptySection } from './shared'
+import { SortableCardGrid } from '@/components/content/SortableCardGrid'
+import { EmptySection } from './shared'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { listSummerProgrammes } from '@/lib/sanity/queries/content'
@@ -33,7 +34,8 @@ export async function SummerListingTemplate({
           {programmes.length === 0 ? (
             <EmptySection locale={locale} contactHref={sectionPath(locale, 'contact')} />
           ) : (
-            <CardGrid
+            <SortableCardGrid
+              locale={locale}
               items={programmes.map((p) => ({
                 href: docPath(locale, 'summerSchools', formatSlug, p.slug),
                 title: p.title,
