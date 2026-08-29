@@ -62,7 +62,7 @@ export function PageHero({
             <div className="relative">
               <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-[0_24px_65px_rgba(35,35,38,0.13)] sm:p-3">
                 {visualVariant && !image && !localImage ? (
-                  <SectionVisual variant={visualVariant} label={imageAlt ?? `${title} illustration`} />
+                  <SectionVisual variant={visualVariant} label={imageAlt ?? `${title} illustration`} locale={locale} />
                 ) : (
                   <MediaFrame
                     image={image ?? null}
