@@ -3,7 +3,7 @@ import { Container } from '@/components/ui/Container'
 import { MediaFrame } from '@/components/ui/MediaFrame'
 import { docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { countrySlug, countryLabel, type CountryKey } from '@/lib/navigation'
-import { BRAND_IMAGES, DESTINATION_IMAGE } from '@/lib/media/library'
+import { licensedMediaForDestination } from '@/lib/media/licensed-media'
 
 interface Destination {
   key: CountryKey
@@ -94,9 +94,9 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
         <ul className="flex w-max gap-4 px-5 sm:px-7 lg:px-10">
           {DESTINATIONS.map((destination) => {
             const label = countryLabel(locale, destination.key)
-            const href = docPath(locale, destination.section, countrySlug(locale, destination.key))
-            const imageKey = DESTINATION_IMAGE[destination.key]
-            const image = imageKey ? BRAND_IMAGES[imageKey] : null
+            const slug = countrySlug(locale, destination.key)
+            const href = docPath(locale, destination.section, slug)
+            const image = licensedMediaForDestination(slug) ?? licensedMediaForDestination(label)
             const copy = destination[locale]
 
             return (
@@ -106,7 +106,7 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
                   className="group relative block aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-ink-surface-soft no-underline shadow-[0_20px_55px_rgba(0,0,0,0.18)]"
                 >
                   <MediaFrame
-                    local={image?.src ?? null}
+                    external={image}
                     alt={image?.alt ?? label}
                     decorative
                     width={1350}
