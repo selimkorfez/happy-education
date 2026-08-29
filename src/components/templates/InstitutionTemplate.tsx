@@ -37,7 +37,9 @@ export function InstitutionTemplate({
   const website = safeExternalHref(doc.officialWebsite)
   const verifiedAccreditations = (doc.accreditations ?? []).filter((a) => a.verified)
   const cmsImageCleared = doc.heroImage?.licence?.cleared === true
-  const documentaryImage = cmsImageCleared ? null : licensedMediaForInstitutionOrPlace(doc.title, doc.city)
+  const documentaryImage = cmsImageCleared
+    ? null
+    : licensedMediaForInstitutionOrPlace(doc.title, doc.city, doc.destination?.slug ?? doc.country)
   const visualVariant = !cmsImageCleared && !documentaryImage
     ? section === 'languageSchools'
       ? 'language'
