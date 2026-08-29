@@ -32,14 +32,12 @@ export function DestinationTemplate({
 
   const labels = COPY[locale]
   const fallbackImage = illustrativeImageForDestination(doc.parentSlug ?? doc.slug)
-
-  const pageLinks = [
-    doc.whyStudyHere ? { href: '#why', label: labels.whyStudyHere } : null,
-    doc.applicationJourney ? { href: '#applying', label: labels.applicationJourney } : null,
-    doc.entryRequirements ? { href: '#entry', label: labels.entryRequirements } : null,
-    doc.accommodation ? { href: '#accommodation', label: labels.accommodation } : null,
-    doc.visaOverview ? { href: '#visa', label: labels.visa } : null,
-  ].filter((item): item is { href: string; label: string } => Boolean(item))
+  const pageLinks: Array<{ href: string; label: string }> = []
+  if (doc.whyStudyHere) pageLinks.push({ href: '#why', label: labels.whyStudyHere })
+  if (doc.applicationJourney) pageLinks.push({ href: '#applying', label: labels.applicationJourney })
+  if (doc.entryRequirements) pageLinks.push({ href: '#entry', label: labels.entryRequirements })
+  if (doc.accommodation) pageLinks.push({ href: '#accommodation', label: labels.accommodation })
+  if (doc.visaOverview) pageLinks.push({ href: '#visa', label: labels.visa })
 
   return (
     <>
@@ -189,51 +187,13 @@ export function DestinationTemplate({
 
 const COPY = {
   en: {
-    onThisPage: 'On this page',
-    whyStudyHere: 'Why study here',
-    educationSystem: 'How the education system works',
-    applicationJourney: 'The application journey',
-    entryRequirements: 'Entry requirements',
-    englishRequirements: 'English language requirements',
-    costs: 'Fees and living costs',
-    scholarships: 'Scholarships and funding',
-    accommodation: 'Accommodation',
-    visa: 'Student visa overview',
-    visaDisclaimer:
-      'This is a general overview of the process, not immigration advice. Requirements change, and the decision on any application rests with the relevant government authority. Always check the official guidance, and speak to a regulated immigration adviser if you need advice on your own circumstances.',
-    explore: 'Explore the destination',
-    keyCities: 'Key student cities',
-    browse: 'Browse your options',
-    institutions: 'Institutions to explore here',
-    institutionIntro: 'Search the catalogue by institution or city, then open a profile when you want more detail.',
-    relatedReading: 'Related reading',
-    keepReading: 'Keep exploring',
-    needHelp: 'Need a shortlist?',
-    needHelpBody: 'Tell us what you want to study and what matters most. We can help narrow the options into something manageable.',
-    talkToUs: 'Talk to an adviser',
+    onThisPage: 'On this page', whyStudyHere: 'Why study here', educationSystem: 'How the education system works', applicationJourney: 'The application journey', entryRequirements: 'Entry requirements', englishRequirements: 'English language requirements', costs: 'Fees and living costs', scholarships: 'Scholarships and funding', accommodation: 'Accommodation', visa: 'Student visa overview',
+    visaDisclaimer: 'This is a general overview of the process, not immigration advice. Requirements change, and the decision on any application rests with the relevant government authority. Always check the official guidance, and speak to a regulated immigration adviser if you need advice on your own circumstances.',
+    explore: 'Explore the destination', keyCities: 'Key student cities', browse: 'Browse your options', institutions: 'Institutions to explore here', institutionIntro: 'Search the catalogue by institution or city, then open a profile when you want more detail.', relatedReading: 'Related reading', keepReading: 'Keep exploring', needHelp: 'Need a shortlist?', needHelpBody: 'Tell us what you want to study and what matters most. We can help narrow the options into something manageable.', talkToUs: 'Talk to an adviser',
   },
   tr: {
-    onThisPage: 'Bu sayfada',
-    whyStudyHere: 'Neden burada okumalı?',
-    educationSystem: 'Eğitim sistemi nasıl işliyor?',
-    applicationJourney: 'Başvuru süreci',
-    entryRequirements: 'Kabul koşulları',
-    englishRequirements: 'İngilizce dil koşulları',
-    costs: 'Öğrenim ücretleri ve yaşam maliyeti',
-    scholarships: 'Burslar ve finansman',
-    accommodation: 'Konaklama',
-    visa: 'Öğrenci vizesine genel bakış',
-    visaDisclaimer:
-      'Bu bölüm sürecin genel bir özetidir; göçmenlik danışmanlığı değildir. Koşullar değişebilir ve her başvuruya ilişkin karar ilgili ülkenin yetkili makamına aittir. Resmî kaynakları mutlaka kontrol edin; kendi durumunuza özel danışmanlık gerekiyorsa yetkili bir göçmenlik danışmanına başvurun.',
-    explore: 'Ülkeyi keşfet',
-    keyCities: 'Öne çıkan öğrenci şehirleri',
-    browse: 'Seçeneklere göz atın',
-    institutions: 'Bu ülkedeki kurumları keşfedin',
-    institutionIntro: 'Kurum veya şehir adına göre arayın; daha fazla bilgi için ilgili profili açın.',
-    relatedReading: 'İlgili yazılar',
-    keepReading: 'Keşfetmeye devam edin',
-    needHelp: 'Kısa liste mi lazım?',
-    needHelpBody: 'Ne okumak istediğinizi ve sizin için neyin önemli olduğunu anlatın. Seçenekleri daha yönetilebilir bir listeye indirebiliriz.',
-    talkToUs: 'Danışmanla konuş',
+    onThisPage: 'Bu sayfada', whyStudyHere: 'Neden burada okumalı?', educationSystem: 'Eğitim sistemi nasıl işliyor?', applicationJourney: 'Başvuru süreci', entryRequirements: 'Kabul koşulları', englishRequirements: 'İngilizce dil koşulları', costs: 'Öğrenim ücretleri ve yaşam maliyeti', scholarships: 'Burslar ve finansman', accommodation: 'Konaklama', visa: 'Öğrenci vizesine genel bakış',
+    visaDisclaimer: 'Bu bölüm sürecin genel bir özetidir; göçmenlik danışmanlığı değildir. Koşullar değişebilir ve her başvuruya ilişkin karar ilgili ülkenin yetkili makamına aittir. Resmî kaynakları mutlaka kontrol edin; kendi durumunuza özel danışmanlık gerekiyorsa yetkili bir göçmenlik danışmanına başvurun.',
+    explore: 'Ülkeyi keşfet', keyCities: 'Öne çıkan öğrenci şehirleri', browse: 'Seçeneklere göz atın', institutions: 'Bu ülkedeki kurumları keşfedin', institutionIntro: 'Kurum veya şehir adına göre arayın; daha fazla bilgi için ilgili profili açın.', relatedReading: 'İlgili yazılar', keepReading: 'Keşfetmeye devam edin', needHelp: 'Kısa liste mi lazım?', needHelpBody: 'Ne okumak istediğinizi ve sizin için neyin önemli olduğunu anlatın. Seçenekleri daha yönetilebilir bir listeye indirebiliriz.', talkToUs: 'Danışmanla konuş',
   },
 } as const
