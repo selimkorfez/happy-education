@@ -7,3 +7,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# Happy Education design rules
+
+Before changing any public-facing UI, read `design-system/happy-education/MASTER.md` and treat it as the visual source of truth.
+
+The current direction is a blue / white / near-black, image-led international education design. Preserve the accessibility, licensed-media, responsive-layout and claims-safety rules already present in the repository. Prefer semantic tokens in `src/styles/globals.css` over introducing arbitrary component colours.
