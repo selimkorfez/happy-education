@@ -14,16 +14,19 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const phone = publicValue(BUSINESS.phone)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-paper/90 shadow-[0_6px_24px_rgba(35,35,38,0.035)] backdrop-blur-xl">
-      <div className="hidden border-b border-border/60 bg-white/45 lg:block">
+    <header className="sticky top-0 z-40 border-b border-border bg-white/95 shadow-[0_8px_28px_rgba(6,11,22,0.055)] backdrop-blur-xl">
+      <div className="on-ink hidden border-b border-white/10 bg-ink-surface lg:block">
         <Container>
           <div className="flex h-9 items-center justify-between text-xs font-semibold">
-            <div className="flex items-center gap-4 text-fg-muted">
+            <div className="flex items-center gap-4 text-fg-muted-on-ink">
               <span>{t(locale, 'brand.tagline')}</span>
               {phone ? (
                 <>
-                  <span aria-hidden="true" className="h-1 w-1 rounded-full bg-brand" />
-                  <a href={`tel:${phone.replace(/\s/g, '')}`} className="text-fg-muted no-underline transition hover:text-brand-strong">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand-on-ink" />
+                  <a
+                    href={`tel:${phone.replace(/\s/g, '')}`}
+                    className="text-fg-muted-on-ink no-underline transition hover:text-white"
+                  >
                     {phone}
                   </a>
                 </>
@@ -31,20 +34,20 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             </div>
 
             <div className="flex items-center gap-5">
-              <Link href={sectionPath(locale, 'about')} className="text-fg-muted no-underline transition hover:text-fg">
+              <Link href={sectionPath(locale, 'about')} className="text-fg-muted-on-ink no-underline transition hover:text-white">
                 {t(locale, 'nav.about')}
               </Link>
-              <Link href={sectionPath(locale, 'contact')} className="text-fg-muted no-underline transition hover:text-fg">
+              <Link href={sectionPath(locale, 'contact')} className="text-fg-muted-on-ink no-underline transition hover:text-white">
                 {t(locale, 'nav.contact')}
               </Link>
-              <LanguageSwitcher locale={locale} />
+              <LanguageSwitcher locale={locale} tone="dark" />
             </div>
           </div>
         </Container>
       </div>
 
       <Container width="wide">
-        <div className="flex h-[4.7rem] items-center justify-between gap-5">
+        <div className="flex h-[4.85rem] items-center justify-between gap-5">
           <Link
             href={homePath(locale)}
             className="flex shrink-0 items-center no-underline"
@@ -58,7 +61,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <div className="flex items-center gap-1.5 sm:gap-2.5">
             <Link
               href={sectionPath(locale, 'search')}
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-transparent text-fg-muted no-underline transition hover:border-border hover:bg-white hover:text-fg"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border bg-white text-fg-muted no-underline transition duration-200 hover:border-brand/35 hover:bg-brand-soft hover:text-brand-strong"
               aria-label={t(locale, 'search.label')}
             >
               <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -69,7 +72,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
 
             <Link
               href={sectionPath(locale, 'consultation')}
-              className="hidden min-h-11 items-center whitespace-nowrap rounded-full bg-brand px-5 text-[0.9375rem] font-bold text-fg no-underline shadow-[0_8px_20px_rgba(244,116,38,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#f6813b] sm:inline-flex"
+              className="he-brand-shadow hidden min-h-11 items-center whitespace-nowrap rounded-full bg-brand px-5 text-[0.9375rem] font-bold text-white no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-brand-strong sm:inline-flex"
             >
               {t(locale, 'nav.consultation')}
               <span aria-hidden="true" className="ml-2">↗</span>
