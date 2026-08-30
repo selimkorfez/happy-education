@@ -39,8 +39,9 @@ export function PageHero({
   const editorialLabel = locale === 'tr' ? `${title} illüstrasyonu` : `${title} illustration`
 
   return (
-    <section className="he-gradient-wash relative overflow-hidden border-b border-border/70 pb-10 pt-2 sm:pb-14 lg:pb-16">
+    <section className="he-gradient-wash relative overflow-hidden border-b border-border pb-10 pt-2 sm:pb-14 lg:pb-16">
       <div aria-hidden="true" className="absolute -right-28 top-8 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
+      <div aria-hidden="true" className="absolute left-0 top-0 h-1 w-28 bg-brand sm:w-40" />
       <Container>
         <Breadcrumbs locale={locale} crumbs={crumbs} />
       </Container>
@@ -49,7 +50,7 @@ export function PageHero({
         <div className={`relative z-10 grid items-center gap-8 ${hasVisual ? 'lg:grid-cols-[0.95fr_1.05fr] lg:gap-14' : ''}`}>
           <div className="py-3 lg:py-8">
             {eyebrow ? (
-              <span className="he-pill text-brand-strong">
+              <span className="inline-flex min-h-10 items-center gap-2 rounded-full border border-brand/18 bg-brand-soft px-4 text-sm font-bold text-brand-strong">
                 <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
                 {eyebrow}
               </span>
@@ -64,7 +65,7 @@ export function PageHero({
 
           {hasVisual ? (
             <div className="relative">
-              <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-[0_24px_65px_rgba(35,35,38,0.13)] sm:p-3">
+              <div className="he-card-shadow overflow-hidden rounded-[1.8rem] bg-ink-surface p-2.5 sm:p-3.5">
                 {visualVariant && !image && !externalImage && !localImage ? (
                   <SectionVisual variant={visualVariant} label={editorialLabel} locale={locale} />
                 ) : (
@@ -82,7 +83,7 @@ export function PageHero({
                   />
                 )}
               </div>
-              <div aria-hidden="true" className="absolute -bottom-4 -left-4 -z-10 h-24 w-24 rounded-[1.5rem] bg-brand-soft sm:-left-6" />
+              <div aria-hidden="true" className="absolute -bottom-4 -left-4 -z-10 h-24 w-24 rounded-[1.5rem] border border-brand/15 bg-white sm:-left-6" />
             </div>
           ) : null}
         </div>
