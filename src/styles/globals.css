@@ -1,48 +1,46 @@
 @import 'tailwindcss';
 
 /*
- * Happy Education — contemporary visual system
+ * Happy Education — blue / white / black visual system
  * -----------------------------------------------------------------------------
- * The first implementation leaned heavily into heritage editorial styling.
- * This pass keeps the trustworthy brand palette and accessibility constraints,
- * but moves the product toward a modern international education/lifestyle brand:
- * sans-led type, layered surfaces, generous modern geometry, image-led layouts,
- * subtle depth and restrained motion.
+ * Trust-first international education design: crisp white surfaces, near-black
+ * foundations, confident blue actions, image-led layouts and restrained motion.
+ * See design-system/happy-education/MASTER.md before changing public-facing UI.
  */
 
 @theme {
   /* ---- Surfaces ---- */
-  --color-paper: #fbfaf8;
-  --color-paper-sunk: #f4f1eb;
+  --color-paper: #f7f9fc;
+  --color-paper-sunk: #eef3f8;
   --color-card: #ffffff;
-  --color-ink-surface: #232326;
-  --color-ink-surface-soft: #313135;
-  --color-brand-soft: #fff0e5;
-  --color-sky-soft: #edf5ff;
-  --color-mint-soft: #eef8f3;
-  --color-lilac-soft: #f5f0ff;
+  --color-ink-surface: #060b16;
+  --color-ink-surface-soft: #101827;
+  --color-brand-soft: #eaf2ff;
+  --color-sky-soft: #f0f6ff;
+  --color-mint-soft: #eef6f3;
+  --color-lilac-soft: #f3f5f8;
 
   /* ---- Foregrounds ---- */
-  --color-fg: #1b1b1d;
-  --color-fg-muted: #56565c;
-  --color-fg-on-ink: #f5f2ec;
-  --color-fg-muted-on-ink: #b4b2ae;
+  --color-fg: #081120;
+  --color-fg-muted: #526174;
+  --color-fg-on-ink: #ffffff;
+  --color-fg-muted-on-ink: #aab6c7;
 
   /* ---- Brand ---- */
-  --color-brand: #f47426;
-  --color-brand-strong: #b8490a;
-  --color-brand-pressed: #8a3706;
-  --color-brand-on-ink: #f79a4a;
+  --color-brand: #1267f5;
+  --color-brand-strong: #0b4db8;
+  --color-brand-pressed: #073a8a;
+  --color-brand-on-ink: #75a9ff;
 
   /* ---- Status ---- */
-  --color-success: #1f6b45;
+  --color-success: #13734c;
   --color-warning: #8a5a05;
   --color-error: #a32319;
-  --color-focus: #1f5fbf;
+  --color-focus: #1267f5;
 
   /* ---- Lines ---- */
-  --color-border: #e4ded5;
-  --color-border-input: #8c8073;
+  --color-border: #d8e1ec;
+  --color-border-input: #8190a5;
 
   /* ---- Type ---- */
   --font-display: var(--font-figtree), ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif;
@@ -139,7 +137,7 @@
   }
 
   .on-ink :focus-visible {
-    outline-color: #9dc0ff;
+    outline-color: var(--color-brand-on-ink);
   }
 
   [lang='tr'] {
@@ -148,7 +146,7 @@
 
   ::selection {
     background-color: var(--color-brand);
-    color: var(--color-fg);
+    color: #ffffff;
   }
 
   table {
@@ -246,10 +244,10 @@
 
   /* Modern reusable visual primitives. */
   .he-surface {
-    border: 1px solid color-mix(in srgb, var(--color-border) 82%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
     border-radius: var(--radius-xl);
-    background: rgba(255, 255, 255, 0.86);
-    box-shadow: 0 18px 55px rgba(35, 35, 38, 0.08);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 20px 58px rgba(6, 11, 22, 0.08);
   }
 
   .he-pill {
@@ -258,7 +256,7 @@
     gap: 0.45rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.92);
     padding: 0.45rem 0.8rem;
     font-size: var(--text-sm);
     font-weight: 700;
@@ -266,9 +264,25 @@
 
   .he-gradient-wash {
     background:
-      radial-gradient(circle at 14% 20%, rgba(244, 116, 38, 0.14), transparent 34%),
-      radial-gradient(circle at 85% 8%, rgba(68, 135, 255, 0.10), transparent 30%),
-      linear-gradient(180deg, #fffdfb 0%, var(--color-paper) 72%);
+      radial-gradient(circle at 12% 16%, rgba(18, 103, 245, 0.13), transparent 34%),
+      radial-gradient(circle at 88% 5%, rgba(6, 11, 22, 0.055), transparent 30%),
+      linear-gradient(180deg, #ffffff 0%, var(--color-paper) 76%);
+  }
+
+  .he-dark-grid {
+    background-color: var(--color-ink-surface);
+    background-image:
+      linear-gradient(rgba(117, 169, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(117, 169, 255, 0.055) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .he-brand-shadow {
+    box-shadow: 0 14px 34px rgba(18, 103, 245, 0.24);
+  }
+
+  .he-card-shadow {
+    box-shadow: 0 24px 70px rgba(6, 11, 22, 0.12);
   }
 }
 
@@ -330,9 +344,9 @@
 @keyframes he-float {
   0%,
   100% {
-    transform: translateY(0) rotate(-0.5deg);
+    transform: translateY(0) rotate(-0.25deg);
   }
   50% {
-    transform: translateY(-8px) rotate(0.5deg);
+    transform: translateY(-7px) rotate(0.25deg);
   }
 }
