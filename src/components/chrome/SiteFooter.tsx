@@ -5,7 +5,7 @@ import { CookiePreferencesButton } from '@/components/consent/CookiePreferencesB
 import { footerNav } from '@/lib/navigation'
 import { legalLinks } from '@/lib/legal'
 import { t } from '@/lib/i18n/dictionary'
-import { homePath, type Locale } from '@/lib/i18n/config'
+import { homePath, sectionPath, type Locale } from '@/lib/i18n/config'
 import { BUSINESS, SOCIAL, publicValue } from '@/lib/business-facts'
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -21,7 +21,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
   return (
     <footer className="on-ink mt-14 overflow-hidden bg-ink-surface text-fg-on-ink sm:mt-20">
       <div className="relative border-b border-white/10 py-12 sm:py-14">
-        <div aria-hidden="true" className="absolute -right-20 -top-36 h-80 w-80 rounded-full bg-brand/15 blur-3xl" />
+        <div aria-hidden="true" className="absolute -right-20 -top-36 h-80 w-80 rounded-full bg-brand/16 blur-3xl" />
         <Container>
           <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
@@ -33,8 +33,8 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               </h2>
             </div>
             <Link
-              href={`/${locale}/${locale === 'tr' ? 'on-gorusme' : 'consultation'}`}
-              className="inline-flex min-h-12 w-fit items-center rounded-full bg-brand px-7 text-base font-bold text-fg no-underline shadow-[0_12px_28px_rgba(244,116,38,0.2)] transition hover:-translate-y-0.5 hover:bg-brand-on-ink"
+              href={sectionPath(locale, 'consultation')}
+              className="he-brand-shadow inline-flex min-h-12 w-fit items-center rounded-full bg-brand px-7 text-base font-bold text-white no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-brand-on-ink hover:text-ink-surface"
             >
               {locale === 'tr' ? 'Ücretsiz görüşme planla' : 'Book a free conversation'} <span aria-hidden="true" className="ml-2">↗</span>
             </Link>
@@ -80,7 +80,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 <ul className="mt-4 flex flex-wrap gap-2 text-sm">
                   {SOCIAL.map((account) => (
                     <li key={account.platform}>
-                      <a href={account.url} target="_blank" rel="noopener noreferrer me" className="inline-flex min-h-11 items-center rounded-full border border-white/15 px-3 text-fg-muted-on-ink no-underline transition hover:bg-white/8 hover:text-fg-on-ink">
+                      <a href={account.url} target="_blank" rel="noopener noreferrer me" className="inline-flex min-h-11 items-center rounded-full border border-white/15 px-3 text-fg-muted-on-ink no-underline transition hover:border-brand-on-ink/40 hover:bg-white/8 hover:text-fg-on-ink">
                         {account.platform}<span className="sr-only"> ({t(locale, 'a11y.opensInNewTab')})</span>
                       </a>
                     </li>
