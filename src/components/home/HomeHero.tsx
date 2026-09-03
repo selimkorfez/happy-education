@@ -48,11 +48,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
         <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
           <div className="py-4 lg:py-8">
             <div className="he-enter">
-              <span className="inline-flex min-h-10 items-center gap-2.5 rounded-full border border-white/14 bg-white/7 px-4 text-sm font-bold text-fg-on-ink backdrop-blur-md">
-                <span aria-hidden="true" className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-50" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand" />
-                </span>
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-white/14 bg-white/7 px-4 py-2.5 text-sm font-bold text-fg-on-ink backdrop-blur-md">
+                <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-brand" />
                 {copy.eyebrow}
               </span>
             </div>
@@ -84,7 +81,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
 
             <ul className="mt-9 flex flex-wrap gap-2.5 text-sm font-semibold text-white/74">
               {[copy.trusted, copy.personal, copy.supported].map((item) => (
-                <li key={item} className="flex min-h-9 items-center gap-2 rounded-full border border-white/10 bg-black/10 px-3.5 backdrop-blur-sm">
+                <li key={item} className="flex items-center gap-2 rounded-full border border-white/10 bg-black/10 px-3.5 py-2 backdrop-blur-sm">
                   <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand-on-ink" />
                   {item}
                 </li>
