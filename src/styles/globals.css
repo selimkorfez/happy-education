@@ -3,11 +3,9 @@
 /*
  * Happy Education — contemporary visual system
  * -----------------------------------------------------------------------------
- * The first implementation leaned heavily into heritage editorial styling.
- * This pass keeps the trustworthy brand palette and accessibility constraints,
- * but moves the product toward a modern international education/lifestyle brand:
- * sans-led type, layered surfaces, generous modern geometry, image-led layouts,
- * subtle depth and restrained motion.
+ * Modern international education/lifestyle direction: sans-led type, layered
+ * surfaces, documentary imagery, tactile interaction and restrained motion.
+ * Ambient movement is decorative only and fully disabled by reduced-motion.
  */
 
 @theme {
@@ -244,7 +242,6 @@
     background-color: var(--color-paper-sunk);
   }
 
-  /* Modern reusable visual primitives. */
   .he-surface {
     border: 1px solid color-mix(in srgb, var(--color-border) 82%, transparent);
     border-radius: var(--radius-xl);
@@ -266,9 +263,131 @@
 
   .he-gradient-wash {
     background:
-      radial-gradient(circle at 14% 20%, rgba(244, 116, 38, 0.14), transparent 34%),
-      radial-gradient(circle at 85% 8%, rgba(68, 135, 255, 0.10), transparent 30%),
-      linear-gradient(180deg, #fffdfb 0%, var(--color-paper) 72%);
+      radial-gradient(circle at 12% 18%, rgba(244, 116, 38, 0.13), transparent 31%),
+      radial-gradient(circle at 86% 8%, rgba(61, 123, 255, 0.1), transparent 29%),
+      linear-gradient(180deg, #fffefd 0%, var(--color-paper) 72%);
+  }
+
+  /* Live, lightweight backdrop inspired by modern shader/aurora compositions. */
+  .he-ambient-backdrop {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    isolation: isolate;
+  }
+
+  .he-ambient-backdrop-light {
+    --he-orb-a: rgba(244, 116, 38, 0.24);
+    --he-orb-b: rgba(67, 119, 255, 0.16);
+    --he-orb-c: rgba(95, 197, 167, 0.14);
+    --he-grid-line: rgba(35, 35, 38, 0.055);
+    --he-sweep: rgba(255, 255, 255, 0.68);
+  }
+
+  .he-ambient-backdrop-dark {
+    --he-orb-a: rgba(244, 116, 38, 0.3);
+    --he-orb-b: rgba(83, 132, 255, 0.21);
+    --he-orb-c: rgba(92, 205, 174, 0.14);
+    --he-grid-line: rgba(255, 255, 255, 0.07);
+    --he-sweep: rgba(255, 255, 255, 0.08);
+  }
+
+  .he-ambient-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(2px);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+  }
+
+  .he-ambient-orb-a {
+    left: -9rem;
+    top: -7rem;
+    width: clamp(22rem, 42vw, 42rem);
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 42% 42%, var(--he-orb-a), transparent 68%);
+    animation: he-orbit-a 17s ease-in-out infinite alternate;
+  }
+
+  .he-ambient-orb-b {
+    right: -12rem;
+    top: -10rem;
+    width: clamp(25rem, 48vw, 48rem);
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 52% 48%, var(--he-orb-b), transparent 69%);
+    animation: he-orbit-b 21s ease-in-out infinite alternate;
+  }
+
+  .he-ambient-orb-c {
+    bottom: -15rem;
+    left: 36%;
+    width: clamp(22rem, 38vw, 38rem);
+    aspect-ratio: 1;
+    background: radial-gradient(circle, var(--he-orb-c), transparent 70%);
+    animation: he-orbit-c 19s ease-in-out infinite alternate;
+  }
+
+  .he-ambient-grid {
+    position: absolute;
+    inset: -18%;
+    background-image:
+      linear-gradient(var(--he-grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--he-grid-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 76% 72% at 50% 47%, black 12%, transparent 74%);
+    opacity: 0.72;
+    transform: perspective(900px) rotateX(58deg) translateY(12%);
+    transform-origin: center bottom;
+    animation: he-grid-drift 22s linear infinite;
+  }
+
+  .he-ambient-sweep {
+    position: absolute;
+    inset: -30%;
+    background: linear-gradient(105deg, transparent 38%, var(--he-sweep) 49%, transparent 60%);
+    transform: translate3d(-35%, 0, 0) rotate(3deg);
+    animation: he-sweep 15s ease-in-out infinite;
+    mix-blend-mode: soft-light;
+  }
+
+  .he-shine-card {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .he-shine-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 22%, rgba(255, 255, 255, 0.34) 46%, transparent 68%);
+    opacity: 0;
+    transform: translateX(-24%);
+    transition: opacity 280ms ease, transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .he-shine-card:hover::after {
+      opacity: 0.65;
+      transform: translateX(24%);
+    }
+  }
+
+  .he-reveal {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0) scale(0.99);
+    transition:
+      opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .he-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -335,4 +454,33 @@
   50% {
     transform: translateY(-8px) rotate(0.5deg);
   }
+}
+
+@keyframes he-orbit-a {
+  0% { transform: translate3d(0, 0, 0) scale(0.96); }
+  50% { transform: translate3d(11vw, 7vh, 0) scale(1.07); }
+  100% { transform: translate3d(5vw, 15vh, 0) scale(1.01); }
+}
+
+@keyframes he-orbit-b {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-12vw, 9vh, 0) scale(0.94); }
+  100% { transform: translate3d(-6vw, 17vh, 0) scale(1.08); }
+}
+
+@keyframes he-orbit-c {
+  0% { transform: translate3d(-4vw, 0, 0) scale(0.96); }
+  50% { transform: translate3d(7vw, -9vh, 0) scale(1.08); }
+  100% { transform: translate3d(-2vw, -15vh, 0) scale(1); }
+}
+
+@keyframes he-grid-drift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 48px 48px, 48px 48px; }
+}
+
+@keyframes he-sweep {
+  0%, 20% { transform: translate3d(-42%, 0, 0) rotate(3deg); opacity: 0; }
+  38% { opacity: 0.72; }
+  58%, 100% { transform: translate3d(42%, 0, 0) rotate(3deg); opacity: 0; }
 }
