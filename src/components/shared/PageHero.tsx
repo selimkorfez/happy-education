@@ -1,6 +1,8 @@
 import type { StaticImageData } from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
+import { AmbientBackdrop } from '@/components/ui/AmbientBackdrop'
+import { Reveal } from '@/components/ui/Reveal'
 import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 import { Breadcrumbs, type Crumb } from './Breadcrumbs'
 import { SectionVisual, type SectionVisualVariant } from './SectionVisual'
@@ -39,17 +41,21 @@ export function PageHero({
   const editorialLabel = locale === 'tr' ? `${title} illüstrasyonu` : `${title} illustration`
 
   return (
-    <section className="he-gradient-wash relative overflow-hidden border-b border-border/70 pb-10 pt-2 sm:pb-14 lg:pb-16">
-      <div aria-hidden="true" className="absolute -right-28 top-8 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
+    <section className="relative isolate overflow-hidden border-b border-border/70 bg-[#fffefd] pb-11 pt-2 sm:pb-15 lg:pb-18">
+      <AmbientBackdrop tone="light" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-paper/80 to-transparent" />
+
       <Container>
-        <Breadcrumbs locale={locale} crumbs={crumbs} />
+        <div className="relative z-10">
+          <Breadcrumbs locale={locale} crumbs={crumbs} />
+        </div>
       </Container>
 
       <Container>
-        <div className={`relative z-10 grid items-center gap-8 ${hasVisual ? 'lg:grid-cols-[0.95fr_1.05fr] lg:gap-14' : ''}`}>
-          <div className="py-3 lg:py-8">
+        <div className={`relative z-10 grid items-center gap-9 ${hasVisual ? 'lg:grid-cols-[0.9fr_1.1fr] lg:gap-16' : ''}`}>
+          <Reveal className="py-3 lg:py-8">
             {eyebrow ? (
-              <span className="he-pill text-brand-strong">
+              <span className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border/75 bg-white/78 px-4 text-sm font-black text-brand-strong shadow-[0_8px_24px_rgba(35,35,38,0.04)] backdrop-blur-md">
                 <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
                 {eyebrow}
               </span>
@@ -60,11 +66,12 @@ export function PageHero({
             {intro ? (
               <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-fg-muted">{intro}</p>
             ) : null}
-          </div>
+          </Reveal>
 
           {hasVisual ? (
-            <div className="relative">
-              <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-[0_24px_65px_rgba(35,35,38,0.13)] sm:p-3">
+            <Reveal delay={90} className="relative">
+              <div aria-hidden="true" className="absolute -inset-4 rounded-[2.4rem] bg-gradient-to-br from-brand/12 via-white/10 to-blue-300/12 blur-2xl" />
+              <div className="he-shine-card group relative overflow-hidden rounded-[1.9rem] border border-white/80 bg-white/76 p-2.5 shadow-[0_28px_75px_rgba(35,35,38,0.13)] backdrop-blur-xl sm:p-3">
                 {visualVariant && !image && !externalImage && !localImage ? (
                   <SectionVisual variant={visualVariant} label={editorialLabel} locale={locale} />
                 ) : (
@@ -77,13 +84,13 @@ export function PageHero({
                     height={760}
                     priority
                     sizes="(max-width: 1024px) 100vw, 52vw"
-                    className="aspect-[10/7] w-full overflow-hidden rounded-[1.35rem] [&_img]:transition-transform [&_img]:duration-700 hover:[&_img]:scale-[1.025]"
+                    className="aspect-[10/7] w-full overflow-hidden rounded-[1.45rem] [&_img]:transition-transform [&_img]:duration-[1100ms] group-hover:[&_img]:scale-[1.04]"
                     placeholderLabel={`Hero image: ${title}`}
                   />
                 )}
               </div>
               <div aria-hidden="true" className="absolute -bottom-4 -left-4 -z-10 h-24 w-24 rounded-[1.5rem] bg-brand-soft sm:-left-6" />
-            </div>
+            </Reveal>
           ) : null}
         </div>
       </Container>
