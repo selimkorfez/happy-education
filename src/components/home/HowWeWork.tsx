@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/Container'
+import { Reveal } from '@/components/ui/Reveal'
 import type { Locale } from '@/lib/i18n/config'
 
 const STEPS = {
@@ -38,32 +39,41 @@ export function HowWeWork({ locale }: { locale: Locale }) {
   const steps = STEPS[locale]
 
   return (
-    <section className="border-b border-border/70 bg-white py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden border-b border-border/70 bg-white py-16 sm:py-20 lg:py-24">
+      <div aria-hidden="true" className="absolute left-1/2 top-24 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-soft/70 blur-3xl" />
       <Container>
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-strong">{heading.kicker}</p>
-            <h2 className="mt-3 max-w-[12ch] text-[length:var(--text-4xl)] text-fg">{heading.title}</h2>
+        <Reveal>
+          <div className="relative grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.12em] text-brand-strong">{heading.kicker}</p>
+              <h2 className="mt-3 max-w-[12ch] text-[length:var(--text-4xl)] text-fg">{heading.title}</h2>
+            </div>
+            <p className="max-w-[62ch] text-lg leading-relaxed text-fg-muted lg:justify-self-end">{heading.body}</p>
           </div>
-          <p className="max-w-[62ch] text-lg leading-relaxed text-fg-muted lg:justify-self-end">{heading.body}</p>
-        </div>
+        </Reveal>
 
         <div className="relative mt-14">
-          <div aria-hidden="true" className="absolute left-6 top-5 hidden h-[calc(100%-2.5rem)] w-px bg-border md:block lg:left-0 lg:top-7 lg:h-px lg:w-full" />
+          <div aria-hidden="true" className="absolute left-[8%] right-[8%] top-8 hidden h-px bg-gradient-to-r from-transparent via-brand/35 to-transparent lg:block" />
 
-          <ol className="relative grid gap-4 md:gap-5 lg:grid-cols-6">
+          <ol className="relative grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
             {steps.map((step, index) => (
-              <li key={step.title} className="group relative">
-                <div className="h-full rounded-[1.35rem] border border-border/70 bg-paper p-5 transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:bg-white hover:shadow-[0_16px_38px_rgba(35,35,38,0.08)] lg:pt-7">
-                  <div className="flex items-center gap-3 lg:block">
-                    <span className="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full bg-ink-surface text-sm font-black tabular-nums text-white shadow-[0_0_0_6px_var(--color-paper)] transition-colors group-hover:bg-brand">
-                      {index + 1}
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-[0.1em] text-brand-strong lg:mt-5 lg:block">{step.short}</span>
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold text-fg">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-fg-muted">{step.body}</p>
-                </div>
+              <li key={step.title}>
+                <Reveal delay={Math.min(index * 75, 300)} className="h-full">
+                  <article className="he-shine-card group relative h-full overflow-hidden rounded-[1.55rem] border border-border/70 bg-paper/88 p-6 shadow-[0_10px_30px_rgba(35,35,38,0.045)] transition duration-400 hover:-translate-y-1.5 hover:border-brand/28 hover:bg-white hover:shadow-[0_22px_55px_rgba(35,35,38,0.09)] sm:p-7">
+                    <div aria-hidden="true" className="absolute -right-7 -top-7 h-24 w-24 rounded-full bg-brand-soft opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
+                    <div className="relative flex items-center justify-between gap-4">
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-ink-surface text-sm font-black tabular-nums text-white shadow-[0_10px_25px_rgba(35,35,38,0.16)] transition duration-300 group-hover:-rotate-3 group-hover:bg-brand group-hover:text-fg">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span className="rounded-full border border-border/70 bg-white/80 px-3 py-1.5 text-[0.68rem] font-black uppercase tracking-[0.1em] text-brand-strong backdrop-blur-sm">{step.short}</span>
+                    </div>
+                    <h3 className="relative mt-8 max-w-[19ch] text-xl font-bold text-fg">{step.title}</h3>
+                    <p className="relative mt-3 max-w-[42ch] text-sm leading-relaxed text-fg-muted">{step.body}</p>
+                    <div aria-hidden="true" className="relative mt-8 h-1 overflow-hidden rounded-full bg-border/60">
+                      <span className="block h-full rounded-full bg-brand transition-[width] duration-700 group-hover:w-full" style={{ width: `${((index + 1) / steps.length) * 100}%` }} />
+                    </div>
+                  </article>
+                </Reveal>
               </li>
             ))}
           </ol>
