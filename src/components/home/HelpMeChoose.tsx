@@ -135,7 +135,7 @@ export function HelpMeChoose({ locale }: { locale: Locale }) {
                       <p className="text-xs font-black uppercase tracking-[0.1em] text-fg-muted">{copy.tag}</p>
                       <h3 className="mt-2 text-2xl font-bold text-fg sm:text-[1.65rem]">{copy.title}</h3>
                       <p className="mt-3 max-w-[48ch] text-sm leading-relaxed text-fg-muted">{copy.body}</p>
-                      <span className="mt-5 inline-flex min-h-8 items-center gap-2 text-sm font-black text-brand-strong">
+                      <span className="mt-5 inline-flex items-center gap-2 py-1 text-sm font-black text-brand-strong">
                         {heading.explore}
                         <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                       </span>
