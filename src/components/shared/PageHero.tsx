@@ -55,7 +55,7 @@ export function PageHero({
         <div className={`relative z-10 grid items-center gap-9 ${hasVisual ? 'lg:grid-cols-[0.9fr_1.1fr] lg:gap-16' : ''}`}>
           <Reveal className="py-3 lg:py-8">
             {eyebrow ? (
-              <span className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border/75 bg-white/78 px-4 text-sm font-black text-brand-strong shadow-[0_8px_24px_rgba(35,35,38,0.04)] backdrop-blur-md">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border/75 bg-white/78 px-4 py-2.5 text-sm font-black text-brand-strong shadow-[0_8px_24px_rgba(35,35,38,0.04)] backdrop-blur-md">
                 <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
                 {eyebrow}
               </span>
