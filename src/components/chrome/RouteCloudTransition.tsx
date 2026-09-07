@@ -47,7 +47,7 @@ export function RouteCloudTransition() {
       pendingRef.current = null
       phaseRef.current = 'idle'
       setPhase('idle')
-    }, 560)
+    }, 920)
 
     return () => window.clearTimeout(clearTimer)
   }, [pathname])
@@ -76,9 +76,10 @@ export function RouteCloudTransition() {
       phaseRef.current = 'covering'
       setPhase('covering')
 
+      // Let the camera visually rise into a fully opaque cloud layer before the route changes.
       window.setTimeout(() => {
         router.push(destination)
-      }, 280)
+      }, 460)
 
       fallbackRef.current = window.setTimeout(() => {
         if (!pendingRef.current) return
@@ -88,8 +89,8 @@ export function RouteCloudTransition() {
         window.setTimeout(() => {
           phaseRef.current = 'idle'
           setPhase('idle')
-        }, 520)
-      }, 3500)
+        }, 920)
+      }, 4000)
     }
 
     document.addEventListener('click', onClick, true)
@@ -105,6 +106,7 @@ export function RouteCloudTransition() {
       data-phase={phase}
       className="he-route-cloud-transition fixed inset-0 z-[120] overflow-hidden pointer-events-none"
     >
+      <div className="he-route-cloud-depth he-route-cloud-depth-far absolute inset-[-16%]" />
       <div className="he-route-sky absolute inset-0" />
       <span className="he-route-cloud he-route-cloud-1" />
       <span className="he-route-cloud he-route-cloud-2" />
@@ -112,6 +114,12 @@ export function RouteCloudTransition() {
       <span className="he-route-cloud he-route-cloud-4" />
       <span className="he-route-cloud he-route-cloud-5" />
       <span className="he-route-cloud he-route-cloud-6" />
+      <span className="he-route-cloud he-route-cloud-7" />
+      <span className="he-route-cloud he-route-cloud-8" />
+      <span className="he-route-cloud he-route-cloud-9" />
+      <span className="he-route-cloud he-route-cloud-10" />
+      <div className="he-route-cloud-depth he-route-cloud-depth-near absolute inset-[-24%]" />
+      <div className="he-route-cloud-haze absolute inset-0" />
     </div>
   )
 }
