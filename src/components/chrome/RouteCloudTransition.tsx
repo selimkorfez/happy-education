@@ -1,9 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
-type Phase = 'idle' | 'covering' | 'covered' | 'clearing'
+type Phase = 'idle' | 'covering' | 'clearing'
+
+const MIN_COVER_MS = 160
+const CLEAR_MS = 260
 
 function shouldHandleClick(event: MouseEvent, anchor: HTMLAnchorElement) {
   if (event.defaultPrevented || event.button !== 0) return false
@@ -21,54 +24,79 @@ function shouldHandleClick(event: MouseEvent, anchor: HTMLAnchorElement) {
   return true
 }
 
+function Cloud({ className }: { className: string }) {
+  return (
+    <svg
+      className={`he-route-cloud ${className}`}
+      viewBox="0 0 240 120"
+      fill="none"
+      focusable="false"
+      aria-hidden="true"
+    >
+      <g fill="currentColor">
+        <ellipse cx="120" cy="84" rx="108" ry="27" />
+        <circle cx="58" cy="70" r="34" />
+        <circle cx="103" cy="50" r="45" />
+        <circle cx="154" cy="58" r="39" />
+        <circle cx="193" cy="74" r="29" />
+      </g>
+    </svg>
+  )
+}
+
 export function RouteCloudTransition() {
   const router = useRouter()
   const pathname = usePathname()
   const [phase, setPhase] = useState<Phase>('idle')
+  const overlayRef = useRef<HTMLDivElement>(null)
   const phaseRef = useRef<Phase>('idle')
   const previousPathRef = useRef(pathname)
   const pendingRef = useRef<string | null>(null)
+  const startedAtRef = useRef(0)
   const fallbackRef = useRef<number | null>(null)
-  const coverRef = useRef<number | null>(null)
-  const navigationRef = useRef<number | null>(null)
   const revealRef = useRef<number | null>(null)
+  const cleanupRef = useRef<number | null>(null)
 
-  useEffect(() => {
-    phaseRef.current = phase
+  const applyPhase = useCallback((nextPhase: Phase) => {
+    phaseRef.current = nextPhase
+    setPhase(nextPhase)
+    overlayRef.current?.setAttribute('data-phase', nextPhase)
 
-    if (phase === 'idle') {
+    if (nextPhase === 'idle') {
       delete document.documentElement.dataset.routeTransition
-      return
+    } else {
+      document.documentElement.dataset.routeTransition = nextPhase
     }
+  }, [])
 
-    document.documentElement.dataset.routeTransition = phase
-  }, [phase])
+  const resetTransition = useCallback(() => {
+    pendingRef.current = null
+    startedAtRef.current = 0
+    applyPhase('idle')
+  }, [applyPhase])
 
   useEffect(() => {
     if (previousPathRef.current === pathname) return
     previousPathRef.current = pathname
-
     if (!pendingRef.current) return
 
     if (fallbackRef.current) window.clearTimeout(fallbackRef.current)
 
-    // Keep the viewer inside the cloud layer very briefly after the new route
-    // arrives. This prevents a normal page swap from being visible underneath.
-    revealRef.current = window.setTimeout(() => {
-      phaseRef.current = 'clearing'
-      setPhase('clearing')
+    // The route is already loaded. Keep only a tiny minimum visual beat so the
+    // cloud sweep reads as an intentional transition rather than a flash.
+    const elapsed = performance.now() - startedAtRef.current
+    const remaining = Math.max(0, MIN_COVER_MS - elapsed)
 
-      revealRef.current = window.setTimeout(() => {
-        pendingRef.current = null
-        phaseRef.current = 'idle'
-        setPhase('idle')
-      }, 980)
-    }, 120)
+    revealRef.current = window.setTimeout(() => {
+      applyPhase('clearing')
+      cleanupRef.current = window.setTimeout(resetTransition, CLEAR_MS)
+    }, remaining)
 
     return () => {
       if (revealRef.current) window.clearTimeout(revealRef.current)
+      if (cleanupRef.current) window.clearTimeout(cleanupRef.current)
     }
-  }, [pathname])
+  }, [pathname, applyPhase, resetTransition])
 
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
@@ -79,8 +107,7 @@ export function RouteCloudTransition() {
       if (!(anchor instanceof HTMLAnchorElement)) return
       if (!shouldHandleClick(event, anchor)) return
 
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      if (reducedMotion) return
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
       if (phaseRef.current !== 'idle') {
         event.preventDefault()
         return
@@ -91,65 +118,45 @@ export function RouteCloudTransition() {
 
       event.preventDefault()
       pendingRef.current = destination
-      phaseRef.current = 'covering'
-      setPhase('covering')
+      startedAtRef.current = performance.now()
+      applyPhase('covering')
 
-      // First the page visibly recedes, then the viewer reaches the dense cloud
-      // layer. The route only changes once the old page is completely obscured.
-      coverRef.current = window.setTimeout(() => {
-        phaseRef.current = 'covered'
-        setPhase('covered')
-      }, 540)
-
-      navigationRef.current = window.setTimeout(() => {
-        router.push(destination)
-      }, 650)
+      // Important: navigation starts immediately. The animation is only a visual
+      // layer over the real route change; it never waits for the clouds first.
+      router.push(destination)
 
       fallbackRef.current = window.setTimeout(() => {
         if (!pendingRef.current) return
-        pendingRef.current = null
-        phaseRef.current = 'clearing'
-        setPhase('clearing')
-        window.setTimeout(() => {
-          phaseRef.current = 'idle'
-          setPhase('idle')
-        }, 980)
-      }, 4500)
+        applyPhase('clearing')
+        cleanupRef.current = window.setTimeout(resetTransition, CLEAR_MS)
+      }, 2500)
     }
 
     document.addEventListener('click', onClick, true)
     return () => {
       document.removeEventListener('click', onClick, true)
       if (fallbackRef.current) window.clearTimeout(fallbackRef.current)
-      if (coverRef.current) window.clearTimeout(coverRef.current)
-      if (navigationRef.current) window.clearTimeout(navigationRef.current)
       if (revealRef.current) window.clearTimeout(revealRef.current)
+      if (cleanupRef.current) window.clearTimeout(cleanupRef.current)
       delete document.documentElement.dataset.routeTransition
     }
-  }, [router])
+  }, [router, applyPhase, resetTransition])
 
   return (
     <div
+      ref={overlayRef}
       aria-hidden="true"
       data-phase={phase}
       className="he-route-cloud-transition fixed inset-0 z-[120] overflow-hidden pointer-events-none"
     >
-      <div className="he-route-cloud-depth he-route-cloud-depth-far absolute inset-[-22%]" />
       <div className="he-route-sky absolute inset-0" />
-      <div className="he-route-cloud-bank he-route-cloud-bank-top absolute inset-x-[-24%] top-[-30%] h-[70%]" />
-      <div className="he-route-cloud-bank he-route-cloud-bank-bottom absolute inset-x-[-24%] bottom-[-32%] h-[72%]" />
-      <span className="he-route-cloud he-route-cloud-1" />
-      <span className="he-route-cloud he-route-cloud-2" />
-      <span className="he-route-cloud he-route-cloud-3" />
-      <span className="he-route-cloud he-route-cloud-4" />
-      <span className="he-route-cloud he-route-cloud-5" />
-      <span className="he-route-cloud he-route-cloud-6" />
-      <span className="he-route-cloud he-route-cloud-7" />
-      <span className="he-route-cloud he-route-cloud-8" />
-      <span className="he-route-cloud he-route-cloud-9" />
-      <span className="he-route-cloud he-route-cloud-10" />
-      <div className="he-route-cloud-depth he-route-cloud-depth-near absolute inset-[-34%]" />
-      <div className="he-route-cloud-haze absolute inset-0" />
+      <Cloud className="he-route-cloud-1" />
+      <Cloud className="he-route-cloud-2" />
+      <Cloud className="he-route-cloud-3" />
+      <Cloud className="he-route-cloud-4" />
+      <Cloud className="he-route-cloud-5" />
+      <Cloud className="he-route-cloud-6" />
+      <div className="he-route-mist absolute inset-0" />
     </div>
   )
 }
