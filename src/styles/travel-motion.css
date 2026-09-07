@@ -1,0 +1,201 @@
+/* Travel-specific motion for the Happy Education public site.
+ * Decorative only: all meaningful content remains fully usable without it.
+ */
+
+.he-flight-layer[data-reduced-motion='true'] .he-flight-plane,
+.he-flight-layer[data-reduced-motion='true'] .he-flight-cloud {
+  display: none;
+}
+
+.he-flight-plane {
+  transition: opacity 180ms ease;
+  will-change: left, top, transform, opacity;
+}
+
+.he-flight-cloud {
+  position: absolute;
+  width: 7.5rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 14px 34px rgba(35, 35, 38, 0.08),
+    inset 0 -6px 16px rgba(35, 35, 38, 0.04);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.he-flight-cloud::before,
+.he-flight-cloud::after {
+  content: '';
+  position: absolute;
+  bottom: 0.25rem;
+  border-radius: 999px;
+  background: inherit;
+}
+
+.he-flight-cloud::before {
+  left: 1rem;
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+.he-flight-cloud::after {
+  right: 0.9rem;
+  width: 4.1rem;
+  height: 4.1rem;
+}
+
+.he-route-cloud-transition {
+  visibility: hidden;
+}
+
+.he-route-cloud-transition[data-phase='covering'],
+.he-route-cloud-transition[data-phase='clearing'] {
+  visibility: visible;
+}
+
+.he-route-sky {
+  background:
+    radial-gradient(circle at 50% 44%, rgba(255, 255, 255, 0.9), rgba(237, 245, 255, 0.76) 48%, rgba(237, 245, 255, 0.48) 72%, transparent 100%);
+  opacity: 0;
+  transition: opacity 330ms ease;
+}
+
+.he-route-cloud-transition[data-phase='covering'] .he-route-sky {
+  opacity: 0.72;
+}
+
+.he-route-cloud-transition[data-phase='clearing'] .he-route-sky {
+  opacity: 0;
+  transition-duration: 520ms;
+}
+
+.he-route-cloud {
+  position: absolute;
+  width: min(35vw, 28rem);
+  height: min(16vw, 12rem);
+  min-width: 13rem;
+  min-height: 6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  filter: drop-shadow(0 20px 45px rgba(56, 73, 104, 0.08));
+  opacity: 0;
+  transform: translate3d(var(--cloud-x-start), var(--cloud-y-start), 0) scale(0.82);
+  transition:
+    transform 430ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms ease;
+  will-change: transform, opacity;
+}
+
+.he-route-cloud::before,
+.he-route-cloud::after {
+  content: '';
+  position: absolute;
+  bottom: 9%;
+  border-radius: 999px;
+  background: inherit;
+}
+
+.he-route-cloud::before {
+  left: 12%;
+  width: 46%;
+  aspect-ratio: 1;
+}
+
+.he-route-cloud::after {
+  right: 8%;
+  width: 58%;
+  aspect-ratio: 1;
+}
+
+.he-route-cloud-transition[data-phase='covering'] .he-route-cloud {
+  opacity: 1;
+  transform: translate3d(var(--cloud-x-cover), var(--cloud-y-cover), 0) scale(1.08);
+}
+
+.he-route-cloud-transition[data-phase='clearing'] .he-route-cloud {
+  opacity: 0;
+  transform: translate3d(var(--cloud-x-end), var(--cloud-y-end), 0) scale(1.14);
+  transition-duration: 520ms, 420ms;
+}
+
+.he-route-cloud-1 {
+  left: -8%;
+  top: 5%;
+  --cloud-x-start: -38vw;
+  --cloud-y-start: -12vh;
+  --cloud-x-cover: 18vw;
+  --cloud-y-cover: 7vh;
+  --cloud-x-end: 56vw;
+  --cloud-y-end: -10vh;
+}
+
+.he-route-cloud-2 {
+  right: -10%;
+  top: 9%;
+  --cloud-x-start: 40vw;
+  --cloud-y-start: -10vh;
+  --cloud-x-cover: -18vw;
+  --cloud-y-cover: 11vh;
+  --cloud-x-end: -58vw;
+  --cloud-y-end: -12vh;
+}
+
+.he-route-cloud-3 {
+  left: -12%;
+  top: 38%;
+  --cloud-x-start: -44vw;
+  --cloud-y-start: 0;
+  --cloud-x-cover: 24vw;
+  --cloud-y-cover: -1vh;
+  --cloud-x-end: 62vw;
+  --cloud-y-end: 5vh;
+}
+
+.he-route-cloud-4 {
+  right: -12%;
+  top: 43%;
+  --cloud-x-start: 46vw;
+  --cloud-y-start: 4vh;
+  --cloud-x-cover: -22vw;
+  --cloud-y-cover: -3vh;
+  --cloud-x-end: -64vw;
+  --cloud-y-end: 7vh;
+}
+
+.he-route-cloud-5 {
+  left: -6%;
+  bottom: 4%;
+  --cloud-x-start: -38vw;
+  --cloud-y-start: 14vh;
+  --cloud-x-cover: 23vw;
+  --cloud-y-cover: -8vh;
+  --cloud-x-end: 62vw;
+  --cloud-y-end: 12vh;
+}
+
+.he-route-cloud-6 {
+  right: -7%;
+  bottom: 0;
+  --cloud-x-start: 42vw;
+  --cloud-y-start: 16vh;
+  --cloud-x-cover: -20vw;
+  --cloud-y-cover: -5vh;
+  --cloud-x-end: -60vw;
+  --cloud-y-end: 14vh;
+}
+
+@media (max-width: 48rem) {
+  .he-route-cloud {
+    width: 52vw;
+    height: 22vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .he-flight-layer,
+  .he-route-cloud-transition {
+    display: none !important;
+  }
+}
