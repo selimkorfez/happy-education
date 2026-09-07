@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
 import '@/styles/globals.css'
+import '@/styles/travel-motion.css'
 import { fontVariables } from '@/lib/fonts'
 import { LOCALES, HREFLANG, isLocale, type Locale } from '@/lib/i18n/config'
 import { SiteHeader } from '@/components/chrome/SiteHeader'
 import { SiteFooter } from '@/components/chrome/SiteFooter'
 import { SkipLink } from '@/components/chrome/SkipLink'
+import { RouteCloudTransition } from '@/components/chrome/RouteCloudTransition'
 import { ConsentProvider } from '@/components/consent/ConsentProvider'
 import { CookieBanner } from '@/components/consent/CookieBanner'
 import { Analytics } from '@/components/consent/Analytics'
@@ -60,6 +62,7 @@ export default async function LocaleLayout({
       <body className="flex min-h-dvh flex-col bg-paper text-fg antialiased">
         <ConsentProvider>
           <SkipLink locale={typed} />
+          <RouteCloudTransition />
           <SiteHeader locale={typed} />
           <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
             {children}
