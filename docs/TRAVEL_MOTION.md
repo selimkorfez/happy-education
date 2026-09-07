@@ -17,20 +17,27 @@ Rules:
 - disabled under `prefers-reduced-motion: reduce`;
 - hidden below the large breakpoint so it never competes with mobile process cards.
 
-## Page-change cloud fly-through
+## Page-change cloud transition
 
-Internal public-site links can trigger a short travel transition. The effect is designed as a camera move rather than a flat overlay: the current page recedes as though the viewer is climbing away from the ground, distant cloud forms accelerate toward the camera until the viewport is completely obscured, the route changes while the viewer is inside the cloud layer, then the new page grows back toward the viewer while the foreground clouds rush past and clear.
+Internal public-site links can trigger a short cloud fly-through that makes navigation feel travel-themed without turning the site into a loading screen.
 
-Implementation: `src/components/chrome/RouteCloudTransition.tsx`, the `#route-scene` wrapper in the locale layout, and `src/styles/travel-motion.css`.
+Implementation: `src/components/chrome/RouteCloudTransition.tsx` and `src/styles/travel-motion.css`.
 
 Behaviour:
-- ordinary left-click on a different same-origin route: scene begins to recede, full cloud cover is reached at roughly half a second, navigation starts only after the old page is obscured, then the new page is revealed through a roughly one-second descent;
-- a short `covered` phase prevents a normal page swap from flashing underneath the effect;
+- ordinary left-click on a different same-origin route starts navigation immediately with `router.push`;
+- the cloud animation runs on top of the real route change and never waits before navigation begins;
+- a very short minimum visual cover of roughly 160ms prevents the effect from reading as a flash when a route is already cached;
+- once the pathname changes, the clouds clear in roughly 260ms;
+- if navigation genuinely takes longer, the animated cloud layer remains visible until the route changes instead of showing an unfinished page swap;
 - modifier clicks, new-tab links, downloads, mailto/tel links, external links and same-page anchors are untouched;
-- reduced-motion users use normal navigation with no interception and no scene transform;
+- reduced-motion users use normal navigation with no interception;
 - a fallback timeout clears the effect if navigation does not complete normally;
-- all clouds are original CSS gradient compositions, are `aria-hidden`, and contain no information.
+- the overlay is `aria-hidden` and contains no information.
+
+### Visual direction
+
+The route transition intentionally uses clear cloud silhouettes rather than abstract blurred white shapes. A pale sky layer establishes contrast, six large puffy SVG clouds sweep through the viewport, and only a light mist layer softens the overlap. The page itself gets a very small scale/blur cue during the transition, but there is no long camera animation or artificial hold.
 
 ## Dependency decision
 
-This version deliberately stays dependency-free. Native browser APIs are sufficient for the current SVG path tracking and route fly-through. Introduce the `motion` package only when future scenes need spring physics, shared-layout transitions, gesture response, complex enter/exit orchestration or reusable scroll-linked MotionValues.
+This version deliberately stays dependency-free. Native browser APIs are sufficient for the current SVG path tracking and short route-cover transition. Introduce the `motion` package only when future scenes need spring physics, shared-layout transitions, gesture response, complex enter/exit orchestration or reusable scroll-linked MotionValues.
