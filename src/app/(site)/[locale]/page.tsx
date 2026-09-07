@@ -7,6 +7,7 @@ import { HomeHero } from '@/components/home/HomeHero'
 import { HelpMeChoose } from '@/components/home/HelpMeChoose'
 import { DestinationIndex } from '@/components/home/DestinationIndex'
 import { HowWeWork } from '@/components/home/HowWeWork'
+import { StudentVoices } from '@/components/home/StudentVoices'
 import { LatestInsights } from '@/components/home/LatestInsights'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { OrganizationSchema } from '@/components/seo/OrganizationSchema'
@@ -55,6 +56,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <HelpMeChoose locale={typed} />
       <DestinationIndex locale={typed} />
       <HowWeWork locale={typed} />
+      <StudentVoices locale={typed} />
       <LatestInsights locale={typed} />
       <ConsultationBand locale={typed} />
     </>

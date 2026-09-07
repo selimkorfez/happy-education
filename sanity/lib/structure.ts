@@ -4,8 +4,8 @@ import type { StructureResolver } from 'sanity/structure'
  * Studio navigation.
  *
  * Grouped the way the editorial team thinks about the site rather than as a flat
- * alphabetical list of twenty document types, and split by language at the top
- * level because the two trees are edited largely independently.
+ * alphabetical list of document types. Publishing gets its own workspace so a
+ * routine blog/social update does not require hunting through the wider site tree.
  */
 export const deskStructure: StructureResolver = (S) =>
   S.list()
@@ -14,6 +14,26 @@ export const deskStructure: StructureResolver = (S) =>
       S.listItem()
         .title('Site settings')
         .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
+
+      S.listItem()
+        .title('Publishing')
+        .child(
+          S.list()
+            .title('Publishing')
+            .items([
+              publishingLocale(S, 'English articles', 'article', 'en'),
+              publishingLocale(S, 'Türkçe articles', 'article', 'tr'),
+              S.divider(),
+              publishingLocale(S, 'English social stories', 'socialPost', 'en'),
+              publishingLocale(S, 'Türkçe social stories', 'socialPost', 'tr'),
+              S.divider(),
+              publishingLocale(S, 'English student experiences', 'testimonial', 'en'),
+              publishingLocale(S, 'Türkçe student experiences', 'testimonial', 'tr'),
+              S.divider(),
+              S.documentTypeListItem('category').title('Article categories'),
+              S.documentTypeListItem('author').title('Authors'),
+            ]),
+        ),
 
       S.divider(),
 
@@ -90,11 +110,30 @@ const LOCALE_TYPES: Array<[string, string]> = [
   ['tour', 'Tours'],
   ['article', 'Articles'],
   ['category', 'Categories'],
+  ['socialPost', 'Social media stories'],
+  ['testimonial', 'Student experiences'],
   ['guide', 'Student guides'],
   ['service', 'Services'],
   ['page', 'Pages'],
   ['legalPage', 'Legal pages'],
 ]
+
+function publishingLocale(
+  S: Parameters<StructureResolver>[0],
+  title: string,
+  type: string,
+  locale: string,
+) {
+  return S.listItem()
+    .title(title)
+    .child(
+      S.documentList()
+        .title(title)
+        .filter('_type == $type && locale == $locale')
+        .params({ type, locale })
+        .apiVersion('2026-08-01'),
+    )
+}
 
 function localeSection(S: Parameters<StructureResolver>[0], title: string, locale: string) {
   return [

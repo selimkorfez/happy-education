@@ -8,6 +8,7 @@ import { StarterAwareSummerListingTemplate } from './StarterAwareSummerListingTe
 import { SummerProgrammeTemplate } from './SummerProgrammeTemplate'
 import { TourTemplate } from './TourTemplate'
 import { ArticleTemplate } from './ArticleTemplate'
+import { SocialContentTemplate, StudentStoriesTemplate } from './CommunityTemplates'
 import { ProseTemplate } from './ProseTemplate'
 import { LegalTemplate } from './LegalTemplate'
 import { FixedPageTemplate } from './FixedPageTemplate'
@@ -35,6 +36,10 @@ export function renderRoute(locale: Locale, route: ResolvedRoute): ReactElement 
       return <TourTemplate locale={locale} doc={route.doc} />
     case 'article':
       return <ArticleTemplate locale={locale} doc={route.doc} />
+    case 'socialHub':
+      return <SocialContentTemplate locale={locale} posts={route.posts} />
+    case 'studentStories':
+      return <StudentStoriesTemplate locale={locale} testimonials={route.testimonials} />
     case 'prose':
       return <ProseTemplate locale={locale} section={route.section} doc={route.doc} />
     case 'legal':

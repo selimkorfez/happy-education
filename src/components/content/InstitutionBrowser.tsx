@@ -2,23 +2,26 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
+import { MediaFrame } from '@/components/ui/MediaFrame'
 import type { Locale } from '@/lib/i18n/config'
+import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 
 export interface InstitutionBrowserItem {
   href: string
   title: string
   city?: string
   country?: string
+  image?: LicensedExternalImage | null
 }
 
 type SortMode = 'popular' | 'az'
 
 const COPY = {
   en: {
-    search: 'Search institutions', placeholder: 'Try a university, city or country', count: 'options', empty: 'No institutions match that search yet.', clear: 'Clear search', preview: 'Quick preview', open: 'Open profile', sort: 'Sort by', popular: 'Popular', az: 'A–Z', popularNote: 'Curated starting order, not a live ranking.',
+    search: 'Search institutions', placeholder: 'Try a university, city or country', count: 'options', empty: 'No institutions match that search yet.', clear: 'Clear search', preview: 'Quick preview', open: 'Open profile', sort: 'Sort by', popular: 'Popular', az: 'A–Z', popularNote: 'Curated starting order, not a live ranking.', campus: 'Campus photo', location: 'Location photo', pending: 'Photo being verified',
   },
   tr: {
-    search: 'Kurumlarda ara', placeholder: 'Üniversite, şehir veya ülke arayın', count: 'seçenek', empty: 'Bu aramayla eşleşen kurum bulunamadı.', clear: 'Aramayı temizle', preview: 'Hızlı önizleme', open: 'Profili aç', sort: 'Sırala', popular: 'Popüler', az: 'A–Z', popularNote: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.',
+    search: 'Kurumlarda ara', placeholder: 'Üniversite, şehir veya ülke arayın', count: 'seçenek', empty: 'Bu aramayla eşleşen kurum bulunamadı.', clear: 'Aramayı temizle', preview: 'Hızlı önizleme', open: 'Profili aç', sort: 'Sırala', popular: 'Popüler', az: 'A–Z', popularNote: 'Editoryal başlangıç sırası, canlı bir sıralama değildir.', campus: 'Kampüs fotoğrafı', location: 'Konum fotoğrafı', pending: 'Fotoğraf doğrulanıyor',
   },
 } as const
 
@@ -34,13 +37,12 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
       ? items.filter((item) => [item.title, item.city, item.country].filter(Boolean).join(' ').toLocaleLowerCase(language).includes(needle))
       : [...items]
 
-    // “Popular” preserves the curated/source order. We do not imply live popularity analytics.
     if (sortMode === 'az') matches.sort((a, b) => a.title.localeCompare(b.title, language, { sensitivity: 'base' }))
     return matches
   }, [items, language, query, sortMode])
 
   return (
-    <div>
+    <div data-testid="institution-browser">
       <div className="mb-7 flex flex-col gap-4 rounded-[1.35rem] border border-border/70 bg-paper-sunk/65 p-4 sm:p-5 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-bold uppercase tracking-[0.08em] text-fg-muted">{copy.sort}</span>
@@ -64,16 +66,38 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
       </div>
 
       {filtered.length > 0 ? (
-        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <ul data-testid="institution-browser-list" className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((item, index) => {
             const location = [item.city, item.country].filter(Boolean).join(', ')
             return (
               <li key={item.href}>
-                <Link href={item.href} className="group relative flex min-h-[10.5rem] h-full flex-col overflow-visible rounded-[1.3rem] border border-border/70 bg-white p-5 no-underline shadow-[0_8px_26px_rgba(35,35,38,0.05)] transition duration-250 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(35,35,38,0.09)] focus-visible:z-20">
-                  <div className="flex items-start justify-between gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-soft text-xs font-black tabular-nums text-brand-strong">{String(index + 1).padStart(2, '0')}</span><span aria-hidden="true" className="text-brand-strong transition-transform duration-200 group-hover:translate-x-1">→</span></div>
-                  <div className="mt-auto pt-6">{location ? <p className="text-xs font-bold uppercase tracking-[0.07em] text-fg-muted">{location}</p> : null}<h3 className="mt-1.5 text-lg font-bold leading-snug text-fg">{item.title}</h3></div>
-                  <span aria-hidden="true" className="pointer-events-none absolute -right-2 top-12 z-20 hidden w-[11.5rem] translate-y-1 rounded-[1rem] border border-border/70 bg-ink-surface px-4 py-3 text-left text-fg-on-ink opacity-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 lg:block"><span className="block text-[0.68rem] font-bold uppercase tracking-[0.09em] text-brand-on-ink">{copy.preview}</span>{location ? <span className="mt-1 block text-xs leading-relaxed text-fg-muted-on-ink">{location}</span> : null}<span className="mt-2 block text-xs font-bold text-fg-on-ink">{copy.open} →</span></span>
-                </Link>
+                <article className="group relative flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_8px_26px_rgba(35,35,38,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(35,35,38,0.09)] focus-within:z-20">
+                  {item.image ? (
+                    <div className="relative overflow-hidden bg-paper-sunk">
+                      <MediaFrame
+                        external={item.image}
+                        alt={item.image.alt}
+                        width={900}
+                        height={506}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        className="aspect-[16/9] w-full [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]"
+                      />
+                      <span className="pointer-events-none absolute left-2 top-2 z-10 rounded-full bg-white/90 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.06em] text-fg shadow-sm backdrop-blur-sm">
+                        {item.image.kind === 'campus' ? copy.campus : copy.location}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="grid aspect-[16/9] place-items-center bg-paper-sunk px-5 text-center text-xs font-bold uppercase tracking-[0.08em] text-fg-muted">
+                      {copy.pending}
+                    </div>
+                  )}
+
+                  <Link href={item.href} className="flex flex-1 flex-col p-5 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset">
+                    <div className="flex items-start justify-between gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-soft text-xs font-black tabular-nums text-brand-strong">{String(index + 1).padStart(2, '0')}</span><span aria-hidden="true" className="text-brand-strong transition-transform duration-200 group-hover:translate-x-1">→</span></div>
+                    <div className="mt-auto pt-6">{location ? <p className="text-xs font-bold uppercase tracking-[0.07em] text-fg-muted">{location}</p> : null}<h3 className="mt-1.5 text-lg font-bold leading-snug text-fg">{item.title}</h3></div>
+                    <span aria-hidden="true" className="pointer-events-none absolute -right-2 top-12 z-20 hidden w-[11.5rem] translate-y-1 rounded-[1rem] border border-border/70 bg-ink-surface px-4 py-3 text-left text-fg-on-ink opacity-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 lg:block"><span className="block text-[0.68rem] font-bold uppercase tracking-[0.09em] text-brand-on-ink">{copy.preview}</span>{location ? <span className="mt-1 block text-xs leading-relaxed text-fg-muted-on-ink">{location}</span> : null}<span className="mt-2 block text-xs font-bold text-fg-on-ink">{copy.open} →</span></span>
+                  </Link>
+                </article>
               </li>
             )
           })}

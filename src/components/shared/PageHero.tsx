@@ -1,12 +1,13 @@
 import type { StaticImageData } from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
+import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 import { Breadcrumbs, type Crumb } from './Breadcrumbs'
 import { SectionVisual, type SectionVisualVariant } from './SectionVisual'
 import { BRAND_IMAGES } from '@/lib/media/library'
 import type { Locale } from '@/lib/i18n/config'
 
-/** Shared interior hero with either cleared photography or a page-specific editorial visual. */
+/** Shared interior hero with cleared CMS, verified open-licence, local or editorial media. */
 export function PageHero({
   locale,
   crumbs,
@@ -14,6 +15,7 @@ export function PageHero({
   title,
   intro,
   image,
+  externalImage,
   localImage,
   imageAlt,
   visualVariant,
@@ -24,15 +26,16 @@ export function PageHero({
   title: string
   intro?: string
   image?: MediaSource | null
+  externalImage?: LicensedExternalImage | null
   localImage?: StaticImageData | null
   imageAlt?: string
   visualVariant?: SectionVisualVariant
 }) {
-  const hasExplicitMedia = image !== undefined || localImage !== undefined
+  const hasExplicitMedia = image !== undefined || externalImage !== undefined || localImage !== undefined
   const hasVisual = hasExplicitMedia || Boolean(visualVariant)
-  const shouldUseAiFallback = hasExplicitMedia && !image && !localImage && !visualVariant
+  const shouldUseAiFallback = hasExplicitMedia && !image && !externalImage && !localImage && !visualVariant
   const resolvedLocalImage = localImage ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.src : null)
-  const resolvedAlt = imageAlt ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.alt : title)
+  const resolvedAlt = imageAlt ?? externalImage?.alt ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.alt : title)
   const editorialLabel = locale === 'tr' ? `${title} illüstrasyonu` : `${title} illustration`
 
   return (
@@ -62,11 +65,12 @@ export function PageHero({
           {hasVisual ? (
             <div className="relative">
               <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-[0_24px_65px_rgba(35,35,38,0.13)] sm:p-3">
-                {visualVariant && !image && !localImage ? (
+                {visualVariant && !image && !externalImage && !localImage ? (
                   <SectionVisual variant={visualVariant} label={editorialLabel} locale={locale} />
                 ) : (
                   <MediaFrame
                     image={image ?? null}
+                    external={externalImage ?? null}
                     local={resolvedLocalImage}
                     alt={resolvedAlt}
                     width={1100}
