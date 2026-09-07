@@ -63,11 +63,13 @@ export default async function LocaleLayout({
         <ConsentProvider>
           <SkipLink locale={typed} />
           <RouteCloudTransition />
-          <SiteHeader locale={typed} />
-          <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
-            {children}
-          </main>
-          <SiteFooter locale={typed} />
+          <div id="route-scene" className="flex min-h-dvh flex-1 flex-col">
+            <SiteHeader locale={typed} />
+            <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+              {children}
+            </main>
+            <SiteFooter locale={typed} />
+          </div>
           <CookieBanner locale={typed} />
           <Analytics />
         </ConsentProvider>
