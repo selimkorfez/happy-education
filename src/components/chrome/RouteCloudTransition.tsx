@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
-type Phase = 'idle' | 'covering' | 'clearing'
+type Phase = 'idle' | 'covering' | 'covered' | 'clearing'
 
 function shouldHandleClick(event: MouseEvent, anchor: HTMLAnchorElement) {
   if (event.defaultPrevented || event.button !== 0) return false
@@ -29,9 +29,19 @@ export function RouteCloudTransition() {
   const previousPathRef = useRef(pathname)
   const pendingRef = useRef<string | null>(null)
   const fallbackRef = useRef<number | null>(null)
+  const coverRef = useRef<number | null>(null)
+  const navigationRef = useRef<number | null>(null)
+  const revealRef = useRef<number | null>(null)
 
   useEffect(() => {
     phaseRef.current = phase
+
+    if (phase === 'idle') {
+      delete document.documentElement.dataset.routeTransition
+      return
+    }
+
+    document.documentElement.dataset.routeTransition = phase
   }, [phase])
 
   useEffect(() => {
@@ -41,15 +51,23 @@ export function RouteCloudTransition() {
     if (!pendingRef.current) return
 
     if (fallbackRef.current) window.clearTimeout(fallbackRef.current)
-    setPhase('clearing')
 
-    const clearTimer = window.setTimeout(() => {
-      pendingRef.current = null
-      phaseRef.current = 'idle'
-      setPhase('idle')
-    }, 920)
+    // Keep the viewer inside the cloud layer very briefly after the new route
+    // arrives. This prevents a normal page swap from being visible underneath.
+    revealRef.current = window.setTimeout(() => {
+      phaseRef.current = 'clearing'
+      setPhase('clearing')
 
-    return () => window.clearTimeout(clearTimer)
+      revealRef.current = window.setTimeout(() => {
+        pendingRef.current = null
+        phaseRef.current = 'idle'
+        setPhase('idle')
+      }, 980)
+    }, 120)
+
+    return () => {
+      if (revealRef.current) window.clearTimeout(revealRef.current)
+    }
   }, [pathname])
 
   useEffect(() => {
@@ -76,10 +94,16 @@ export function RouteCloudTransition() {
       phaseRef.current = 'covering'
       setPhase('covering')
 
-      // Let the camera visually rise into a fully opaque cloud layer before the route changes.
-      window.setTimeout(() => {
+      // First the page visibly recedes, then the viewer reaches the dense cloud
+      // layer. The route only changes once the old page is completely obscured.
+      coverRef.current = window.setTimeout(() => {
+        phaseRef.current = 'covered'
+        setPhase('covered')
+      }, 540)
+
+      navigationRef.current = window.setTimeout(() => {
         router.push(destination)
-      }, 460)
+      }, 650)
 
       fallbackRef.current = window.setTimeout(() => {
         if (!pendingRef.current) return
@@ -89,14 +113,18 @@ export function RouteCloudTransition() {
         window.setTimeout(() => {
           phaseRef.current = 'idle'
           setPhase('idle')
-        }, 920)
-      }, 4000)
+        }, 980)
+      }, 4500)
     }
 
     document.addEventListener('click', onClick, true)
     return () => {
       document.removeEventListener('click', onClick, true)
       if (fallbackRef.current) window.clearTimeout(fallbackRef.current)
+      if (coverRef.current) window.clearTimeout(coverRef.current)
+      if (navigationRef.current) window.clearTimeout(navigationRef.current)
+      if (revealRef.current) window.clearTimeout(revealRef.current)
+      delete document.documentElement.dataset.routeTransition
     }
   }, [router])
 
@@ -106,8 +134,10 @@ export function RouteCloudTransition() {
       data-phase={phase}
       className="he-route-cloud-transition fixed inset-0 z-[120] overflow-hidden pointer-events-none"
     >
-      <div className="he-route-cloud-depth he-route-cloud-depth-far absolute inset-[-16%]" />
+      <div className="he-route-cloud-depth he-route-cloud-depth-far absolute inset-[-22%]" />
       <div className="he-route-sky absolute inset-0" />
+      <div className="he-route-cloud-bank he-route-cloud-bank-top absolute inset-x-[-24%] top-[-30%] h-[70%]" />
+      <div className="he-route-cloud-bank he-route-cloud-bank-bottom absolute inset-x-[-24%] bottom-[-32%] h-[72%]" />
       <span className="he-route-cloud he-route-cloud-1" />
       <span className="he-route-cloud he-route-cloud-2" />
       <span className="he-route-cloud he-route-cloud-3" />
@@ -118,7 +148,7 @@ export function RouteCloudTransition() {
       <span className="he-route-cloud he-route-cloud-8" />
       <span className="he-route-cloud he-route-cloud-9" />
       <span className="he-route-cloud he-route-cloud-10" />
-      <div className="he-route-cloud-depth he-route-cloud-depth-near absolute inset-[-24%]" />
+      <div className="he-route-cloud-depth he-route-cloud-depth-near absolute inset-[-34%]" />
       <div className="he-route-cloud-haze absolute inset-0" />
     </div>
   )
