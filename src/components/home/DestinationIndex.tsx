@@ -75,9 +75,8 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
                       placeholderLabel={`Destination photograph: ${label}`}
                     />
                     <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/88 via-black/18 to-black/5" />
-                    <div aria-hidden="true" className="pointer-events-none absolute inset-x-5 top-5 flex items-center justify-between text-white/76">
-                      <span className="rounded-full border border-white/16 bg-black/18 px-2.5 py-1 text-[0.68rem] font-black tabular-nums backdrop-blur-md">0{index + 1}</span>
-                      <span className="text-xs font-black uppercase tracking-[0.1em]">{copy.cue}</span>
+                    <div className="pointer-events-none absolute right-5 top-5 text-right text-xs font-black uppercase tracking-[0.1em] text-white/82">
+                      {copy.cue}
                     </div>
 
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-6">
