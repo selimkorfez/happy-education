@@ -47,9 +47,6 @@ export const deskStructure: StructureResolver = (S) =>
               S.divider(),
               publishingLocale(S, 'English destination guides', 'destination', 'en'),
               publishingLocale(S, 'Türkçe destinasyon rehberleri', 'destination', 'tr'),
-              S.divider(),
-              publishingLocale(S, 'English university articles', 'article', 'en'),
-              publishingLocale(S, 'Türkçe üniversite yazıları', 'article', 'tr'),
             ]),
         ),
 
