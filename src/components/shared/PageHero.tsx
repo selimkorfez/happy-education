@@ -6,10 +6,9 @@ import { Reveal } from '@/components/ui/Reveal'
 import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 import { Breadcrumbs, type Crumb } from './Breadcrumbs'
 import { SectionVisual, type SectionVisualVariant } from './SectionVisual'
-import { BRAND_IMAGES } from '@/lib/media/library'
 import type { Locale } from '@/lib/i18n/config'
 
-/** Shared interior hero with cleared CMS, verified open-licence, local or editorial media. */
+/** Shared interior hero with cleared CMS, verified open-licence or editorial media. */
 export function PageHero({
   locale,
   crumbs,
@@ -33,11 +32,9 @@ export function PageHero({
   imageAlt?: string
   visualVariant?: SectionVisualVariant
 }) {
-  const hasExplicitMedia = image !== undefined || externalImage !== undefined || localImage !== undefined
-  const hasVisual = hasExplicitMedia || Boolean(visualVariant)
-  const shouldUseAiFallback = hasExplicitMedia && !image && !externalImage && !localImage && !visualVariant
-  const resolvedLocalImage = localImage ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.src : null)
-  const resolvedAlt = imageAlt ?? externalImage?.alt ?? (shouldUseAiFallback ? BRAND_IMAGES.libraryInterior.alt : title)
+  const hasMedia = Boolean(image || externalImage || localImage)
+  const hasVisual = hasMedia || Boolean(visualVariant)
+  const resolvedAlt = imageAlt ?? externalImage?.alt ?? title
   const editorialLabel = locale === 'tr' ? `${title} illüstrasyonu` : `${title} illustration`
 
   return (
@@ -72,13 +69,13 @@ export function PageHero({
             <Reveal delay={90} className="relative">
               <div aria-hidden="true" className="absolute -inset-4 rounded-[2.4rem] bg-gradient-to-br from-brand/12 via-white/10 to-blue-300/12 blur-2xl" />
               <div className="he-shine-card group relative overflow-hidden rounded-[1.9rem] border border-white/80 bg-white/76 p-2.5 shadow-[0_28px_75px_rgba(35,35,38,0.13)] backdrop-blur-xl sm:p-3">
-                {visualVariant && !image && !externalImage && !localImage ? (
+                {visualVariant && !hasMedia ? (
                   <SectionVisual variant={visualVariant} label={editorialLabel} locale={locale} />
                 ) : (
                   <MediaFrame
                     image={image ?? null}
                     external={externalImage ?? null}
-                    local={resolvedLocalImage}
+                    local={localImage ?? null}
                     alt={resolvedAlt}
                     width={1100}
                     height={760}
