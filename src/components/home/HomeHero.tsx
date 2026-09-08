@@ -4,7 +4,7 @@ import { MediaFrame } from '@/components/ui/MediaFrame'
 import { AmbientBackdrop } from '@/components/ui/AmbientBackdrop'
 import { sectionPath, type Locale } from '@/lib/i18n/config'
 import { BUSINESS, publicValue } from '@/lib/business-facts'
-import { brandImage } from '@/lib/media/library'
+import { licensedMediaForPlace } from '@/lib/media/licensed-media'
 
 const COPY = {
   en: {
@@ -35,7 +35,7 @@ const COPY = {
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const copy = COPY[locale]
-  const hero = brandImage('heroLondon')
+  const hero = licensedMediaForPlace('london')
   const founded = publicValue(BUSINESS.foundedYear)
   const companyNumber = publicValue(BUSINESS.companyNumber)
 
@@ -104,13 +104,14 @@ export function HomeHero({ locale }: { locale: Locale }) {
               <div aria-hidden="true" className="absolute -inset-4 rounded-[2.6rem] bg-gradient-to-br from-brand/18 via-white/5 to-blue-400/10 blur-2xl" />
               <div className="he-shine-card group relative overflow-hidden rounded-[2.15rem] border border-white/14 bg-white/8 p-2.5 shadow-[0_40px_110px_rgba(0,0,0,0.42)] backdrop-blur-xl sm:p-3">
                 <MediaFrame
-                  local={hero.src}
-                  alt={hero.alt}
+                  external={hero}
+                  alt={hero?.alt ?? 'University architecture in London'}
                   width={1800}
                   height={1200}
                   priority
                   sizes="(max-width: 1024px) 100vw, 55vw"
                   className="aspect-[4/3] w-full overflow-hidden rounded-[1.7rem] lg:aspect-[1.08/1] [&_img]:transition-transform [&_img]:duration-[1200ms] group-hover:[&_img]:scale-[1.035]"
+                  placeholderLabel="London university photograph"
                 />
 
                 <div aria-hidden="true" className="pointer-events-none absolute inset-3 rounded-[1.7rem] bg-gradient-to-t from-black/45 via-transparent to-white/5" />
@@ -130,16 +131,6 @@ export function HomeHero({ locale }: { locale: Locale }) {
                       : 'Build a shortlist around your course, city, budget and actual goals.'}
                   </p>
                 </div>
-              </div>
-
-              <div className="he-float absolute -left-5 top-[18%] hidden min-w-[9.5rem] rounded-2xl border border-white/14 bg-[#18181b]/82 px-4 py-3 text-white shadow-[0_18px_45px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:block lg:-left-8">
-                <p className="text-[0.68rem] font-black uppercase tracking-[0.11em] text-brand-on-ink">{locale === 'tr' ? '01 · KEŞFET' : '01 · EXPLORE'}</p>
-                <p className="mt-1 text-sm font-bold">{locale === 'tr' ? 'Ülke + program' : 'Country + course'}</p>
-              </div>
-
-              <div className="he-float-delayed absolute -right-3 bottom-[19%] hidden min-w-[9.5rem] rounded-2xl border border-white/14 bg-white/92 px-4 py-3 text-fg shadow-[0_18px_45px_rgba(0,0,0,0.24)] backdrop-blur-xl sm:block lg:-right-5">
-                <p className="text-[0.68rem] font-black uppercase tracking-[0.11em] text-brand-strong">{locale === 'tr' ? '02 · PLANLA' : '02 · PLAN'}</p>
-                <p className="mt-1 text-sm font-bold">{locale === 'tr' ? 'Başvuruyu netleştir' : 'Make it actionable'}</p>
               </div>
             </div>
           </div>
