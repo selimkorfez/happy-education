@@ -20,7 +20,8 @@ export const dynamic = 'force-dynamic'
 const KNOWN_TYPES = new Set([
   'destination', 'institution', 'languageSchool', 'boardingSchool', 'summerProgramme',
   'tour', 'article', 'category', 'author', 'guide', 'service', 'page', 'legalPage',
-  'siteSettings', 'translationGroup', 'redirect',
+  'socialPost', 'testimonial', 'teamMember', 'office', 'partner',
+  'appointmentType', 'paymentService', 'siteSettings', 'translationGroup', 'redirect',
 ])
 
 function timingSafeEqual(a: string, b: string): boolean {
