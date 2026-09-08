@@ -29,6 +29,7 @@ import {
   getEditorialTour,
 } from '@/lib/content/starter-editorial'
 import { getTurkishStarterProse } from '@/lib/content/starter-turkish-prose'
+import { getLocalLegalPage } from '@/lib/content/legal-fallback'
 import { legalSlug, LEGAL_PAGES, type LegalKey } from '@/lib/legal'
 
 export type ResolvedRoute =
@@ -102,8 +103,9 @@ export async function resolveRoute({
     if (!slug || segments.length > 1) return null
     const entry = LEGAL_PAGES.find((p) => p[locale] === slug)
     if (!entry) return null
-    const doc = await getProseDoc(locale, slug, 'legalPage')
-    return { kind: 'legal', doc, legalKey: entry.key as LegalKey, slug }
+    const legalKey = entry.key as LegalKey
+    const doc = (await getProseDoc(locale, slug, 'legalPage')) ?? getLocalLegalPage(locale, legalKey)
+    return { kind: 'legal', doc, legalKey, slug }
   }
 
   if (segments.length === 0) return { kind: 'sectionIndex', section }

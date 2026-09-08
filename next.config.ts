@@ -59,6 +59,13 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   poweredByHeader: false,
 
+  // Legal markdown is a runtime fallback before Sanity legalPage documents are
+  // imported. The loader uses fs, so explicitly include these source files in
+  // server traces for Vercel instead of relying on dynamic-path inference.
+  outputFileTracingIncludes: {
+    '/*': ['./content/legal/**/*'],
+  },
+
   images: {
     // Sanity remains the CMS source. Wikimedia Commons is additionally allowed for
     // the small audited open-licence registry in src/lib/media/licensed-media.ts.
