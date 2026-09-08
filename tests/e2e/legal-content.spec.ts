@@ -6,7 +6,7 @@ test.describe('legal content fallback', () => {
 
     await expect(page.getByRole('heading', { level: 1, name: 'Terms of Use' })).toBeVisible()
     await expect(page.getByRole('heading', { level: 2, name: 'Who runs this website' })).toBeVisible()
-    await expect(page.getByText('HAPPY EDUCATION CONSULTANCY LTD')).toBeVisible()
+    await expect(page.getByText('HAPPY EDUCATION CONSULTANCY LTD', { exact: true })).toBeVisible()
     await expect(page.getByText('This document is being prepared.')).toHaveCount(0)
   })
 
