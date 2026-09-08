@@ -4,9 +4,9 @@ import type { StructureResolver } from 'sanity/structure'
  * Studio navigation.
  *
  * Grouped the way the editorial team thinks about the site rather than as a flat
- * alphabetical list of document types. Publishing and university content get
- * first-class workspaces so routine editing never requires hunting through the
- * wider site tree.
+ * alphabetical list of document types. Publishing, university content and
+ * programme content get first-class workspaces so routine editing never requires
+ * hunting through the wider site tree.
  */
 export const deskStructure: StructureResolver = (S) =>
   S.list()
@@ -47,6 +47,26 @@ export const deskStructure: StructureResolver = (S) =>
               S.divider(),
               publishingLocale(S, 'English destination guides', 'destination', 'en'),
               publishingLocale(S, 'Türkçe destinasyon rehberleri', 'destination', 'tr'),
+            ]),
+        ),
+
+      S.listItem()
+        .title('Programmes & tours')
+        .child(
+          S.list()
+            .title('Programmes & tours')
+            .items([
+              publishingLocale(S, 'English language schools', 'languageSchool', 'en'),
+              publishingLocale(S, 'Türkçe dil okulları', 'languageSchool', 'tr'),
+              S.divider(),
+              publishingLocale(S, 'English boarding schools', 'boardingSchool', 'en'),
+              publishingLocale(S, 'Türkçe yatılı okullar', 'boardingSchool', 'tr'),
+              S.divider(),
+              publishingLocale(S, 'English summer programmes', 'summerProgramme', 'en'),
+              publishingLocale(S, 'Türkçe yaz programları', 'summerProgramme', 'tr'),
+              S.divider(),
+              publishingLocale(S, 'English tours', 'tour', 'en'),
+              publishingLocale(S, 'Türkçe turlar', 'tour', 'tr'),
             ]),
         ),
 
@@ -95,24 +115,30 @@ export const deskStructure: StructureResolver = (S) =>
 
       S.divider(),
 
-      // Editors need to find stale content without running a query.
       S.listItem()
-        .title('Needs editorial review')
+        .title('Editorial review queues')
         .child(
-          S.documentList()
-            .title('Needs editorial review')
-            .filter('defined(review.editorialFlag) && review.editorialFlag != ""')
-            .apiVersion('2026-08-01'),
-        ),
-
-      S.listItem()
-        .title('Review overdue')
-        .child(
-          S.documentList()
-            .title('Review overdue')
-            .filter('defined(review.nextReviewDue) && review.nextReviewDue < $today')
-            .params({ today: new Date().toISOString().slice(0, 10) })
-            .apiVersion('2026-08-01'),
+          S.list()
+            .title('Editorial review queues')
+            .items([
+              S.listItem()
+                .title('Needs editorial review')
+                .child(
+                  S.documentList()
+                    .title('Needs editorial review')
+                    .filter('defined(review.editorialFlag) && review.editorialFlag != ""')
+                    .apiVersion('2026-08-01'),
+                ),
+              S.listItem()
+                .title('Review overdue')
+                .child(
+                  S.documentList()
+                    .title('Review overdue')
+                    .filter('defined(review.nextReviewDue) && review.nextReviewDue < $today')
+                    .params({ today: new Date().toISOString().slice(0, 10) })
+                    .apiVersion('2026-08-01'),
+                ),
+            ]),
         ),
     ])
 
