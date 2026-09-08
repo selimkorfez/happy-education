@@ -7,6 +7,7 @@ import { ProgrammeEnquiryPanel } from './ProgrammeEnquiryPanel'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { legalPath } from '@/lib/legal'
+import { licensedMediaForPlace } from '@/lib/media/licensed-media'
 import type { SummerProgrammeDoc } from '@/lib/sanity/queries/content'
 import Link from 'next/link'
 
@@ -27,6 +28,8 @@ export function SummerProgrammeTemplate({
   formatSlug: string
 }) {
   const copy = COPY[locale]
+  const clearedHeroImage = doc.heroImage?.licence?.cleared === true ? doc.heroImage : null
+  const verifiedPlaceImage = clearedHeroImage ? null : licensedMediaForPlace(doc.city)
   const crumbs = [
     { label: t(locale, 'brand.name'), href: `/${locale}` },
     { label: t(locale, 'nav.summerSchools'), href: sectionPath(locale, 'summerSchools') },
@@ -44,8 +47,10 @@ export function SummerProgrammeTemplate({
         crumbs={crumbs}
         eyebrow={doc.city}
         title={doc.title}
-        image={doc.heroImage ?? null}
-        imageAlt={doc.heroImage?.alt ?? doc.title}
+        image={clearedHeroImage}
+        externalImage={verifiedPlaceImage}
+        imageAlt={clearedHeroImage?.alt ?? verifiedPlaceImage?.alt ?? doc.title}
+        visualVariant="summer"
       />
 
       <Container>
