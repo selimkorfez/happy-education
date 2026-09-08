@@ -6,6 +6,7 @@ import { EmptySection } from './shared'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { licensedMediaForPlace } from '@/lib/media/licensed-media'
+import { licensedMediaForEditorialText, licensedMediaForEditorialVariant } from '@/lib/media/editorial-media'
 import { listSummerProgrammes } from '@/lib/sanity/queries/content'
 
 /** Listing of summer programmes for one format. */
@@ -37,16 +38,19 @@ export async function SummerListingTemplate({
           ) : (
             <SortableCardGrid
               locale={locale}
-              items={programmes.map((p) => {
-                const clearedCmsImage = p.heroImage?.licence?.cleared === true
+              items={programmes.map((programme) => {
+                const clearedCmsImage = programme.heroImage?.licence?.cleared === true
                 return {
-                  href: docPath(locale, 'summerSchools', formatSlug, p.slug),
-                  title: p.title,
-                  meta: [p.city, p.ageRange].filter(Boolean).join(' · ') || undefined,
-                  image: clearedCmsImage ? p.heroImage : undefined,
-                  externalImage: clearedCmsImage ? null : licensedMediaForPlace(p.city),
-                  imageAlt: p.heroImage?.alt ?? p.title,
-                  fallbackVisual: 'summer' as const,
+                  href: docPath(locale, 'summerSchools', formatSlug, programme.slug),
+                  title: programme.title,
+                  meta: [programme.city, programme.ageRange].filter(Boolean).join(' · ') || undefined,
+                  image: clearedCmsImage ? programme.heroImage : undefined,
+                  externalImage: clearedCmsImage
+                    ? null
+                    : licensedMediaForPlace(programme.city)
+                      ?? licensedMediaForEditorialText(programme.title, programme.city, 'summer programme')
+                      ?? licensedMediaForEditorialVariant('summer'),
+                  imageAlt: programme.heroImage?.alt ?? programme.title,
                 }
               })}
             />
