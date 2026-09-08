@@ -4,8 +4,9 @@ import type { StructureResolver } from 'sanity/structure'
  * Studio navigation.
  *
  * Grouped the way the editorial team thinks about the site rather than as a flat
- * alphabetical list of document types. Publishing gets its own workspace so a
- * routine blog/social update does not require hunting through the wider site tree.
+ * alphabetical list of document types. Publishing and university content get
+ * first-class workspaces so routine editing never requires hunting through the
+ * wider site tree.
  */
 export const deskStructure: StructureResolver = (S) =>
   S.list()
@@ -21,17 +22,34 @@ export const deskStructure: StructureResolver = (S) =>
           S.list()
             .title('Publishing')
             .items([
-              publishingLocale(S, 'English articles', 'article', 'en'),
-              publishingLocale(S, 'Türkçe articles', 'article', 'tr'),
+              publishingLocale(S, 'English blog articles', 'article', 'en'),
+              publishingLocale(S, 'Türkçe blog yazıları', 'article', 'tr'),
               S.divider(),
               publishingLocale(S, 'English social stories', 'socialPost', 'en'),
-              publishingLocale(S, 'Türkçe social stories', 'socialPost', 'tr'),
+              publishingLocale(S, 'Türkçe sosyal hikâyeler', 'socialPost', 'tr'),
               S.divider(),
               publishingLocale(S, 'English student experiences', 'testimonial', 'en'),
-              publishingLocale(S, 'Türkçe student experiences', 'testimonial', 'tr'),
+              publishingLocale(S, 'Türkçe öğrenci deneyimleri', 'testimonial', 'tr'),
               S.divider(),
               S.documentTypeListItem('category').title('Article categories'),
               S.documentTypeListItem('author').title('Authors'),
+            ]),
+        ),
+
+      S.listItem()
+        .title('Universities & study content')
+        .child(
+          S.list()
+            .title('Universities & study content')
+            .items([
+              publishingLocale(S, 'English universities', 'institution', 'en'),
+              publishingLocale(S, 'Türkçe üniversiteler', 'institution', 'tr'),
+              S.divider(),
+              publishingLocale(S, 'English destination guides', 'destination', 'en'),
+              publishingLocale(S, 'Türkçe destinasyon rehberleri', 'destination', 'tr'),
+              S.divider(),
+              publishingLocale(S, 'English university articles', 'article', 'en'),
+              publishingLocale(S, 'Türkçe üniversite yazıları', 'article', 'tr'),
             ]),
         ),
 
