@@ -9,10 +9,11 @@ import { ProseSection, FactTable, CardGrid } from './shared'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
+import { licensedMediaForInstitutionOrPlace } from '@/lib/media/licensed-media'
 import {
-  licensedMediaForDestination,
-  licensedMediaForInstitutionOrPlace,
-} from '@/lib/media/licensed-media'
+  licensedMediaForDestinationEditorial,
+  licensedMediaForEditorialText,
+} from '@/lib/media/editorial-media'
 import type { DestinationDoc } from '@/lib/sanity/queries/content'
 
 export function DestinationTemplate({
@@ -38,16 +39,7 @@ export function DestinationTemplate({
   const cmsImageCleared = doc.heroImage?.licence?.cleared === true
   const documentaryImage = cmsImageCleared
     ? null
-    : licensedMediaForDestination(doc.slug) ?? licensedMediaForDestination(doc.title)
-  const editorialVisual = !cmsImageCleared && !documentaryImage
-    ? doc.parentSlug
-      ? 'city'
-      : section === 'languageSchools'
-        ? 'language'
-        : section === 'universities'
-          ? 'universities'
-          : undefined
-    : undefined
+    : licensedMediaForDestinationEditorial(doc.slug, doc.title, doc.parentTitle)
   const pageLinks: Array<{ href: string; label: string }> = []
   if (doc.whyStudyHere) pageLinks.push({ href: '#why', label: labels.whyStudyHere })
   if (doc.applicationJourney) pageLinks.push({ href: '#applying', label: labels.applicationJourney })
@@ -66,8 +58,7 @@ export function DestinationTemplate({
         intro={doc.intro}
         image={cmsImageCleared ? doc.heroImage : null}
         externalImage={documentaryImage}
-        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage?.alt}
-        visualVariant={editorialVisual}
+        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage.alt}
       />
 
       {pageLinks.length > 1 ? (
@@ -189,6 +180,7 @@ export function DestinationTemplate({
                   href: docPath(locale, 'insights', article.slug),
                   title: article.title,
                   excerpt: article.excerpt,
+                  externalImage: licensedMediaForEditorialText(article.title, article.excerpt, doc.title),
                 }))}
               />
             </div>
