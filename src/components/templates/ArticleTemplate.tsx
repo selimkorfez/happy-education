@@ -18,6 +18,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
   const copy = COPY[locale]
   const headings = doc.showTableOfContents ? extractHeadings(doc.body) : []
   const showAuthor = Boolean(doc.author?.name && doc.author.consentOnFile)
+  const leadImageCleared = doc.leadImage?.licence?.cleared === true
 
   const crumbs = [
     { label: t(locale, 'brand.name'), href: `/${locale}` },
@@ -43,7 +44,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
               </div>
 
               <div className="space-y-4">
-                {!doc.leadImage ? (
+                {!leadImageCleared ? (
                   <div className="overflow-hidden rounded-[1.35rem] border border-white/70 bg-white p-2 shadow-[0_18px_45px_rgba(35,35,38,0.08)]">
                     <SectionVisual variant="insights" label={`${doc.title} editorial illustration`} locale={locale} />
                   </div>
@@ -61,7 +62,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
           </Container>
         </header>
 
-        {doc.leadImage ? (
+        {leadImageCleared && doc.leadImage ? (
           <div className="bg-paper pt-8 sm:pt-10">
             <Container width="wide">
               <div className="overflow-hidden rounded-[1.75rem] bg-white p-2 shadow-[0_22px_60px_rgba(35,35,38,0.10)] sm:p-3">
@@ -104,10 +105,9 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
                       <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.jumpTo}</p>
                       <h2 id="toc-heading" className="mt-2 text-lg font-bold text-fg">{copy.contents}</h2>
                       <ol className="mt-4 space-y-2.5 text-sm">
-                        {headings.map((heading, index) => (
+                        {headings.map((heading) => (
                           <li key={heading.id}>
                             <a href={`#${heading.id}`} className="group flex gap-3 text-fg-muted no-underline transition hover:text-fg">
-                              <span className="font-bold tabular-nums text-brand-strong">{String(index + 1).padStart(2, '0')}</span>
                               <span className="leading-snug group-hover:underline group-hover:underline-offset-4">{heading.text}</span>
                             </a>
                           </li>
