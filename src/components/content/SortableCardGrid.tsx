@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
+import { SectionVisual, type SectionVisualVariant } from '@/components/shared/SectionVisual'
 import type { Locale } from '@/lib/i18n/config'
 import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 
@@ -15,6 +16,7 @@ export interface SortableCardItem {
   image?: MediaSource | null
   externalImage?: LicensedExternalImage | null
   imageAlt?: string
+  fallbackVisual?: SectionVisualVariant
 }
 
 type SortMode = 'popular' | 'az'
@@ -74,8 +76,12 @@ export function SortableCardGrid({ locale, items }: { locale: Locale; items: Sor
                     {item.externalImage.licence}
                   </a>
                 </div>
+              ) : item.image ? (
+                <div className="overflow-hidden"><MediaFrame image={item.image} alt={item.imageAlt ?? item.title} decorative width={720} height={480} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="aspect-[3/2] w-full [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.045]" placeholderLabel={item.title} /></div>
+              ) : item.fallbackVisual ? (
+                <SectionVisual variant={item.fallbackVisual} label={`${item.title} illustration`} locale={locale} />
               ) : item.image !== undefined ? (
-                <div className="overflow-hidden"><MediaFrame image={item.image ?? null} alt={item.imageAlt ?? item.title} decorative width={720} height={480} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="aspect-[3/2] w-full [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.045]" placeholderLabel={item.title} /></div>
+                <div className="overflow-hidden"><MediaFrame image={null} alt={item.imageAlt ?? item.title} decorative width={720} height={480} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="aspect-[3/2] w-full" placeholderLabel={item.title} /></div>
               ) : null}
               <Link href={item.href} className="flex flex-1 flex-col p-5 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset sm:p-6">
                 {item.meta ? <p className="text-xs font-bold uppercase tracking-[0.08em] text-brand-strong">{item.meta}</p> : null}
