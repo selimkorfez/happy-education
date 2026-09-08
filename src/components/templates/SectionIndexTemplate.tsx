@@ -65,6 +65,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
                       image: clearedCmsImage ? d.heroImage : undefined,
                       externalImage: clearedCmsImage ? null : licensedMediaForDestination(d.slug) ?? licensedMediaForDestination(d.title),
                       imageAlt: d.heroImage?.alt ?? d.title,
+                      fallbackVisual: section === 'universities' ? 'universities' as const : 'language' as const,
                     }
                   })}
                 />
@@ -138,20 +139,50 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     case 'tours': {
       const tours = await listTours(locale)
       if (tours.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <SortableCardGrid locale={locale} items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title, image: tour.heroImage ?? null }))} />
+      return (
+        <SortableCardGrid
+          locale={locale}
+          items={tours.map((tour) => {
+            const clearedCmsImage = tour.heroImage?.licence?.cleared === true
+            return {
+              href: docPath(locale, section, tour.slug),
+              title: tour.title,
+              image: clearedCmsImage ? tour.heroImage : undefined,
+              externalImage: clearedCmsImage ? null : licensedMediaForDestination(tour.title),
+              fallbackVisual: 'tours' as const,
+            }
+          })}
+        />
+      )
     }
 
     case 'insights': {
       const articles = await getArticlesByCategory(locale, null, 60)
       if (articles.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <SortableCardGrid locale={locale} items={articles.map((a) => ({ href: docPath(locale, section, a.slug), title: a.title, meta: a.category, excerpt: a.excerpt, image: a.image ?? null, imageAlt: a.imageAlt ?? a.title }))} />
+      return (
+        <SortableCardGrid
+          locale={locale}
+          items={articles.map((a) => {
+            const clearedCmsImage = a.image?.licence?.cleared === true
+            return {
+              href: docPath(locale, section, a.slug),
+              title: a.title,
+              meta: a.category,
+              excerpt: a.excerpt,
+              image: clearedCmsImage ? a.image : undefined,
+              imageAlt: a.imageAlt ?? a.title,
+              fallbackVisual: 'insights' as const,
+            }
+          })}
+        />
+      )
     }
 
     case 'guides':
     case 'services': {
       const docs = await getProseIndex(locale, section === 'guides' ? 'guide' : 'service')
       if (docs.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <SortableCardGrid locale={locale} items={docs.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.summary }))} />
+      return <SortableCardGrid locale={locale} items={docs.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.summary, fallbackVisual: section === 'guides' ? 'guides' as const : 'services' as const }))} />
     }
 
     case 'legal':
