@@ -80,9 +80,13 @@ const INSTITUTIONS: Record<string, LicensedExternalImage> = {
 /**
  * City/location files. This covers every city exposed by the current English country
  * previews and the most common locations in the migrated university catalogue.
+ *
+ * For the headline study destinations we deliberately prefer strong university
+ * architecture over generic skylines: the photography should immediately feel
+ * relevant to education, not like a travel-booking template.
  */
 const PLACES: Record<string, LicensedExternalImage> = {
-  london: commons('London Skyline 2021.jpg', 'The London skyline seen from Greenwich Park', 'Farbades420', 'CC0 1.0'),
+  london: commons("Strand Building, King's College London.jpg", "The Strand Building at King's College London in central London", 'Shadowssettle', 'CC BY-SA 4.0', 'campus'),
   oxford: commons('University Of Oxford The Bridge Of Sighs.jpg', 'The Bridge of Sighs in Oxford', 'Michael D Beckwith', 'CC0 1.0'),
   cambridge: commons("University of Cambridge, King's College.jpg", "King's College in Cambridge", 'Nine402', 'CC0 1.0'),
   birmingham: commons('Birmingham UK skyline.jpg', 'The Birmingham city skyline', 'newkemall', 'CC BY 2.0'),
@@ -95,25 +99,25 @@ const PLACES: Record<string, LicensedExternalImage> = {
   sheffield: commons('Sheffield Skyline from Park Hill.jpg', 'The Sheffield skyline seen from Park Hill', 'Coolmule0', 'CC0 1.0'),
   leeds: commons('Leeds-city-skyline.png', 'The Leeds city skyline', 'Leedsfan2', 'CC BY 4.0'),
   liverpool: commons('Liverpool Skyline 2.JPG', 'The Liverpool skyline', 'Tetrisforaliens', 'CC0 1.0'),
-  dublin: commons('River-liffey.jpg', 'The River Liffey and central Dublin', 'Dave Meier', 'CC0 1.0'),
+  dublin: commons('Trinity College Dublin Front Square.jpg', 'Front Square and the Campanile at Trinity College Dublin', 'Patrick Keegan', 'CC BY 4.0', 'campus'),
   cork: commons('Cork city, Ireland.jpg', 'A city view across Cork, Ireland', 'Marina Melik-Adamyan', 'CC BY-SA 4.0'),
   galway: commons('GALWAY.jpg', 'A city view in Galway, Ireland', 'August Dominus', 'CC0 1.0'),
-  'new york': commons('Iconic Skyline of New York City.jpg', 'The New York City skyline', 'Farida Belal', 'CC0 1.0'),
+  'new york': commons('Columbia University - Low Library.jpg', 'Low Memorial Library at Columbia University in New York City', 'Bitterteayen', 'CC BY-SA 4.0', 'campus'),
   boston: commons('Boston-skyline.jpg', 'The Boston skyline across the harbour', 'Joe Valentine', 'CC0 1.0'),
   chicago: commons('Chicago skyline (215488049).jpg', 'The Chicago skyline', 'Christian Stankevitz', 'CC0 1.0'),
   'los angeles': commons('Los Angeles Skyline; August 30, 2022.jpg', 'The Los Angeles skyline', 'ItzAPotato2009', 'CC0 1.0'),
   'san francisco': commons('San Francisco city skyline.jpg', 'The San Francisco skyline', 'Lisafern', 'CC0 1.0'),
-  toronto: commons('Toronto skyline.png', "The Toronto skyline viewed from Ward's Island", 'Bpp88520', 'CC0 1.0'),
+  toronto: commons('Toronto university.jpg', 'The University of Toronto St George campus', 'Xinli2', 'CC BY-SA 4.0', 'campus'),
   vancouver: commons("Vancouver’s skyline as seen from lonsdale quay.jpg", 'The Vancouver skyline seen from Lonsdale Quay', 'Lizardhugger92', 'CC0 1.0'),
   montreal: commons('Montreal Skyline.jpg', 'The Montreal skyline', 'CanadianPhotographer', 'CC0 1.0'),
-  sydney: commons('Sydney skyline (23700049033).jpg', 'The Sydney skyline', 'www.Pixel.la Free Stock Photos / Ed Gregory', 'CC0 1.0'),
+  sydney: commons('University of Sydney Quadrangle.jpg', 'The Main Quadrangle at the University of Sydney', 'Cinephile20XX', 'CC BY-SA 4.0', 'campus'),
   melbourne: commons('City of Melbourne Skyline From Docklands.JPG', 'The Melbourne skyline seen from Docklands', 'Maximus Lu', 'CC0 1.0'),
   brisbane: commons('Brisbane skyline.JPG', 'The Brisbane skyline', 'Dinkum', 'CC0 1.0'),
   perth: commons('Perth skyline 2024.jpg', 'The Perth skyline seen from South Perth', 'GenericWikiUser1', 'CC0 1.0'),
   auckland: commons('Auckland skyline (33576959126).jpg', 'The Auckland skyline and harbour', 'Bernard Spragg. NZ', 'CC0 1.0'),
   wellington: commons('Wellington New Zealand 2006.jpg', 'Wellington city and harbour in New Zealand', 'Phillip Capper', 'CC BY 2.0'),
   christchurch: commons('Christchurch Skyline.jpg', 'The Christchurch skyline in New Zealand', 'Francis Vallance (Heritage Warrior)', 'CC BY 2.0'),
-  valletta: commons('VALLETTA.jpg', 'A city view in Valletta, Malta', 'August Dominus', 'CC0 1.0'),
+  valletta: commons("Valletta, Malta's Grand Harbor.jpg", "Valletta's Grand Harbour seen from the Upper Barrakka Gardens", 'TerryDOtt', 'CC BY 4.0'),
   sliema: commons('2007 Sliema.jpg', 'The Sliema waterfront in Malta', 'Syced', 'CC0 1.0'),
   "st julian's": commons("St. Julian's, Malta.jpg", "A coastal city view in St Julian's, Malta", 'August Dominus', 'CC0 1.0'),
   nicosia: commons("Nicosia's Skyline.jpg", 'The Nicosia skyline in Cyprus', 'ConstantinosTziak', 'CC BY-SA 4.0'),
