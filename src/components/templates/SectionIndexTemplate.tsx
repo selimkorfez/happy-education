@@ -11,7 +11,12 @@ import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
 import { summerFormatSlug } from '@/lib/routing'
 import { legalLinks } from '@/lib/legal'
-import { licensedMediaForDestination, licensedMediaForInstitutionOrPlace } from '@/lib/media/licensed-media'
+import { licensedMediaForInstitutionOrPlace } from '@/lib/media/licensed-media'
+import {
+  licensedMediaForDestinationEditorial,
+  licensedMediaForEditorialText,
+  licensedMediaForEditorialVariant,
+} from '@/lib/media/editorial-media'
 import { listDestinations, listInstitutions, listTours, listSummerProgrammes } from '@/lib/sanity/queries/content'
 import { getArticlesByCategory } from '@/lib/sanity/queries/articles'
 import { getProseIndex } from '@/lib/sanity/queries/index-lists'
@@ -56,16 +61,15 @@ async function sectionBody(locale: Locale, section: SectionKey) {
               <div className="mt-8">
                 <SortableCardGrid
                   locale={locale}
-                  items={destinations.map((d) => {
-                    const clearedCmsImage = d.heroImage?.licence?.cleared === true
+                  items={destinations.map((destination) => {
+                    const clearedCmsImage = destination.heroImage?.licence?.cleared === true
                     return {
-                      href: docPath(locale, section, d.slug),
-                      title: d.title,
-                      excerpt: d.intro,
-                      image: clearedCmsImage ? d.heroImage : undefined,
-                      externalImage: clearedCmsImage ? null : licensedMediaForDestination(d.slug) ?? licensedMediaForDestination(d.title),
-                      imageAlt: d.heroImage?.alt ?? d.title,
-                      fallbackVisual: section === 'universities' ? 'universities' as const : 'language' as const,
+                      href: docPath(locale, section, destination.slug),
+                      title: destination.title,
+                      excerpt: destination.intro,
+                      image: clearedCmsImage ? destination.heroImage : undefined,
+                      externalImage: clearedCmsImage ? null : licensedMediaForDestinationEditorial(destination.slug, destination.title),
+                      imageAlt: destination.heroImage?.alt ?? destination.title,
                     }
                   })}
                 />
@@ -148,8 +152,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
               href: docPath(locale, section, tour.slug),
               title: tour.title,
               image: clearedCmsImage ? tour.heroImage : undefined,
-              externalImage: clearedCmsImage ? null : licensedMediaForDestination(tour.title),
-              fallbackVisual: 'tours' as const,
+              externalImage: clearedCmsImage ? null : licensedMediaForEditorialText(tour.title, 'educational tour'),
             }
           })}
         />
@@ -162,16 +165,16 @@ async function sectionBody(locale: Locale, section: SectionKey) {
       return (
         <SortableCardGrid
           locale={locale}
-          items={articles.map((a) => {
-            const clearedCmsImage = a.image?.licence?.cleared === true
+          items={articles.map((article) => {
+            const clearedCmsImage = article.image?.licence?.cleared === true
             return {
-              href: docPath(locale, section, a.slug),
-              title: a.title,
-              meta: a.category,
-              excerpt: a.excerpt,
-              image: clearedCmsImage ? a.image : undefined,
-              imageAlt: a.imageAlt ?? a.title,
-              fallbackVisual: 'insights' as const,
+              href: docPath(locale, section, article.slug),
+              title: article.title,
+              meta: article.category,
+              excerpt: article.excerpt,
+              image: clearedCmsImage ? article.image : undefined,
+              externalImage: clearedCmsImage ? null : licensedMediaForEditorialText(article.title, article.category, article.excerpt),
+              imageAlt: article.imageAlt ?? article.title,
             }
           })}
         />
@@ -182,7 +185,18 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     case 'services': {
       const docs = await getProseIndex(locale, section === 'guides' ? 'guide' : 'service')
       if (docs.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <SortableCardGrid locale={locale} items={docs.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.summary, fallbackVisual: section === 'guides' ? 'guides' as const : 'services' as const }))} />
+      const variant = section === 'guides' ? 'guides' : 'services'
+      return (
+        <SortableCardGrid
+          locale={locale}
+          items={docs.map((doc) => ({
+            href: docPath(locale, section, doc.slug),
+            title: doc.title,
+            excerpt: doc.summary,
+            externalImage: licensedMediaForEditorialText(doc.title, doc.summary) ?? licensedMediaForEditorialVariant(variant),
+          }))}
+        />
+      )
     }
 
     case 'legal':
