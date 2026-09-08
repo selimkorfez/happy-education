@@ -1,9 +1,9 @@
 /*
  * Happy Education — sharp editorial geometry
  *
- * The public site intentionally uses hard corners rather than pill/card rounding.
- * Keep this as a final visual override so new components inherit the direction
- * without every author needing to remember a particular Tailwind radius class.
+ * Interactive controls, cards, media frames and visible UI surfaces use hard
+ * corners. Purely decorative aria-hidden circles/blobs keep their geometry so
+ * the visual language does not turn every background accent into a square.
  */
 
 @layer base {
@@ -13,7 +13,7 @@
     select,
     textarea,
     [role='button'],
-    [class*='rounded'],
+    [class*='rounded']:not([aria-hidden='true']),
     .he-surface,
     .he-pill
   ) {
@@ -22,8 +22,8 @@
 }
 
 @layer utilities {
-  /* Keep the destination rail scrollable by touch, wheel and trackpad, but do not
-     draw a browser scrollbar underneath the cards. */
+  /* Keep destination/content rails scrollable by touch, wheel and trackpad, but
+     do not draw a browser scrollbar underneath the cards. */
   .scroll-x {
     -ms-overflow-style: none;
     scrollbar-width: none;
