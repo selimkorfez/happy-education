@@ -14,11 +14,16 @@ describe('travel motion', () => {
     expect(routeTransition).toContain("prefers-reduced-motion: reduce")
   })
 
-  it('starts navigation immediately instead of waiting for cloud animation', () => {
-    expect(routeTransition).toContain('router.push(destination)')
+  it('commits the cloud state before starting immediate navigation', () => {
+    const flushIndex = routeTransition.indexOf("flushSync(() =>")
+    const pushIndex = routeTransition.indexOf('router.push(destination)')
+
+    expect(flushIndex).toBeGreaterThan(-1)
+    expect(pushIndex).toBeGreaterThan(flushIndex)
+    expect(routeTransition).toContain("applyPhase('covering')")
+    expect(routeTransition).toContain('const MIN_COVER_MS = 180')
     expect(routeTransition).not.toContain('navigationRef')
     expect(routeTransition).not.toContain("type Phase = 'idle' | 'covering' | 'covered'")
-    expect(routeTransition).toContain('const MIN_COVER_MS = 160')
   })
 
   it('uses recognisable SVG cloud silhouettes for the route transition', () => {
