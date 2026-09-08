@@ -11,6 +11,7 @@ import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
 import { summerFormatSlug } from '@/lib/routing'
 import { legalLinks } from '@/lib/legal'
+import { licensedMediaForDestination, licensedMediaForInstitutionOrPlace } from '@/lib/media/licensed-media'
 import { listDestinations, listInstitutions, listTours, listSummerProgrammes } from '@/lib/sanity/queries/content'
 import { getArticlesByCategory } from '@/lib/sanity/queries/articles'
 import { getProseIndex } from '@/lib/sanity/queries/index-lists'
@@ -53,7 +54,20 @@ async function sectionBody(locale: Locale, section: SectionKey) {
             <section>
               <SectionHeading locale={locale} kicker={locale === 'tr' ? 'Ülke seçin' : 'Choose a destination'} title={locale === 'tr' ? 'Ülkeye göre keşfedin' : 'Explore by destination'} body={locale === 'tr' ? 'Önce ülkeyi seçip ardından kurumları, şehirleri ve ilgili seçenekleri inceleyin.' : 'Start with a country, then move into institutions, cities and the options available there.'} />
               <div className="mt-8">
-                <SortableCardGrid locale={locale} items={destinations.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.intro, image: d.heroImage ?? null }))} />
+                <SortableCardGrid
+                  locale={locale}
+                  items={destinations.map((d) => {
+                    const clearedCmsImage = d.heroImage?.licence?.cleared === true
+                    return {
+                      href: docPath(locale, section, d.slug),
+                      title: d.title,
+                      excerpt: d.intro,
+                      image: clearedCmsImage ? d.heroImage : undefined,
+                      externalImage: clearedCmsImage ? null : licensedMediaForDestination(d.slug) ?? licensedMediaForDestination(d.title),
+                      imageAlt: d.heroImage?.alt ?? d.title,
+                    }
+                  })}
+                />
               </div>
             </section>
           ) : null}
@@ -69,6 +83,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
                     title: inst.title,
                     city: inst.city,
                     country: inst.country,
+                    image: licensedMediaForInstitutionOrPlace(inst.title, inst.city, inst.country),
                   }))}
                 />
               </div>
@@ -85,7 +100,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
         <div>
           <SectionHeading locale={locale} kicker={locale === 'tr' ? 'Okulları karşılaştırın' : 'Compare schools'} title={locale === 'tr' ? 'Yatılı okul seçeneklerini keşfedin' : 'Explore boarding-school options'} body={locale === 'tr' ? 'Akademik uyum kadar yatılı yaşam, destek ve günlük ortamı da düşünerek ilerleyin.' : 'Look beyond academics and compare boarding life, support and the day-to-day environment too.'} />
           <div className="mt-8">
-            <InstitutionBrowser locale={locale} items={schools.map((s) => ({ href: docPath(locale, section, s.slug), title: s.title, city: s.city, country: s.country }))} />
+            <InstitutionBrowser locale={locale} items={schools.map((s) => ({ href: docPath(locale, section, s.slug), title: s.title, city: s.city, country: s.country, image: licensedMediaForInstitutionOrPlace(s.title, s.city, s.country) }))} />
           </div>
         </div>
       )
