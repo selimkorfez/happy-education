@@ -9,7 +9,6 @@ import { ProseSection, FactTable, CardGrid } from './shared'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
-import { illustrativeImageForDestination } from '@/lib/media/library'
 import {
   licensedMediaForDestination,
   licensedMediaForInstitutionOrPlace,
@@ -40,8 +39,15 @@ export function DestinationTemplate({
   const documentaryImage = cmsImageCleared
     ? null
     : licensedMediaForDestination(doc.slug) ?? licensedMediaForDestination(doc.title)
-  const fallbackImage = illustrativeImageForDestination(doc.parentSlug ?? doc.slug)
-  const useEditorialVisual = !cmsImageCleared && !documentaryImage && (Boolean(doc.parentSlug) || section === 'languageSchools')
+  const editorialVisual = !cmsImageCleared && !documentaryImage
+    ? doc.parentSlug
+      ? 'city'
+      : section === 'languageSchools'
+        ? 'language'
+        : section === 'universities'
+          ? 'universities'
+          : undefined
+    : undefined
   const pageLinks: Array<{ href: string; label: string }> = []
   if (doc.whyStudyHere) pageLinks.push({ href: '#why', label: labels.whyStudyHere })
   if (doc.applicationJourney) pageLinks.push({ href: '#applying', label: labels.applicationJourney })
@@ -60,9 +66,8 @@ export function DestinationTemplate({
         intro={doc.intro}
         image={cmsImageCleared ? doc.heroImage : null}
         externalImage={documentaryImage}
-        localImage={cmsImageCleared || documentaryImage || useEditorialVisual ? undefined : fallbackImage.src}
-        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage?.alt ?? fallbackImage.alt}
-        visualVariant={useEditorialVisual ? (doc.parentSlug ? 'city' : 'language') : undefined}
+        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage?.alt}
+        visualVariant={editorialVisual}
       />
 
       {pageLinks.length > 1 ? (
