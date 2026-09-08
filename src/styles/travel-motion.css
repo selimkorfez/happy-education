@@ -1,0 +1,249 @@
+/* Travel-specific motion for the Happy Education public site.
+ * Decorative only: all meaningful content remains fully usable without it.
+ */
+
+.he-flight-layer[data-reduced-motion='true'] .he-flight-plane,
+.he-flight-layer[data-reduced-motion='true'] .he-flight-cloud {
+  display: none;
+}
+
+.he-flight-plane {
+  transition: opacity 180ms ease;
+  will-change: left, top, transform, opacity;
+}
+
+.he-flight-cloud {
+  position: absolute;
+  width: 7.5rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 14px 34px rgba(35, 35, 38, 0.08),
+    inset 0 -6px 16px rgba(35, 35, 38, 0.04);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.he-flight-cloud::before,
+.he-flight-cloud::after {
+  content: '';
+  position: absolute;
+  bottom: 0.25rem;
+  border-radius: 999px;
+  background: inherit;
+}
+
+.he-flight-cloud::before {
+  left: 1rem;
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+.he-flight-cloud::after {
+  right: 0.9rem;
+  width: 4.1rem;
+  height: 4.1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Fast, non-blocking route transition                                         */
+/*                                                                            */
+/* Navigation starts immediately. The clouds are a short visual bridge over    */
+/* the real route change, never a prerequisite for it.                         */
+/* -------------------------------------------------------------------------- */
+
+html[data-route-transition='covering'] #route-scene {
+  transform-origin: 50% 45%;
+  transform: translate3d(0, -0.25vh, 0) scale(0.985);
+  filter: blur(0.7px);
+  opacity: 0.96;
+  transition:
+    transform 160ms cubic-bezier(0.2, 0.72, 0.2, 1),
+    filter 140ms ease,
+    opacity 140ms ease;
+  pointer-events: none;
+}
+
+html[data-route-transition='clearing'] #route-scene {
+  transform-origin: 50% 45%;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: none;
+  opacity: 1;
+  transition:
+    transform 260ms cubic-bezier(0.16, 0.82, 0.2, 1),
+    filter 220ms ease,
+    opacity 220ms ease;
+  pointer-events: none;
+}
+
+.he-route-cloud-transition {
+  visibility: hidden;
+  background: transparent;
+}
+
+.he-route-cloud-transition[data-phase='covering'],
+.he-route-cloud-transition[data-phase='clearing'] {
+  visibility: visible;
+}
+
+.he-route-sky {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(248, 253, 255, 0.98) 0 18%, rgba(225, 242, 252, 0.98) 52%, rgba(199, 225, 241, 0.98) 100%);
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity 120ms ease,
+    transform 180ms cubic-bezier(0.2, 0.76, 0.2, 1);
+}
+
+.he-route-cloud-transition[data-phase='covering'] .he-route-sky {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.he-route-cloud-transition[data-phase='clearing'] .he-route-sky {
+  opacity: 0;
+  transform: scale(1.04);
+  transition-duration: 250ms;
+}
+
+.he-route-cloud {
+  position: absolute;
+  width: clamp(20rem, 45vw, 42rem);
+  color: rgba(255, 255, 255, 0.99);
+  opacity: 0;
+  filter: drop-shadow(0 18px 34px rgba(66, 91, 112, 0.12));
+  transform: translate3d(var(--cloud-x-start), var(--cloud-y-start), 0) scale(0.72);
+  transition:
+    transform 175ms cubic-bezier(0.16, 0.82, 0.2, 1),
+    opacity 90ms ease;
+  will-change: transform, opacity;
+}
+
+.he-route-cloud-transition[data-phase='covering'] .he-route-cloud {
+  opacity: 1;
+  transform: translate3d(var(--cloud-x-cover), var(--cloud-y-cover), 0) scale(var(--cloud-scale-cover, 1.18));
+}
+
+.he-route-cloud-transition[data-phase='clearing'] .he-route-cloud {
+  opacity: 0;
+  transform: translate3d(var(--cloud-x-end), var(--cloud-y-end), 0) scale(var(--cloud-scale-end, 1.95));
+  transition-duration: 260ms, 190ms;
+}
+
+.he-route-cloud-1 {
+  left: -24%;
+  top: -18%;
+  --cloud-x-start: -34vw;
+  --cloud-y-start: -18vh;
+  --cloud-x-cover: 24vw;
+  --cloud-y-cover: 14vh;
+  --cloud-x-end: 54vw;
+  --cloud-y-end: 34vh;
+}
+
+.he-route-cloud-2 {
+  right: -24%;
+  top: -18%;
+  --cloud-x-start: 34vw;
+  --cloud-y-start: -18vh;
+  --cloud-x-cover: -24vw;
+  --cloud-y-cover: 14vh;
+  --cloud-x-end: -54vw;
+  --cloud-y-end: 34vh;
+}
+
+.he-route-cloud-3 {
+  left: -30%;
+  top: 28%;
+  --cloud-x-start: -40vw;
+  --cloud-y-start: 0;
+  --cloud-x-cover: 29vw;
+  --cloud-y-cover: 0;
+  --cloud-x-end: 62vw;
+  --cloud-y-end: -8vh;
+  --cloud-scale-cover: 1.24;
+  --cloud-scale-end: 2.1;
+}
+
+.he-route-cloud-4 {
+  right: -30%;
+  top: 31%;
+  --cloud-x-start: 40vw;
+  --cloud-y-start: 0;
+  --cloud-x-cover: -29vw;
+  --cloud-y-cover: -1vh;
+  --cloud-x-end: -62vw;
+  --cloud-y-end: 8vh;
+  --cloud-scale-cover: 1.24;
+  --cloud-scale-end: 2.1;
+}
+
+.he-route-cloud-5 {
+  left: -24%;
+  bottom: -20%;
+  --cloud-x-start: -34vw;
+  --cloud-y-start: 20vh;
+  --cloud-x-cover: 24vw;
+  --cloud-y-cover: -15vh;
+  --cloud-x-end: 54vw;
+  --cloud-y-end: -38vh;
+}
+
+.he-route-cloud-6 {
+  right: -24%;
+  bottom: -20%;
+  --cloud-x-start: 34vw;
+  --cloud-y-start: 20vh;
+  --cloud-x-cover: -24vw;
+  --cloud-y-cover: -15vh;
+  --cloud-x-end: -54vw;
+  --cloud-y-end: -38vh;
+}
+
+.he-route-mist {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.34), rgba(245, 251, 255, 0.12) 62%, transparent 100%);
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 140ms ease 30ms,
+    transform 180ms cubic-bezier(0.2, 0.78, 0.2, 1);
+}
+
+.he-route-cloud-transition[data-phase='covering'] .he-route-mist {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.he-route-cloud-transition[data-phase='clearing'] .he-route-mist {
+  opacity: 0;
+  transform: scale(1.14);
+  transition-duration: 220ms;
+  transition-delay: 0ms;
+}
+
+@media (max-width: 48rem) {
+  .he-route-cloud {
+    width: clamp(18rem, 72vw, 30rem);
+  }
+
+  .he-route-cloud-3,
+  .he-route-cloud-4 {
+    top: 32%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .he-flight-layer,
+  .he-route-cloud-transition {
+    display: none !important;
+  }
+
+  html[data-route-transition] #route-scene {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}

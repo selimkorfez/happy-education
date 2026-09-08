@@ -1,5 +1,6 @@
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
+import { JourneyFlightLayer } from '@/components/ui/JourneyFlightLayer'
 import type { Locale } from '@/lib/i18n/config'
 
 const STEPS = {
@@ -53,13 +54,14 @@ export function HowWeWork({ locale }: { locale: Locale }) {
         </Reveal>
 
         <div className="relative mt-14">
-          <div aria-hidden="true" className="absolute left-[8%] right-[8%] top-8 hidden h-px bg-gradient-to-r from-transparent via-brand/35 to-transparent lg:block" />
+          <JourneyFlightLayer />
+          <div aria-hidden="true" className="absolute left-[8%] right-[8%] top-8 z-0 hidden h-px bg-gradient-to-r from-transparent via-brand/35 to-transparent lg:block" />
 
-          <ol className="relative grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+          <ol className="relative z-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
             {steps.map((step, index) => (
               <li key={step.title}>
                 <Reveal delay={Math.min(index * 75, 300)} className="h-full">
-                  <article className="he-shine-card group relative h-full overflow-hidden rounded-[1.55rem] border border-border/70 bg-paper/88 p-6 shadow-[0_10px_30px_rgba(35,35,38,0.045)] transition duration-400 hover:-translate-y-1.5 hover:border-brand/28 hover:bg-white hover:shadow-[0_22px_55px_rgba(35,35,38,0.09)] sm:p-7">
+                  <article className="he-shine-card group relative h-full overflow-hidden rounded-[1.55rem] border border-border/70 bg-paper/92 p-6 shadow-[0_10px_30px_rgba(35,35,38,0.045)] backdrop-blur-[1px] transition duration-400 hover:-translate-y-1.5 hover:border-brand/28 hover:bg-white hover:shadow-[0_22px_55px_rgba(35,35,38,0.09)] sm:p-7">
                     <div aria-hidden="true" className="absolute -right-7 -top-7 h-24 w-24 rounded-full bg-brand-soft opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
                     <div className="relative flex items-center justify-between gap-4">
                       <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-ink-surface text-sm font-black tabular-nums text-white shadow-[0_10px_25px_rgba(35,35,38,0.16)] transition duration-300 group-hover:-rotate-3 group-hover:bg-brand group-hover:text-fg">
