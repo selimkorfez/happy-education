@@ -6,6 +6,7 @@ import { SummerListingTemplate } from './SummerListingTemplate'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { isConfigured } from '@/lib/env'
+import { licensedMediaForEditorialText } from '@/lib/media/editorial-media'
 import { listEnglishSummerShadows } from '@/lib/content/catalogue-fallback'
 
 export async function StarterAwareSummerListingTemplate({
@@ -52,6 +53,7 @@ export async function StarterAwareSummerListingTemplate({
             items={programmes.map((programme) => ({
               href: docPath(locale, 'summerSchools', formatSlug, programme.slug),
               title: programme.title,
+              externalImage: licensedMediaForEditorialText(programme.title, 'summer programme'),
             }))}
           />
         </div>
