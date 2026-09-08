@@ -116,7 +116,8 @@ function inlineToSpans(
   }
 
   for (const match of text.matchAll(INLINE)) {
-    if ((match.index ?? 0) > cursor) push(text.slice(cursor, match.index), [])
+    const index = match.index ?? 0
+    if (index > cursor) push(text.slice(cursor, index), [])
 
     if (match[1] !== undefined) {
       push(match[2] ?? '', ['strong'])
@@ -134,7 +135,7 @@ function inlineToSpans(
       push(match[7] ?? '', ['em'])
     }
 
-    cursor = (match.index ?? 0) + match[0].length
+    cursor = index + match[0].length
   }
 
   if (cursor < text.length) push(text.slice(cursor), [])
@@ -182,7 +183,7 @@ function markdownToPortableText(markdown: string): Array<PortableBlock | Portabl
   }
 
   for (let i = 0; i < lines.length; i += 1) {
-    const trimmed = lines[i].trim()
+    const trimmed = (lines[i] ?? '').trim()
 
     if (!trimmed) {
       flushParagraph()
@@ -192,8 +193,8 @@ function markdownToPortableText(markdown: string): Array<PortableBlock | Portabl
     if (trimmed.startsWith('|')) {
       flushParagraph()
       const rows: string[] = []
-      while (i < lines.length && lines[i].trim().startsWith('|')) {
-        rows.push(lines[i].trim())
+      while (i < lines.length && (lines[i] ?? '').trim().startsWith('|')) {
+        rows.push((lines[i] ?? '').trim())
         i += 1
       }
       i -= 1
@@ -222,9 +223,9 @@ function markdownToPortableText(markdown: string): Array<PortableBlock | Portabl
     const heading = trimmed.match(/^(#{1,6})\s+(.*)$/)
     if (heading) {
       flushParagraph()
-      const depth = heading[1].length
+      const depth = (heading[1] ?? '').length
       const style = depth >= 4 ? 'h4' : `h${Math.max(2, depth)}`
-      textBlock(style, heading[2].trim())
+      textBlock(style, (heading[2] ?? '').trim())
       continue
     }
 
@@ -238,14 +239,14 @@ function markdownToPortableText(markdown: string): Array<PortableBlock | Portabl
     const bullet = trimmed.match(/^[-*]\s+(.*)$/)
     if (bullet) {
       flushParagraph()
-      textBlock('normal', bullet[1].trim(), 'bullet')
+      textBlock('normal', (bullet[1] ?? '').trim(), 'bullet')
       continue
     }
 
     const numbered = trimmed.match(/^\d+\.\s+(.*)$/)
     if (numbered) {
       flushParagraph()
-      textBlock('normal', numbered[1].trim(), 'number')
+      textBlock('normal', (numbered[1] ?? '').trim(), 'number')
       continue
     }
 
