@@ -27,11 +27,13 @@ const HEADING = {
     kicker: 'How it works',
     title: 'Less guesswork. More momentum.',
     body: 'The process becomes much easier when every decision has a clear next step. We keep the moving parts organised without pretending there is one perfect route for everyone.',
+    step: 'Step',
   },
   tr: {
     kicker: 'Nasıl ilerliyor',
     title: 'Daha az belirsizlik. Daha fazla ilerleme.',
     body: 'Her kararın net bir sonraki adımı olduğunda süreç çok daha kolay ilerler. Herkes için tek bir doğru yol varmış gibi davranmadan tüm parçaları düzenli tutuyoruz.',
+    step: 'Adım',
   },
 } as const
 
@@ -63,16 +65,13 @@ export function HowWeWork({ locale }: { locale: Locale }) {
                 <Reveal delay={Math.min(index * 75, 300)} className="h-full">
                   <article className="he-shine-card group relative h-full overflow-hidden rounded-[1.55rem] border border-border/70 bg-paper/92 p-6 shadow-[0_10px_30px_rgba(35,35,38,0.045)] backdrop-blur-[1px] transition duration-400 hover:-translate-y-1.5 hover:border-brand/28 hover:bg-white hover:shadow-[0_22px_55px_rgba(35,35,38,0.09)] sm:p-7">
                     <div aria-hidden="true" className="absolute -right-7 -top-7 h-24 w-24 rounded-full bg-brand-soft opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
-                    <div className="relative flex items-center justify-between gap-4">
-                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-ink-surface text-sm font-black tabular-nums text-white shadow-[0_10px_25px_rgba(35,35,38,0.16)] transition duration-300 group-hover:-rotate-3 group-hover:bg-brand group-hover:text-fg">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <span className="rounded-full border border-border/70 bg-white/80 px-3 py-1.5 text-[0.68rem] font-black uppercase tracking-[0.1em] text-brand-strong backdrop-blur-sm">{step.short}</span>
-                    </div>
+                    <p className="relative text-xs font-black uppercase tracking-[0.1em] text-brand-strong">
+                      {heading.step} {index + 1} · {step.short}
+                    </p>
                     <h3 className="relative mt-8 max-w-[19ch] text-xl font-bold text-fg">{step.title}</h3>
                     <p className="relative mt-3 max-w-[42ch] text-sm leading-relaxed text-fg-muted">{step.body}</p>
-                    <div aria-hidden="true" className="relative mt-8 h-1 overflow-hidden rounded-full bg-border/60">
-                      <span className="block h-full rounded-full bg-brand transition-[width] duration-700 group-hover:w-full" style={{ width: `${((index + 1) / steps.length) * 100}%` }} />
+                    <div aria-hidden="true" className="relative mt-8 h-px overflow-hidden bg-border/70">
+                      <span className="block h-full bg-brand transition-[width] duration-700 group-hover:w-full" style={{ width: `${((index + 1) / steps.length) * 100}%` }} />
                     </div>
                   </article>
                 </Reveal>
