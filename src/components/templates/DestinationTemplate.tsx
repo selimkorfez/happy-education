@@ -58,7 +58,7 @@ export function DestinationTemplate({
         intro={doc.intro}
         image={cmsImageCleared ? doc.heroImage : null}
         externalImage={documentaryImage}
-        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage.alt}
+        imageAlt={cmsImageCleared ? doc.heroImage?.alt : documentaryImage?.alt}
       />
 
       {pageLinks.length > 1 ? (
