@@ -1,11 +1,12 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { usePathname, useRouter } from 'next/navigation'
 
 type Phase = 'idle' | 'covering' | 'clearing'
 
-const MIN_COVER_MS = 160
+const MIN_COVER_MS = 180
 const CLEAR_MS = 260
 
 function shouldHandleClick(event: MouseEvent, anchor: HTMLAnchorElement) {
@@ -19,7 +20,7 @@ function shouldHandleClick(event: MouseEvent, anchor: HTMLAnchorElement) {
 
   const next = new URL(anchor.href, window.location.href)
   if (next.origin !== window.location.origin) return false
-  if (next.pathname === window.location.pathname) return false
+  if (next.pathname === window.location.pathname && next.search === window.location.search) return false
 
   return true
 }
@@ -82,8 +83,9 @@ export function RouteCloudTransition() {
 
     if (fallbackRef.current) window.clearTimeout(fallbackRef.current)
 
-    // The route is already loaded. Keep only a tiny minimum visual beat so the
-    // cloud sweep reads as an intentional transition rather than a flash.
+    // The destination is already active. Keep only a short minimum visual beat
+    // so the cloud sweep is visible even when a prefetched route resolves almost
+    // instantly, then reveal the new page without holding navigation back.
     const elapsed = performance.now() - startedAtRef.current
     const remaining = Math.max(0, MIN_COVER_MS - elapsed)
 
@@ -119,10 +121,16 @@ export function RouteCloudTransition() {
       event.preventDefault()
       pendingRef.current = destination
       startedAtRef.current = performance.now()
-      applyPhase('covering')
 
-      // Important: navigation starts immediately. The animation is only a visual
-      // layer over the real route change; it never waits for the clouds first.
+      // Commit the visible transition state before Next starts its concurrent
+      // route update. Without this, a very fast/prefetched production route can
+      // repaint the component with the old `idle` phase and make the transition
+      // appear to vanish. This is a state-ordering guarantee, not a time delay.
+      flushSync(() => {
+        applyPhase('covering')
+      })
+
+      // Navigation still starts immediately after the covering state is committed.
       router.push(destination)
 
       fallbackRef.current = window.setTimeout(() => {
