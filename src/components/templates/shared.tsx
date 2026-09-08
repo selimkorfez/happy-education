@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container'
 import { MediaFrame, type MediaSource } from '@/components/ui/MediaFrame'
 import { PortableText } from '@/components/content/PortableText'
 import { safeExternalHref } from '@/lib/links'
+import type { LicensedExternalImage } from '@/lib/media/licensed-media'
 import type { SourcedFact } from '@/lib/sanity/queries/content'
 import type { Locale } from '@/lib/i18n/config'
 
@@ -162,6 +163,7 @@ export function CardGrid({
     meta?: string
     excerpt?: string
     image?: MediaSource | null
+    externalImage?: LicensedExternalImage | null
     imageAlt?: string
   }>
 }) {
@@ -170,15 +172,13 @@ export function CardGrid({
     <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
         <li key={item.href}>
-          <Link
-            href={item.href}
-            className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white no-underline shadow-[0_10px_32px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_48px_rgba(35,35,38,0.10)]"
-          >
-            {item.image !== undefined ? (
+          <article className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_10px_32px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_48px_rgba(35,35,38,0.10)]">
+            {item.image !== undefined || item.externalImage ? (
               <div className="overflow-hidden">
                 <MediaFrame
                   image={item.image ?? null}
-                  alt={item.imageAlt ?? item.title}
+                  external={item.externalImage ?? null}
+                  alt={item.imageAlt ?? item.externalImage?.alt ?? item.title}
                   decorative
                   width={720}
                   height={480}
@@ -188,7 +188,7 @@ export function CardGrid({
                 />
               </div>
             ) : null}
-            <div className="flex flex-1 flex-col p-5 sm:p-6">
+            <Link href={item.href} className="flex flex-1 flex-col p-5 no-underline sm:p-6">
               {item.meta ? (
                 <p className="text-xs font-bold uppercase tracking-[0.08em] text-brand-strong">{item.meta}</p>
               ) : null}
@@ -199,8 +199,8 @@ export function CardGrid({
               <span aria-hidden="true" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-strong">
                 Explore <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
               </span>
-            </div>
-          </Link>
+            </Link>
+          </article>
         </li>
       ))}
     </ul>
