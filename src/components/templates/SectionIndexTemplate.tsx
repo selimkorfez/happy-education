@@ -97,8 +97,8 @@ async function sectionBody(locale: Locale, section: SectionKey) {
         listSummerProgrammes(locale, 'group'),
       ])
       const formats = [
-        { key: 'individual' as const, code: '01', title: locale === 'tr' ? 'Bireysel yaz okulları' : 'Individual summer schools', body: locale === 'tr' ? 'Öğrencinin tek başına katıldığı, okulun gözetiminde yürüyen programlar.' : 'Programmes a student joins independently, with the school responsible for its on-site supervision.', count: individual.length, tone: 'bg-brand-soft' },
-        { key: 'group' as const, code: '02', title: locale === 'tr' ? 'Grup yaz okulları' : 'Group summer schools', body: locale === 'tr' ? 'Refakatçi eşliğinde birlikte seyahat eden gruplar için planlanan programlar.' : 'Programmes built for organised groups travelling together with a group leader.', count: group.length, tone: 'bg-sky-soft' },
+        { key: 'individual' as const, label: locale === 'tr' ? 'Bireysel katılım' : 'Independent study', title: locale === 'tr' ? 'Bireysel yaz okulları' : 'Individual summer schools', body: locale === 'tr' ? 'Öğrencinin tek başına katıldığı, okulun gözetiminde yürüyen programlar.' : 'Programmes a student joins independently, with the school responsible for its on-site supervision.', count: individual.length, tone: 'bg-brand-soft' },
+        { key: 'group' as const, label: locale === 'tr' ? 'Grup katılımı' : 'Group travel', title: locale === 'tr' ? 'Grup yaz okulları' : 'Group summer schools', body: locale === 'tr' ? 'Refakatçi eşliğinde birlikte seyahat eden gruplar için planlanan programlar.' : 'Programmes built for organised groups travelling together with a group leader.', count: group.length, tone: 'bg-sky-soft' },
       ]
 
       return (
@@ -108,8 +108,8 @@ async function sectionBody(locale: Locale, section: SectionKey) {
             {formats.map((format) => (
               <li key={format.key}>
                 <Link href={docPath(locale, section, summerFormatSlug(locale, format.key))} className="group relative flex min-h-[19rem] h-full flex-col overflow-hidden rounded-[1.6rem] border border-border/70 bg-white p-6 no-underline shadow-[0_12px_36px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_22px_52px_rgba(35,35,38,0.09)] sm:p-7">
-                  <div className={`absolute -right-14 -top-16 h-48 w-48 rounded-full ${format.tone} transition-transform duration-500 group-hover:scale-110`} />
-                  <div className="relative flex items-start justify-between"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink-surface text-sm font-black text-white">{format.code}</span><span className="rounded-full bg-paper-sunk px-3 py-1.5 text-xs font-bold text-fg-muted">{format.count} {locale === 'tr' ? 'program' : format.count === 1 ? 'programme' : 'programmes'}</span></div>
+                  <div aria-hidden="true" className={`absolute -right-14 -top-16 h-48 w-48 rounded-full ${format.tone} transition-transform duration-500 group-hover:scale-110`} />
+                  <div className="relative flex items-start justify-between gap-4"><span className="text-xs font-black uppercase tracking-[0.1em] text-brand-strong">{format.label}</span><span className="rounded-full bg-paper-sunk px-3 py-1.5 text-xs font-bold text-fg-muted">{format.count} {locale === 'tr' ? 'program' : format.count === 1 ? 'programme' : 'programmes'}</span></div>
                   <div className="relative mt-auto pt-12"><h2 className="text-2xl font-bold text-fg">{format.title}</h2><p className="mt-3 max-w-[45ch] text-base leading-relaxed text-fg-muted">{format.body}</p><span className="mt-6 inline-flex text-sm font-bold text-brand-strong">{locale === 'tr' ? 'Programları gör' : 'View programmes'} <span aria-hidden="true" className="ml-2 transition-transform group-hover:translate-x-1">→</span></span></div>
                 </Link>
               </li>
