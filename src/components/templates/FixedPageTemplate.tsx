@@ -21,6 +21,7 @@ export function FixedPageTemplate({
   const copy = COPY[locale][pageKey]
   const crumbs = [{ label: t(locale, 'brand.name'), href: `/${locale}` }, { label: doc?.title ?? copy.title }]
   const showForm = pageKey === 'contact' || pageKey === 'consultation'
+  const cmsImageCleared = doc?.heroImage?.licence?.cleared === true
 
   return (
     <>
@@ -30,8 +31,8 @@ export function FixedPageTemplate({
         eyebrow={copy.kicker}
         title={doc?.title ?? copy.title}
         intro={doc?.intro ?? copy.intro}
-        image={doc?.heroImage ?? null}
-        visualVariant={pageKey}
+        image={cmsImageCleared ? doc?.heroImage : null}
+        visualVariant={cmsImageCleared ? undefined : pageKey}
       />
 
       <section className="bg-paper py-8 sm:py-12 lg:py-16">
@@ -50,10 +51,9 @@ export function FixedPageTemplate({
                   <h2 className="max-w-[16ch] text-[length:var(--text-3xl)] font-bold text-fg">{copy.formTitle}</h2>
                   <p className="max-w-[58ch] text-base leading-relaxed text-fg-muted">{copy.formBody}</p>
                   <div className="grid gap-3 pt-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                    {copy.steps.map((step, index) => (
+                    {copy.steps.map((step) => (
                       <div key={step} className="rounded-[1rem] border border-border/60 bg-paper p-4">
-                        <span className="text-xs font-black tabular-nums text-brand-strong">0{index + 1}</span>
-                        <p className="mt-2 text-sm font-bold leading-snug text-fg">{step}</p>
+                        <p className="text-sm font-bold leading-snug text-fg">{step}</p>
                       </div>
                     ))}
                   </div>
