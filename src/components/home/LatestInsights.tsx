@@ -92,9 +92,6 @@ export async function LatestInsights({ locale }: { locale: Locale }) {
                       className="group relative flex h-full min-h-[8.5rem] items-start gap-4 overflow-hidden rounded-[1.35rem] border border-border/70 bg-white/92 p-5 no-underline shadow-[0_8px_26px_rgba(35,35,38,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-brand/24 hover:bg-white hover:shadow-[0_18px_42px_rgba(35,35,38,0.08)]"
                     >
                       <div aria-hidden="true" className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-brand-soft opacity-0 blur-2xl transition duration-500 group-hover:opacity-90" />
-                      <span aria-hidden="true" className="relative grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-ink-surface text-xs font-black tabular-nums text-white transition duration-300 group-hover:bg-brand group-hover:text-fg">
-                        {String(index + 2).padStart(2, '0')}
-                      </span>
                       <span className="relative min-w-0 flex-1">
                         <ArticleMeta locale={locale} article={article} />
                         <h3 className="mt-2 text-lg font-bold leading-snug text-fg">{article.title}</h3>
