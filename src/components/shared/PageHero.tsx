@@ -34,12 +34,13 @@ export function PageHero({
   visualVariant?: SectionVisualVariant
 }) {
   const clearedImage = image?.licence?.cleared === true ? image : null
-  const editorialImage = !clearedImage && !externalImage && !localImage && visualVariant
-    ? licensedMediaForEditorialVariant(visualVariant)
+  const clearedExternal = externalImage?.cleared === true ? externalImage : null
+  const editorialImage = !clearedImage && !clearedExternal && !localImage && visualVariant
+    ? licensedMediaForEditorialVariant(visualVariant, ...(crumbs.length > 2 ? [title] : []))
     : null
-  const resolvedExternalImage = externalImage ?? editorialImage
+  const resolvedExternalImage = clearedImage ? null : clearedExternal ?? editorialImage
   const hasVisual = Boolean(clearedImage || resolvedExternalImage || localImage)
-  const resolvedAlt = imageAlt ?? resolvedExternalImage?.alt ?? title
+  const resolvedAlt = clearedImage ? imageAlt ?? clearedImage.alt ?? title : resolvedExternalImage?.alt ?? imageAlt ?? title
 
   return (
     <section className="relative isolate overflow-hidden border-b border-border/70 bg-[#fffefd] pb-11 pt-2 sm:pb-15 lg:pb-18">

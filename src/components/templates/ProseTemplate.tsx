@@ -36,6 +36,7 @@ export function ProseTemplate({
         intro={doc.summary ?? doc.intro}
         image={doc.heroImage ?? null}
         imageAlt={doc.heroImage?.alt ?? doc.title}
+        visualVariant={section === 'services' ? 'services' : 'guides'}
       />
       <Container>
         <div className="py-12">

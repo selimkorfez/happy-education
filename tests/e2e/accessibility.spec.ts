@@ -16,6 +16,14 @@ import { expect, test, type Page } from '@playwright/test'
 const DEV_OVERLAYS = ['nextjs-portal', '[data-nextjs-dialog-overlay]', '#__next-build-watcher']
 
 async function analyse(page: Page) {
+  // Local photography can load before the entrance fades finish. Measure the
+  // settled interface, not a transient opacity frame; leave ambient loops alone.
+  await page.evaluate(async () => {
+    await document.fonts.ready
+    await Promise.all(document.getAnimations()
+      .filter((animation) => animation.effect?.getComputedTiming().iterations !== Infinity)
+      .map((animation) => animation.finished.catch(() => undefined)))
+  })
   let builder = new AxeBuilder({ page }).withTags([
     'wcag2a',
     'wcag2aa',

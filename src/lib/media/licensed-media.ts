@@ -26,8 +26,8 @@ export interface LicensedExternalImage {
   sourceUrl: string
   licence: OpenLicence
   licenceUrl: string
-  kind: 'campus' | 'city'
-  privacy: 'architecture-or-cityscape'
+  kind: 'campus' | 'city' | 'study' | 'travel'
+  privacy: 'architecture-or-cityscape' | 'no-identifiable-people'
   cleared: true
 }
 

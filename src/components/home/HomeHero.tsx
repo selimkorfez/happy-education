@@ -4,7 +4,7 @@ import { MediaFrame } from '@/components/ui/MediaFrame'
 import { AmbientBackdrop } from '@/components/ui/AmbientBackdrop'
 import { sectionPath, type Locale } from '@/lib/i18n/config'
 import { BUSINESS, publicValue } from '@/lib/business-facts'
-import { licensedMediaForPlace } from '@/lib/media/licensed-media'
+import { EDITORIAL_PHOTOS } from '@/lib/media/editorial-photos'
 
 const COPY = {
   en: {
@@ -35,7 +35,7 @@ const COPY = {
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const copy = COPY[locale]
-  const hero = licensedMediaForPlace('london')
+  const hero = EDITORIAL_PHOTOS['home-cambridge']
   const founded = publicValue(BUSINESS.foundedYear)
   const companyNumber = publicValue(BUSINESS.companyNumber)
 
@@ -105,23 +105,21 @@ export function HomeHero({ locale }: { locale: Locale }) {
               <div className="he-shine-card group relative overflow-hidden rounded-[2.15rem] border border-white/14 bg-white/8 p-2.5 shadow-[0_40px_110px_rgba(0,0,0,0.42)] backdrop-blur-xl sm:p-3">
                 <MediaFrame
                   external={hero}
-                  alt={hero?.alt ?? 'University architecture in London'}
+                  alt={hero.alt}
                   width={1800}
                   height={1200}
                   priority
                   sizes="(max-width: 1024px) 100vw, 55vw"
                   className="aspect-[4/3] w-full overflow-hidden rounded-[1.7rem] lg:aspect-[1.08/1] [&_img]:transition-transform [&_img]:duration-[1200ms] group-hover:[&_img]:scale-[1.035]"
-                  placeholderLabel="London university photograph"
+                  placeholderLabel="Cambridge riverside photograph"
                 />
-
-                <div aria-hidden="true" className="pointer-events-none absolute inset-3 rounded-[1.7rem] bg-gradient-to-t from-black/45 via-transparent to-white/5" />
 
                 <div className="absolute left-7 top-7 flex items-center gap-2 rounded-full border border-white/16 bg-black/28 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur-md sm:left-8 sm:top-8">
                   <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand-on-ink" />
-                  London · UK
+                  Cambridge · UK
                 </div>
 
-                <div className="absolute inset-x-7 bottom-7 rounded-[1.35rem] border border-white/18 bg-black/38 p-4 text-white shadow-[0_18px_45px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:inset-x-auto sm:bottom-8 sm:left-8 sm:max-w-[21rem] sm:p-5">
+                <div className="relative mt-3 border border-white/18 bg-black/20 p-4 text-white sm:p-5">
                   <p className="text-xs font-black uppercase tracking-[0.11em] text-brand-on-ink">
                     {locale === 'tr' ? 'Sizinle başlayalım' : 'Start with you'}
                   </p>
