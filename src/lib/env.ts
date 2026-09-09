@@ -51,7 +51,9 @@ export const publicEnv = parsedPublic.data
 const serverSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
 
-  // Sanity — read token is only needed for draft preview and private datasets.
+  // Sanity — the Marketplace token is accepted during initial provisioning.
+  // Prefer the narrower read token for steady-state draft preview.
+  SANITY_API_TOKEN: z.string().optional(),
   SANITY_API_READ_TOKEN: z.string().optional(),
   SANITY_REVALIDATE_SECRET: z.string().min(16).optional(),
   SANITY_PREVIEW_SECRET: z.string().min(16).optional(),
