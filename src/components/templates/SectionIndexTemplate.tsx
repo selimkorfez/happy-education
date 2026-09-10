@@ -11,6 +11,12 @@ import { t } from '@/lib/i18n/dictionary'
 import { SECTION_COPY } from '@/lib/route-metadata'
 import { summerFormatSlug } from '@/lib/routing'
 import { legalLinks } from '@/lib/legal'
+import { licensedMediaForInstitutionOrPlace } from '@/lib/media/licensed-media'
+import {
+  licensedMediaForDestinationEditorial,
+  licensedMediaForEditorialText,
+  licensedMediaForEditorialVariant,
+} from '@/lib/media/editorial-media'
 import { listDestinations, listInstitutions, listTours, listSummerProgrammes } from '@/lib/sanity/queries/content'
 import { getArticlesByCategory } from '@/lib/sanity/queries/articles'
 import { getProseIndex } from '@/lib/sanity/queries/index-lists'
@@ -53,7 +59,20 @@ async function sectionBody(locale: Locale, section: SectionKey) {
             <section>
               <SectionHeading locale={locale} kicker={locale === 'tr' ? 'Ülke seçin' : 'Choose a destination'} title={locale === 'tr' ? 'Ülkeye göre keşfedin' : 'Explore by destination'} body={locale === 'tr' ? 'Önce ülkeyi seçip ardından kurumları, şehirleri ve ilgili seçenekleri inceleyin.' : 'Start with a country, then move into institutions, cities and the options available there.'} />
               <div className="mt-8">
-                <SortableCardGrid locale={locale} items={destinations.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.intro, image: d.heroImage ?? null }))} />
+                <SortableCardGrid
+                  locale={locale}
+                  items={destinations.map((destination) => {
+                    const clearedCmsImage = destination.heroImage?.licence?.cleared === true
+                    return {
+                      href: docPath(locale, section, destination.slug),
+                      title: destination.title,
+                      excerpt: destination.intro,
+                      image: clearedCmsImage ? destination.heroImage : undefined,
+                      externalImage: clearedCmsImage ? null : licensedMediaForDestinationEditorial(destination.slug, destination.title),
+                      imageAlt: destination.heroImage?.alt ?? destination.title,
+                    }
+                  })}
+                />
               </div>
             </section>
           ) : null}
@@ -69,6 +88,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
                     title: inst.title,
                     city: inst.city,
                     country: inst.country,
+                    image: licensedMediaForInstitutionOrPlace(inst.title, inst.city, inst.country),
                   }))}
                 />
               </div>
@@ -85,7 +105,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
         <div>
           <SectionHeading locale={locale} kicker={locale === 'tr' ? 'Okulları karşılaştırın' : 'Compare schools'} title={locale === 'tr' ? 'Yatılı okul seçeneklerini keşfedin' : 'Explore boarding-school options'} body={locale === 'tr' ? 'Akademik uyum kadar yatılı yaşam, destek ve günlük ortamı da düşünerek ilerleyin.' : 'Look beyond academics and compare boarding life, support and the day-to-day environment too.'} />
           <div className="mt-8">
-            <InstitutionBrowser locale={locale} items={schools.map((s) => ({ href: docPath(locale, section, s.slug), title: s.title, city: s.city, country: s.country }))} />
+            <InstitutionBrowser locale={locale} items={schools.map((s) => ({ href: docPath(locale, section, s.slug), title: s.title, city: s.city, country: s.country, image: licensedMediaForInstitutionOrPlace(s.title, s.city, s.country) }))} />
           </div>
         </div>
       )
@@ -97,8 +117,8 @@ async function sectionBody(locale: Locale, section: SectionKey) {
         listSummerProgrammes(locale, 'group'),
       ])
       const formats = [
-        { key: 'individual' as const, code: '01', title: locale === 'tr' ? 'Bireysel yaz okulları' : 'Individual summer schools', body: locale === 'tr' ? 'Öğrencinin tek başına katıldığı, okulun gözetiminde yürüyen programlar.' : 'Programmes a student joins independently, with the school responsible for its on-site supervision.', count: individual.length, tone: 'bg-brand-soft' },
-        { key: 'group' as const, code: '02', title: locale === 'tr' ? 'Grup yaz okulları' : 'Group summer schools', body: locale === 'tr' ? 'Refakatçi eşliğinde birlikte seyahat eden gruplar için planlanan programlar.' : 'Programmes built for organised groups travelling together with a group leader.', count: group.length, tone: 'bg-sky-soft' },
+        { key: 'individual' as const, label: locale === 'tr' ? 'Bireysel katılım' : 'Independent study', title: locale === 'tr' ? 'Bireysel yaz okulları' : 'Individual summer schools', body: locale === 'tr' ? 'Öğrencinin tek başına katıldığı, okulun gözetiminde yürüyen programlar.' : 'Programmes a student joins independently, with the school responsible for its on-site supervision.', count: individual.length, tone: 'bg-brand-soft' },
+        { key: 'group' as const, label: locale === 'tr' ? 'Grup katılımı' : 'Group travel', title: locale === 'tr' ? 'Grup yaz okulları' : 'Group summer schools', body: locale === 'tr' ? 'Refakatçi eşliğinde birlikte seyahat eden gruplar için planlanan programlar.' : 'Programmes built for organised groups travelling together with a group leader.', count: group.length, tone: 'bg-sky-soft' },
       ]
 
       return (
@@ -108,8 +128,8 @@ async function sectionBody(locale: Locale, section: SectionKey) {
             {formats.map((format) => (
               <li key={format.key}>
                 <Link href={docPath(locale, section, summerFormatSlug(locale, format.key))} className="group relative flex min-h-[19rem] h-full flex-col overflow-hidden rounded-[1.6rem] border border-border/70 bg-white p-6 no-underline shadow-[0_12px_36px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_22px_52px_rgba(35,35,38,0.09)] sm:p-7">
-                  <div className={`absolute -right-14 -top-16 h-48 w-48 rounded-full ${format.tone} transition-transform duration-500 group-hover:scale-110`} />
-                  <div className="relative flex items-start justify-between"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink-surface text-sm font-black text-white">{format.code}</span><span className="rounded-full bg-paper-sunk px-3 py-1.5 text-xs font-bold text-fg-muted">{format.count} {locale === 'tr' ? 'program' : format.count === 1 ? 'programme' : 'programmes'}</span></div>
+                  <div aria-hidden="true" className={`absolute -right-14 -top-16 h-48 w-48 rounded-full ${format.tone} transition-transform duration-500 group-hover:scale-110`} />
+                  <div className="relative flex items-start justify-between gap-4"><span className="text-xs font-black uppercase tracking-[0.1em] text-brand-strong">{format.label}</span><span className="rounded-full bg-paper-sunk px-3 py-1.5 text-xs font-bold text-fg-muted">{format.count} {locale === 'tr' ? 'program' : format.count === 1 ? 'programme' : 'programmes'}</span></div>
                   <div className="relative mt-auto pt-12"><h2 className="text-2xl font-bold text-fg">{format.title}</h2><p className="mt-3 max-w-[45ch] text-base leading-relaxed text-fg-muted">{format.body}</p><span className="mt-6 inline-flex text-sm font-bold text-brand-strong">{locale === 'tr' ? 'Programları gör' : 'View programmes'} <span aria-hidden="true" className="ml-2 transition-transform group-hover:translate-x-1">→</span></span></div>
                 </Link>
               </li>
@@ -123,20 +143,60 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     case 'tours': {
       const tours = await listTours(locale)
       if (tours.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <SortableCardGrid locale={locale} items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title, image: tour.heroImage ?? null }))} />
+      return (
+        <SortableCardGrid
+          locale={locale}
+          items={tours.map((tour) => {
+            const clearedCmsImage = tour.heroImage?.licence?.cleared === true
+            return {
+              href: docPath(locale, section, tour.slug),
+              title: tour.title,
+              image: clearedCmsImage ? tour.heroImage : undefined,
+              externalImage: clearedCmsImage ? null : licensedMediaForEditorialText(tour.title, 'educational tour'),
+            }
+          })}
+        />
+      )
     }
 
     case 'insights': {
       const articles = await getArticlesByCategory(locale, null, 60)
       if (articles.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <SortableCardGrid locale={locale} items={articles.map((a) => ({ href: docPath(locale, section, a.slug), title: a.title, meta: a.category, excerpt: a.excerpt, image: a.image ?? null, imageAlt: a.imageAlt ?? a.title }))} />
+      return (
+        <SortableCardGrid
+          locale={locale}
+          items={articles.map((article) => {
+            const clearedCmsImage = article.image?.licence?.cleared === true
+            return {
+              href: docPath(locale, section, article.slug),
+              title: article.title,
+              meta: article.category,
+              excerpt: article.excerpt,
+              image: clearedCmsImage ? article.image : undefined,
+              externalImage: clearedCmsImage ? null : licensedMediaForEditorialText(article.title, article.category, article.excerpt),
+              imageAlt: article.imageAlt ?? article.title,
+            }
+          })}
+        />
+      )
     }
 
     case 'guides':
     case 'services': {
       const docs = await getProseIndex(locale, section === 'guides' ? 'guide' : 'service')
       if (docs.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      return <SortableCardGrid locale={locale} items={docs.map((d) => ({ href: docPath(locale, section, d.slug), title: d.title, excerpt: d.summary }))} />
+      const variant = section === 'guides' ? 'guides' : 'services'
+      return (
+        <SortableCardGrid
+          locale={locale}
+          items={docs.map((doc) => ({
+            href: docPath(locale, section, doc.slug),
+            title: doc.title,
+            excerpt: doc.summary,
+            externalImage: licensedMediaForEditorialText(doc.title, doc.summary) ?? licensedMediaForEditorialVariant(variant),
+          }))}
+        />
+      )
     }
 
     case 'legal':

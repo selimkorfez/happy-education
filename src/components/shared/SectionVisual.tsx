@@ -26,14 +26,13 @@ export function SectionVisual({ variant, label, locale }: { variant: SectionVisu
         <div className="flex h-full flex-col justify-between rounded-[1.35rem] border border-white/65 bg-white/48 p-5 shadow-[0_20px_55px_rgba(35,35,38,0.10)] backdrop-blur-md sm:p-6">
           <div className="flex items-center justify-between gap-4">
             <span className="inline-flex rounded-full bg-white/85 px-3 py-1.5 text-[0.68rem] font-black uppercase tracking-[0.11em] text-fg shadow-sm">{copy.kicker}</span>
-            <span className={`h-3 w-3 rounded-full ${visual.dot}`} />
+            <span aria-hidden="true" className={`h-3 w-3 rounded-full ${visual.dot}`} />
           </div>
           <VisualMark variant={variant} locale={locale} />
           <div className="grid grid-cols-3 gap-2.5">
-            {copy.tags.map((tag, index) => (
+            {copy.tags.map((tag) => (
               <div key={tag} className="rounded-[0.95rem] border border-white/70 bg-white/72 p-3 shadow-[0_8px_24px_rgba(35,35,38,0.06)]">
-                <span className="text-[0.62rem] font-black tabular-nums text-brand-strong">0{index + 1}</span>
-                <p className="mt-1 text-xs font-bold leading-tight text-fg">{tag}</p>
+                <p className="text-xs font-bold leading-tight text-fg">{tag}</p>
               </div>
             ))}
           </div>
@@ -49,7 +48,7 @@ function VisualMark({ variant, locale }: { variant: SectionVisualVariant; locale
   }
 
   if (variant === 'language') {
-    return <div aria-hidden="true" className="relative mx-auto flex h-32 w-[88%] items-center justify-center gap-3"><div className="-rotate-3 rounded-[1.4rem] bg-ink-surface px-6 py-5 text-2xl font-black text-white shadow-[0_18px_42px_rgba(35,35,38,0.16)]">{locale === 'tr' ? 'Merhaba' : 'Hello'}</div><div className="translate-y-4 rotate-3 rounded-[1.4rem] bg-brand px-6 py-5 text-2xl font-black text-fg shadow-[0_18px_42px_rgba(244,116,38,0.20)]">{locale === 'tr' ? 'Hello!' : 'Hi!'}</div><div className="-translate-y-3 rounded-full bg-white px-4 py-3 text-lg font-black text-brand-strong shadow-lg">Aa</div></div>
+    return <div aria-hidden="true" className="relative mx-auto flex h-32 w-[88%] items-center justify-center gap-3"><div className="-rotate-3 rounded-[1.4rem] bg-ink-surface px-7 py-5 text-2xl font-black text-white shadow-[0_18px_42px_rgba(35,35,38,0.16)]">{locale === 'tr' ? 'Merhaba' : 'Hello'}</div><div className="translate-y-4 rotate-3 rounded-[1.4rem] bg-brand px-7 py-5 text-2xl font-black text-fg shadow-[0_18px_42px_rgba(244,116,38,0.20)]">{locale === 'tr' ? 'Hello!' : 'Hi!'}</div></div>
   }
 
   if (variant === 'insights' || variant === 'guides') {

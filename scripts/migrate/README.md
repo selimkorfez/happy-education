@@ -30,8 +30,10 @@ node scripts/migrate/report.mjs                              # writes docs/MIGRA
 
 ## Credentials
 
-`import.mjs --commit` needs a write token in the environment. It is never hard-coded
-and never written to `out/`:
+`import.mjs --commit` needs a write token in the environment. It accepts the
+`SANITY_API_TOKEN` provisioned by Vercel's native Sanity integration, or a
+dedicated `SANITY_API_WRITE_TOKEN`. Neither value is hard-coded or written to
+`out/`:
 
 ```
 export SANITY_API_WRITE_TOKEN='sk...'      # sanity.io/manage -> API -> Tokens (Editor)

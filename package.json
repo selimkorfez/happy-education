@@ -18,8 +18,8 @@
     "test:e2e": "playwright test",
     "sanity:dev": "sanity dev",
     "sanity:deploy": "sanity deploy",
-    "migrate:extract": "node scripts/extract-wp.mjs",
-    "migrate:import": "node scripts/import-sanity.mjs"
+    "migrate:extract": "node scripts/migrate/extract.mjs",
+    "migrate:import": "node scripts/migrate/import.mjs"
   },
   "dependencies": {
     "@sanity/image-url": "1.2.0",

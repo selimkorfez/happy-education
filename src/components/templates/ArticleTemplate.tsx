@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Breadcrumbs } from '@/components/shared/Breadcrumbs'
-import { SectionVisual } from '@/components/shared/SectionVisual'
 import { MediaFrame } from '@/components/ui/MediaFrame'
 import { PortableText, extractHeadings } from '@/components/content/PortableText'
 import { FaqSection } from '@/components/shared/FaqSection'
@@ -12,12 +11,17 @@ import { ArticleSchema } from '@/components/seo/ArticleSchema'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { formatDate } from '@/lib/format'
+import { licensedMediaForEditorialText } from '@/lib/media/editorial-media'
 import type { ArticleDoc } from '@/lib/sanity/queries/content'
 
 export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleDoc }) {
   const copy = COPY[locale]
   const headings = doc.showTableOfContents ? extractHeadings(doc.body) : []
   const showAuthor = Boolean(doc.author?.name && doc.author.consentOnFile)
+  const leadImage = doc.leadImage?.licence?.cleared === true ? doc.leadImage : null
+  const editorialLead = leadImage
+    ? null
+    : licensedMediaForEditorialText(doc.title, doc.category?.title, doc.excerpt, ...(doc.tags ?? []))
 
   const crumbs = [
     { label: t(locale, 'brand.name'), href: `/${locale}` },
@@ -33,52 +37,40 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
         <header className="he-gradient-wash border-b border-border/70 pb-10 sm:pb-14">
           <Container>
             <Breadcrumbs locale={locale} crumbs={crumbs} />
-            <div className="grid items-end gap-8 pt-4 lg:grid-cols-[1fr_0.42fr] lg:gap-12">
+            <div className="grid items-center gap-9 pt-4 lg:grid-cols-[0.96fr_1.04fr] lg:gap-14">
               <div>
                 {doc.category ? (
                   <span className="he-pill text-brand-strong">{doc.category.title}</span>
                 ) : null}
                 <h1 className="mt-5 max-w-[18ch] text-[length:var(--text-5xl)] font-bold leading-tight text-fg">{doc.title}</h1>
                 {doc.excerpt ? <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-fg-muted">{doc.excerpt}</p> : null}
-              </div>
 
-              <div className="space-y-4">
-                {!doc.leadImage ? (
-                  <div className="overflow-hidden rounded-[1.35rem] border border-white/70 bg-white p-2 shadow-[0_18px_45px_rgba(35,35,38,0.08)]">
-                    <SectionVisual variant="insights" label={`${doc.title} editorial illustration`} locale={locale} />
-                  </div>
-                ) : null}
-                <div className="rounded-[1.25rem] border border-border/70 bg-white/75 p-5 text-sm text-fg-muted shadow-[0_10px_28px_rgba(35,35,38,0.05)] backdrop-blur-sm">
+                <div className="mt-7 border-t border-border/70 pt-5 text-sm text-fg-muted">
                   <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.articleDetails}</p>
-                  <div className="mt-3 space-y-2">
+                  <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
                     {showAuthor ? <p className="font-semibold text-fg">{doc.author?.name}{doc.author?.role ? `, ${doc.author.role}` : ''}</p> : null}
                     {doc.publishedAt ? <p><time dateTime={doc.publishedAt}>{formatDate(doc.publishedAt, locale)}</time></p> : null}
                     {doc.readingMinutes ? <p>{doc.readingMinutes} {t(locale, 'common.readingTime')}</p> : null}
                   </div>
                 </div>
               </div>
+
+              <div className="he-shine-card group overflow-hidden border border-white/80 bg-white p-2.5 shadow-[0_26px_70px_rgba(35,35,38,0.12)] sm:p-3">
+                <MediaFrame
+                  image={leadImage}
+                  external={editorialLead}
+                  alt={leadImage?.alt ?? editorialLead?.alt ?? doc.title}
+                  width={1300}
+                  height={900}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 52vw"
+                  className="aspect-[10/7] w-full [&_img]:transition-transform [&_img]:duration-[1100ms] group-hover:[&_img]:scale-[1.035]"
+                  placeholderLabel={`Article photograph: ${doc.title}`}
+                />
+              </div>
             </div>
           </Container>
         </header>
-
-        {doc.leadImage ? (
-          <div className="bg-paper pt-8 sm:pt-10">
-            <Container width="wide">
-              <div className="overflow-hidden rounded-[1.75rem] bg-white p-2 shadow-[0_22px_60px_rgba(35,35,38,0.10)] sm:p-3">
-                <MediaFrame
-                  image={doc.leadImage}
-                  alt={doc.leadImage.alt ?? doc.title}
-                  width={1600}
-                  height={900}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 78rem"
-                  className="aspect-[16/9] w-full overflow-hidden rounded-[1.35rem]"
-                  placeholderLabel={`Article lead image: ${doc.title}`}
-                />
-              </div>
-            </Container>
-          </div>
-        ) : null}
 
         <section className="bg-paper py-8 sm:py-12 lg:py-16">
           <Container>
@@ -104,10 +96,9 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
                       <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.jumpTo}</p>
                       <h2 id="toc-heading" className="mt-2 text-lg font-bold text-fg">{copy.contents}</h2>
                       <ol className="mt-4 space-y-2.5 text-sm">
-                        {headings.map((heading, index) => (
+                        {headings.map((heading) => (
                           <li key={heading.id}>
                             <a href={`#${heading.id}`} className="group flex gap-3 text-fg-muted no-underline transition hover:text-fg">
-                              <span className="font-bold tabular-nums text-brand-strong">{String(index + 1).padStart(2, '0')}</span>
                               <span className="leading-snug group-hover:underline group-hover:underline-offset-4">{heading.text}</span>
                             </a>
                           </li>
@@ -152,7 +143,18 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
             <p className="text-sm font-bold uppercase tracking-[0.1em] text-brand-strong">{copy.next}</p>
             <h2 className="mt-2 text-[length:var(--text-3xl)] font-bold text-fg">{copy.keepReading}</h2>
             <div className="mt-8">
-              <CardGrid items={doc.relatedArticles.map((a) => ({ href: docPath(locale, 'insights', a.slug), title: a.title, excerpt: a.excerpt, image: a.leadImage ?? null }))} />
+              <CardGrid
+                items={doc.relatedArticles.map((article) => {
+                  const image = article.leadImage?.licence?.cleared === true ? article.leadImage : null
+                  return {
+                    href: docPath(locale, 'insights', article.slug),
+                    title: article.title,
+                    excerpt: article.excerpt,
+                    image: image ?? undefined,
+                    externalImage: image ? null : licensedMediaForEditorialText(article.title, article.excerpt),
+                  }
+                })}
+              />
             </div>
           </Container>
         </section>

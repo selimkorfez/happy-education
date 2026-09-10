@@ -5,6 +5,7 @@ import { ProseSection, FactTable, DetailList, IncludedExcluded } from './shared'
 import { ProgrammeEnquiryPanel } from './ProgrammeEnquiryPanel'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
+import { licensedMediaForDestination } from '@/lib/media/licensed-media'
 import type { TourDoc } from '@/lib/sanity/queries/content'
 
 /**
@@ -16,6 +17,10 @@ import type { TourDoc } from '@/lib/sanity/queries/content'
  */
 export function TourTemplate({ locale, doc }: { locale: Locale; doc: TourDoc }) {
   const copy = COPY[locale]
+  const clearedHeroImage = doc.heroImage?.licence?.cleared === true ? doc.heroImage : null
+  const verifiedDestinationImage = clearedHeroImage
+    ? null
+    : licensedMediaForDestination(doc.destination?.title)
   const crumbs = [
     { label: t(locale, 'brand.name'), href: `/${locale}` },
     { label: t(locale, 'nav.tours'), href: sectionPath(locale, 'tours') },
@@ -31,8 +36,9 @@ export function TourTemplate({ locale, doc }: { locale: Locale; doc: TourDoc }) 
         crumbs={crumbs}
         eyebrow={doc.destination?.title}
         title={doc.title}
-        image={doc.heroImage ?? null}
-        imageAlt={doc.heroImage?.alt ?? doc.title}
+        image={clearedHeroImage}
+        externalImage={verifiedDestinationImage}
+        imageAlt={clearedHeroImage?.alt ?? verifiedDestinationImage?.alt ?? doc.title}
         visualVariant="tours"
       />
 

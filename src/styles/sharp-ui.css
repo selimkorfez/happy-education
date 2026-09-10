@@ -1,0 +1,37 @@
+/*
+ * Happy Education — sharp editorial geometry
+ *
+ * Interactive controls, cards, media frames and visible UI surfaces use hard
+ * corners. Purely decorative aria-hidden circles/blobs keep their geometry so
+ * the visual language does not turn every background accent into a square.
+ */
+
+@layer base {
+  :where(
+    button,
+    input,
+    select,
+    textarea,
+    [role='button'],
+    [class*='rounded']:not([aria-hidden='true']),
+    .he-surface,
+    .he-pill
+  ) {
+    border-radius: 0 !important;
+  }
+}
+
+@layer utilities {
+  /* Keep destination/content rails scrollable by touch, wheel and trackpad, but
+     do not draw a browser scrollbar underneath the cards. */
+  .scroll-x {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scroll-x::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}

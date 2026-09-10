@@ -36,10 +36,9 @@ export function SocialContentTemplate({
       <section className="bg-paper py-12 sm:py-16 lg:py-20">
         <Container>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {copy.themes.map((theme, index) => (
+            {copy.themes.map((theme) => (
               <article key={theme.title} className="rounded-[1.4rem] border border-border/70 bg-white p-5 shadow-[0_10px_30px_rgba(35,35,38,0.05)] sm:p-6">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-soft text-xs font-black text-brand-strong">0{index + 1}</span>
-                <h2 className="mt-5 text-lg font-bold text-fg">{theme.title}</h2>
+                <h2 className="text-lg font-bold text-fg">{theme.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-fg-muted">{theme.body}</p>
               </article>
             ))}

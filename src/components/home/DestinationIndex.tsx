@@ -5,7 +5,7 @@ import { AmbientBackdrop } from '@/components/ui/AmbientBackdrop'
 import { Reveal } from '@/components/ui/Reveal'
 import { docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { countrySlug, countryLabel, type CountryKey } from '@/lib/navigation'
-import { licensedMediaForDestination } from '@/lib/media/licensed-media'
+import { licensedMediaForDestinationEditorial } from '@/lib/media/editorial-media'
 
 interface Destination {
   key: CountryKey
@@ -57,7 +57,7 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
             const label = countryLabel(locale, destination.key)
             const slug = countrySlug(locale, destination.key)
             const href = docPath(locale, destination.section, slug)
-            const image = licensedMediaForDestination(slug) ?? licensedMediaForDestination(label)
+            const image = licensedMediaForDestinationEditorial(slug, label, destination.key === 'uk' ? 'England United Kingdom' : undefined)
             const copy = destination[locale]
 
             return (
@@ -66,7 +66,7 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
                   <article className="he-shine-card group relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink-surface-soft shadow-[0_24px_70px_rgba(0,0,0,0.25)] transition duration-500 hover:-translate-y-2 hover:border-white/22 hover:shadow-[0_34px_90px_rgba(0,0,0,0.34)]">
                     <MediaFrame
                       external={image}
-                      alt={image?.alt ?? label}
+                      alt={image.alt}
                       decorative
                       width={1350}
                       height={1800}
@@ -75,9 +75,8 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
                       placeholderLabel={`Destination photograph: ${label}`}
                     />
                     <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/88 via-black/18 to-black/5" />
-                    <div aria-hidden="true" className="pointer-events-none absolute inset-x-5 top-5 flex items-center justify-between text-white/76">
-                      <span className="rounded-full border border-white/16 bg-black/18 px-2.5 py-1 text-[0.68rem] font-black tabular-nums backdrop-blur-md">0{index + 1}</span>
-                      <span className="text-xs font-black uppercase tracking-[0.1em]">{copy.cue}</span>
+                    <div className="pointer-events-none absolute right-5 top-5 text-right text-xs font-black uppercase tracking-[0.1em] text-white/82">
+                      {copy.cue}
                     </div>
 
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-6">

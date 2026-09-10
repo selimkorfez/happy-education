@@ -57,7 +57,7 @@ export function MediaFrame({
   className = '',
   placeholderLabel,
 }: MediaFrameProps) {
-  if (external?.cleared) {
+  if (external?.cleared === true) {
     return (
       <figure className={`group/media relative overflow-hidden ${className}`}>
         <Image

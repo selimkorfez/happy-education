@@ -1,5 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { revalidateTag } from 'next/cache'
+import { parseBody } from 'next-sanity/webhook'
+import { z } from 'zod'
 import { serverEnv } from '@/lib/env'
 
 /**
@@ -9,9 +11,8 @@ import { serverEnv } from '@/lib/env'
  * ISR alone would leave content stale for up to its revalidate window, which is
  * unacceptable for a price or a visa statement.
  *
- * Authenticated with a shared secret in the `sanity-webhook-secret` header,
- * compared in constant time. An unauthenticated request must never be able to
- * force cache churn.
+ * Authenticated with Sanity's signed webhook body. An unauthenticated request
+ * must never be able to force cache churn.
  */
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -20,17 +21,14 @@ export const dynamic = 'force-dynamic'
 const KNOWN_TYPES = new Set([
   'destination', 'institution', 'languageSchool', 'boardingSchool', 'summerProgramme',
   'tour', 'article', 'category', 'author', 'guide', 'service', 'page', 'legalPage',
-  'siteSettings', 'translationGroup', 'redirect',
+  'socialPost', 'testimonial', 'teamMember', 'office', 'partner',
+  'appointmentType', 'paymentService', 'siteSettings', 'translationGroup', 'redirect',
 ])
 
-function timingSafeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false
-  let mismatch = 0
-  for (let i = 0; i < a.length; i++) {
-    mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i)
-  }
-  return mismatch === 0
-}
+const bodySchema = z.object({
+  _type: z.string().min(1),
+  slug: z.union([z.string(), z.object({ current: z.string().optional() })]).optional(),
+})
 
 export async function POST(request: NextRequest) {
   const secret = serverEnv().SANITY_REVALIDATE_SECRET
@@ -39,18 +37,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'not configured' }, { status: 503 })
   }
 
-  const provided = request.headers.get('sanity-webhook-secret') ?? ''
-  if (!timingSafeEqual(provided, secret)) {
-    console.warn('[revalidate] rejected: bad secret')
-    return NextResponse.json({ error: 'unauthorised' }, { status: 401 })
-  }
-
-  let body: { _type?: string; slug?: { current?: string } | string }
+  let parsedWebhook: Awaited<ReturnType<typeof parseBody<unknown>>>
   try {
-    body = (await request.json()) as typeof body
+    parsedWebhook = await parseBody<unknown>(request, secret)
   } catch {
     return NextResponse.json({ error: 'invalid payload' }, { status: 400 })
   }
+
+  if (parsedWebhook.isValidSignature !== true) {
+    console.warn('[revalidate] rejected: invalid signature')
+    return NextResponse.json({ error: 'unauthorised' }, { status: 401 })
+  }
+
+  const result = bodySchema.safeParse(parsedWebhook.body)
+  if (!result.success) {
+    return NextResponse.json({ error: 'invalid payload' }, { status: 400 })
+  }
+  const body = result.data
 
   const type = body._type
   if (!type || !KNOWN_TYPES.has(type)) {

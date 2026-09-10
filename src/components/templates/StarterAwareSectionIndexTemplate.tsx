@@ -16,10 +16,11 @@ import { listStarterDestinations, listStarterProse } from '@/lib/content/starter
 import { listEnglishInstitutionShadows, listEnglishSummerShadows } from '@/lib/content/catalogue-fallback'
 import { listEditorialArticles, listEditorialProse, listEditorialTours } from '@/lib/content/starter-editorial'
 import { listTurkishStarterProse } from '@/lib/content/starter-turkish-prose'
+import { licensedMediaForInstitutionOrPlace } from '@/lib/media/licensed-media'
 import {
-  licensedMediaForDestination,
-  licensedMediaForInstitutionOrPlace,
-} from '@/lib/media/licensed-media'
+  licensedMediaForDestinationEditorial,
+  licensedMediaForEditorialText,
+} from '@/lib/media/editorial-media'
 
 /** Keeps top-level routes useful and visually complete before the CMS tree is live. */
 export async function StarterAwareSectionIndexTemplate({ locale, section }: { locale: Locale; section: SectionKey }) {
@@ -51,7 +52,7 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
                   href: docPath(locale, section, destination.slug),
                   title: destination.title,
                   excerpt: destination.intro,
-                  externalImage: licensedMediaForDestination(destination.slug),
+                  externalImage: licensedMediaForDestinationEditorial(destination.slug, destination.title),
                 }))}
               />
             </BrowseBlock>
@@ -110,8 +111,8 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
     const individual = listEnglishSummerShadows('individual')
     const group = listEnglishSummerShadows('group')
     const formats = [
-      { key: 'individual' as const, code: '01', title: 'Individual summer schools', body: 'Programmes a student joins independently, with the provider responsible for its on-site supervision and welfare arrangements.', count: individual.length, tone: 'bg-brand-soft' },
-      { key: 'group' as const, code: '02', title: 'Group summer schools', body: 'Programmes for organised groups travelling together, with the detailed itinerary and responsibilities confirmed before booking.', count: group.length, tone: 'bg-sky-soft' },
+      { key: 'individual' as const, label: 'Independent study', title: 'Individual summer schools', body: 'Programmes a student joins independently, with the provider responsible for its on-site supervision and welfare arrangements.', count: individual.length, tone: 'bg-brand-soft' },
+      { key: 'group' as const, label: 'Group travel', title: 'Group summer schools', body: 'Programmes for organised groups travelling together, with the detailed itinerary and responsibilities confirmed before booking.', count: group.length, tone: 'bg-sky-soft' },
     ]
     if (individual.length + group.length > 0) {
       body = (
@@ -120,8 +121,8 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
             {formats.map((format) => (
               <li key={format.key}>
                 <Link href={docPath(locale, section, summerFormatSlug(locale, format.key))} className="group relative flex min-h-[19rem] h-full flex-col overflow-hidden rounded-[1.6rem] border border-border/70 bg-white p-6 no-underline shadow-[0_12px_36px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_22px_52px_rgba(35,35,38,0.09)] sm:p-7">
-                  <div className={`absolute -right-14 -top-16 h-48 w-48 rounded-full ${format.tone} transition-transform duration-500 group-hover:scale-110`} />
-                  <div className="relative flex items-start justify-between"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink-surface text-sm font-black text-white">{format.code}</span><span className="rounded-full bg-paper-sunk px-3 py-1.5 text-xs font-bold text-fg-muted">{format.count} catalogue {format.count === 1 ? 'programme' : 'programmes'}</span></div>
+                  <div aria-hidden="true" className={`absolute -right-14 -top-16 h-48 w-48 rounded-full ${format.tone} transition-transform duration-500 group-hover:scale-110`} />
+                  <div className="relative flex items-start justify-between gap-4"><span className="text-xs font-black uppercase tracking-[0.1em] text-brand-strong">{format.label}</span><span className="rounded-full bg-paper-sunk px-3 py-1.5 text-xs font-bold text-fg-muted">{format.count} catalogue {format.count === 1 ? 'programme' : 'programmes'}</span></div>
                   <div className="relative mt-auto pt-12"><h2 className="text-2xl font-bold text-fg">{format.title}</h2><p className="mt-3 max-w-[45ch] text-base leading-relaxed text-fg-muted">{format.body}</p><span className="mt-6 inline-flex text-sm font-bold text-brand-strong">View programmes <span aria-hidden="true" className="ml-2 transition-transform group-hover:translate-x-1">→</span></span></div>
                 </Link>
               </li>
@@ -135,14 +136,22 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
   if (section === 'tours' && locale === 'en') {
     const tours = listEditorialTours(locale)
     if (tours.length > 0) {
-      body = <BrowseBlock kicker="Travel with purpose" title="Learning does not have to stay in a classroom." body="Explore enquiry-led educational group travel designed around a clear itinerary and practical coordination."><SortableCardGrid locale={locale} items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title }))} /></BrowseBlock>
+      body = (
+        <BrowseBlock kicker="Travel with purpose" title="Learning does not have to stay in a classroom." body="Explore enquiry-led educational group travel designed around a clear itinerary and practical coordination.">
+          <SortableCardGrid locale={locale} items={tours.map((tour) => ({ href: docPath(locale, section, tour.slug), title: tour.title, externalImage: licensedMediaForEditorialText(tour.title, 'educational tour') }))} />
+        </BrowseBlock>
+      )
     }
   }
 
   if (section === 'insights' && locale === 'en') {
     const articles = listEditorialArticles(locale)
     if (articles.length > 0) {
-      body = <BrowseBlock kicker="Useful before you decide" title="Practical reads for the questions behind the decision." body="Short, useful guides to help you compare options and know what to ask before committing."><SortableCardGrid locale={locale} items={articles.map((article) => ({ href: docPath(locale, section, article.slug), title: article.title, meta: article.category, excerpt: article.excerpt }))} /></BrowseBlock>
+      body = (
+        <BrowseBlock kicker="Useful before you decide" title="Practical reads for the questions behind the decision." body="Short, useful guides to help you compare options and know what to ask before committing.">
+          <SortableCardGrid locale={locale} items={articles.map((article) => ({ href: docPath(locale, section, article.slug), title: article.title, meta: article.category, excerpt: article.excerpt, externalImage: licensedMediaForEditorialText(article.title, article.category, article.excerpt) }))} />
+        </BrowseBlock>
+      )
     }
   }
 
@@ -157,7 +166,7 @@ export async function StarterAwareSectionIndexTemplate({ locale, section }: { lo
           title={section === 'guides' ? (locale === 'tr' ? 'Süreci daha anlaşılır hâle getirin.' : 'Make the process easier to understand.') : (locale === 'tr' ? 'İhtiyacınız olan desteği bulun.' : 'Find the support that fits the next step.')}
           body={locale === 'tr' ? 'Uzun açıklamalar yerine ihtiyacınız olan konuya doğrudan gidin.' : 'Go straight to the part of the process you are trying to work out rather than reading one giant wall of information.'}
         >
-          <SortableCardGrid locale={locale} items={docs.map((doc) => ({ href: docPath(locale, section, doc.slug), title: doc.title, excerpt: doc.summary }))} />
+          <SortableCardGrid locale={locale} items={docs.map((doc) => ({ href: docPath(locale, section, doc.slug), title: doc.title, excerpt: doc.summary, externalImage: licensedMediaForEditorialText(doc.title, doc.summary, type) }))} />
         </BrowseBlock>
       )
     }

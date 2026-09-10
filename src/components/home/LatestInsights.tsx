@@ -4,6 +4,7 @@ import { MediaFrame } from '@/components/ui/MediaFrame'
 import { Reveal } from '@/components/ui/Reveal'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
+import { licensedMediaForEditorialText } from '@/lib/media/editorial-media'
 import { getLatestArticles, type ArticleCard } from '@/lib/sanity/queries/articles'
 import { formatDate } from '@/lib/format'
 
@@ -50,65 +51,78 @@ export async function LatestInsights({ locale }: { locale: Locale }) {
         </Reveal>
 
         <div className="relative mt-12 grid gap-5 lg:grid-cols-[1.18fr_0.82fr]">
-          {lead ? (
-            <article>
-              <Reveal className="h-full">
-                <Link
-                  href={docPath(locale, 'insights', lead.slug)}
-                  className="he-shine-card group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/70 bg-white no-underline shadow-[0_14px_42px_rgba(35,35,38,0.065)] transition duration-400 hover:-translate-y-1.5 hover:border-brand/20 hover:shadow-[0_28px_68px_rgba(35,35,38,0.11)]"
-                >
-                  <div className="relative overflow-hidden">
-                    <MediaFrame
-                      image={lead.image ?? null}
-                      alt={lead.imageAlt ?? lead.title}
-                      width={1100}
-                      height={700}
-                      sizes="(max-width: 1024px) 100vw, 58vw"
-                      className="aspect-[16/9] w-full [&_img]:transition-transform [&_img]:duration-[1100ms] group-hover:[&_img]:scale-[1.055]"
-                      placeholderLabel={`Article image: ${lead.title}`}
-                    />
-                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/24 via-transparent to-transparent" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6 sm:p-8">
-                    <ArticleMeta locale={locale} article={lead} />
-                    <h3 className="mt-3 max-w-[22ch] text-2xl font-bold leading-snug text-fg sm:text-3xl">{lead.title}</h3>
-                    {lead.excerpt ? <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-fg-muted">{lead.excerpt}</p> : null}
-                    <span className="mt-7 inline-flex items-center gap-2 text-sm font-black text-brand-strong">
-                      {heading.read}<span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
-            </article>
-          ) : null}
+          {lead ? <FeaturedArticle locale={locale} article={lead} readLabel={heading.read} /> : null}
 
           {rest.length > 0 ? (
             <div className="grid gap-4">
               {rest.map((article, index) => (
-                <article key={article.slug}>
-                  <Reveal delay={(index + 1) * 70} className="h-full">
-                    <Link
-                      href={docPath(locale, 'insights', article.slug)}
-                      className="group relative flex h-full min-h-[8.5rem] items-start gap-4 overflow-hidden rounded-[1.35rem] border border-border/70 bg-white/92 p-5 no-underline shadow-[0_8px_26px_rgba(35,35,38,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-brand/24 hover:bg-white hover:shadow-[0_18px_42px_rgba(35,35,38,0.08)]"
-                    >
-                      <div aria-hidden="true" className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-brand-soft opacity-0 blur-2xl transition duration-500 group-hover:opacity-90" />
-                      <span aria-hidden="true" className="relative grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-ink-surface text-xs font-black tabular-nums text-white transition duration-300 group-hover:bg-brand group-hover:text-fg">
-                        {String(index + 2).padStart(2, '0')}
-                      </span>
-                      <span className="relative min-w-0 flex-1">
-                        <ArticleMeta locale={locale} article={article} />
-                        <h3 className="mt-2 text-lg font-bold leading-snug text-fg">{article.title}</h3>
-                      </span>
-                      <span aria-hidden="true" className="relative mt-2 text-brand-strong transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                    </Link>
-                  </Reveal>
-                </article>
+                <Reveal key={article.slug} delay={(index + 1) * 70} className="h-full">
+                  <CompactArticle locale={locale} article={article} />
+                </Reveal>
               ))}
             </div>
           ) : null}
         </div>
       </Container>
     </section>
+  )
+}
+
+function FeaturedArticle({ locale, article, readLabel }: { locale: Locale; article: ArticleCard; readLabel: string }) {
+  const image = article.image?.licence?.cleared === true ? article.image : null
+  const externalImage = image ? null : licensedMediaForEditorialText(article.title, article.category, article.excerpt)
+
+  return (
+    <Reveal className="h-full">
+      <article className="he-shine-card group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/70 bg-white shadow-[0_14px_42px_rgba(35,35,38,0.065)] transition duration-400 hover:-translate-y-1.5 hover:border-brand/20 hover:shadow-[0_28px_68px_rgba(35,35,38,0.11)]">
+        <div className="relative overflow-hidden">
+          <MediaFrame
+            image={image}
+            external={externalImage}
+            alt={image?.alt ?? externalImage?.alt ?? article.title}
+            width={1100}
+            height={700}
+            sizes="(max-width: 1024px) 100vw, 58vw"
+            className="aspect-[16/9] w-full [&_img]:transition-transform [&_img]:duration-[1100ms] group-hover:[&_img]:scale-[1.055]"
+            placeholderLabel={`Article image: ${article.title}`}
+          />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        </div>
+        <Link href={docPath(locale, 'insights', article.slug)} className="flex flex-1 flex-col p-6 no-underline sm:p-8">
+          <ArticleMeta locale={locale} article={article} />
+          <h3 className="mt-3 max-w-[22ch] text-2xl font-bold leading-snug text-fg sm:text-3xl">{article.title}</h3>
+          {article.excerpt ? <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-fg-muted">{article.excerpt}</p> : null}
+          <span className="mt-7 inline-flex items-center gap-2 text-sm font-black text-brand-strong">
+            {readLabel}<span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+          </span>
+        </Link>
+      </article>
+    </Reveal>
+  )
+}
+
+function CompactArticle({ locale, article }: { locale: Locale; article: ArticleCard }) {
+  const image = article.image?.licence?.cleared === true ? article.image : null
+  const externalImage = image ? null : licensedMediaForEditorialText(article.title, article.category, article.excerpt)
+
+  return (
+    <article className="group grid h-full min-h-[9.5rem] grid-cols-[7.5rem_minmax(0,1fr)] overflow-hidden rounded-[1.35rem] border border-border/70 bg-white/92 shadow-[0_8px_26px_rgba(35,35,38,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-brand/24 hover:bg-white hover:shadow-[0_18px_42px_rgba(35,35,38,0.08)] sm:grid-cols-[9rem_minmax(0,1fr)]">
+      <MediaFrame
+        image={image}
+        external={externalImage}
+        alt={image?.alt ?? externalImage?.alt ?? article.title}
+        width={420}
+        height={420}
+        sizes="9rem"
+        className="h-full min-h-[9.5rem] w-full [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.05]"
+        placeholderLabel={`Article image: ${article.title}`}
+      />
+      <Link href={docPath(locale, 'insights', article.slug)} className="flex min-w-0 flex-col justify-center p-5 no-underline">
+        <ArticleMeta locale={locale} article={article} />
+        <h3 className="mt-2 text-lg font-bold leading-snug text-fg">{article.title}</h3>
+        <span aria-hidden="true" className="mt-3 text-sm font-bold text-brand-strong">→</span>
+      </Link>
+    </article>
   )
 }
 

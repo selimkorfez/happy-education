@@ -42,7 +42,8 @@ export function getPreviewClient(): SanityClient | null {
   if (preview) return preview
   const config = baseConfig()
   if (!config) return null
-  const token = serverEnv().SANITY_API_READ_TOKEN
+  const env = serverEnv()
+  const token = env.SANITY_API_READ_TOKEN ?? env.SANITY_API_TOKEN
   if (!token) return null
   preview = createClient({
     ...config,
