@@ -21,3 +21,9 @@ tsconfig.tsbuildinfo
 
 # Migration intermediates — regenerate with `node scripts/migrate/extract.mjs`
 scripts/migrate/out/
+
+# Private operational security evidence and account exports
+docs/private/
+docs/audit/private/
+docs/audit/archive/wp/users.ndjson
+*.key
