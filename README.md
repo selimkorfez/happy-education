@@ -16,15 +16,9 @@ npm run dev
 `npm run build` runs a production build. Integration credentials belong in local environment
 files or the deployment provider, never in Git.
 
-## Security and handover
+## Project status
 
-The existing production platform and domain have a separate, owner-led remediation workstream.
-This rebuild does not fix systems it has not replaced. Historical operational findings and
-account exports are not appropriate for a public source repository; see the
-[legacy-site handover](docs/URGENT-LEGACY-SITE.md) and [domain-security principles](docs/DOMAIN_SECURITY.md).
-Only authorised administrators should use the private assessment to confirm current status.
-
-High-level [architecture](docs/ARCHITECTURE.md), [deployment](docs/DEPLOYMENT.md),
-[migration](docs/MIGRATION.md), and [application-security](docs/SECURITY.md) notes are available
-without client operational details. Public repository history may still contain older copies;
-the owner should decide whether repository privacy or coordinated history cleanup is required.
+This rebuild is still in development and has not been deployed. The source code and tests
+are the current implementation. The [architecture](docs/ARCHITECTURE.md),
+[deployment](docs/DEPLOYMENT.md), [migration](docs/MIGRATION.md), and
+[application-security](docs/SECURITY.md) notes describe work needed before launch.
