@@ -14,7 +14,7 @@ export async function StudentVoices({ locale }: { locale: Locale }) {
   const copy = COPY[locale]
 
   return (
-    <section className="border-y border-border/70 bg-white py-14 sm:py-18 lg:py-20">
+    <section className="border-y border-border/70 bg-card py-14 sm:py-18 lg:py-20">
       <Container>
         <div className="grid gap-5 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
           <div>

@@ -37,4 +37,22 @@ test.describe('route cloud transition', () => {
       )
       .toContain('clearing')
   })
+
+  test('a destination click uses location-specific line art', async ({ page }) => {
+    await page.goto('/en')
+
+    await page.evaluate(() => {
+      const overlay = document.querySelector('.he-route-cloud-transition')
+      const state = window as Window & { __routeArt?: string[] }
+      state.__routeArt = []
+      if (!overlay) return
+      const record = () => state.__routeArt?.push(overlay.getAttribute('data-art') ?? '')
+      record()
+      new MutationObserver(record).observe(overlay, { attributes: true, attributeFilter: ['data-art'] })
+    })
+
+    await page.locator('a[href="/en/universities/united-kingdom"]').first().click()
+    await expect(page).toHaveURL(/\/en\/universities\/united-kingdom$/)
+    await expect.poll(() => page.evaluate(() => (window as Window & { __routeArt?: string[] }).__routeArt ?? [])).toContain('landmark')
+  })
 })

@@ -34,28 +34,29 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
       <ArticleSchema locale={locale} doc={doc} />
 
       <article>
-        <header className="he-gradient-wash border-b border-border/70 pb-10 sm:pb-14">
+        <header className="on-ink relative isolate overflow-hidden border-b border-white/10 bg-ink-surface pb-12 sm:pb-16">
+          <div aria-hidden="true" className="absolute inset-y-0 left-0 -z-10 w-[58%] bg-[radial-gradient(circle_at_24%_42%,rgba(244,116,38,0.18),transparent_60%)]" />
           <Container>
-            <Breadcrumbs locale={locale} crumbs={crumbs} />
+            <Breadcrumbs locale={locale} crumbs={crumbs} tone="dark" />
             <div className="grid items-center gap-9 pt-4 lg:grid-cols-[0.96fr_1.04fr] lg:gap-14">
               <div>
                 {doc.category ? (
-                  <span className="he-pill text-brand-strong">{doc.category.title}</span>
+                  <span className="inline-flex border border-white/15 bg-white/7 px-4 py-2 text-sm font-bold text-brand-on-ink">{doc.category.title}</span>
                 ) : null}
-                <h1 className="mt-5 max-w-[18ch] text-[length:var(--text-5xl)] font-bold leading-tight text-fg">{doc.title}</h1>
-                {doc.excerpt ? <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-fg-muted">{doc.excerpt}</p> : null}
+                <h1 className="mt-5 max-w-[16ch] text-[clamp(3rem,5.8vw,5.5rem)] font-bold leading-[0.98] text-fg-on-ink">{doc.title}</h1>
+                {doc.excerpt ? <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-fg-muted-on-ink">{doc.excerpt}</p> : null}
 
-                <div className="mt-7 border-t border-border/70 pt-5 text-sm text-fg-muted">
-                  <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.articleDetails}</p>
+                <div className="mt-7 border-t border-white/14 pt-5 text-sm text-fg-muted-on-ink">
+                  <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-on-ink">{copy.articleDetails}</p>
                   <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
-                    {showAuthor ? <p className="font-semibold text-fg">{doc.author?.name}{doc.author?.role ? `, ${doc.author.role}` : ''}</p> : null}
+                    {showAuthor ? <p className="font-semibold text-fg-on-ink">{doc.author?.name}{doc.author?.role ? `, ${doc.author.role}` : ''}</p> : null}
                     {doc.publishedAt ? <p><time dateTime={doc.publishedAt}>{formatDate(doc.publishedAt, locale)}</time></p> : null}
                     {doc.readingMinutes ? <p>{doc.readingMinutes} {t(locale, 'common.readingTime')}</p> : null}
                   </div>
                 </div>
               </div>
 
-              <div className="he-shine-card group overflow-hidden border border-white/80 bg-white p-2.5 shadow-[0_26px_70px_rgba(35,35,38,0.12)] sm:p-3">
+              <div className="he-shine-card group overflow-hidden border border-white/16 bg-white/8 p-2.5 shadow-[0_34px_90px_rgba(0,0,0,0.34)] sm:p-3">
                 <MediaFrame
                   image={leadImage}
                   external={editorialLead}
@@ -75,7 +76,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
         <section className="bg-paper py-8 sm:py-12 lg:py-16">
           <Container>
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-14">
-              <div className="min-w-0 rounded-[1.5rem] border border-border/60 bg-white p-6 shadow-[0_12px_36px_rgba(35,35,38,0.045)] sm:p-8 lg:p-10">
+              <div className="min-w-0 rounded-[1.5rem] border border-border/60 bg-card p-6 shadow-[0_12px_36px_rgba(35,35,38,0.045)] sm:p-8 lg:p-10">
                 <PortableText value={doc.body} locale={locale} />
 
                 {doc.tags && doc.tags.length > 0 ? (
@@ -92,7 +93,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
               <aside>
                 <div className="sticky top-32 space-y-5">
                   {headings.length > 2 ? (
-                    <nav aria-labelledby="toc-heading" className="rounded-[1.3rem] border border-border/70 bg-white p-5 shadow-[0_10px_28px_rgba(35,35,38,0.045)]">
+                    <nav aria-labelledby="toc-heading" className="rounded-[1.3rem] border border-border/70 bg-card p-5 shadow-[0_10px_28px_rgba(35,35,38,0.045)]">
                       <p className="text-xs font-bold uppercase tracking-[0.09em] text-brand-strong">{copy.jumpTo}</p>
                       <h2 id="toc-heading" className="mt-2 text-lg font-bold text-fg">{copy.contents}</h2>
                       <ol className="mt-4 space-y-2.5 text-sm">
@@ -122,7 +123,7 @@ export function ArticleTemplate({ locale, doc }: { locale: Locale; doc: ArticleD
       <FaqSection locale={locale} faqs={doc.faqs ?? []} />
 
       {doc.relatedDestinations && doc.relatedDestinations.length > 0 ? (
-        <section className="border-t border-border/70 bg-white py-10 sm:py-12">
+        <section className="border-t border-border/70 bg-card py-10 sm:py-12">
           <Container>
             <p className="text-sm font-bold uppercase tracking-[0.1em] text-brand-strong">{copy.explore}</p>
             <h2 className="mt-2 text-2xl font-bold text-fg">{copy.relatedDestinations}</h2>

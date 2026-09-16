@@ -12,6 +12,7 @@ import { RouteCloudTransition } from '@/components/chrome/RouteCloudTransition'
 import { ConsentProvider } from '@/components/consent/ConsentProvider'
 import { CookieBanner } from '@/components/consent/CookieBanner'
 import { Analytics } from '@/components/consent/Analytics'
+import { WhatsAppMascotButton } from '@/components/chrome/WhatsAppMascotButton'
 import { t } from '@/lib/i18n/dictionary'
 
 /** Pre-render both locale trees at build time. */
@@ -24,7 +25,10 @@ export const viewport: Viewport = {
   initialScale: 1,
   // Never cap zoom: WCAG 1.4.4 requires 200% zoom to work.
   maximumScale: 5,
-  themeColor: '#faf8f5',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fbfaf8' },
+    { media: '(prefers-color-scheme: dark)', color: '#071a33' },
+  ],
 }
 
 export async function generateMetadata({
@@ -59,7 +63,7 @@ export default async function LocaleLayout({
   const typed: Locale = locale
 
   return (
-    <html lang={HREFLANG[typed]} className={fontVariables} suppressHydrationWarning>
+    <html lang={HREFLANG[typed]} className={fontVariables} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col bg-paper text-fg antialiased">
         <ConsentProvider>
           <SkipLink locale={typed} />
@@ -72,6 +76,7 @@ export default async function LocaleLayout({
             <SiteFooter locale={typed} />
           </div>
           <CookieBanner locale={typed} />
+          <WhatsAppMascotButton locale={typed} />
           <Analytics />
         </ConsentProvider>
       </body>

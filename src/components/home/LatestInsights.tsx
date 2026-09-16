@@ -43,7 +43,7 @@ export async function LatestInsights({ locale }: { locale: Locale }) {
             </div>
             <Link
               href={sectionPath(locale, 'insights')}
-              className="inline-flex min-h-11 items-center rounded-full border border-border bg-white/90 px-5 text-sm font-black text-fg no-underline shadow-[0_8px_24px_rgba(35,35,38,0.045)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand/35 hover:bg-brand-soft"
+              className="inline-flex min-h-11 items-center rounded-full border border-border bg-card/90 px-5 text-sm font-black text-fg no-underline shadow-[0_8px_24px_rgba(35,35,38,0.045)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand/35 hover:bg-brand-soft"
             >
               {heading.all} <span aria-hidden="true" className="ml-2">→</span>
             </Link>
@@ -74,7 +74,7 @@ function FeaturedArticle({ locale, article, readLabel }: { locale: Locale; artic
 
   return (
     <Reveal className="h-full">
-      <article className="he-shine-card group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/70 bg-white shadow-[0_14px_42px_rgba(35,35,38,0.065)] transition duration-400 hover:-translate-y-1.5 hover:border-brand/20 hover:shadow-[0_28px_68px_rgba(35,35,38,0.11)]">
+      <article className="he-shine-card group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/70 bg-card shadow-[0_14px_42px_rgba(35,35,38,0.065)] transition duration-400 hover:-translate-y-1.5 hover:border-brand/20 hover:shadow-[0_28px_68px_rgba(35,35,38,0.11)]">
         <div className="relative overflow-hidden">
           <MediaFrame
             image={image}
@@ -106,7 +106,7 @@ function CompactArticle({ locale, article }: { locale: Locale; article: ArticleC
   const externalImage = image ? null : licensedMediaForEditorialText(article.title, article.category, article.excerpt)
 
   return (
-    <article className="group grid h-full min-h-[9.5rem] grid-cols-[7.5rem_minmax(0,1fr)] overflow-hidden rounded-[1.35rem] border border-border/70 bg-white/92 shadow-[0_8px_26px_rgba(35,35,38,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-brand/24 hover:bg-white hover:shadow-[0_18px_42px_rgba(35,35,38,0.08)] sm:grid-cols-[9rem_minmax(0,1fr)]">
+    <article className="group grid h-full min-h-[9.5rem] grid-cols-[7.5rem_minmax(0,1fr)] overflow-hidden rounded-[1.35rem] border border-border/70 bg-card/92 shadow-[0_8px_26px_rgba(35,35,38,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-brand/24 hover:bg-card hover:shadow-[0_18px_42px_rgba(35,35,38,0.08)] sm:grid-cols-[9rem_minmax(0,1fr)]">
       <MediaFrame
         image={image}
         external={externalImage}

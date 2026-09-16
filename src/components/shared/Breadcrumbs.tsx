@@ -16,7 +16,15 @@ export interface Crumb {
  * than wrapping into an unreadable stack, which matters because Turkish
  * institution names are long.
  */
-export function Breadcrumbs({ locale, crumbs }: { locale: Locale; crumbs: Crumb[] }) {
+export function Breadcrumbs({
+  locale,
+  crumbs,
+  tone = 'light',
+}: {
+  locale: Locale
+  crumbs: Crumb[]
+  tone?: 'light' | 'dark'
+}) {
   if (crumbs.length === 0) return null
 
   const schema = {
@@ -39,19 +47,19 @@ export function Breadcrumbs({ locale, crumbs }: { locale: Locale; crumbs: Crumb[
             return (
               <li key={`${crumb.label}-${index}`} className="flex items-center gap-2">
                 {index > 0 ? (
-                  <span aria-hidden="true" className="text-border-input">
+                  <span aria-hidden="true" className={tone === 'dark' ? 'text-white/35' : 'text-border-input'}>
                     /
                   </span>
                 ) : null}
                 {crumb.href && !isLast ? (
                   <Link
                     href={crumb.href}
-                    className="whitespace-nowrap text-fg-muted no-underline hover:text-fg hover:underline"
+                    className={`whitespace-nowrap no-underline hover:underline ${tone === 'dark' ? 'text-white/65 hover:text-white' : 'text-fg-muted hover:text-fg'}`}
                   >
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span aria-current="page" className="whitespace-nowrap font-medium text-fg">
+                  <span aria-current="page" className={`whitespace-nowrap font-medium ${tone === 'dark' ? 'text-white' : 'text-fg'}`}>
                     {crumb.label}
                   </span>
                 )}

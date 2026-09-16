@@ -77,7 +77,7 @@ export function HelpMeChoose({ locale }: { locale: Locale }) {
   const heading = HEADING[locale]
 
   return (
-    <section className="relative overflow-hidden border-b border-border/70 bg-white py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden border-b border-border/70 bg-card py-16 sm:py-20 lg:py-24">
       <div aria-hidden="true" className="absolute -right-32 top-16 h-72 w-72 rounded-full bg-sky-soft blur-3xl" />
       <Container>
         <Reveal>

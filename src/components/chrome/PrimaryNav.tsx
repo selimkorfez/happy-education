@@ -97,7 +97,7 @@ function linkClass(isActive: boolean) {
     'inline-flex min-h-11 items-center gap-1 whitespace-nowrap rounded-full px-3.5 text-[0.9rem] font-semibold no-underline transition duration-200',
     isActive
       ? 'bg-brand-soft text-brand-strong'
-      : 'text-fg-muted hover:bg-white hover:text-fg',
+      : 'text-fg-muted hover:bg-card hover:text-fg',
   ].join(' ')
 }
 
@@ -134,7 +134,7 @@ function NavDisclosure({
       {isOpen ? (
         <div
           id={panelId}
-          className="he-enter absolute left-0 top-[calc(100%+0.55rem)] z-50 min-w-[19rem] overflow-hidden rounded-[1.25rem] border border-border/80 bg-white p-2 shadow-[0_22px_55px_rgba(35,35,38,0.14)]"
+          className="he-enter absolute left-0 top-[calc(100%+0.55rem)] z-50 min-w-[19rem] overflow-hidden rounded-[1.25rem] border border-border/80 bg-card p-2 shadow-[0_22px_55px_rgba(35,35,38,0.14)]"
         >
           <ul className="space-y-1">
             <li>

@@ -62,7 +62,7 @@ export function DestinationTemplate({
       />
 
       {pageLinks.length > 1 ? (
-        <div className="border-b border-border/70 bg-white">
+        <div className="border-b border-border/70 bg-card">
           <Container>
             <nav aria-label={labels.onThisPage} className="scroll-x py-4">
               <ul className="flex w-max gap-2">
@@ -85,7 +85,7 @@ export function DestinationTemplate({
       <section className="bg-paper">
         <Container>
           <div className="grid gap-10 py-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-14 lg:py-10">
-            <div className="min-w-0 rounded-[1.5rem] border border-border/60 bg-white px-5 shadow-[0_12px_36px_rgba(35,35,38,0.045)] sm:px-8 lg:px-10">
+            <div className="min-w-0 rounded-[1.5rem] border border-border/60 bg-card px-5 shadow-[0_12px_36px_rgba(35,35,38,0.045)] sm:px-8 lg:px-10">
               <ProseSection locale={locale} title={labels.whyStudyHere} body={doc.whyStudyHere} id="why" />
               <ProseSection locale={locale} title={labels.educationSystem} body={doc.educationSystem} id="education-system" />
               <ProseSection locale={locale} title={labels.applicationJourney} body={doc.applicationJourney} id="applying" />
@@ -98,7 +98,7 @@ export function DestinationTemplate({
               {doc.visaOverview ? (
                 <section id="visa" className="scroll-mt-28 border-t border-border/70 py-10 sm:py-12">
                   <h2 className="text-[length:var(--text-2xl)] font-bold text-fg">{labels.visa}</h2>
-                  <div className="mt-5 rounded-[1.15rem] border border-amber-200/80 bg-[#fff7dd] p-5">
+                  <div className="mt-5 rounded-[1.15rem] border border-warning/35 bg-warning/10 p-5">
                     <p className="text-sm font-semibold leading-relaxed text-fg-muted">{labels.visaDisclaimer}</p>
                   </div>
                   <div className="mt-2">
@@ -143,7 +143,7 @@ export function DestinationTemplate({
       ) : null}
 
       {doc.institutions && doc.institutions.length > 0 ? (
-        <section className="border-t border-border/70 bg-white py-14 sm:py-16 lg:py-20">
+        <section className="border-t border-border/70 bg-card py-14 sm:py-16 lg:py-20">
           <Container>
             <div className="flex flex-wrap items-end justify-between gap-5">
               <div>

@@ -127,7 +127,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
           <ul className="mt-9 grid gap-5 sm:grid-cols-2">
             {formats.map((format) => (
               <li key={format.key}>
-                <Link href={docPath(locale, section, summerFormatSlug(locale, format.key))} className="group relative flex min-h-[19rem] h-full flex-col overflow-hidden rounded-[1.6rem] border border-border/70 bg-white p-6 no-underline shadow-[0_12px_36px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_22px_52px_rgba(35,35,38,0.09)] sm:p-7">
+                <Link href={docPath(locale, section, summerFormatSlug(locale, format.key))} className="group relative flex min-h-[19rem] h-full flex-col overflow-hidden rounded-[1.6rem] border border-border/70 bg-card p-6 no-underline shadow-[0_12px_36px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_22px_52px_rgba(35,35,38,0.09)] sm:p-7">
                   <div aria-hidden="true" className={`absolute -right-14 -top-16 h-48 w-48 rounded-full ${format.tone} transition-transform duration-500 group-hover:scale-110`} />
                   <div className="relative flex items-start justify-between gap-4"><span className="text-xs font-black uppercase tracking-[0.1em] text-brand-strong">{format.label}</span><span className="rounded-full bg-paper-sunk px-3 py-1.5 text-xs font-bold text-fg-muted">{format.count} {locale === 'tr' ? 'program' : format.count === 1 ? 'programme' : 'programmes'}</span></div>
                   <div className="relative mt-auto pt-12"><h2 className="text-2xl font-bold text-fg">{format.title}</h2><p className="mt-3 max-w-[45ch] text-base leading-relaxed text-fg-muted">{format.body}</p><span className="mt-6 inline-flex text-sm font-bold text-brand-strong">{locale === 'tr' ? 'Programları gör' : 'View programmes'} <span aria-hidden="true" className="ml-2 transition-transform group-hover:translate-x-1">→</span></span></div>
@@ -201,7 +201,7 @@ async function sectionBody(locale: Locale, section: SectionKey) {
 
     case 'legal':
       return (
-        <div className="max-w-[58rem] rounded-[1.5rem] border border-border/70 bg-white p-5 shadow-[0_10px_30px_rgba(35,35,38,0.04)] sm:p-7">
+        <div className="max-w-[58rem] rounded-[1.5rem] border border-border/70 bg-card p-5 shadow-[0_10px_30px_rgba(35,35,38,0.04)] sm:p-7">
           <ul className="divide-y divide-border/70">
             {legalLinks(locale).map((link) => (
               <li key={link.key}><Link href={link.href} className="group flex min-h-14 items-center justify-between py-3 text-base font-bold text-fg no-underline transition hover:text-brand-strong">{link.label}<span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span></Link></li>

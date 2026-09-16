@@ -42,7 +42,7 @@ export function SortableCardGrid({ locale, items }: { locale: Locale; items: Sor
       <div className="mb-7 flex flex-wrap items-center justify-between gap-3 rounded-[1.25rem] border border-border/70 bg-paper-sunk/65 p-4 sm:p-5">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-bold uppercase tracking-[0.08em] text-fg-muted">{copy.sort}</span>
-          <div className="inline-flex rounded-full border border-border/80 bg-white p-1 shadow-[0_5px_16px_rgba(35,35,38,0.04)]" role="group" aria-label={copy.sort}>
+          <div className="inline-flex rounded-full border border-border/80 bg-card p-1 shadow-[0_5px_16px_rgba(35,35,38,0.04)]" role="group" aria-label={copy.sort}>
             <button type="button" aria-pressed={sortMode === 'popular'} onClick={() => setSortMode('popular')} className={`min-h-11 rounded-full px-4 text-sm font-bold transition ${sortMode === 'popular' ? 'bg-ink-surface text-fg-on-ink shadow-sm' : 'text-fg-muted hover:bg-paper hover:text-fg'}`}>{copy.popular}</button>
             <button type="button" aria-pressed={sortMode === 'az'} onClick={() => setSortMode('az')} className={`min-h-11 rounded-full px-4 text-sm font-bold transition ${sortMode === 'az' ? 'bg-ink-surface text-fg-on-ink shadow-sm' : 'text-fg-muted hover:bg-paper hover:text-fg'}`}>{copy.az}</button>
           </div>
@@ -53,7 +53,7 @@ export function SortableCardGrid({ locale, items }: { locale: Locale; items: Sor
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {sorted.map((item) => (
           <li key={item.href}>
-            <article className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_10px_32px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_48px_rgba(35,35,38,0.10)]">
+            <article className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-card shadow-[0_10px_32px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_48px_rgba(35,35,38,0.10)]">
               {item.externalImage ? (
                 <div className="relative aspect-[3/2] overflow-hidden bg-paper-sunk">
                   <Image

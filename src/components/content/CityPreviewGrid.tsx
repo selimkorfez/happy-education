@@ -37,7 +37,7 @@ export function CityPreviewGrid({ locale, cities }: { locale: Locale; cities: Ci
         const image = licensedMediaForPlace(city.title)
         return (
           <li key={city.slug}>
-            <article className="group flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_10px_30px_rgba(35,35,38,0.055)]">
+            <article className="group flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-card shadow-[0_10px_30px_rgba(35,35,38,0.055)]">
               {image ? (
                 <MediaFrame
                   external={image}

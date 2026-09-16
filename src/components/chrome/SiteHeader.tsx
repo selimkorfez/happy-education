@@ -4,6 +4,7 @@ import { Logo } from '@/components/ui/Logo'
 import { PrimaryNav } from './PrimaryNav'
 import { MobileNav } from './MobileNav'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { ThemeToggle } from './ThemeToggle'
 import { primaryNav } from '@/lib/navigation'
 import { homePath, sectionPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
@@ -15,7 +16,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-paper/90 shadow-[0_6px_24px_rgba(35,35,38,0.035)] backdrop-blur-xl">
-      <div className="hidden border-b border-border/60 bg-white/45 lg:block">
+      <div className="hidden border-b border-border/60 bg-card/45 lg:block">
         <Container>
           <div className="flex h-9 items-center justify-between text-xs font-semibold">
             <div className="flex items-center gap-4 text-fg-muted">
@@ -56,9 +57,10 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <PrimaryNav groups={groups} locale={locale} />
 
           <div className="flex items-center gap-1.5 sm:gap-2.5">
+            <ThemeToggle locale={locale} />
             <Link
               href={sectionPath(locale, 'search')}
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-transparent text-fg-muted no-underline transition hover:border-border hover:bg-white hover:text-fg"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center border border-transparent text-fg-muted no-underline transition hover:border-border hover:bg-card hover:text-fg"
               aria-label={t(locale, 'search.label')}
             >
               <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -69,7 +71,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
 
             <Link
               href={sectionPath(locale, 'consultation')}
-              className="hidden min-h-11 items-center whitespace-nowrap rounded-full bg-brand px-5 text-[0.9375rem] font-bold text-fg no-underline shadow-[0_8px_20px_rgba(244,116,38,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#f6813b] sm:inline-flex"
+              className="hidden min-h-11 items-center whitespace-nowrap rounded-full bg-brand px-5 text-[0.9375rem] font-bold text-[#1b1b1d] no-underline shadow-[0_8px_20px_rgba(244,116,38,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#f6813b] sm:inline-flex"
             >
               {t(locale, 'nav.consultation')}
               <span aria-hidden="true" className="ml-2">↗</span>
