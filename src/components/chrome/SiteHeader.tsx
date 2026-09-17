@@ -19,8 +19,8 @@ export function SiteHeader({ locale, settings }: { locale: Locale; settings?: Si
   const consultationLabel = localised(settings?.interfaceCopy?.consultationLabel, locale) ?? t(locale, 'nav.consultation')
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-paper/90 shadow-[0_6px_24px_rgba(35,35,38,0.035)] backdrop-blur-xl">
-      <div className="hidden border-b border-border/60 bg-card/45 lg:block">
+    <header className="sticky top-0 z-[80] border-b border-border/70 bg-paper/90 shadow-[0_6px_24px_rgba(35,35,38,0.035)] backdrop-blur-xl">
+      <div className="hidden border-b border-border/60 bg-card/45 xl:block">
         <Container>
           <div className="flex h-9 items-center justify-between text-xs font-semibold">
             <div className="flex items-center gap-4 text-fg-muted">
@@ -75,7 +75,7 @@ export function SiteHeader({ locale, settings }: { locale: Locale; settings?: Si
 
             <Link
               href={sectionPath(locale, 'consultation')}
-              className="hidden min-h-11 items-center whitespace-nowrap rounded-full bg-brand px-5 text-[0.9375rem] font-bold text-[#1b1b1d] no-underline shadow-[0_8px_20px_rgba(244,116,38,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#f6813b] sm:inline-flex"
+              className="hidden min-h-11 items-center whitespace-nowrap rounded-full bg-brand px-5 text-[0.9375rem] font-bold text-[#1b1b1d] no-underline shadow-[0_8px_20px_rgba(244,116,38,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#f6813b] xl:inline-flex"
             >
               {consultationLabel}
               <span aria-hidden="true" className="ml-2">↗</span>

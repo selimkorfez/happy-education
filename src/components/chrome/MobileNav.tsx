@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { createPortal } from 'react-dom'
 import { useEffect, useRef, useState } from 'react'
 import type { NavGroup } from '@/lib/navigation'
 import { t } from '@/lib/i18n/dictionary'
@@ -91,13 +92,95 @@ export function MobileNav({
     }
   }, [isOpen])
 
+  const panel = isOpen && typeof document !== 'undefined'
+    ? createPortal(
+      <div
+        id="mobile-nav-panel"
+        ref={panelRef}
+        className="fixed inset-x-0 bottom-0 top-20 z-[70] overflow-y-auto overscroll-contain border-t border-border bg-paper pb-[env(safe-area-inset-bottom)]"
+      >
+        <nav
+          aria-label={t(locale, 'nav.primary')}
+          className="px-5 py-4 sm:px-8"
+          onClick={(event) => {
+            if ((event.target as HTMLElement).closest('a')) setIsOpen(false)
+          }}
+        >
+          <ul className="divide-y divide-border">
+            {groups.map((group) =>
+              group.children?.length ? (
+                <li key={group.key}>
+                  <details className="group">
+                    <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between py-3 text-lg font-semibold text-fg [&::-webkit-details-marker]:hidden">
+                      {group.label}
+                      <span aria-hidden="true" className="text-fg-muted transition-transform group-open:rotate-180">
+                        <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+                          <path
+                            d="M1 3.5 5 7l4-3.5"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="square"
+                          />
+                        </svg>
+                      </span>
+                    </summary>
+                    <ul className="pb-3 pl-1">
+                      <li>
+                        <Link href={group.href} className={mobileSubLink}>
+                          {t(locale, 'common.viewAll')} — {group.label}
+                        </Link>
+                      </li>
+                      {group.children.map((child) => (
+                        <li key={child.href}>
+                          <Link href={child.href} className={mobileSubLink}>
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                </li>
+              ) : (
+                <li key={group.key}>
+                  <Link
+                    href={group.href}
+                    className="flex min-h-14 items-center py-3 text-lg font-semibold text-fg no-underline"
+                  >
+                    {group.label}
+                  </Link>
+                </li>
+              ),
+            )}
+          </ul>
+
+          <div className="mt-6 flex flex-col gap-3 border-t border-border pt-6">
+            <Link
+              href={sectionPath(locale, 'consultation')}
+              className="inline-flex min-h-12 items-center justify-center rounded-[3px] bg-brand-strong px-6 text-base font-semibold text-white no-underline"
+            >
+              {consultationLabel ?? t(locale, 'nav.consultation')}
+            </Link>
+            <Link
+              href={sectionPath(locale, 'contact')}
+              className="inline-flex min-h-12 items-center justify-center rounded-[3px] border border-border-input px-6 text-base font-semibold text-fg no-underline"
+            >
+              {contactLabel ?? t(locale, 'nav.contact')}
+            </Link>
+          </div>
+        </nav>
+      </div>,
+      document.body,
+    )
+    : null
+
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         ref={triggerRef}
         type="button"
         aria-expanded={isOpen}
         aria-controls="mobile-nav-panel"
+        aria-label={isOpen ? t(locale, 'nav.closeMenu') : t(locale, 'nav.menu')}
         onClick={() => setIsOpen((open) => !open)}
         className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 px-2 text-sm font-semibold text-fg"
       >
@@ -112,80 +195,11 @@ export function MobileNav({
             </svg>
           )}
         </span>
-        {isOpen ? t(locale, 'nav.closeMenu') : t(locale, 'nav.menu')}
+        <span className="hidden sm:inline">
+          {isOpen ? t(locale, 'nav.closeMenu') : t(locale, 'nav.menu')}
+        </span>
       </button>
-
-      {isOpen ? (
-        <div
-          id="mobile-nav-panel"
-          ref={panelRef}
-          className="fixed inset-x-0 bottom-0 top-[var(--header-height,4.5rem)] z-40 overflow-y-auto border-t border-border bg-paper"
-        >
-          <nav aria-label={t(locale, 'nav.primary')} className="px-5 py-4">
-            <ul className="divide-y divide-border">
-              {groups.map((group) =>
-                group.children?.length ? (
-                  <li key={group.key}>
-                    <details className="group">
-                      <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between py-3 text-lg font-semibold text-fg [&::-webkit-details-marker]:hidden">
-                        {group.label}
-                        <span aria-hidden="true" className="text-fg-muted group-open:rotate-180">
-                          <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
-                            <path
-                              d="M1 3.5 5 7l4-3.5"
-                              stroke="currentColor"
-                              strokeWidth="1.5"
-                              strokeLinecap="square"
-                            />
-                          </svg>
-                        </span>
-                      </summary>
-                      <ul className="pb-3 pl-1">
-                        <li>
-                          <Link href={group.href} className={mobileSubLink}>
-                            {t(locale, 'common.viewAll')} — {group.label}
-                          </Link>
-                        </li>
-                        {group.children.map((child) => (
-                          <li key={child.href}>
-                            <Link href={child.href} className={mobileSubLink}>
-                              {child.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  </li>
-                ) : (
-                  <li key={group.key}>
-                    <Link
-                      href={group.href}
-                      className="flex min-h-14 items-center py-3 text-lg font-semibold text-fg no-underline"
-                    >
-                      {group.label}
-                    </Link>
-                  </li>
-                ),
-              )}
-            </ul>
-
-            <div className="mt-6 flex flex-col gap-3 border-t border-border pt-6">
-              <Link
-                href={sectionPath(locale, 'consultation')}
-                className="inline-flex min-h-12 items-center justify-center rounded-[3px] bg-brand-strong px-6 text-base font-semibold text-white no-underline"
-              >
-                {consultationLabel ?? t(locale, 'nav.consultation')}
-              </Link>
-              <Link
-                href={sectionPath(locale, 'contact')}
-                className="inline-flex min-h-12 items-center justify-center rounded-[3px] border border-border-input px-6 text-base font-semibold text-fg no-underline"
-              >
-                {contactLabel ?? t(locale, 'nav.contact')}
-              </Link>
-            </div>
-          </nav>
-        </div>
-      ) : null}
+      {panel}
     </div>
   )
 }
