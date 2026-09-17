@@ -293,6 +293,7 @@ export function localGetTour(locale: Locale, slug: string): TourDoc | null {
     availability: str(doc.availability),
     cancellationTerms: doc.cancellationTerms,
     safeguardingNote: doc.safeguardingNote,
+    brochureUrl: str(doc.brochureUrl),
     destination: destination
       ? { title: destination.title, slug: slugOf(destination) ?? '' }
       : undefined,
@@ -387,6 +388,11 @@ export function localGetProseDoc(
     pageKey: str(doc.pageKey),
     effectiveDate: str(doc.effectiveDate),
     solicitorApproved: doc.solicitorApproved === true,
+    landingEyebrow: str(doc.landingEyebrow),
+    landingTitle: str(doc.landingTitle),
+    landingIntro: arr(doc.landingIntro),
+    landingSections: doc.landingSections as ProseDoc['landingSections'],
+    groupCampusOptions: arr(doc.groupCampusOptions),
   } as ProseDoc
 }
 

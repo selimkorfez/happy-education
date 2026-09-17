@@ -5,6 +5,7 @@ import type { SectionVisualVariant } from '@/components/shared/SectionVisual'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { InstitutionBrowser } from '@/components/content/InstitutionBrowser'
 import { SortableCardGrid } from '@/components/content/SortableCardGrid'
+import { SectionLandingContent } from '@/components/content/SectionLandingContent'
 import { EmptySection } from './shared'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
@@ -17,7 +18,9 @@ import {
   licensedMediaForEditorialText,
   licensedMediaForEditorialVariant,
 } from '@/lib/media/editorial-media'
-import { listDestinations, listInstitutions, listTours, listSummerProgrammes } from '@/lib/sanity/queries/content'
+import { getPageByKey, getProseDoc, listDestinations, listInstitutions, listTours, listSummerProgrammes } from '@/lib/sanity/queries/content'
+import { listEditorialTours } from '@/lib/content/starter-editorial'
+import { mergeLandingContent, sectionLandingFallback } from '@/lib/content/section-landing'
 import { getArticlesByCategory } from '@/lib/sanity/queries/articles'
 import { getProseIndex } from '@/lib/sanity/queries/index-lists'
 
@@ -99,14 +102,21 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     }
 
     case 'boardingSchools': {
-      const schools = await listInstitutions(locale, ['boardingSchool'])
+      const [schools, page] = await Promise.all([
+        listInstitutions(locale, ['boardingSchool']),
+        getPageByKey(locale, 'boardingSchools').then((doc) => doc ?? (locale === 'tr' ? getProseDoc(locale, 'yatili-okullar', 'page') : null)),
+      ])
       if (schools.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
+      const landing = mergeLandingContent(sectionLandingFallback(locale, 'boardingSchools'), page)
       return (
-        <div>
-          <SectionHeading locale={locale} kicker={locale === 'tr' ? 'Okulları karşılaştırın' : 'Compare schools'} title={locale === 'tr' ? 'Yatılı okul seçeneklerini keşfedin' : 'Explore boarding-school options'} body={locale === 'tr' ? 'Akademik uyum kadar yatılı yaşam, destek ve günlük ortamı da düşünerek ilerleyin.' : 'Look beyond academics and compare boarding life, support and the day-to-day environment too.'} />
-          <div className="mt-8">
+        <div className="space-y-14 lg:space-y-16">
+          <SectionLandingContent content={landing} />
+          <section>
+            <SectionHeading locale={locale} kicker={locale === 'tr' ? 'Okulları karşılaştırın' : 'Compare schools'} title={locale === 'tr' ? 'Yatılı okul seçeneklerini keşfedin' : 'Explore boarding-school options'} body={locale === 'tr' ? 'Akademik uyum kadar yatılı yaşam, destek ve günlük ortamı da düşünerek ilerleyin.' : 'Look beyond academics and compare boarding life, support and the day-to-day environment too.'} />
+            <div className="mt-8">
             <InstitutionBrowser locale={locale} items={schools.map((s) => ({ href: docPath(locale, section, s.slug), title: s.title, city: s.city, country: s.country, image: licensedMediaForInstitutionOrPlace(s.title, s.city, s.country) }))} />
-          </div>
+            </div>
+          </section>
         </div>
       )
     }
@@ -141,7 +151,12 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     }
 
     case 'tours': {
-      const tours = await listTours(locale)
+      const storedTours = (await listTours(locale)).filter((tour) => tour.slug !== 'turlar' && tour.slug !== 'tours')
+      const fallbackTours = listEditorialTours(locale)
+      const tours = [
+        ...storedTours,
+        ...fallbackTours.filter((fallback) => !storedTours.some((tour) => tour.slug === fallback.slug)),
+      ]
       if (tours.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
       return (
         <SortableCardGrid

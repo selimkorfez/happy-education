@@ -1216,5 +1216,333 @@
         "accommodation": "inline-label"
       }
     }
+  },
+  {
+    "_id": "tour-tr-england-tour",
+    "_type": "tour",
+    "locale": "tr",
+    "title": "İngiltere Turu",
+    "slug": {
+      "_type": "slug",
+      "current": "ingiltere-turu"
+    },
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "england-overview-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "england-overview-text-0",
+            "text": "Üniversite şehirleri, Kuzey İngiltere ve Londra’yı bir araya getiren eğitim odaklı gezi rotası. İçerik Happy Education’ın özgün İngiltere turu broşürüne dayanır; güncel tarihler, oteller, ulaşım ve ücret her grup için kayıt öncesinde teyit edilir.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "itinerary": [
+      {
+        "_type": "block",
+        "_key": "england-itinerary-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "england-itinerary-text-0",
+            "text": "Manchester, Leeds, Liverpool ve Huddersfield veya Bradford",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "england-itinerary-1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "england-itinerary-text-1",
+            "text": "York, Oxford ve Londra",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "included": [
+      "Teyit edilen program kapsamındaki ulaşım",
+      "Tur rehberliği ve onaylı teklifte belirtilen giriş biletleri",
+      "Otel konaklaması",
+      "Kahvaltı"
+    ],
+    "brochureUrl": "https://happyeducation.uk/wp-content/uploads/england-tour.pdf",
+    "availability": "open",
+    "safeguardingNote": [
+      {
+        "_type": "block",
+        "_key": "tour-safeguarding-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "tour-safeguarding-text-0",
+            "text": "18 yaş altı katılımcılar için gözetim sorumlulukları, veli izinleri, acil durum düzenlemeleri ve üçüncü taraf operatörün sorumlulukları kayıt öncesinde yazılı olarak kararlaştırılır.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "review": {
+      "lastReviewed": "2026-09-17",
+      "timeSensitive": true
+    }
+  },
+  {
+    "_id": "tour-tr-europe-tour",
+    "_type": "tour",
+    "locale": "tr",
+    "title": "Avrupa Turu",
+    "slug": {
+      "_type": "slug",
+      "current": "avrupa-turu"
+    },
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "europe-overview-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "europe-overview-text-0",
+            "text": "Hollanda, Belçika, Fransa, Lüksemburg, Alsace ve İsviçre’yi kapsayan çok ülkeli rota. Yayındaki broşür rota referansıdır; güncel tarihler, operatör, konaklama, girişler ve toplam ücret her grup için yeniden teyit edilir.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "itinerary": [
+      {
+        "_type": "block",
+        "_key": "europe-itinerary-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "europe-itinerary-text-0",
+            "text": "Amsterdam, Zaanse Schans, Giethoorn, Volendam ve Marken",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "europe-itinerary-1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "europe-itinerary-text-1",
+            "text": "Brüksel ve Brugge",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "europe-itinerary-2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "europe-itinerary-text-2",
+            "text": "Paris ve isteğe bağlı Disneyland ziyareti",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "europe-itinerary-3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "europe-itinerary-text-3",
+            "text": "Metz, Lüksemburg ve Schengen",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "europe-itinerary-4",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "europe-itinerary-text-4",
+            "text": "Strasbourg, Colmar ve Basel",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "included": [
+      "Kahvaltı dâhil 3 veya 4 yıldızlı otellerde yedi gece",
+      "Havalimanı transferleri ve teyit edilen rota için özel ulaşım",
+      "İngilizce konuşan tur rehberi"
+    ],
+    "excluded": [
+      "Teklifte ayrıca belirtilmedikçe giriş biletleri ve isteğe bağlı aktiviteler",
+      "Teklifte ayrıca belirtilmedikçe akşam yemekleri"
+    ],
+    "brochureUrl": "https://happyeducation.uk/wp-content/uploads/Europe-Tour-Disneyland-.pdf",
+    "availability": "open",
+    "safeguardingNote": [
+      {
+        "_type": "block",
+        "_key": "tour-safeguarding-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "tour-safeguarding-text-0",
+            "text": "18 yaş altı katılımcılar için gözetim sorumlulukları, veli izinleri, acil durum düzenlemeleri ve üçüncü taraf operatörün sorumlulukları kayıt öncesinde yazılı olarak kararlaştırılır.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "review": {
+      "lastReviewed": "2026-09-17",
+      "timeSensitive": true
+    }
+  },
+  {
+    "_id": "tour-tr-italy-tour",
+    "_type": "tour",
+    "locale": "tr",
+    "title": "İtalya Turu",
+    "slug": {
+      "_type": "slug",
+      "current": "italya-turu"
+    },
+    "overview": [
+      {
+        "_type": "block",
+        "_key": "italy-overview-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "italy-overview-text-0",
+            "text": "Kuzey ve Orta İtalya’dan Roma’ya uzanan kültür rotası. Özgün broşür rota taslağını gösterir; güncel tarihler, oteller, ulaşım, girişler ve ücret her grup için yeniden teyit edilir.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "itinerary": [
+      {
+        "_type": "block",
+        "_key": "italy-itinerary-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "italy-itinerary-text-0",
+            "text": "Bergamo, Milano ve Como Gölü",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "italy-itinerary-1",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "italy-itinerary-text-1",
+            "text": "Venedik, Verona ve Garda Gölü",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "italy-itinerary-2",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "italy-itinerary-text-2",
+            "text": "Floransa, Pisa, San Gimignano ve Siena",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "_key": "italy-itinerary-3",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "italy-itinerary-text-3",
+            "text": "Roma, Vatikan, Albano Gölü ve Nemi",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "included": [
+      "Kahvaltı dâhil 3 veya 4 yıldızlı otellerde yedi gece",
+      "Havalimanı transferleri ve teyit edilen rota için özel ulaşım",
+      "İngilizce konuşan tur rehberi"
+    ],
+    "excluded": [
+      "Teklifte ayrıca belirtilmedikçe giriş biletleri ve isteğe bağlı aktiviteler",
+      "Teklifte ayrıca belirtilmedikçe akşam yemekleri"
+    ],
+    "brochureUrl": "https://happyeducation.uk/wp-content/uploads/Italy-Tour-.pdf",
+    "availability": "open",
+    "safeguardingNote": [
+      {
+        "_type": "block",
+        "_key": "tour-safeguarding-0",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "tour-safeguarding-text-0",
+            "text": "18 yaş altı katılımcılar için gözetim sorumlulukları, veli izinleri, acil durum düzenlemeleri ve üçüncü taraf operatörün sorumlulukları kayıt öncesinde yazılı olarak kararlaştırılır.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "review": {
+      "lastReviewed": "2026-09-17",
+      "timeSensitive": true
+    }
   }
 ]

@@ -26,6 +26,29 @@
   --color-mint-soft: #eef8f3;
   --color-lilac-soft: #f5f0ff;
 
+  /* ---- Dark palette seeds (mapped below for saved or system dark mode) ---- */
+  --he-dark-paper: color-mix(in srgb, var(--he-brand-navy) 78%, black);
+  --he-dark-paper-sunk: color-mix(in srgb, var(--he-brand-navy) 86%, black);
+  --he-dark-card: color-mix(in srgb, var(--he-brand-navy) 88%, white);
+  --he-dark-ink-surface: color-mix(in srgb, var(--he-brand-navy) 88%, black);
+  --he-dark-ink-surface-soft: var(--he-brand-navy);
+  --he-dark-brand-soft: #3b261d;
+  --he-dark-sky-soft: #102b4b;
+  --he-dark-mint-soft: #102f2b;
+  --he-dark-lilac-soft: #272440;
+  --he-dark-fg: #f6f8fb;
+  --he-dark-fg-muted: #bcc8d7;
+  --he-dark-fg-on-ink: #f8fafc;
+  --he-dark-fg-muted-on-ink: #c4cfdd;
+  --he-dark-brand-strong: var(--he-brand-orange);
+  --he-dark-brand-pressed: color-mix(in srgb, var(--he-brand-orange) 78%, white);
+  --he-dark-success: #7bd7aa;
+  --he-dark-warning: #f2c46f;
+  --he-dark-error: #ff938b;
+  --he-dark-focus: #86b6ff;
+  --he-dark-border: #2e4867;
+  --he-dark-border-input: #7890aa;
+
   /* ---- Foregrounds ---- */
   --color-fg: #1b1b1d;
   --color-fg-muted: #56565c;
@@ -91,27 +114,6 @@
 
   html[data-theme='dark'] {
     color-scheme: dark;
-    --he-dark-paper: color-mix(in srgb, var(--he-brand-navy) 78%, black);
-    --he-dark-paper-sunk: color-mix(in srgb, var(--he-brand-navy) 86%, black);
-    --he-dark-card: color-mix(in srgb, var(--he-brand-navy) 88%, white);
-    --he-dark-ink-surface: color-mix(in srgb, var(--he-brand-navy) 88%, black);
-    --he-dark-ink-surface-soft: var(--he-brand-navy);
-    --he-dark-brand-soft: #3b261d;
-    --he-dark-sky-soft: #102b4b;
-    --he-dark-mint-soft: #102f2b;
-    --he-dark-lilac-soft: #272440;
-    --he-dark-fg: #f6f8fb;
-    --he-dark-fg-muted: #bcc8d7;
-    --he-dark-fg-on-ink: #f8fafc;
-    --he-dark-fg-muted-on-ink: #c4cfdd;
-    --he-dark-brand-strong: var(--he-brand-orange);
-    --he-dark-brand-pressed: color-mix(in srgb, var(--he-brand-orange) 78%, white);
-    --he-dark-success: #7bd7aa;
-    --he-dark-warning: #f2c46f;
-    --he-dark-error: #ff938b;
-    --he-dark-focus: #86b6ff;
-    --he-dark-border: #2e4867;
-    --he-dark-border-input: #7890aa;
     --color-paper: var(--he-dark-paper);
     --color-paper-sunk: var(--he-dark-paper-sunk);
     --color-card: var(--he-dark-card);
@@ -133,6 +135,33 @@
     --color-focus: var(--he-dark-focus);
     --color-border: var(--he-dark-border);
     --color-border-input: var(--he-dark-border-input);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme]) {
+      color-scheme: dark;
+      --color-paper: var(--he-dark-paper);
+      --color-paper-sunk: var(--he-dark-paper-sunk);
+      --color-card: var(--he-dark-card);
+      --color-ink-surface: var(--he-dark-ink-surface);
+      --color-ink-surface-soft: var(--he-dark-ink-surface-soft);
+      --color-brand-soft: var(--he-dark-brand-soft);
+      --color-sky-soft: var(--he-dark-sky-soft);
+      --color-mint-soft: var(--he-dark-mint-soft);
+      --color-lilac-soft: var(--he-dark-lilac-soft);
+      --color-fg: var(--he-dark-fg);
+      --color-fg-muted: var(--he-dark-fg-muted);
+      --color-fg-on-ink: var(--he-dark-fg-on-ink);
+      --color-fg-muted-on-ink: var(--he-dark-fg-muted-on-ink);
+      --color-brand-strong: var(--he-dark-brand-strong);
+      --color-brand-pressed: var(--he-dark-brand-pressed);
+      --color-success: var(--he-dark-success);
+      --color-warning: var(--he-dark-warning);
+      --color-error: var(--he-dark-error);
+      --color-focus: var(--he-dark-focus);
+      --color-border: var(--he-dark-border);
+      --color-border-input: var(--he-dark-border-input);
+    }
   }
 
   html {

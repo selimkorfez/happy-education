@@ -115,6 +115,9 @@ test.describe('mobile navigation', () => {
     const panel = page.locator('#mobile-nav-panel')
     await expect(panel).toBeVisible()
     await expect(panel.getByRole('link').first()).toBeVisible()
+    const bounds = await panel.boundingBox()
+    expect(bounds?.y).toBe(80)
+    expect(bounds?.height).toBe(764)
 
     await page.keyboard.press('Escape')
     await expect(panel).toHaveCount(0)
@@ -194,5 +197,22 @@ test.describe('mobile navigation', () => {
     for (const height of boxes) {
       expect(height).toBeGreaterThanOrEqual(44)
     }
+  })
+
+  test('keeps the working menu through tablet and small-laptop widths', async ({ page }) => {
+    await page.setViewportSize({ width: 1024, height: 768 })
+    await gotoReady(page, '/en')
+
+    const trigger = page.getByRole('button', { name: /menu/i }).first()
+    await expect(trigger).toBeVisible()
+    await trigger.click()
+
+    const panel = page.locator('#mobile-nav-panel')
+    await expect(panel).toBeVisible()
+    const bounds = await panel.boundingBox()
+    expect(bounds?.x).toBe(0)
+    expect(bounds?.width).toBe(1024)
+    expect(bounds?.height).toBe(688)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1024)
   })
 })

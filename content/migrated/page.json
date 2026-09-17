@@ -2384,7 +2384,8 @@
       "hasFieldProvenance": {
         "programmes": "inline-label"
       }
-    }
+    },
+    "pageKey": "boardingSchools"
   },
   {
     "_id": "page-tr-13185",
@@ -4803,7 +4804,8 @@
         "/bireysel-yaz-okullari/",
         "/yaz-okullari/bireysel-yaz-okullari/"
       ]
-    }
+    },
+    "pageKey": "summerIndividual"
   },
   {
     "_id": "page-tr-1347",
@@ -6885,6 +6887,7 @@
       "mergedFrom": [
         "/yaz-okullari/grup-yaz-okullari/"
       ]
-    }
+    },
+    "pageKey": "summerGroup"
   }
 ]

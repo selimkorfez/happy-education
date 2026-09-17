@@ -42,6 +42,30 @@ const ENGLAND: LicensedExternalImage = {
   cleared: true,
 }
 
+const EUROPE_TOUR: LicensedExternalImage = {
+  src: `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent('Paris Skyline (210774145).jpeg')}?width=1800`,
+  alt: 'The Paris skyline seen across the city',
+  creator: 'Gianfranco Albergo',
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Paris_Skyline_(210774145).jpeg',
+  licence: 'CC0 1.0',
+  licenceUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
+  kind: 'city',
+  privacy: 'architecture-or-cityscape',
+  cleared: true,
+}
+
+const ITALY_TOUR: LicensedExternalImage = {
+  src: `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent('Rome Skyline (8012016319).jpg')}?width=1800`,
+  alt: 'The skyline of Rome, Italy',
+  creator: 'Bert Kaufmann',
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Rome_Skyline_(8012016319).jpg',
+  licence: 'CC BY-SA 2.0',
+  licenceUrl: 'https://creativecommons.org/licenses/by-sa/2.0/',
+  kind: 'city',
+  privacy: 'architecture-or-cityscape',
+  cleared: true,
+}
+
 /** A stronger representative image for England / the United Kingdom. */
 export function licensedMediaForEngland(): LicensedExternalImage {
   return ENGLAND
@@ -82,6 +106,12 @@ const NEUTRAL = [
 
 /** Deliberate choices for the launch collection keep adjacent cards distinct. */
 const CURATED_TITLES: Record<string, LicensedExternalImage> = {
+  'england tour': ENGLAND,
+  'ingiltere turu': ENGLAND,
+  'europe tour': EUROPE_TOUR,
+  'avrupa turu': EUROPE_TOUR,
+  'italy tour': ITALY_TOUR,
+  'italya turu': ITALY_TOUR,
   'how to choose a university abroad': PHOTO['bright-library'],
   'university application timeline': PHOTO['planning-desk'],
   'how to compare language schools': PHOTO.bookshelves,

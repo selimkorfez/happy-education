@@ -289,30 +289,98 @@ export function getEditorialArticle(locale: Locale, slug: string): ArticleDoc | 
   }
 }
 
-const EN_TOUR = {
-  slug: 'educational-group-tours',
-  title: 'Educational group tours',
+type TourEntry = {
+  slug: string
+  title: string
+  destination: string
+  overview: string[]
+  itinerary: string[]
+  included: string[]
+  excluded?: string[]
+  brochureUrl: string
+}
+
+const TOUR_ENTRIES: Record<Locale, TourEntry[]> = {
+  en: [
+    {
+      slug: 'england-tour', title: 'England Tour', destination: 'England',
+      overview: ['An education-focused journey through university cities, northern England and London. The route is based on Happy Education’s original England tour brochure; current dates, hotels, transport and prices are confirmed for each group before booking.'],
+      itinerary: ['Manchester, Leeds, Liverpool and Huddersfield or Bradford', 'York, Oxford and London'],
+      included: ['Transport for the agreed itinerary', 'Tour guidance and the entrance tickets stated in the confirmed proposal', 'Hotel accommodation', 'Breakfast'],
+      brochureUrl: 'https://happyeducation.uk/wp-content/uploads/england-tour.pdf',
+    },
+    {
+      slug: 'europe-tour', title: 'Europe Tour', destination: 'Europe',
+      overview: ['A multi-country route built around the Netherlands, Belgium, France, Luxembourg, Alsace and Switzerland. The published brochure is a route reference; current dates, operator, accommodation, admissions and total price are reconfirmed for every group.'],
+      itinerary: ['Amsterdam, Zaanse Schans, Giethoorn, Volendam and Marken', 'Brussels and Bruges', 'Paris and an optional Disneyland visit', 'Metz, Luxembourg and Schengen', 'Strasbourg, Colmar and Basel'],
+      included: ['Seven nights in 3- or 4-star hotels with breakfast', 'Airport transfers and private transport for the agreed route', 'English-speaking tour guidance'],
+      excluded: ['Admission tickets and optional activities unless stated in the proposal', 'Dinner unless stated in the proposal'],
+      brochureUrl: 'https://happyeducation.uk/wp-content/uploads/Europe-Tour-Disneyland-.pdf',
+    },
+    {
+      slug: 'italy-tour', title: 'Italy Tour', destination: 'Italy',
+      overview: ['A cultural route through northern and central Italy, ending in Rome. The original brochure provides the route outline; current dates, hotels, transport, admissions and price are reconfirmed for every group.'],
+      itinerary: ['Bergamo, Milan and Lake Como', 'Venice, Verona and Lake Garda', 'Florence, Pisa, San Gimignano and Siena', 'Rome, Vatican City, Lake Albano and Nemi'],
+      included: ['Seven nights in 3- or 4-star hotels with breakfast', 'Airport transfers and private transport for the agreed route', 'English-speaking tour guidance'],
+      excluded: ['Admission tickets and optional activities unless stated in the proposal', 'Dinner unless stated in the proposal'],
+      brochureUrl: 'https://happyeducation.uk/wp-content/uploads/Italy-Tour-.pdf',
+    },
+  ],
+  tr: [
+    {
+      slug: 'ingiltere-turu', title: 'İngiltere Turu', destination: 'İngiltere',
+      overview: ['Üniversite şehirleri, Kuzey İngiltere ve Londra’yı bir araya getiren eğitim odaklı gezi rotası. İçerik Happy Education’ın özgün İngiltere turu broşürüne dayanır; güncel tarihler, oteller, ulaşım ve ücret her grup için kayıt öncesinde teyit edilir.'],
+      itinerary: ['Manchester, Leeds, Liverpool ve Huddersfield veya Bradford', 'York, Oxford ve Londra'],
+      included: ['Teyit edilen program kapsamındaki ulaşım', 'Tur rehberliği ve onaylı teklifte belirtilen giriş biletleri', 'Otel konaklaması', 'Kahvaltı'],
+      brochureUrl: 'https://happyeducation.uk/wp-content/uploads/england-tour.pdf',
+    },
+    {
+      slug: 'avrupa-turu', title: 'Avrupa Turu', destination: 'Avrupa',
+      overview: ['Hollanda, Belçika, Fransa, Lüksemburg, Alsace ve İsviçre’yi kapsayan çok ülkeli rota. Yayındaki broşür rota referansıdır; güncel tarihler, operatör, konaklama, girişler ve toplam ücret her grup için yeniden teyit edilir.'],
+      itinerary: ['Amsterdam, Zaanse Schans, Giethoorn, Volendam ve Marken', 'Brüksel ve Brugge', 'Paris ve isteğe bağlı Disneyland ziyareti', 'Metz, Lüksemburg ve Schengen', 'Strasbourg, Colmar ve Basel'],
+      included: ['Kahvaltı dâhil 3 veya 4 yıldızlı otellerde yedi gece', 'Havalimanı transferleri ve teyit edilen rota için özel ulaşım', 'İngilizce konuşan tur rehberi'],
+      excluded: ['Teklifte ayrıca belirtilmedikçe giriş biletleri ve isteğe bağlı aktiviteler', 'Teklifte ayrıca belirtilmedikçe akşam yemekleri'],
+      brochureUrl: 'https://happyeducation.uk/wp-content/uploads/Europe-Tour-Disneyland-.pdf',
+    },
+    {
+      slug: 'italya-turu', title: 'İtalya Turu', destination: 'İtalya',
+      overview: ['Kuzey ve Orta İtalya’dan Roma’ya uzanan kültür rotası. Özgün broşür rota taslağını gösterir; güncel tarihler, oteller, ulaşım, girişler ve ücret her grup için yeniden teyit edilir.'],
+      itinerary: ['Bergamo, Milano ve Como Gölü', 'Venedik, Verona ve Garda Gölü', 'Floransa, Pisa, San Gimignano ve Siena', 'Roma, Vatikan, Albano Gölü ve Nemi'],
+      included: ['Kahvaltı dâhil 3 veya 4 yıldızlı otellerde yedi gece', 'Havalimanı transferleri ve teyit edilen rota için özel ulaşım', 'İngilizce konuşan tur rehberi'],
+      excluded: ['Teklifte ayrıca belirtilmedikçe giriş biletleri ve isteğe bağlı aktiviteler', 'Teklifte ayrıca belirtilmedikçe akşam yemekleri'],
+      brochureUrl: 'https://happyeducation.uk/wp-content/uploads/Italy-Tour-.pdf',
+    },
+  ],
 }
 
 export function listEditorialTours(locale: Locale) {
-  return locale === 'en' ? [{ ...EN_TOUR, availability: 'open' }] : []
+  return TOUR_ENTRIES[locale].map(({ slug, title }) => ({ title, slug, availability: 'open', heroImage: undefined }))
 }
 
 export function getEditorialTour(locale: Locale, slug: string): TourDoc | null {
-  if (locale !== 'en' || slug !== EN_TOUR.slug) return null
+  const entry = TOUR_ENTRIES[locale].find((tour) => tour.slug === slug)
+  if (!entry) return null
   return {
-    _id: 'starter-tour-en-educational-group-tours',
-    title: EN_TOUR.title,
-    slug: EN_TOUR.slug,
-    locale: 'en',
-    overview: blocks([
-      'Happy Education can help schools and organised groups plan education-focused travel around an agreed destination and learning objective. The exact itinerary, dates, operator and inclusions are confirmed for each proposed trip rather than advertised as permanently available.',
-      'Tell us the group size, approximate ages, preferred dates and what you want the trip to achieve. We can then discuss whether a suitable programme can be developed and what information needs to be confirmed before anyone commits.',
-    ]),
+    _id: `starter-tour-${locale}-${slug}`,
+    title: entry.title,
+    slug: entry.slug,
+    locale,
+    destination: { title: entry.destination, slug: entry.destination.toLowerCase() },
+    overview: blocks(entry.overview),
+    itinerary: blocks(entry.itinerary),
+    included: entry.included,
+    excluded: entry.excluded,
+    brochureUrl: entry.brochureUrl,
     availability: 'open',
     safeguardingNote: blocks([
-      'Where participants are under 18, supervision responsibilities, parental consent, emergency arrangements and the responsibilities of any third-party operator must be agreed in writing before booking.',
+      locale === 'tr'
+        ? '18 yaş altı katılımcılar için gözetim sorumlulukları, veli izinleri, acil durum düzenlemeleri ve üçüncü taraf operatörün sorumlulukları kayıt öncesinde yazılı olarak kararlaştırılır.'
+        : 'For travellers under 18, supervision responsibilities, parental consent, emergency arrangements and the responsibilities of any third-party operator are agreed in writing before booking.',
     ]),
-    review: { lastReviewed: '2026-08-28', timeSensitive: false },
+    review: {
+      lastReviewed: '2026-09-17',
+      timeSensitive: true,
+      sources: [{ label: 'Happy Education original tour brochure', url: entry.brochureUrl, accessed: '2026-09-17' }],
+    },
   }
 }

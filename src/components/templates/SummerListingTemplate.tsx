@@ -2,12 +2,15 @@ import { Container } from '@/components/ui/Container'
 import { PageHero } from '@/components/shared/PageHero'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { SortableCardGrid } from '@/components/content/SortableCardGrid'
+import { SectionLandingContent } from '@/components/content/SectionLandingContent'
 import { EmptySection } from './shared'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { licensedMediaForPlace } from '@/lib/media/licensed-media'
 import { licensedMediaForEditorialText, licensedMediaForEditorialVariant } from '@/lib/media/editorial-media'
-import { listSummerProgrammes } from '@/lib/sanity/queries/content'
+import { getPageByKey, getProseDoc, listSummerProgrammes } from '@/lib/sanity/queries/content'
+import { LEGACY_GROUP_CAMPUSES, mergeLandingContent, sectionLandingFallback } from '@/lib/content/section-landing'
+import Link from 'next/link'
 
 /** Listing of summer programmes for one format. */
 export async function SummerListingTemplate({
@@ -20,7 +23,14 @@ export async function SummerListingTemplate({
   formatSlug: string
 }) {
   const copy = COPY[locale][format]
-  const programmes = await listSummerProgrammes(locale, format)
+  const [programmes, page] = await Promise.all([
+    listSummerProgrammes(locale, format),
+    getPageByKey(locale, format === 'individual' ? 'summerIndividual' : 'summerGroup').then((doc) => {
+      if (doc || locale !== 'tr') return doc
+      return getProseDoc(locale, format === 'individual' ? 'yaz-okullari' : 'grup', 'page')
+    }),
+  ])
+  const landing = mergeLandingContent(sectionLandingFallback(locale, format === 'individual' ? 'summerIndividual' : 'summerGroup'), page)
 
   const crumbs = [
     { label: t(locale, 'brand.name'), href: `/${locale}` },
@@ -32,7 +42,8 @@ export async function SummerListingTemplate({
     <>
       <PageHero locale={locale} crumbs={crumbs} title={copy.title} intro={copy.intro} visualVariant="summer" />
       <Container>
-        <div className="py-12">
+        <div className="space-y-14 py-12 lg:space-y-16">
+          <SectionLandingContent content={landing} />
           {programmes.length === 0 ? (
             <EmptySection locale={locale} contactHref={sectionPath(locale, 'contact')} />
           ) : (
@@ -55,10 +66,39 @@ export async function SummerListingTemplate({
               })}
             />
           )}
+          {format === 'group' ? (
+            <GroupCampusOptions locale={locale} programmes={programmes.map((programme) => programme.title)} options={page?.groupCampusOptions ?? [...LEGACY_GROUP_CAMPUSES]} />
+          ) : null}
         </div>
       </Container>
       <ConsultationBand locale={locale} />
     </>
+  )
+}
+
+function GroupCampusOptions({ locale, programmes, options }: { locale: Locale; programmes: string[]; options: string[] }) {
+  const normalise = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+  const current = programmes.map(normalise)
+  const additional = options.filter((option) => !current.some((programme) => programme.includes(normalise(option)) || normalise(option).includes(programme)))
+  if (!additional.length) return null
+
+  return (
+    <section className="border-t border-border/70 pt-12">
+      <div className="max-w-[48rem]">
+        <p className="text-xs font-black uppercase tracking-[0.12em] text-brand-strong">{locale === 'tr' ? 'Ek grup seçenekleri' : 'Additional group options'}</p>
+        <h2 className="mt-3 text-[length:var(--text-3xl)] font-bold text-fg">{locale === 'tr' ? 'Talebe göre planlanabilen kampüsler' : 'Campuses available for group planning'}</h2>
+        <p className="mt-4 text-base leading-relaxed text-fg-muted">{locale === 'tr' ? 'Bu seçenekler önceki Happy Education kataloğunda yer alıyordu. Güncel tarih, kontenjan, konaklama ve programı size teklif sunmadan önce teyit ediyoruz.' : 'These options appeared in the previous Happy Education catalogue. We confirm current dates, capacity, accommodation and the itinerary before making a proposal.'}</p>
+      </div>
+      <ul className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {additional.map((option) => (
+          <li key={option}>
+            <Link href={`${sectionPath(locale, 'contact')}?programme=${encodeURIComponent(option)}`} className="group flex min-h-20 items-center justify-between gap-3 rounded-[1rem] border border-border/70 bg-card px-4 py-3 text-sm font-bold text-fg no-underline transition hover:border-brand/35 hover:text-brand-strong">
+              <span>{option}</span><span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }
 
