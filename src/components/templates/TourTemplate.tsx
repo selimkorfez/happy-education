@@ -6,6 +6,7 @@ import { ProgrammeEnquiryPanel } from './ProgrammeEnquiryPanel'
 import { sectionPath, docPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { licensedMediaForDestination } from '@/lib/media/licensed-media'
+import { licensedMediaForEditorialText } from '@/lib/media/editorial-media'
 import type { TourDoc } from '@/lib/sanity/queries/content'
 
 /**
@@ -20,7 +21,7 @@ export function TourTemplate({ locale, doc }: { locale: Locale; doc: TourDoc }) 
   const clearedHeroImage = doc.heroImage?.licence?.cleared === true ? doc.heroImage : null
   const verifiedDestinationImage = clearedHeroImage
     ? null
-    : licensedMediaForDestination(doc.destination?.title)
+    : licensedMediaForDestination(doc.destination?.title) ?? licensedMediaForEditorialText(doc.title, doc.destination?.title, 'educational tour')
   const crumbs = [
     { label: t(locale, 'brand.name'), href: `/${locale}` },
     { label: t(locale, 'nav.tours'), href: sectionPath(locale, 'tours') },
@@ -79,6 +80,16 @@ export function TourTemplate({ locale, doc }: { locale: Locale; doc: TourDoc }) 
                   { label: copy.availabilityLabel, value: availabilityLabel },
                 ]}
               />
+              {doc.brochureUrl ? (
+                <a
+                  href={doc.brochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-12 items-center justify-between rounded-[0.9rem] border border-border bg-card px-4 py-3 text-sm font-bold text-brand-strong no-underline transition hover:border-brand/40 hover:bg-paper-sunk"
+                >
+                  <span>{copy.brochure}</span><span aria-hidden="true">↗</span>
+                </a>
+              ) : null}
               <ProgrammeEnquiryPanel
                 locale={locale}
                 programmeTitle={doc.title}
@@ -106,6 +117,7 @@ const COPY = {
     destination: 'Destination',
     ageEligibility: 'Age eligibility',
     availabilityLabel: 'Availability',
+    brochure: 'View original brochure',
     availability: {
       open: 'Open for enquiries',
       waitlist: 'Waiting list',
@@ -125,6 +137,7 @@ const COPY = {
     destination: 'Ülke',
     ageEligibility: 'Yaş koşulu',
     availabilityLabel: 'Durum',
+    brochure: 'Özgün broşürü görüntüle',
     availability: {
       open: 'Başvurulara açık',
       waitlist: 'Yedek listesi',

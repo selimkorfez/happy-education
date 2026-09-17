@@ -372,6 +372,7 @@ export interface TourDoc extends BaseDoc {
   cancellationTerms?: unknown
   safeguardingNote?: unknown
   destination?: { title: string; slug: string }
+  brochureUrl?: string
 }
 
 export async function getTour(locale: Locale, slug: string): Promise<TourDoc | null> {
@@ -380,7 +381,7 @@ export async function getTour(locale: Locale, slug: string): Promise<TourDoc | n
     /* groq */ `
       *[_type == "tour" && locale == $locale && slug.current == $slug][0]{
         ${BASE},
-        heroImage, ageEligibility, included, excluded, price, availability,
+        heroImage, ageEligibility, included, excluded, price, availability, brochureUrl,
         overview[]{ ${RICH_TEXT} },
         itinerary[]{ ${RICH_TEXT} },
         dates[]{ ${RICH_TEXT} },
@@ -459,6 +460,11 @@ export interface ProseDoc extends BaseDoc {
   pageKey?: string
   effectiveDate?: string
   solicitorApproved?: boolean
+  landingEyebrow?: string
+  landingTitle?: string
+  landingIntro?: string[]
+  landingSections?: Array<{ title: string; paragraphs?: string[]; items?: string[] }>
+  groupCampusOptions?: string[]
 }
 
 /** Shared loader for the prose-shaped types: guide, service, page, legalPage. */
@@ -473,6 +479,8 @@ export async function getProseDoc(
       *[_type == $type && locale == $locale && slug.current == $slug][0]{
         ${BASE},
         summary, intro, heroImage, pageKey, effectiveDate, solicitorApproved,
+        landingEyebrow, landingTitle, landingIntro,
+        landingSections[]{ title, paragraphs, items }, groupCampusOptions,
         body[]{ ${RICH_TEXT} },
         ${FAQS}
       }
@@ -489,6 +497,8 @@ export async function getPageByKey(locale: Locale, pageKey: string): Promise<Pro
     /* groq */ `
       *[_type == "page" && locale == $locale && pageKey == $pageKey][0]{
         ${BASE}, intro, heroImage, pageKey,
+        landingEyebrow, landingTitle, landingIntro,
+        landingSections[]{ title, paragraphs, items }, groupCampusOptions,
         body[]{ ${RICH_TEXT} },
         ${FAQS}
       }
