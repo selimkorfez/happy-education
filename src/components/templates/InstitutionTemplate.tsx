@@ -78,7 +78,7 @@ export function InstitutionTemplate({
 
               {doc.safeguardingNote ? (
                 <section className="border-t border-border/70 py-10 sm:py-12">
-                  <div className="rounded-[1.2rem] border border-amber-200/80 bg-[#fff7dd] p-5 sm:p-6">
+                  <div className="rounded-[1.2rem] border border-warning/35 bg-warning/10 p-5 sm:p-6">
                     <p className="text-xs font-bold uppercase tracking-[0.09em] text-warning">{copy.safeguarding}</p>
                     <p className="mt-2 text-sm font-semibold leading-relaxed text-fg-muted">{copy.safeguardingNote}</p>
                     <div className="mt-2">

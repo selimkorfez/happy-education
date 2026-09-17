@@ -55,7 +55,7 @@ export function PrimaryNav({ groups, locale }: { groups: NavGroup[]; locale: Loc
     <nav
       ref={navRef}
       aria-label={t(locale, 'nav.primary')}
-      className="hidden lg:block"
+      className="hidden xl:block"
       onBlur={handleFocusOut}
       onPointerLeave={() => {
         clearHover()

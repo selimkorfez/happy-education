@@ -6,6 +6,7 @@ import type { Locale } from '@/lib/i18n/config'
 type Theme = 'light' | 'dark'
 
 const STORAGE_KEY = 'happy-education-theme'
+const COOKIE_KEY = 'happy-education-theme'
 const CHANGE_EVENT = 'happy-education-theme-change'
 
 const COPY = {
@@ -14,15 +15,46 @@ const COPY = {
 } as const
 
 function currentTheme(): Theme {
-  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+  const rendered = document.documentElement.dataset.theme
+  if (rendered === 'light' || rendered === 'dark') return rendered
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
 function subscribe(onChange: () => void) {
+  function onStorage(event: StorageEvent) {
+    if (event.key !== STORAGE_KEY || (event.newValue !== 'light' && event.newValue !== 'dark')) return
+    applyTheme(event.newValue)
+    storeThemeCookie(event.newValue)
+    onChange()
+  }
+
   window.addEventListener(CHANGE_EVENT, onChange)
-  window.addEventListener('storage', onChange)
+  window.addEventListener('storage', onStorage)
   return () => {
     window.removeEventListener(CHANGE_EVENT, onChange)
-    window.removeEventListener('storage', onChange)
+    window.removeEventListener('storage', onStorage)
+  }
+}
+
+function storedTheme(): Theme | null {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    return stored === 'light' || stored === 'dark' ? stored : null
+  } catch {
+    return null
+  }
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.dataset.theme = theme
+  document.documentElement.style.colorScheme = theme
+}
+
+function storeThemeCookie(theme: Theme) {
+  try {
+    document.cookie = `${COOKIE_KEY}=${theme}; Path=/; Max-Age=31536000; SameSite=Lax`
+  } catch {
+    // The page-level theme remains functional when cookie storage is blocked.
   }
 }
 
@@ -30,21 +62,35 @@ export function ThemeToggle({ locale }: { locale: Locale }) {
   const theme = useSyncExternalStore(subscribe, currentTheme, () => 'light')
 
   useLayoutEffect(() => {
-    if (document.documentElement.dataset.theme) return
-    const stored = localStorage.getItem(STORAGE_KEY)
-    const initial: Theme = stored === 'light' || stored === 'dark'
-      ? stored
-      : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-    document.documentElement.dataset.theme = initial
-    document.documentElement.style.colorScheme = initial
+    const preference = storedTheme()
+    const rendered = document.documentElement.dataset.theme
+    const media = window.matchMedia('(prefers-color-scheme: dark)')
+    const initial: Theme = preference
+      ?? (rendered === 'light' || rendered === 'dark' ? rendered : (media.matches ? 'dark' : 'light'))
+    applyTheme(initial)
+    if (preference) storeThemeCookie(preference)
     window.dispatchEvent(new Event(CHANGE_EVENT))
+
+    function followSystem(event: MediaQueryListEvent) {
+      if (storedTheme()) return
+      applyTheme(event.matches ? 'dark' : 'light')
+      window.dispatchEvent(new Event(CHANGE_EVENT))
+    }
+
+    media.addEventListener('change', followSystem)
+    return () => media.removeEventListener('change', followSystem)
   }, [])
 
   function toggleTheme() {
     const next: Theme = currentTheme() === 'dark' ? 'light' : 'dark'
-    document.documentElement.dataset.theme = next
-    document.documentElement.style.colorScheme = next
-    localStorage.setItem(STORAGE_KEY, next)
+    applyTheme(next)
+    try {
+      localStorage.setItem(STORAGE_KEY, next)
+    } catch {
+      // Storage can be unavailable in strict/private browser modes. The theme
+      // still changes for the current page and the control remains responsive.
+    }
+    storeThemeCookie(next)
     window.dispatchEvent(new Event(CHANGE_EVENT))
   }
 

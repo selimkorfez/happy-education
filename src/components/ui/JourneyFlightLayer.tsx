@@ -115,7 +115,7 @@ export function JourneyFlightLayer() {
       <span data-flight-cloud data-start="0.64" data-end="0.94" className="he-flight-cloud left-[76%] top-[28%] scale-90" />
 
       <div ref={planeRef} className="he-flight-plane absolute left-0 top-0 opacity-0">
-        <span className="grid h-12 w-12 place-items-center rounded-full border border-brand/25 bg-white/94 text-brand-strong shadow-[0_12px_32px_rgba(35,35,38,0.16)] backdrop-blur-md">
+        <span className="grid h-12 w-12 place-items-center rounded-full border border-brand/25 bg-card/94 text-brand-strong shadow-[0_12px_32px_rgba(35,35,38,0.16)] backdrop-blur-md">
           <svg viewBox="0 0 48 48" width="26" height="26" fill="currentColor" focusable="false">
             <path d="M44 24c0-1.7-1.3-3-3-3H29L19 5h-4l5 16H10l-5-6H2l3 9-3 9h3l5-6h10l-5 16h4l10-16h12c1.7 0 3-1.3 3-3Z" />
           </svg>

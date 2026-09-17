@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { cookies } from 'next/headers'
 import { notFound } from 'next/navigation'
 import '@/styles/globals.css'
 import '@/styles/travel-motion.css'
@@ -73,9 +74,11 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound()
   const typed: Locale = locale
   const settings = await getSiteSettings()
+  const savedTheme = (await cookies()).get('happy-education-theme')?.value
+  const initialTheme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : undefined
 
   return (
-    <html lang={HREFLANG[typed]} className={fontVariables} style={brandThemeStyle(settings)} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang={HREFLANG[typed]} className={fontVariables} style={brandThemeStyle(settings)} data-theme={initialTheme} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col bg-paper text-fg antialiased">
         <ConsentProvider>
           <SkipLink locale={typed} />

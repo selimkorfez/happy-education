@@ -108,7 +108,7 @@ export function TurnstileWidget({
         if (cancelled || !window.turnstile) return
         const id = window.turnstile.render(container, {
           sitekey: siteKey,
-          theme: 'light',
+          theme: 'auto',
           language: locale,
           action,
           callback: (token) => onTokenRef.current?.(token),
