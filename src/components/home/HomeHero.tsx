@@ -5,6 +5,7 @@ import { AmbientBackdrop } from '@/components/ui/AmbientBackdrop'
 import { sectionPath, type Locale } from '@/lib/i18n/config'
 import { BUSINESS, publicValue } from '@/lib/business-facts'
 import { EDITORIAL_PHOTOS } from '@/lib/media/editorial-photos'
+import { localised, type SiteSettings } from '@/lib/sanity/queries/settings'
 
 const COPY = {
   en: {
@@ -33,9 +34,26 @@ const COPY = {
   },
 } as const
 
-export function HomeHero({ locale }: { locale: Locale }) {
-  const copy = COPY[locale]
+export function HomeHero({ locale, settings }: { locale: Locale; settings?: SiteSettings | null }) {
+  const fallback = COPY[locale]
+  const configured = settings?.homeHero
+  const copy = {
+    ...fallback,
+    eyebrow: localised(configured?.eyebrow, locale) ?? fallback.eyebrow,
+    headingA: localised(configured?.heading, locale) ?? fallback.headingA,
+    headingB: localised(configured?.highlightedHeading, locale) ?? fallback.headingB,
+    lead: localised(configured?.lead, locale) ?? fallback.lead,
+    primary: localised(configured?.primaryLabel, locale) ?? fallback.primary,
+    secondary: localised(configured?.secondaryLabel, locale) ?? fallback.secondary,
+  }
   const hero = EDITORIAL_PHOTOS['home-cambridge']
+  const cmsHero = configured?.image?.licence?.cleared === true ? configured.image : null
+  const primaryHref = safeInternalPath(localised(configured?.primaryHref, locale)) ?? sectionPath(locale, 'consultation')
+  const secondaryHref = safeInternalPath(localised(configured?.secondaryHref, locale)) ?? sectionPath(locale, 'universities')
+  const imageLabel = localised(configured?.imageLabel, locale) ?? 'Cambridge · UK'
+  const imageCaption = localised(configured?.imageCaption, locale) ?? (locale === 'tr'
+    ? 'Bölüm, şehir, bütçe ve hedeflerinize göre gerçekçi seçenekler oluşturun.'
+    : 'Build a shortlist around your course, city, budget and actual goals.')
   const founded = publicValue(BUSINESS.foundedYear)
   const companyNumber = publicValue(BUSINESS.companyNumber)
 
@@ -65,14 +83,14 @@ export function HomeHero({ locale }: { locale: Locale }) {
 
             <div className="he-enter he-enter-delay-3 mt-9 flex flex-wrap gap-3">
               <Link
-                href={sectionPath(locale, 'consultation')}
+                href={primaryHref}
                 className="group inline-flex min-h-12 items-center justify-center rounded-full bg-brand px-7 text-base font-black text-fg no-underline shadow-[0_16px_45px_rgba(244,116,38,0.28)] transition duration-300 hover:-translate-y-1 hover:bg-brand-on-ink hover:shadow-[0_22px_58px_rgba(244,116,38,0.34)]"
               >
                 {copy.primary}
                 <span aria-hidden="true" className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
               </Link>
               <Link
-                href={sectionPath(locale, 'universities')}
+                href={secondaryHref}
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 bg-white/7 px-7 text-base font-bold text-white no-underline backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/36 hover:bg-white/12"
               >
                 {copy.secondary}
@@ -104,8 +122,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
               <div aria-hidden="true" className="absolute -inset-4 rounded-[2.6rem] bg-gradient-to-br from-brand/18 via-white/5 to-blue-400/10 blur-2xl" />
               <div className="he-shine-card group relative overflow-hidden rounded-[2.15rem] border border-white/14 bg-white/8 p-2.5 shadow-[0_40px_110px_rgba(0,0,0,0.42)] backdrop-blur-xl sm:p-3">
                 <MediaFrame
-                  external={hero}
-                  alt={hero.alt}
+                  image={cmsHero}
+                  external={cmsHero ? null : hero}
+                  alt={cmsHero?.alt ?? hero.alt}
                   width={1800}
                   height={1200}
                   priority
@@ -116,7 +135,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
 
                 <div className="absolute left-7 top-7 flex items-center gap-2 rounded-full border border-white/16 bg-black/28 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur-md sm:left-8 sm:top-8">
                   <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand-on-ink" />
-                  Cambridge · UK
+                  {imageLabel}
                 </div>
 
                 <div className="relative mt-3 border border-white/18 bg-black/20 p-4 text-white sm:p-5">
@@ -124,9 +143,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                     {locale === 'tr' ? 'Sizinle başlayalım' : 'Start with you'}
                   </p>
                   <p className="mt-2 text-sm font-semibold leading-relaxed text-white/88">
-                    {locale === 'tr'
-                      ? 'Bölüm, şehir, bütçe ve hedeflerinize göre gerçekçi seçenekler oluşturun.'
-                      : 'Build a shortlist around your course, city, budget and actual goals.'}
+                    {imageCaption}
                   </p>
                 </div>
               </div>
@@ -136,4 +153,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
       </Container>
     </section>
   )
+}
+
+function safeInternalPath(value?: string): string | null {
+  return value?.startsWith('/') && !value.startsWith('//') ? value : null
 }

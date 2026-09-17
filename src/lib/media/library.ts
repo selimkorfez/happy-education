@@ -8,7 +8,6 @@ import destUsa from '../../../public/media/destination-united-states.jpg'
 import destCanada from '../../../public/media/destination-canada.jpg'
 import destMalta from '../../../public/media/destination-malta.jpg'
 import destAustralia from '../../../public/media/destination-australia.jpg'
-import owlMascotPlaceholder from '../../../public/brand/owl-mascot-placeholder.png'
 
 /**
  * Brand image library.
@@ -41,22 +40,7 @@ const COMMISSIONED = {
   cleared: true,
 } as const
 
-const OPENAI_GENERATED = {
-  holder: 'Happy Education',
-  terms:
-    'Temporary brand mascot commissioned for Happy Education and generated with OpenAI image generation. Cleared for website use; replace when the client supplies the final mascot artwork.',
-  aiGenerated: true,
-  generatedWith: 'OpenAI image generation',
-  cleared: true,
-} as const
-
 export const BRAND_IMAGES = {
-  owlMascotPlaceholder: {
-    src: owlMascotPlaceholder,
-    alt: 'A friendly owl wearing a graduation cap',
-    decorativeByDefault: true,
-    provenance: OPENAI_GENERATED,
-  },
   heroLondon: {
     src: heroLondon,
     alt: 'A London street in warm late-afternoon light, with Georgian terraces, autumn plane trees and a red double-decker bus',

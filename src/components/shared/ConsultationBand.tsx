@@ -37,7 +37,7 @@ export function ConsultationBand({ locale }: { locale: Locale }) {
 
           <div className="relative grid gap-9 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-14">
             <div>
-              <span className="inline-flex rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.1em] text-brand-on-ink">
+              <span className="inline-flex rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.1em] text-fg-on-ink">
                 {copy.kicker}
               </span>
               <h2 className="mt-5 max-w-[13ch] text-[length:var(--text-4xl)] font-bold text-fg-on-ink">{copy.title}</h2>

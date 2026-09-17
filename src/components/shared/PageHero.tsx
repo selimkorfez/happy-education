@@ -54,36 +54,38 @@ export function PageHero({
       </Container>
 
       <Container>
-        <div className={`relative z-10 grid items-center gap-10 ${hasVisual ? 'lg:grid-cols-[0.88fr_1.12fr] lg:gap-16' : ''}`}>
-          <Reveal className="py-3 lg:py-8">
-            {eyebrow ? (
-              <span className="inline-flex items-center gap-2 border border-white/15 bg-white/7 px-4 py-2.5 text-sm font-black text-fg-on-ink backdrop-blur-md">
-                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
-                {eyebrow}
-              </span>
-            ) : null}
-            <h1 className="mt-5 max-w-[13ch] text-[clamp(3rem,6.2vw,5.7rem)] font-bold leading-[0.96] text-fg-on-ink">
-              {title}
-            </h1>
+        <div className="relative z-10">
+          <Reveal className="grid gap-6 py-3 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:py-7">
+            <div>
+              {eyebrow ? (
+                <span className="inline-flex items-center gap-2 border border-white/15 bg-white/7 px-4 py-2.5 text-sm font-black text-fg-on-ink backdrop-blur-md">
+                  <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
+                  {eyebrow}
+                </span>
+              ) : null}
+              <h1 className="mt-5 max-w-[14ch] text-[clamp(3rem,6.2vw,5.8rem)] font-black leading-[0.94] text-fg-on-ink">
+                {title}
+              </h1>
+            </div>
             {intro ? (
-              <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-fg-muted-on-ink">{intro}</p>
+              <p className="max-w-[62ch] text-lg leading-relaxed text-fg-muted-on-ink lg:justify-self-end lg:pb-2 lg:text-xl">{intro}</p>
             ) : null}
           </Reveal>
 
           {hasVisual ? (
-            <Reveal delay={90} className="relative">
+            <Reveal delay={90} className="relative mt-8 lg:mt-10">
               <div aria-hidden="true" className="absolute -inset-4 bg-gradient-to-br from-brand/16 via-white/8 to-blue-300/12 blur-2xl" />
-              <div className="he-shine-card group relative overflow-hidden border border-white/16 bg-white/8 p-2.5 shadow-[0_34px_90px_rgba(0,0,0,0.34)] backdrop-blur-xl sm:p-3">
+              <div data-page-hero-banner className="he-shine-card group relative overflow-hidden border border-white/16 bg-white/8 p-2 shadow-[0_34px_90px_rgba(0,0,0,0.34)] backdrop-blur-xl sm:p-3">
                 <MediaFrame
                   image={clearedImage}
                   external={resolvedExternalImage}
                   local={localImage ?? null}
                   alt={resolvedAlt}
-                  width={1100}
-                  height={760}
+                  width={1800}
+                  height={720}
                   priority
-                  sizes="(max-width: 1024px) 100vw, 52vw"
-                  className="aspect-[10/7] w-full overflow-hidden [&_img]:transition-transform [&_img]:duration-[1100ms] group-hover:[&_img]:scale-[1.04]"
+                  sizes="(max-width: 1536px) 100vw, 1440px"
+                  className="aspect-[4/3] min-h-[18rem] w-full overflow-hidden sm:aspect-[16/7] lg:aspect-[21/8] [&_img]:transition-transform [&_img]:duration-[1100ms] group-hover:[&_img]:scale-[1.035]"
                   placeholderLabel={`Hero image: ${title}`}
                 />
               </div>

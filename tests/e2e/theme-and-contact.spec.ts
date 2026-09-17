@@ -12,7 +12,7 @@ test.describe('theme and direct contact controls', () => {
     await expect(page.getByRole('button', { name: 'Use light mode' })).toBeVisible()
   })
 
-  test('owl contact button opens the verified WhatsApp number', async ({ page }) => {
+  test('official round logo contact button opens the verified WhatsApp number', async ({ page }) => {
     await page.goto('/tr')
     const contact = page.getByRole('link', { name: 'Bize yazın: WhatsApp' })
     await expect(contact).toHaveAttribute('href', /^https:\/\/wa\.me\/447735826785\?text=/)

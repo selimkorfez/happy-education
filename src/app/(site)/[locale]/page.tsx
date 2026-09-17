@@ -11,6 +11,7 @@ import { StudentVoices } from '@/components/home/StudentVoices'
 import { LatestInsights } from '@/components/home/LatestInsights'
 import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { OrganizationSchema } from '@/components/seo/OrganizationSchema'
+import { getSiteSettings } from '@/lib/sanity/queries/settings'
 
 export const revalidate = 3600
 
@@ -48,12 +49,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   if (!isLocale(locale)) notFound()
   const typed: Locale = locale
+  const settings = await getSiteSettings()
 
   return (
     <>
-      <OrganizationSchema locale={typed} />
-      <HomeHero locale={typed} />
-      <HelpMeChoose locale={typed} />
+      <OrganizationSchema locale={typed} settings={settings} />
+      <HomeHero locale={typed} settings={settings} />
+      <HelpMeChoose locale={typed} settings={settings} />
       <DestinationIndex locale={typed} />
       <HowWeWork locale={typed} />
       <StudentVoices locale={typed} />

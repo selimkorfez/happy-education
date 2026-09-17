@@ -14,6 +14,8 @@ import { CookieBanner } from '@/components/consent/CookieBanner'
 import { Analytics } from '@/components/consent/Analytics'
 import { WhatsAppMascotButton } from '@/components/chrome/WhatsAppMascotButton'
 import { t } from '@/lib/i18n/dictionary'
+import { imageUrl } from '@/lib/sanity/image'
+import { brandThemeStyle, getSiteSettings } from '@/lib/sanity/queries/settings'
 
 /** Pre-render both locale trees at build time. */
 export function generateStaticParams() {
@@ -27,7 +29,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#fbfaf8' },
-    { media: '(prefers-color-scheme: dark)', color: '#071a33' },
+    { media: '(prefers-color-scheme: dark)', color: '#00256c' },
   ],
 }
 
@@ -38,6 +40,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   if (!isLocale(locale)) return {}
+  const settings = await getSiteSettings()
+  const favicon = settings?.brand?.favicon?.licence?.cleared === true
+    ? imageUrl(settings.brand.favicon, 192, 192)
+    : null
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://happyeducation.uk'),
     title: {
@@ -45,6 +51,11 @@ export async function generateMetadata({
       template: `%s | ${t(locale, 'brand.name')}`,
     },
     description: t(locale, 'meta.defaultDescription'),
+    icons: {
+      icon: favicon ?? '/brand/official/favicon-color.svg',
+      shortcut: favicon ?? '/brand/official/favicon-color.svg',
+      apple: favicon ?? '/brand/official/favicon-color.svg',
+    },
     // No `robots` here on purpose. "index, follow" is the crawler default, and
     // declaring it site-wide put a second, contradictory robots meta tag on the
     // 404 page alongside its own noindex.
@@ -61,22 +72,23 @@ export default async function LocaleLayout({
   const { locale } = await params
   if (!isLocale(locale)) notFound()
   const typed: Locale = locale
+  const settings = await getSiteSettings()
 
   return (
-    <html lang={HREFLANG[typed]} className={fontVariables} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang={HREFLANG[typed]} className={fontVariables} style={brandThemeStyle(settings)} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col bg-paper text-fg antialiased">
         <ConsentProvider>
           <SkipLink locale={typed} />
           <RouteCloudTransition />
           <div id="route-scene" className="flex min-h-dvh flex-1 flex-col">
-            <SiteHeader locale={typed} />
+            <SiteHeader locale={typed} settings={settings} />
             <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
               {children}
             </main>
-            <SiteFooter locale={typed} />
+            <SiteFooter locale={typed} settings={settings} />
           </div>
           <CookieBanner locale={typed} />
-          <WhatsAppMascotButton locale={typed} />
+          <WhatsAppMascotButton locale={typed} settings={settings} />
           <Analytics />
         </ConsentProvider>
       </body>

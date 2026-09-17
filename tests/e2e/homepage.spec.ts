@@ -40,6 +40,29 @@ test.describe('English homepage', () => {
     ).toHaveAttribute('href', '/en/universities')
   })
 
+  test('shows six equal route cards as three two-card rows with distinct imagery', async ({ page }) => {
+    await page.goto('/en')
+    await page.setViewportSize({ width: 1440, height: 1000 })
+
+    const cards = page.locator('[data-route-card]')
+    await expect(cards).toHaveCount(6)
+    const boxes = await Promise.all(Array.from({ length: 6 }, (_, index) => cards.nth(index).boundingBox()))
+    expect(boxes.every(Boolean)).toBe(true)
+
+    const resolved = boxes.filter((box): box is NonNullable<typeof box> => Boolean(box))
+    expect(Math.abs(resolved[0]!.y - resolved[1]!.y)).toBeLessThan(2)
+    expect(Math.abs(resolved[2]!.y - resolved[3]!.y)).toBeLessThan(2)
+    expect(Math.abs(resolved[4]!.y - resolved[5]!.y)).toBeLessThan(2)
+    expect(resolved[2]!.y).toBeGreaterThan(resolved[0]!.y)
+    expect(resolved[4]!.y).toBeGreaterThan(resolved[2]!.y)
+    expect(Math.max(...resolved.map((box) => box.width)) - Math.min(...resolved.map((box) => box.width))).toBeLessThan(2)
+
+    const imageSources = await cards.locator('img').evaluateAll((images) =>
+      images.map((image) => (image as HTMLImageElement).currentSrc || (image as HTMLImageElement).src),
+    )
+    expect(new Set(imageSources).size).toBe(6)
+  })
+
   test('exposes the skip link as the first tab stop', async ({ page }) => {
     await page.goto('/en')
     await page.keyboard.press('Tab')

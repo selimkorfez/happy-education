@@ -1,39 +1,64 @@
 import Image from 'next/image'
-import logo from '../../../public/brand/happy-education-logo.png'
-import mark from '../../../public/brand/happy-education-mark.png'
+import { imageUrl } from '@/lib/sanity/image'
+import type { BrandAssets } from '@/lib/sanity/queries/settings'
 
 /**
- * The Happy Education logo, used unmodified.
- *
- * The only artwork available from the legacy site is raster (largest usable source
- * 915x384 after trimming). No vector exists anywhere in the 964-item WordPress
- * media library, so a true SVG must be requested from the client — see
- * docs/MIGRATION.md. At the sizes used here the raster source still renders at
- * 3-5x density, so this is acceptable for launch but not ideal.
- *
- * The wordmark is charcoal, so the lockup is only ever placed on light surfaces.
- * There is no reversed variant and we do not invent one by recolouring.
+ * Official vector logo variants supplied in the 2026 brand pack. Optional Sanity
+ * replacements remain fail-closed until their publication licence is cleared.
  */
 export function Logo({
   variant = 'lockup',
+  surface = 'auto',
+  brand,
   className = '',
   priority = false,
   title,
 }: {
-  variant?: 'lockup' | 'mark'
+  variant?: 'lockup' | 'mark' | 'favicon'
+  surface?: 'auto' | 'light' | 'dark'
+  brand?: BrandAssets | null
   className?: string
   priority?: boolean
   title: string
 }) {
-  const src = variant === 'mark' ? mark : logo
+  const width = variant === 'lockup' ? 690 : variant === 'mark' ? 268 : 206
+  const height = variant === 'favicon' ? 206 : 322
+  const cmsLight = variant === 'lockup' ? brand?.logoOnLight : variant === 'mark' ? brand?.logoMark : brand?.chatIcon
+  const cmsDark = variant === 'lockup' ? brand?.logoOnDark : variant === 'mark' ? brand?.logoMark : brand?.chatIcon
+  const fallbackLight = variant === 'lockup'
+    ? '/brand/official/logo-color.svg'
+    : variant === 'mark' ? '/brand/official/mark-color.svg' : '/brand/official/favicon-color.svg'
+  const fallbackDark = variant === 'lockup'
+    ? '/brand/official/logo-white.svg'
+    : variant === 'mark' ? '/brand/official/mark-white.svg' : '/brand/official/favicon-color.svg'
+  const light = clearedUrl(cmsLight, width) ?? fallbackLight
+  const dark = clearedUrl(cmsDark, width) ?? fallbackDark
+  const sizes = variant === 'lockup' ? '(max-width: 640px) 150px, 190px' : variant === 'mark' ? '48px' : '64px'
+
+  if (surface !== 'auto') {
+    const src = surface === 'dark' ? dark : light
+    return (
+      <Image
+        src={src}
+        alt={title}
+        width={width}
+        height={height}
+        priority={priority}
+        className={className}
+        sizes={sizes}
+        unoptimized={src.endsWith('.svg')}
+      />
+    )
+  }
+
   return (
-    <Image
-      src={src}
-      alt={title}
-      priority={priority}
-      className={className}
-      // Intrinsic dimensions come from the static import, so no layout shift.
-      sizes={variant === 'mark' ? '48px' : '(max-width: 640px) 150px, 190px'}
-    />
+    <span className={`relative inline-grid ${className}`}>
+      <Image src={light} alt={title} width={width} height={height} priority={priority} sizes={sizes} unoptimized={light.endsWith('.svg')} className="he-logo-on-light col-start-1 row-start-1 h-full w-auto" />
+      <Image src={dark} alt="" width={width} height={height} priority={priority} sizes={sizes} unoptimized={dark.endsWith('.svg')} className="he-logo-on-dark col-start-1 row-start-1 hidden h-full w-auto" />
+    </span>
   )
+}
+
+function clearedUrl(image: BrandAssets[keyof BrandAssets] | undefined, width: number): string | null {
+  return image?.licence?.cleared === true ? imageUrl(image, width) : null
 }

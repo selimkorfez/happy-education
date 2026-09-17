@@ -47,12 +47,13 @@ describe('typography', () => {
     expect(describeHits(banned)).toEqual([])
   })
 
-  it('loads only the two approved families through next/font', () => {
+  it('loads the client-approved Nunito Sans family through next/font', () => {
     const fonts = SOURCE.find((file) => file.relPath === 'src/lib/fonts.ts')
     expect(fonts).toBeDefined()
     const code = stripComments(fonts?.text ?? '')
-    expect(code).toContain('Fraunces')
-    expect(code).toContain('Figtree')
+    expect(code).toContain('Nunito_Sans')
+    expect(code).not.toContain('Fraunces')
+    expect(code).not.toContain('Figtree')
   })
 })
 

@@ -7,15 +7,22 @@ import { legalLinks } from '@/lib/legal'
 import { t } from '@/lib/i18n/dictionary'
 import { homePath, type Locale } from '@/lib/i18n/config'
 import { BUSINESS, SOCIAL, publicValue } from '@/lib/business-facts'
+import { localised, localisedNavigation, type SiteSettings } from '@/lib/sanity/queries/settings'
 
-export function SiteFooter({ locale }: { locale: Locale }) {
-  const nav = footerNav(locale)
+export function SiteFooter({ locale, settings }: { locale: Locale; settings?: SiteSettings | null }) {
+  const navLabels = localisedNavigation(settings?.interfaceCopy?.navigation, locale)
+  const nav = footerNav(locale, navLabels)
   const legal = legalLinks(locale)
-  const legalName = publicValue(BUSINESS.legalName)
-  const companyNumber = publicValue(BUSINESS.companyNumber)
-  const registeredOffice = publicValue(BUSINESS.registeredOffice)
-  const phone = publicValue(BUSINESS.phone)
-  const email = publicValue(BUSINESS.email)
+  const legalName = settings?.legalName?.trim() || publicValue(BUSINESS.legalName)
+  const companyNumber = settings?.companyNumber?.trim() || publicValue(BUSINESS.companyNumber)
+  const registeredOffice = settings?.registeredOffice?.trim() || publicValue(BUSINESS.registeredOffice)
+  const phone = settings?.phone?.trim() || publicValue(BUSINESS.phone)
+  const email = settings?.email?.trim() || publicValue(BUSINESS.email)
+  const social = settings?.social
+    ? settings.social.filter((account): account is { platform: string; url: string } =>
+        Boolean(account.platform?.trim() && account.url?.startsWith('https://')))
+    : SOCIAL.filter((account) => account.status === 'verified')
+  const interfaceCopy = settings?.interfaceCopy
   const year = new Date().getUTCFullYear()
 
   return (
@@ -26,17 +33,17 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.1em] text-brand-on-ink">
-                {locale === 'tr' ? 'Sonraki adımınız' : 'Your next move'}
+                {localised(interfaceCopy?.footerKicker, locale) ?? (locale === 'tr' ? 'Sonraki adımınız' : 'Your next move')}
               </p>
               <h2 className="mt-3 max-w-[17ch] text-[length:var(--text-3xl)] font-bold text-fg-on-ink">
-                {locale === 'tr' ? 'Planınızı birlikte daha net hâle getirelim.' : 'Make the plan feel clearer from here.'}
+                {localised(interfaceCopy?.footerHeading, locale) ?? (locale === 'tr' ? 'Planınızı birlikte daha net hâle getirelim.' : 'Make the plan feel clearer from here.')}
               </h2>
             </div>
             <Link
               href={`/${locale}/${locale === 'tr' ? 'on-gorusme' : 'consultation'}`}
               className="inline-flex min-h-12 w-fit items-center rounded-full bg-brand px-7 text-base font-bold text-fg no-underline shadow-[0_12px_28px_rgba(244,116,38,0.2)] transition hover:-translate-y-0.5 hover:bg-brand-on-ink"
             >
-              {locale === 'tr' ? 'Ücretsiz görüşme planla' : 'Book a free conversation'} <span aria-hidden="true" className="ml-2">↗</span>
+              {localised(interfaceCopy?.footerCtaLabel, locale) ?? (locale === 'tr' ? 'Ücretsiz görüşme planla' : 'Book a free conversation')} <span aria-hidden="true" className="ml-2">↗</span>
             </Link>
           </div>
         </Container>
@@ -45,13 +52,13 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       <Container>
         <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:py-14">
           <div className="lg:col-span-4">
-            <Link href={homePath(locale)} className="inline-flex rounded-[1rem] bg-white px-4 py-3 no-underline">
-              <Logo title={t(locale, 'brand.name')} className="h-9 w-auto" />
+            <Link href={homePath(locale)} className="inline-flex no-underline">
+              <Logo title={settings?.tradingName ?? t(locale, 'brand.name')} brand={settings?.brand} surface="dark" className="h-14 w-auto" />
             </Link>
             <p className="mt-5 max-w-[37ch] text-sm leading-relaxed text-fg-muted-on-ink">
-              {locale === 'tr'
+              {localised(interfaceCopy?.footerDescription, locale) ?? (locale === 'tr'
                 ? 'Londra merkezli yurt dışı eğitim danışmanlığı. Üniversite, dil okulu, yaz okulu ve yatılı okul süreçlerinde öğrencilere ve ailelere rehberlik ediyoruz.'
-                : 'Study abroad advisers based in London, helping students and families navigate university, language school, summer programme and boarding school decisions.'}
+                : 'Study abroad advisers based in London, helping students and families navigate university, language school, summer programme and boarding school decisions.')}
             </p>
 
             <ul className="mt-6 space-y-2.5 text-sm">
@@ -59,26 +66,30 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               {email ? <li><a href={`mailto:${email}`} className="font-bold text-brand-on-ink no-underline hover:underline">{email}</a></li> : null}
               {registeredOffice ? (
                 <li className="pt-3 text-fg-muted-on-ink">
-                  <span className="block text-xs font-bold uppercase tracking-[0.08em] text-white/55">{locale === 'tr' ? 'Tescilli adres' : 'Registered office'}</span>
+                  <span className="block text-xs font-bold uppercase tracking-[0.08em] text-white/55">
+                    {localised(interfaceCopy?.registeredOfficeLabel, locale) ?? (locale === 'tr' ? 'Tescilli adres' : 'Registered office')}
+                  </span>
                   <address className="mt-1.5 max-w-[32ch] not-italic leading-relaxed">{registeredOffice}</address>
                 </li>
               ) : null}
             </ul>
           </div>
 
-          <FooterColumn id="footer-explore" title={t(locale, 'footer.services')} className="lg:col-span-3">
+          <FooterColumn id="footer-explore" title={localised(interfaceCopy?.footerServicesTitle, locale) ?? t(locale, 'footer.services')} className="lg:col-span-3">
             {nav.explore.map((item) => <li key={item.href}><Link href={item.href} className="text-fg-muted-on-ink no-underline transition hover:text-fg-on-ink">{item.label}</Link></li>)}
           </FooterColumn>
 
           <div className="lg:col-span-2">
-            <FooterColumn id="footer-company" title={t(locale, 'footer.company')}>
+            <FooterColumn id="footer-company" title={localised(interfaceCopy?.footerCompanyTitle, locale) ?? t(locale, 'footer.company')}>
               {nav.company.map((item) => <li key={item.href}><Link href={item.href} className="text-fg-muted-on-ink no-underline transition hover:text-fg-on-ink">{item.label}</Link></li>)}
             </FooterColumn>
-            {SOCIAL.length > 0 ? (
+            {social.length > 0 ? (
               <div className="mt-8">
-                <h2 className="text-xs font-bold uppercase tracking-[0.09em] text-white/65">{t(locale, 'footer.followUs')}</h2>
+                <h2 className="text-xs font-bold uppercase tracking-[0.09em] text-white/65">
+                  {localised(interfaceCopy?.footerFollowTitle, locale) ?? t(locale, 'footer.followUs')}
+                </h2>
                 <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-                  {SOCIAL.map((account) => (
+                  {social.map((account) => (
                     <li key={account.platform}>
                       <a href={account.url} target="_blank" rel="noopener noreferrer me" className="inline-flex min-h-11 items-center rounded-full border border-white/15 px-3 text-fg-muted-on-ink no-underline transition hover:bg-white/8 hover:text-fg-on-ink">
                         {account.platform}<span className="sr-only"> ({t(locale, 'a11y.opensInNewTab')})</span>
@@ -90,7 +101,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             ) : null}
           </div>
 
-          <FooterColumn id="footer-legal" title={t(locale, 'footer.legal')} className="lg:col-span-3">
+          <FooterColumn id="footer-legal" title={localised(interfaceCopy?.footerLegalTitle, locale) ?? t(locale, 'footer.legal')} className="lg:col-span-3">
             {legal.map((item) => <li key={item.key}><Link href={item.href} className="text-fg-muted-on-ink no-underline transition hover:text-fg-on-ink">{item.label}</Link></li>)}
             <li className="text-fg-muted-on-ink"><CookiePreferencesButton locale={locale} /></li>
           </FooterColumn>
@@ -101,7 +112,11 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             &copy; {year} {legalName ?? t(locale, 'brand.name')}.
             {legalName && companyNumber ? <>{' '}{t(locale, 'footer.registeredIn')}. {t(locale, 'footer.companyNumber')} {companyNumber}.</> : null}
           </p>
-          <p>{locale === 'tr' ? 'Vize kararları ilgili ülkenin resmî makamlarına aittir.' : 'Visa decisions are made by the relevant government authority.'}</p>
+          <p>
+            {localised(interfaceCopy?.visaDisclaimer, locale) ?? (locale === 'tr'
+              ? 'Vize kararları ilgili ülkenin resmî makamlarına aittir.'
+              : 'Visa decisions are made by the relevant government authority.')}
+          </p>
         </div>
       </Container>
     </footer>

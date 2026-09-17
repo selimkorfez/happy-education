@@ -9,14 +9,19 @@
  */
 
 @theme {
+  /* ---- Official brand palette (editable through Sanity site settings) ---- */
+  --he-brand-navy: #00256c;
+  --he-brand-orange: #ff7300;
+  --he-brand-accent: #ff4500;
+  --he-brand-white: #ffffff;
+
   /* ---- Surfaces ---- */
   --color-paper: #fbfaf8;
   --color-paper-sunk: #f4f1eb;
   --color-card: #ffffff;
-  /* Temporary client-approved direction; exact navy will be swapped at one token. */
-  --color-ink-surface: #071a33;
-  --color-ink-surface-soft: #102a4f;
-  --color-brand-soft: #fff0e5;
+  --color-ink-surface: var(--he-brand-navy);
+  --color-ink-surface-soft: color-mix(in srgb, var(--he-brand-navy) 84%, white);
+  --color-brand-soft: color-mix(in srgb, var(--he-brand-orange) 12%, white);
   --color-sky-soft: #edf5ff;
   --color-mint-soft: #eef8f3;
   --color-lilac-soft: #f5f0ff;
@@ -28,10 +33,11 @@
   --color-fg-muted-on-ink: #b4b2ae;
 
   /* ---- Brand ---- */
-  --color-brand: #f47426;
-  --color-brand-strong: #b8490a;
-  --color-brand-pressed: #8a3706;
-  --color-brand-on-ink: #f79a4a;
+  --color-brand: var(--he-brand-orange);
+  --color-brand-accent: var(--he-brand-accent);
+  --color-brand-strong: var(--he-brand-navy);
+  --color-brand-pressed: color-mix(in srgb, var(--he-brand-navy) 82%, black);
+  --color-brand-on-ink: var(--he-brand-orange);
 
   /* ---- Status ---- */
   --color-success: #1f6b45;
@@ -44,9 +50,9 @@
   --color-border-input: #8c8073;
 
   /* ---- Type ---- */
-  --font-display: var(--font-figtree), ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif;
-  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif;
-  --font-editorial: var(--font-fraunces), 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-display: var(--font-nunito-sans), ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: var(--font-nunito-sans), ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif;
+  --font-editorial: var(--font-nunito-sans), ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif;
 
   --text-xs: 0.8125rem;
   --text-sm: 0.9063rem;
@@ -85,11 +91,11 @@
 
   html[data-theme='dark'] {
     color-scheme: dark;
-    --he-dark-paper: #071426;
-    --he-dark-paper-sunk: #0b1d34;
-    --he-dark-card: #102640;
-    --he-dark-ink-surface: #06162d;
-    --he-dark-ink-surface-soft: #15385f;
+    --he-dark-paper: color-mix(in srgb, var(--he-brand-navy) 78%, black);
+    --he-dark-paper-sunk: color-mix(in srgb, var(--he-brand-navy) 86%, black);
+    --he-dark-card: color-mix(in srgb, var(--he-brand-navy) 88%, white);
+    --he-dark-ink-surface: color-mix(in srgb, var(--he-brand-navy) 88%, black);
+    --he-dark-ink-surface-soft: var(--he-brand-navy);
     --he-dark-brand-soft: #3b261d;
     --he-dark-sky-soft: #102b4b;
     --he-dark-mint-soft: #102f2b;
@@ -98,8 +104,8 @@
     --he-dark-fg-muted: #bcc8d7;
     --he-dark-fg-on-ink: #f8fafc;
     --he-dark-fg-muted-on-ink: #c4cfdd;
-    --he-dark-brand-strong: #ff9a50;
-    --he-dark-brand-pressed: #ffb27a;
+    --he-dark-brand-strong: var(--he-brand-orange);
+    --he-dark-brand-pressed: color-mix(in srgb, var(--he-brand-orange) 78%, white);
     --he-dark-success: #7bd7aa;
     --he-dark-warning: #f2c46f;
     --he-dark-error: #ff938b;

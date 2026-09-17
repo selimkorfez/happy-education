@@ -9,10 +9,14 @@ import { primaryNav } from '@/lib/navigation'
 import { homePath, sectionPath, type Locale } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
 import { BUSINESS, publicValue } from '@/lib/business-facts'
+import { localised, localisedNavigation, type SiteSettings } from '@/lib/sanity/queries/settings'
 
-export function SiteHeader({ locale }: { locale: Locale }) {
-  const groups = primaryNav(locale)
-  const phone = publicValue(BUSINESS.phone)
+export function SiteHeader({ locale, settings }: { locale: Locale; settings?: SiteSettings | null }) {
+  const navLabels = localisedNavigation(settings?.interfaceCopy?.navigation, locale)
+  const groups = primaryNav(locale, navLabels)
+  const phone = settings?.phone?.trim() || publicValue(BUSINESS.phone)
+  const tagline = localised(settings?.interfaceCopy?.headerTagline, locale) ?? t(locale, 'brand.tagline')
+  const consultationLabel = localised(settings?.interfaceCopy?.consultationLabel, locale) ?? t(locale, 'nav.consultation')
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-paper/90 shadow-[0_6px_24px_rgba(35,35,38,0.035)] backdrop-blur-xl">
@@ -20,7 +24,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         <Container>
           <div className="flex h-9 items-center justify-between text-xs font-semibold">
             <div className="flex items-center gap-4 text-fg-muted">
-              <span>{t(locale, 'brand.tagline')}</span>
+              <span>{tagline}</span>
               {phone ? (
                 <>
                   <span aria-hidden="true" className="h-1 w-1 rounded-full bg-brand" />
@@ -33,10 +37,10 @@ export function SiteHeader({ locale }: { locale: Locale }) {
 
             <div className="flex items-center gap-5">
               <Link href={sectionPath(locale, 'about')} className="text-fg-muted no-underline transition hover:text-fg">
-                {t(locale, 'nav.about')}
+                {navLabels.about ?? t(locale, 'nav.about')}
               </Link>
               <Link href={sectionPath(locale, 'contact')} className="text-fg-muted no-underline transition hover:text-fg">
-                {t(locale, 'nav.contact')}
+                {navLabels.contact ?? t(locale, 'nav.contact')}
               </Link>
               <LanguageSwitcher locale={locale} />
             </div>
@@ -45,13 +49,13 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       </div>
 
       <Container width="wide">
-        <div className="flex h-[4.7rem] items-center justify-between gap-5">
+        <div className="flex h-[5rem] items-center justify-between gap-5">
           <Link
             href={homePath(locale)}
             className="flex shrink-0 items-center no-underline"
             aria-label={`${t(locale, 'brand.name')} — ${t(locale, 'brand.tagline')}`}
           >
-            <Logo title={t(locale, 'brand.name')} priority className="h-9 w-auto sm:h-10" />
+            <Logo title={settings?.tradingName ?? t(locale, 'brand.name')} brand={settings?.brand} priority className="h-11 w-auto sm:h-12" />
           </Link>
 
           <PrimaryNav groups={groups} locale={locale} />
@@ -73,11 +77,16 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               href={sectionPath(locale, 'consultation')}
               className="hidden min-h-11 items-center whitespace-nowrap rounded-full bg-brand px-5 text-[0.9375rem] font-bold text-[#1b1b1d] no-underline shadow-[0_8px_20px_rgba(244,116,38,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#f6813b] sm:inline-flex"
             >
-              {t(locale, 'nav.consultation')}
+              {consultationLabel}
               <span aria-hidden="true" className="ml-2">↗</span>
             </Link>
 
-            <MobileNav groups={groups} locale={locale} />
+            <MobileNav
+              groups={groups}
+              locale={locale}
+              consultationLabel={consultationLabel}
+              contactLabel={navLabels.contact}
+            />
           </div>
         </div>
       </Container>

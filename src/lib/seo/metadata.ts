@@ -30,9 +30,9 @@ export interface SeoImage {
  * stock photo attached to every share would imply the page is about that place.
  */
 const DEFAULT_IMAGE: SeoImage = {
-  url: '/brand/happy-education-logo.png',
-  width: 915,
-  height: 384,
+  url: '/brand/official/logo-color.png',
+  width: 1437,
+  height: 672,
   alt: 'Happy Education',
 }
 

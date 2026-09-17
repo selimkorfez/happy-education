@@ -13,8 +13,13 @@ export const deskStructure: StructureResolver = (S) =>
     .title('Happy Education')
     .items([
       S.listItem()
-        .title('Site settings')
-        .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
+        .title('Brand, colours & global content')
+        .child(
+          S.document()
+            .title('Brand, colours & global content')
+            .schemaType('siteSettings')
+            .documentId('siteSettings'),
+        ),
 
       S.listItem()
         .title('Publishing')

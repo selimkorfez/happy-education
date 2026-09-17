@@ -78,10 +78,15 @@ test.describe('English interface language boundary', () => {
     await expect(wordpressImages).toHaveCount(0)
   })
 
-  test('English destination hero uses a cleared local AI illustration', async ({ page }) => {
+  test('English destination hero uses a cleared wide landscape banner', async ({ page }) => {
     await page.goto('/en/universities/united-kingdom')
-    const heroImage = page.locator('main img').first()
+    const banner = page.locator('[data-page-hero-banner]')
+    const heroImage = banner.locator('img')
+    await expect(banner).toBeVisible()
     await expect(heroImage).toBeVisible()
     await expect(heroImage).not.toHaveAttribute('src', /happyeducation\.uk\/wp-content/i)
+    const box = await banner.boundingBox()
+    expect(box).not.toBeNull()
+    expect(box!.width / box!.height).toBeGreaterThan(2)
   })
 })
