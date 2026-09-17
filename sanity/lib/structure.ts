@@ -143,6 +143,26 @@ export const deskStructure: StructureResolver = (S) =>
                     .params({ today: new Date().toISOString().slice(0, 10) })
                     .apiVersion('2026-08-01'),
                 ),
+              S.listItem()
+                .title('Images awaiting licence clearance')
+                .child(
+                  S.documentList()
+                    .title('Images awaiting licence clearance')
+                    .filter(`
+                      (defined(heroImage.asset) && heroImage.licence.cleared != true)
+                      || (defined(leadImage.asset) && leadImage.licence.cleared != true)
+                      || (defined(thumbnail.asset) && thumbnail.licence.cleared != true)
+                      || (defined(photo.asset) && photo.licence.cleared != true)
+                      || (
+                        _type == "siteSettings"
+                        && (
+                          (defined(homeHero.image.asset) && homeHero.image.licence.cleared != true)
+                          || count(routeFinder.items[defined(image.asset) && image.licence.cleared != true]) > 0
+                        )
+                      )
+                    `)
+                    .apiVersion('2026-08-01'),
+                ),
             ]),
         ),
     ])

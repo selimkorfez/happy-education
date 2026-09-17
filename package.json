@@ -22,7 +22,9 @@
     "migrate:import": "node scripts/migrate/import.mjs"
   },
   "dependencies": {
+    "@sanity/icons": "5.2.1",
     "@sanity/image-url": "1.2.0",
+    "@sanity/ui": "4.0.5",
     "@sanity/vision": "6.10.1",
     "next": "16.3.1",
     "next-sanity": "13.3.3",

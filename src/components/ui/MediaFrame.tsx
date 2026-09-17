@@ -17,6 +17,9 @@ export interface MediaSource extends ImageWithMeta {
   licence?: {
     holder: string
     terms: string
+    sourceUrl?: string
+    licenceUrl?: string
+    reviewedAt?: string
     /** True once someone has confirmed we hold the right to publish it. */
     cleared: boolean
   }
@@ -140,10 +143,37 @@ export function MediaFrame({
         blurDataURL={priority ? blurDataUrl(image) : undefined}
         className="h-full w-full object-cover"
       />
-      {image.caption || image.attribution ? (
+      {image.caption || image.attribution || image.licence?.holder ? (
         <figcaption className="absolute bottom-2 right-2 max-w-[88%] rounded-lg bg-black/70 px-2.5 py-1.5 text-[0.65rem] leading-snug text-white backdrop-blur-sm">
           {image.caption}
-          {image.attribution ? <span className="ml-1">({image.attribution})</span> : null}
+          {image.caption && (image.licence?.holder || image.attribution) ? <span> · </span> : null}
+          {image.licence?.holder ? (
+            image.licence.sourceUrl ? (
+              <a
+                href={image.licence.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-white underline decoration-white/70 underline-offset-2"
+              >
+                {image.licence.holder}
+              </a>
+            ) : image.licence.holder
+          ) : image.attribution}
+          {image.licence?.terms ? (
+            <>
+              <span> · </span>
+              {image.licence.licenceUrl ? (
+                <a
+                  href={image.licence.licenceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-white underline decoration-white/70 underline-offset-2"
+                >
+                  {image.licence.terms}
+                </a>
+              ) : image.licence.terms}
+            </>
+          ) : null}
         </figcaption>
       ) : null}
     </figure>

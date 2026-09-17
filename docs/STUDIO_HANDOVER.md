@@ -1,14 +1,16 @@
 # Happy Education Studio handover
 
 This is the short operating guide for the person who manages website content.
-The editor lives at `/studio` on the deployed website and uses a Sanity account.
-No GitHub, Vercel or code access is required for everyday content work.
+The editor is available now at **https://happy-education.sanity.studio/** and
+uses a Sanity account. The redesigned website also exposes the same Studio at
+`/studio` when that application is deployed. No GitHub, Vercel or code access is
+required for everyday content work.
 
 ## First sign-in
 
 1. Accept the Sanity project invitation using the same sign-in method every time.
 2. Turn on two-factor authentication for that account.
-3. Open the website's `/studio` address and sign in.
+3. Open **https://happy-education.sanity.studio/** and sign in.
 4. Confirm that the **Happy Education** workspace shows **Publishing**,
    **Universities & study content**, **Programmes & tours**, and
    **Editorial review queues**.
@@ -76,6 +78,26 @@ Every image needs:
 An uncleared image is deliberately hidden from the public website. Do not use an
 image copied from Google, Pinterest, another website or social media unless Happy
 Education has permission that can be recorded.
+
+For editorial photographs, open **Lisanslı görsel asistanı** under the image
+field. It starts with a topic-aware search based on the current page, and the
+editor can change the words before searching. The assistant:
+
+1. searches Wikimedia Commons without a paid image service;
+2. removes small files, non-image formats and results carrying NC or ND
+   restrictions;
+3. shows the creator, licence and original source page before selection;
+4. uploads the selected original into Sanity; and
+5. records the credit, source page, licence deed and review time.
+
+An imported suggestion always has **Cleared for publication** switched off.
+Open the source page, confirm the pictured subject is relevant, check the creator
+and licence details, improve the alt text if required, and only then clear it.
+The Studio's **Editorial review queues → Images awaiting licence clearance** list
+collects common page images that still need this decision.
+
+The assistant is intentionally unavailable for logos, favicons and brand marks.
+Upload only the official files supplied by Happy Education in those fields.
 
 This rule also covers logos, favicons, the chat icon, homepage artwork and route
 card images. The public website checks **Cleared for publication** and refuses to

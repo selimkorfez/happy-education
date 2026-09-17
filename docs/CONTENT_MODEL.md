@@ -132,6 +132,9 @@ Every image on the site uses this type. Two fields are load-bearing; see section
 | `caption` | Optional, rendered under the image. |
 | `licence.holder` | Who owns the image. |
 | `licence.terms` | e.g. "Owned outright", "Supplied by the school for marketing use", "Stock licence #12345". |
+| `licence.sourceUrl` | Original page where the image and its terms can be checked. |
+| `licence.licenceUrl` | Direct link to the applicable licence deed when one exists. |
+| `licence.reviewedAt` | Time recorded when the licensed-image assistant imports the source. |
 | `licence.cleared` | **Defaults to false. The image does not appear on the public site until this is ticked.** |
 
 Hotspot and crop are enabled, and the image URL builder respects them, so the editor's chosen focal
@@ -562,8 +565,9 @@ Written for anyone on the team, no technical background assumed.
 
 ### Before you start
 
-1. Go to **`/studio`** on the site (for example `https://happyeducation.uk/studio`) and sign in with
-   your Sanity account.
+1. Go to **`https://happy-education.sanity.studio/`** and sign in with your Sanity
+   account. The same editor is available at **`/studio`** after the redesigned
+   website application is deployed.
 2. Decide **which language** you are writing. You will create one document per language.
 3. Everything saves as you type. **Nothing is public until you press Publish.**
 
