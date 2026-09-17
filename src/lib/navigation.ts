@@ -16,6 +16,19 @@ export interface NavGroup {
   children?: NavLink[]
 }
 
+export type NavLabelKey =
+  | 'universities'
+  | 'languageSchools'
+  | 'summerSchools'
+  | 'boardingSchools'
+  | 'tours'
+  | 'insights'
+  | 'about'
+  | 'contact'
+  | 'consultation'
+
+export type NavLabelOverrides = Partial<Record<NavLabelKey, string>>
+
 const COUNTRY_SLUG = {
   uk: { en: 'united-kingdom', tr: 'ingiltere' },
   ireland: { en: 'ireland', tr: 'irlanda' },
@@ -71,25 +84,25 @@ function insightsLinks(locale: Locale): NavLink[] {
   ]
 }
 
-export function primaryNav(locale: Locale): NavGroup[] {
-  const label = (key: MessageKey) => t(locale, key)
+export function primaryNav(locale: Locale, overrides: NavLabelOverrides = {}): NavGroup[] {
+  const label = (key: NavLabelKey, messageKey: MessageKey) => overrides[key] ?? t(locale, messageKey)
 
   return [
     {
       key: 'universities',
-      label: label('nav.universities'),
+      label: label('universities', 'nav.universities'),
       href: sectionPath(locale, 'universities'),
       children: countryLinks(locale, 'universities', UNIVERSITY_COUNTRIES),
     },
     {
       key: 'languageSchools',
-      label: label('nav.languageSchools'),
+      label: label('languageSchools', 'nav.languageSchools'),
       href: sectionPath(locale, 'languageSchools'),
       children: countryLinks(locale, 'languageSchools', LANGUAGE_COUNTRIES),
     },
     {
       key: 'summerSchools',
-      label: label('nav.summerSchools'),
+      label: label('summerSchools', 'nav.summerSchools'),
       href: sectionPath(locale, 'summerSchools'),
       children: [
         { label: locale === 'tr' ? 'Bireysel yaz okulları' : 'Individual summer schools', href: docPath(locale, 'summerSchools', locale === 'tr' ? 'bireysel' : 'individual') },
@@ -97,21 +110,21 @@ export function primaryNav(locale: Locale): NavGroup[] {
         { label: locale === 'tr' ? 'Veliler için rehber' : 'Guidance for parents', href: docPath(locale, 'guides', locale === 'tr' ? 'veli-rehberi' : 'parent-guide') },
       ],
     },
-    { key: 'boardingSchools', label: label('nav.boardingSchools'), href: sectionPath(locale, 'boardingSchools') },
-    { key: 'tours', label: label('nav.tours'), href: sectionPath(locale, 'tours') },
-    { key: 'insights', label: label('nav.insights'), href: sectionPath(locale, 'insights'), children: insightsLinks(locale) },
-    { key: 'about', label: label('nav.about'), href: sectionPath(locale, 'about') },
+    { key: 'boardingSchools', label: label('boardingSchools', 'nav.boardingSchools'), href: sectionPath(locale, 'boardingSchools') },
+    { key: 'tours', label: label('tours', 'nav.tours'), href: sectionPath(locale, 'tours') },
+    { key: 'insights', label: label('insights', 'nav.insights'), href: sectionPath(locale, 'insights'), children: insightsLinks(locale) },
+    { key: 'about', label: label('about', 'nav.about'), href: sectionPath(locale, 'about') },
   ]
 }
 
-export function footerNav(locale: Locale) {
+export function footerNav(locale: Locale, overrides: NavLabelOverrides = {}) {
   return {
-    explore: primaryNav(locale).map(({ label, href }) => ({ label, href })),
+    explore: primaryNav(locale, overrides).map(({ label, href }) => ({ label, href })),
     company: [
-      { label: t(locale, 'nav.about'), href: sectionPath(locale, 'about') },
-      { label: t(locale, 'nav.contact'), href: sectionPath(locale, 'contact') },
-      { label: t(locale, 'nav.consultation'), href: sectionPath(locale, 'consultation') },
-      { label: t(locale, 'nav.insights'), href: sectionPath(locale, 'insights') },
+      { label: overrides.about ?? t(locale, 'nav.about'), href: sectionPath(locale, 'about') },
+      { label: overrides.contact ?? t(locale, 'nav.contact'), href: sectionPath(locale, 'contact') },
+      { label: overrides.consultation ?? t(locale, 'nav.consultation'), href: sectionPath(locale, 'consultation') },
+      { label: overrides.insights ?? t(locale, 'nav.insights'), href: sectionPath(locale, 'insights') },
       { label: locale === 'tr' ? 'Sosyal medyadan' : 'From our socials', href: docPath(locale, 'insights', locale === 'tr' ? 'sosyal-medyadan' : 'from-our-socials') },
       { label: locale === 'tr' ? 'Öğrenci hikâyeleri' : 'Student stories', href: docPath(locale, 'insights', locale === 'tr' ? 'ogrenci-hikayeleri' : 'student-stories') },
     ],

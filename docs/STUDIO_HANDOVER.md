@@ -13,6 +13,39 @@ No GitHub, Vercel or code access is required for everyday content work.
    **Universities & study content**, **Programmes & tours**, and
    **Editorial review queues**.
 
+## Change the brand or homepage
+
+Open **Brand, colours & global content**. This single screen controls the parts
+that appear across the website:
+
+- official logos for light and dark backgrounds, the compact mark, floating chat
+  icon and browser favicon;
+- the approved navy, orange and red-orange colours;
+- telephone, WhatsApp number, email, company details and social links;
+- main menu labels, header text, footer text and the WhatsApp opening message;
+- homepage hero text, buttons, image, image label and image caption; and
+- the heading, text, links and six images in **Find your route**.
+
+Leave a replacement field empty to keep the supplied official brand artwork or
+approved fallback copy. The website automatically chooses the light or white logo
+for the surface behind it. Publish the settings document after making changes.
+
+The site typeface is Nunito Sans, loaded and optimised as part of the application.
+Changing to another typeface requires adding and testing that font in the website
+code so visitors never receive a missing or unlicensed font.
+
+## Change a page
+
+Country, city, university, school, tour, summer programme, guide and article pages
+are separate documents in their matching Studio section. Open a document to edit
+its title, introduction, sections, buttons, SEO details and hero image. Page heroes
+are shown as wide landscape banners, so use a landscape crop with the subject away
+from the extreme edges.
+
+Articles can be created, updated, unpublished or deleted under **Publishing**.
+Use **Unpublish** when content may be needed again; deletion removes the document
+from the editorial library.
+
 The free Sanity plan includes the Administrator and Viewer roles. A staff member
 who must create and publish content therefore needs Administrator access on that
 plan. Upgrade to Growth and change them to Editor when restricted publishing
@@ -43,6 +76,10 @@ Every image needs:
 An uncleared image is deliberately hidden from the public website. Do not use an
 image copied from Google, Pinterest, another website or social media unless Happy
 Education has permission that can be recorded.
+
+This rule also covers logos, favicons, the chat icon, homepage artwork and route
+card images. The public website checks **Cleared for publication** and refuses to
+render an uncleared replacement.
 
 ## Languages
 

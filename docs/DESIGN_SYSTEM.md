@@ -13,39 +13,19 @@ enforced by a script that exits non-zero.
 
 ### Provenance
 
-The palette is derived from the real brand artwork, not invented. Two independent sources agree,
-which is what makes it trustworthy.
+The official September 2026 logo guide is the source of truth. It specifies four colours:
 
-**Source A, the official print brochure** (`Happy-Education-Yaz-Okullari-2025-A4-print.pdf`, read
-from the decompressed content-stream `scn` operators). These are deliberate, designer-set values:
+| Hex | Brand-guide role |
+|---|---|
+| `#00256C` | Navy, Pantone 280 C |
+| `#FF7300` | Orange, Pantone 2018 C |
+| `#FF4500` | Red-orange, Pantone 1655 C |
+| `#FFFFFF` | White |
 
-| Hex | Fill count | Role |
-|---|---|---|
-| `#F17924` | 217 fills, 22 strokes | Primary brand orange |
-| `#113458` | 105 fills | Secondary brand navy |
-| `#231F20` | 23 fills | Rich black, text |
-
-**Source B, pixel quantisation of the logo master** (`happyedu.logo_.png`, 1131×1131, 916×384
-usable ink, analysed with alpha > 250 and near-white excluded, across 105,252 ink pixels):
-
-- Wordmark charcoal **`#3A3A3C`**, 44.70 percent of all ink and the single most common exact
-  colour. The mean of its 55,453 dark pixels is exactly `#3A3A3C`.
-- The symbol carries a diagonal gradient, sampled bottom-left to top-right along the book diagonal:
-  `#EF5D2A` → `#F26828` → **`#F47426`** → `#F47A24` → `#F68023` → `#F68721` → `#F68E1F`
-
-**Cross-check.** The brochure's `#F17924` sits inside the logo gradient range and within 3/255 of
-the logo's mean orange `#F27426`. The brochure accent `#EF582B` is within 5/255 of the gradient's
-dark end `#EF5D2A`. The print palette and the artwork agree, so the sampled values are the brand's
-actual colours rather than one designer's guess.
-
-**`--color-brand: #F47426` is the midpoint of that sampled gradient**, chosen as the single flat
-value that represents the symbol without picking one end of a gradient the design system does not
-reproduce (see the anti-pattern list: no gradients).
-
-The `#113458` navy from the brochure is **not** in the token set. The site's dark surface is a
-neutral near-black (`#232326`) instead, which sits closer to the charcoal wordmark and avoids
-introducing a second hue that competes with the orange. The navy is available if the brand ever
-wants it, and it is documented here so the decision is visible rather than accidental.
+The supplied vector lockups are used unchanged. The coloured lockup appears on light surfaces;
+the white lockup appears on navy and dark surfaces. Editors can replace approved assets and the
+three chromatic tokens in Sanity under **Brand, colours & global content**. Images remain subject
+to the same licence-clearance gate as editorial photography.
 
 ### Tokens
 
@@ -56,8 +36,8 @@ wants it, and it is documented here so the decision is visible rather than accid
 | `--color-paper` | `#FAF8F5` | The page ground. Warm off-white, **never `#ffffff`**. |
 | `--color-paper-sunk` | `#F2EDE4` | Recessed bands, the footer, table headers, secondary-button hover. |
 | `--color-card` | `#FFFFFF` | Raised panels. White is a *lift* here, which only works because the page ground is not white. |
-| `--color-ink-surface` | `#232326` | Dark sections, such as the consultation band. |
-| `--color-ink-surface-soft` | `#313135` | A step up inside a dark section. |
+| `--color-ink-surface` | `#00256C` | Official navy for dark sections. |
+| `--color-ink-surface-soft` | derived from `#00256C` | A lighter navy step inside dark sections. |
 
 #### Foregrounds
 
@@ -72,10 +52,11 @@ wants it, and it is documented here so the decision is visible rather than accid
 
 | Token | Hex | Use |
 |---|---|---|
-| `--color-brand` | `#F47426` | **Fill only.** Large flat panels, the identity, graphic blocks, `::selection`, quote rules. |
-| `--color-brand-strong` | `#B8490A` | Interactive text: links, quiet buttons, eyebrows. Also the primary button fill. |
-| `--color-brand-pressed` | `#8A3706` | Primary button hover and active. |
-| `--color-brand-on-ink` | `#F79A4A` | Link text on a dark surface. |
+| `--color-brand` | `#FF7300` | Official primary orange for fills and calls to action. |
+| `--color-brand-accent` | `#FF4500` | Official red-orange accent. |
+| `--color-brand-strong` | `#00256C` | Accessible interactive text on light surfaces. |
+| `--color-brand-pressed` | derived from `#00256C` | Pressed/active state. |
+| `--color-brand-on-ink` | `#FF7300` | Accent text on navy surfaces. |
 
 #### Status and lines
 
@@ -96,7 +77,7 @@ Using one token for both forces a bad compromise in one direction or the other.
 
 ## 2. The rule about brand orange
 
-> **`--color-brand` (`#F47426`) is a fill. It is never text.**
+> **`--color-brand` (`#FF7300`) is a fill. It is never body text on a light surface.**
 
 At 2.69:1 on paper and 2.85:1 on card, it fails normal text (4.5:1), large text (3:1) and
 non-text UI contrast (3:1). This is not a near miss that could be argued; the audit measured every
@@ -189,7 +170,7 @@ script in front of you.
 
 | Foreground | Background | Ratio | Min | |
 |---|---|---|---|---|
-| `fg` `#1B1B1D` | `brand` `#F47426` | **6.04:1** | 4.5 | PASS |
+| `fg` `#1B1B1D` | `brand` `#FF7300` | **6.77:1** | 4.5 | PASS |
 
 ### Asserted failures
 
@@ -240,30 +221,18 @@ is present and must clear 3:1.
 
 ## 5. Typography
 
-### The pairing
+### The family
 
-**Display: Fraunces.** **Body: Figtree.** Both self-hosted through `next/font/google`.
-
-The Happy Education mark is a rounded, warm, slightly soft wordmark. A neutral grotesque fights it,
-and a high-contrast Didone would read as corporate in a way this business is not. Fraunces is a
-soft old-style serif with genuine personality that sits naturally beside the mark; Figtree is a
-humanist geometric sans whose round bowls echo the mark without imitating it.
-
-**Explicitly not used anywhere in this project: Inter, Geist, Space Grotesk.**
-
-Worth recording: the brand's actual typeface is **Hurme Geometric Sans 1**, embedded in six weights
-in the official 2025 brochure. It is a commercial licence from Hurme Design, its Turkish coverage
-is unverified with the foundry, and it is not used anywhere on the live site (which loads
-Poppins, Roboto, Archivo and Playfair Display instead, none of which was a deliberate choice: the
-Elementor global typography was never configured). Fraunces and Figtree are a deliberate,
-licence-clean pairing rather than a continuation of an accident.
+**Nunito Sans** is the client-approved family for display, body and editorial copy. It is loaded as
+a variable font and self-hosted through `next/font/google`; the public browser never contacts
+Google Fonts.
 
 ### Turkish glyph coverage, with evidence
 
 Turkish needs `ç ö ü ğ ş ı` and `Ç Ö Ü Ğ Ş İ`, which is U+00C7/E7, U+00D6/F6, U+00DC/FC,
 U+011E/011F, U+015E/015F, U+0130 and U+0131.
 
-Both families are loaded with `subsets: ['latin', 'latin-ext']`:
+Nunito Sans is loaded with `subsets: ['latin', 'latin-ext']`:
 
 - The **`latin`** subset carries U+0131 (`ı`, the dotless i) and the `ç ö ü` range.
 - The **`latin-ext`** subset carries U+0100 to U+02BA, which includes `İ Ğ ğ Ş ş`.
@@ -274,14 +243,8 @@ found that with `latin` alone the browser must fetch a second font file for any 
 unstyled text exactly where it is most noticeable. Removing `latin-ext` from either family would
 reintroduce that.
 
-Both are loaded as variable fonts: `weight` is omitted so the whole 100 to 900 range ships in one
-file. Fraunces additionally declares its `SOFT`, `WONK` and `opsz` axes, so headlines can be tuned
-in CSS through `font-variation-settings` without loading anything extra. Next.js rejects `axes`
-alongside an explicit weight list, which is why the weight list is absent.
-
-`display: 'swap'` and `adjustFontFallback: true` are set on both, with explicit fallback stacks
-(`Iowan Old Style, Palatino Linotype, Georgia, serif` for Fraunces; `system-ui, Helvetica Neue,
-Arial, sans-serif` for Figtree) so the metric-adjusted fallback shifts as little as possible.
+It is loaded as a variable font: `weight` is omitted so the full family ships efficiently.
+`display: 'swap'` and `adjustFontFallback: true` keep text visible and reduce layout shift.
 
 Self-hosting through `next/font` also means **no request ever goes to `fonts.googleapis.com`**,
 which keeps `font-src` in the Content-Security-Policy limited to `'self'` and `data:`.
@@ -308,10 +271,9 @@ Line heights: `--leading-tight` 1.12 (display headings), `--leading-snug` 1.28 (
 
 ### Base rules
 
-- `h1` to `h4` use Fraunces at weight 600, `--leading-tight`, `letter-spacing: -0.012em`, and
+- `h1` to `h4` use Nunito Sans at weight 700, `--leading-tight`, `letter-spacing: -0.035em`, and
   `text-wrap: balance` so headings do not leave a single orphaned word.
-- `h5` and `h6` use Figtree at weight 650. They function as UI labels rather than editorial
-  headings, and setting them in the serif would misrepresent the hierarchy.
+- `h5` and `h6` use Nunito Sans at weight 700.
 - Paragraphs use `text-wrap: pretty`.
 - `font-synthesis-weight: none`, so a missing weight is never faked into a smeared bold.
 - `[lang='tr']` sets `font-variant-ligatures: common-ligatures`, and the `<html lang>` attribute is

@@ -188,14 +188,23 @@ happens ("Speak to a university adviser"), not "Get started" or "Learn more".
 
 ### `siteSettings` (singleton)
 
-Removed from the "create new" menu so nobody can make a second one. Grouped into Identity,
-Contact, Social and Default SEO.
+Removed from the "create new" menu so nobody can make a second one. The Studio labels it
+**Brand, colours & global content** and groups it into Identity, Logos & colours, Global text,
+Homepage, Contact, Social and Default SEO.
 
 Identity holds `tradingName`, `legalName` ("Must match the Companies House register exactly"),
-`companyNumber`, `registeredOffice` and `logo`. Contact holds `phone`, `whatsapp` (digits only,
-including country code), `email`, `workingHours` (an array of `sourcedFact`, label = day range,
-value = hours) and references to `office` documents. Social is a list of platform plus HTTPS-only
-URL, with the constraint stated in the field description: **only Happy Education accounts.
+`companyNumber` and `registeredOffice`. Logos & colours holds separate artwork for light and dark
+surfaces, the compact mark, floating chat icon, favicon, and the three approved brand colours.
+Every artwork field uses `imageWithMeta`, so a replacement stays hidden until its rights are
+recorded and **Cleared for publication** is selected.
+
+Global text holds the header, primary menu labels, consultation button, WhatsApp bubble/message,
+footer callout, footer headings, registered-office label and visa disclaimer in both languages.
+Homepage holds all hero copy/buttons/artwork and the six **Find your route** cards, including each
+card's copy, destination and image. Contact holds `phone`, `whatsapp` (digits only, including
+country code), `email`, `workingHours` (an array of `sourcedFact`, label = day range, value =
+hours) and references to `office` documents. Social is a list of platform plus HTTPS-only URL,
+with the constraint stated in the field description: **only Happy Education accounts.
 Partner-school profiles must never be listed here.**
 
 The `registeredOffice` description carries the rule that matters: this is a serviced address and

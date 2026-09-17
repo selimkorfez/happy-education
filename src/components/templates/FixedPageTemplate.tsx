@@ -38,7 +38,7 @@ export function FixedPageTemplate({
       <section className="bg-paper py-8 sm:py-12 lg:py-16">
         <Container>
           <div className={`grid gap-8 ${showForm ? 'lg:grid-cols-[0.78fr_1.22fr] lg:gap-12' : 'lg:grid-cols-[1fr_20rem] lg:gap-14'}`}>
-            <div className="rounded-[1.5rem] border border-border/60 bg-white p-6 shadow-[0_12px_36px_rgba(35,35,38,0.045)] sm:p-8 lg:p-10">
+            <div className="rounded-[1.5rem] border border-border/60 bg-card p-6 shadow-[0_12px_36px_rgba(35,35,38,0.045)] sm:p-8 lg:p-10">
               {doc?.body ? (
                 <PortableText value={doc.body} locale={locale} />
               ) : pageKey === 'about' ? (
@@ -62,7 +62,7 @@ export function FixedPageTemplate({
             </div>
 
             {showForm ? (
-              <div className="rounded-[1.5rem] border border-border/70 bg-white p-3 shadow-[0_18px_48px_rgba(35,35,38,0.07)] sm:p-5">
+              <div className="rounded-[1.5rem] border border-border/70 bg-card p-3 shadow-[0_18px_48px_rgba(35,35,38,0.07)] sm:p-5">
                 <ContactPanel locale={locale} variant={pageKey} />
               </div>
             ) : (

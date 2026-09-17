@@ -72,7 +72,7 @@ export function CookieBanner({ locale }: { locale: Locale }) {
   return (
     <section
       aria-label={copy.regionLabel}
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-card"
+      className="he-cookie-banner fixed inset-x-0 bottom-0 z-50 border-t border-border bg-card"
     >
       <div className="mx-auto flex max-w-[78rem] flex-col gap-4 px-5 py-5 sm:px-7 lg:flex-row lg:items-center lg:gap-8 lg:px-10">
         <div className="lg:flex-1">
@@ -146,7 +146,7 @@ function PreferencesDialog({ locale }: { locale: Locale }) {
   }, [closePreferences])
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-fg/40 p-0 sm:items-center sm:p-6">
+    <div className="he-cookie-dialog fixed inset-0 z-50 flex items-end justify-center bg-fg/40 p-0 sm:items-center sm:p-6">
       <div
         ref={dialogRef}
         role="dialog"

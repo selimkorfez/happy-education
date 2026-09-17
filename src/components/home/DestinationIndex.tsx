@@ -82,7 +82,7 @@ export function DestinationIndex({ locale }: { locale: Locale }) {
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-6">
                       <h3 className="text-3xl font-bold text-white">{label}</h3>
                       <p className="mt-2 max-w-[30ch] text-sm leading-relaxed text-white/74">{copy.note}</p>
-                      <Link href={href} className="pointer-events-auto mt-5 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/16 bg-white/12 px-4 text-sm font-black text-white no-underline backdrop-blur-md transition duration-300 hover:bg-white hover:text-fg">
+                      <Link href={href} className="pointer-events-auto mt-5 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/16 bg-white/12 px-4 text-sm font-black text-white no-underline backdrop-blur-md transition duration-300 hover:bg-card hover:text-fg">
                         {heading.open}
                         <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                       </Link>

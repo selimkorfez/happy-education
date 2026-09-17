@@ -42,7 +42,7 @@ export function HowWeWork({ locale }: { locale: Locale }) {
   const steps = STEPS[locale]
 
   return (
-    <section className="relative overflow-hidden border-b border-border/70 bg-white py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden border-b border-border/70 bg-card py-16 sm:py-20 lg:py-24">
       <div aria-hidden="true" className="absolute left-1/2 top-24 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-soft/70 blur-3xl" />
       <Container>
         <Reveal>
@@ -63,7 +63,7 @@ export function HowWeWork({ locale }: { locale: Locale }) {
             {steps.map((step, index) => (
               <li key={step.title}>
                 <Reveal delay={Math.min(index * 75, 300)} className="h-full">
-                  <article className="he-shine-card group relative h-full overflow-hidden rounded-[1.55rem] border border-border/70 bg-paper/92 p-6 shadow-[0_10px_30px_rgba(35,35,38,0.045)] backdrop-blur-[1px] transition duration-400 hover:-translate-y-1.5 hover:border-brand/28 hover:bg-white hover:shadow-[0_22px_55px_rgba(35,35,38,0.09)] sm:p-7">
+                  <article className="he-shine-card group relative h-full overflow-hidden rounded-[1.55rem] border border-border/70 bg-paper/92 p-6 shadow-[0_10px_30px_rgba(35,35,38,0.045)] backdrop-blur-[1px] transition duration-400 hover:-translate-y-1.5 hover:border-brand/28 hover:bg-card hover:shadow-[0_22px_55px_rgba(35,35,38,0.09)] sm:p-7">
                     <div aria-hidden="true" className="absolute -right-7 -top-7 h-24 w-24 rounded-full bg-brand-soft opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
                     <p className="relative text-xs font-black uppercase tracking-[0.1em] text-brand-strong">
                       {heading.step} {index + 1} · {step.short}

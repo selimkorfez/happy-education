@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { usePathname, useRouter } from 'next/navigation'
+import { LandmarkSplash } from './LandmarkSplash'
+import { landmarkForPathname, type LandmarkScene } from '@/lib/navigation/landmarks'
 
 type Phase = 'idle' | 'covering' | 'clearing'
 
@@ -49,6 +51,7 @@ export function RouteCloudTransition() {
   const router = useRouter()
   const pathname = usePathname()
   const [phase, setPhase] = useState<Phase>('idle')
+  const [landmark, setLandmark] = useState<LandmarkScene | null>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const phaseRef = useRef<Phase>('idle')
   const previousPathRef = useRef(pathname)
@@ -74,6 +77,7 @@ export function RouteCloudTransition() {
     pendingRef.current = null
     startedAtRef.current = 0
     applyPhase('idle')
+    setLandmark(null)
   }, [applyPhase])
 
   useEffect(() => {
@@ -117,6 +121,7 @@ export function RouteCloudTransition() {
 
       const next = new URL(anchor.href, window.location.href)
       const destination = `${next.pathname}${next.search}${next.hash}`
+      const nextLandmark = landmarkForPathname(next.pathname)
 
       event.preventDefault()
       pendingRef.current = destination
@@ -127,6 +132,7 @@ export function RouteCloudTransition() {
       // repaint the component with the old `idle` phase and make the transition
       // appear to vanish. This is a state-ordering guarantee, not a time delay.
       flushSync(() => {
+        setLandmark(nextLandmark)
         applyPhase('covering')
       })
 
@@ -155,16 +161,23 @@ export function RouteCloudTransition() {
       ref={overlayRef}
       aria-hidden="true"
       data-phase={phase}
+      data-art={landmark ? 'landmark' : 'clouds'}
       className="he-route-cloud-transition fixed inset-0 z-[120] overflow-hidden pointer-events-none"
     >
       <div className="he-route-sky absolute inset-0" />
-      <Cloud className="he-route-cloud-1" />
-      <Cloud className="he-route-cloud-2" />
-      <Cloud className="he-route-cloud-3" />
-      <Cloud className="he-route-cloud-4" />
-      <Cloud className="he-route-cloud-5" />
-      <Cloud className="he-route-cloud-6" />
-      <div className="he-route-mist absolute inset-0" />
+      {landmark ? (
+        <LandmarkSplash scene={landmark} />
+      ) : (
+        <>
+          <Cloud className="he-route-cloud-1" />
+          <Cloud className="he-route-cloud-2" />
+          <Cloud className="he-route-cloud-3" />
+          <Cloud className="he-route-cloud-4" />
+          <Cloud className="he-route-cloud-5" />
+          <Cloud className="he-route-cloud-6" />
+          <div className="he-route-mist absolute inset-0" />
+        </>
+      )}
     </div>
   )
 }

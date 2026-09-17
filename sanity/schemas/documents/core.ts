@@ -33,6 +33,9 @@ export const siteSettings = defineType({
   type: 'document',
   groups: [
     { name: 'identity', title: 'Identity', default: true },
+    { name: 'brand', title: 'Logos & colours' },
+    { name: 'interface', title: 'Global text' },
+    { name: 'homepage', title: 'Homepage' },
     { name: 'contact', title: 'Contact' },
     { name: 'social', title: 'Social' },
     { name: 'seo', title: 'Default SEO' },
@@ -54,7 +57,134 @@ export const siteSettings = defineType({
       description:
         'The registered office as filed at Companies House. This is a serviced address and must never be described as a staffed office.',
     }),
-    defineField({ name: 'logo', type: 'imageWithMeta', group: 'identity' }),
+    defineField({
+      name: 'brand',
+      title: 'Brand artwork',
+      type: 'object',
+      group: 'brand',
+      description: 'Optional replacements for the supplied official logo files. Only licence-cleared uploads render.',
+      fields: [
+        defineField({ name: 'logoOnLight', title: 'Logo for light backgrounds', type: 'imageWithMeta' }),
+        defineField({ name: 'logoOnDark', title: 'Logo for dark/navy backgrounds', type: 'imageWithMeta' }),
+        defineField({ name: 'logoMark', title: 'Compact logo mark', type: 'imageWithMeta' }),
+        defineField({ name: 'chatIcon', title: 'Floating chat icon', type: 'imageWithMeta' }),
+        defineField({ name: 'favicon', title: 'Browser favicon', type: 'imageWithMeta' }),
+      ],
+    }),
+    defineField({
+      name: 'colours',
+      title: 'Brand colours',
+      type: 'object',
+      group: 'brand',
+      description: 'Use six-digit HEX values. The approved defaults remain active when a field is blank.',
+      fields: [
+        defineField({ name: 'navy', title: 'Navy', type: 'string', initialValue: '#00256C', validation: (r) => r.regex(/^#[0-9A-Fa-f]{6}$/, { name: 'HEX colour' }) }),
+        defineField({ name: 'orange', title: 'Orange', type: 'string', initialValue: '#FF7300', validation: (r) => r.regex(/^#[0-9A-Fa-f]{6}$/, { name: 'HEX colour' }) }),
+        defineField({ name: 'accentOrange', title: 'Red-orange accent', type: 'string', initialValue: '#FF4500', validation: (r) => r.regex(/^#[0-9A-Fa-f]{6}$/, { name: 'HEX colour' }) }),
+      ],
+    }),
+    defineField({
+      name: 'interfaceCopy',
+      title: 'Global interface text',
+      type: 'object',
+      group: 'interface',
+      fields: [
+        localisedText('headerTagline', 'Header tagline'),
+        localisedText('consultationLabel', 'Consultation button'),
+        localisedText('chatLabel', 'Chat bubble label'),
+        localisedText('chatMessage', 'WhatsApp opening message', 3),
+        localisedText('footerDescription', 'Footer description', 4),
+        defineField({
+          name: 'navigation',
+          title: 'Main navigation labels',
+          type: 'object',
+          description: 'Changes visible menu labels without changing their web addresses.',
+          fields: [
+            localisedText('universities', 'Universities'),
+            localisedText('languageSchools', 'Language schools'),
+            localisedText('summerSchools', 'Summer schools'),
+            localisedText('boardingSchools', 'Boarding schools'),
+            localisedText('tours', 'Tours'),
+            localisedText('insights', 'Insights'),
+            localisedText('about', 'About'),
+            localisedText('contact', 'Contact'),
+            localisedText('consultation', 'Consultation'),
+          ],
+        }),
+        localisedText('footerKicker', 'Footer callout label'),
+        localisedText('footerHeading', 'Footer callout heading', 3),
+        localisedText('footerCtaLabel', 'Footer callout button'),
+        localisedText('footerServicesTitle', 'Footer services column'),
+        localisedText('footerCompanyTitle', 'Footer company column'),
+        localisedText('footerLegalTitle', 'Footer legal column'),
+        localisedText('footerFollowTitle', 'Footer social heading'),
+        localisedText('registeredOfficeLabel', 'Registered office label'),
+        localisedText('visaDisclaimer', 'Visa disclaimer', 3),
+      ],
+    }),
+    defineField({
+      name: 'homeHero',
+      title: 'Homepage hero',
+      type: 'object',
+      group: 'homepage',
+      fields: [
+        localisedText('eyebrow', 'Eyebrow'),
+        localisedText('heading', 'Heading'),
+        localisedText('highlightedHeading', 'Highlighted heading'),
+        localisedText('lead', 'Introduction', 4),
+        localisedText('primaryLabel', 'Primary button label'),
+        localisedText('primaryHref', 'Primary button path'),
+        localisedText('secondaryLabel', 'Secondary button label'),
+        localisedText('secondaryHref', 'Secondary button path'),
+        defineField({ name: 'image', title: 'Hero image', type: 'imageWithMeta' }),
+        localisedText('imageLabel', 'Image label'),
+        localisedText('imageCaption', 'Image caption', 3),
+      ],
+    }),
+    defineField({
+      name: 'routeFinder',
+      title: 'Find your route',
+      type: 'object',
+      group: 'homepage',
+      description: 'Controls the six equal cards under “Find your route”. Keep one item for each route key.',
+      fields: [
+        localisedText('kicker', 'Section label'),
+        localisedText('title', 'Heading'),
+        localisedText('body', 'Introduction', 3),
+        defineField({
+          name: 'items',
+          title: 'Route cards',
+          type: 'array',
+          validation: (r) => r.max(6),
+          of: [{
+            type: 'object',
+            fields: [
+              defineField({
+                name: 'key',
+                title: 'Route',
+                type: 'string',
+                options: { list: [
+                  { title: 'University study', value: 'universities' },
+                  { title: 'Language education', value: 'languageSchools' },
+                  { title: 'Summer programmes', value: 'summerSchools' },
+                  { title: 'Boarding school', value: 'boardingSchools' },
+                  { title: 'Group travel', value: 'tours' },
+                  { title: 'Application support', value: 'applications' },
+                ] },
+                validation: (r) => r.required(),
+              }),
+              localisedText('tag', 'Small label'),
+              localisedText('title', 'Card title'),
+              localisedText('body', 'Card description', 3),
+              localisedText('linkLabel', 'Link label'),
+              localisedText('href', 'Destination path'),
+              defineField({ name: 'image', title: 'Card image', type: 'imageWithMeta' }),
+            ],
+            preview: { select: { title: 'title.en', subtitle: 'key', media: 'image' } },
+          }],
+        }),
+      ],
+    }),
     defineField({ name: 'phone', type: 'string', group: 'contact' }),
     defineField({
       name: 'whatsapp',
@@ -107,6 +237,18 @@ export const siteSettings = defineType({
   ],
   preview: { prepare: () => ({ title: 'Site settings' }) },
 })
+
+function localisedText(name: string, title: string, rows?: number) {
+  return defineField({
+    name,
+    title,
+    type: 'object',
+    fields: [
+      defineField({ name: 'en', title: 'English', type: rows ? 'text' : 'string', ...(rows ? { rows } : {}) }),
+      defineField({ name: 'tr', title: 'Türkçe', type: rows ? 'text' : 'string', ...(rows ? { rows } : {}) }),
+    ],
+  })
+}
 
 /** Editorial category, used for the blog hub's topic clusters. */
 export const category = defineType({

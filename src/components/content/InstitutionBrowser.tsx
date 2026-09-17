@@ -46,7 +46,7 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
       <div className="mb-7 flex flex-col gap-4 rounded-[1.35rem] border border-border/70 bg-paper-sunk/65 p-4 sm:p-5 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-bold uppercase tracking-[0.08em] text-fg-muted">{copy.sort}</span>
-          <div className="inline-flex rounded-full border border-border/80 bg-white p-1 shadow-[0_5px_16px_rgba(35,35,38,0.04)]" role="group" aria-label={copy.sort}>
+          <div className="inline-flex rounded-full border border-border/80 bg-card p-1 shadow-[0_5px_16px_rgba(35,35,38,0.04)]" role="group" aria-label={copy.sort}>
             <button type="button" aria-pressed={sortMode === 'popular'} onClick={() => setSortMode('popular')} className={`min-h-11 rounded-full px-4 text-sm font-bold transition ${sortMode === 'popular' ? 'bg-ink-surface text-fg-on-ink shadow-sm' : 'text-fg-muted hover:bg-paper hover:text-fg'}`}>{copy.popular}</button>
             <button type="button" aria-pressed={sortMode === 'az'} onClick={() => setSortMode('az')} className={`min-h-11 rounded-full px-4 text-sm font-bold transition ${sortMode === 'az' ? 'bg-ink-surface text-fg-on-ink shadow-sm' : 'text-fg-muted hover:bg-paper hover:text-fg'}`}>{copy.az}</button>
           </div>
@@ -58,7 +58,7 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
             <label className="relative block flex-1 sm:max-w-[30rem]">
               <span className="sr-only">{copy.search}</span>
               <span aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-fg-muted"><svg width="17" height="17" viewBox="0 0 18 18" fill="none"><circle cx="7.5" cy="7.5" r="5.25" stroke="currentColor" strokeWidth="1.6" /><path d="m11.5 11.5 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg></span>
-              <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={copy.placeholder} className="min-h-12 w-full rounded-full border border-border-input bg-white py-3 pl-11 pr-4 text-sm text-fg shadow-[0_5px_16px_rgba(35,35,38,0.04)] placeholder:text-fg-muted/75" />
+              <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={copy.placeholder} className="min-h-12 w-full rounded-full border border-border-input bg-card py-3 pl-11 pr-4 text-sm text-fg shadow-[0_5px_16px_rgba(35,35,38,0.04)] placeholder:text-fg-muted/75" />
             </label>
           ) : null}
           <p className="shrink-0 text-sm font-bold tabular-nums text-fg-muted">{filtered.length} {copy.count}</p>
@@ -71,7 +71,7 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
             const location = [item.city, item.country].filter(Boolean).join(', ')
             return (
               <li key={item.href}>
-                <article className="group relative flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_8px_26px_rgba(35,35,38,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(35,35,38,0.09)] focus-within:z-20">
+                <article className="group relative flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-card shadow-[0_8px_26px_rgba(35,35,38,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_42px_rgba(35,35,38,0.09)] focus-within:z-20">
                   {item.image ? (
                     <div className="relative overflow-hidden bg-paper-sunk">
                       <MediaFrame
@@ -82,7 +82,7 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
                         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                         className="aspect-[16/9] w-full [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]"
                       />
-                      <span className="pointer-events-none absolute left-2 top-2 z-10 rounded-full bg-white/90 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.06em] text-fg shadow-sm backdrop-blur-sm">
+                      <span className="pointer-events-none absolute left-2 top-2 z-10 rounded-full bg-card/90 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.06em] text-fg shadow-sm backdrop-blur-sm">
                         {item.image.kind === 'campus' ? copy.campus : copy.location}
                       </span>
                     </div>
@@ -103,7 +103,7 @@ export function InstitutionBrowser({ locale, items }: { locale: Locale; items: I
           })}
         </ul>
       ) : (
-        <div className="rounded-[1.3rem] border border-border/70 bg-white p-7 text-center"><p className="text-base font-semibold text-fg">{copy.empty}</p><button type="button" onClick={() => setQuery('')} className="mt-4 min-h-11 rounded-full border border-border bg-paper px-5 text-sm font-bold text-fg transition hover:bg-brand-soft">{copy.clear}</button></div>
+        <div className="rounded-[1.3rem] border border-border/70 bg-card p-7 text-center"><p className="text-base font-semibold text-fg">{copy.empty}</p><button type="button" onClick={() => setQuery('')} className="mt-4 min-h-11 rounded-full border border-border bg-paper px-5 text-sm font-bold text-fg transition hover:bg-brand-soft">{copy.clear}</button></div>
       )}
     </div>
   )

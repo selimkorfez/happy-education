@@ -17,7 +17,17 @@ import { sectionPath, type Locale } from '@/lib/i18n/config'
  * Focus is trapped while open and restored to the trigger on close, and the page
  * behind is locked from scrolling.
  */
-export function MobileNav({ groups, locale }: { groups: NavGroup[]; locale: Locale }) {
+export function MobileNav({
+  groups,
+  locale,
+  consultationLabel,
+  contactLabel,
+}: {
+  groups: NavGroup[]
+  locale: Locale
+  consultationLabel?: string
+  contactLabel?: string
+}) {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const panelRef = useRef<HTMLDivElement | null>(null)
@@ -164,13 +174,13 @@ export function MobileNav({ groups, locale }: { groups: NavGroup[]; locale: Loca
                 href={sectionPath(locale, 'consultation')}
                 className="inline-flex min-h-12 items-center justify-center rounded-[3px] bg-brand-strong px-6 text-base font-semibold text-white no-underline"
               >
-                {t(locale, 'nav.consultation')}
+                {consultationLabel ?? t(locale, 'nav.consultation')}
               </Link>
               <Link
                 href={sectionPath(locale, 'contact')}
                 className="inline-flex min-h-12 items-center justify-center rounded-[3px] border border-border-input px-6 text-base font-semibold text-fg no-underline"
               >
-                {t(locale, 'nav.contact')}
+                {contactLabel ?? t(locale, 'nav.contact')}
               </Link>
             </div>
           </nav>

@@ -70,8 +70,16 @@ describe('token parity between globals.css and the contrast script', () => {
   )
 
   it('finds the palette in both files', () => {
-    expect(cssTokens.size).toBeGreaterThanOrEqual(19)
+    // Brand-derived tokens resolve through the three Sanity-editable --he-brand-*
+    // variables, so only the remaining static primitives are literal hex values.
+    expect(cssTokens.size).toBeGreaterThanOrEqual(16)
     expect(scriptTokens.size).toBeGreaterThanOrEqual(19)
+  })
+
+  it('keeps the official editable brand defaults in CSS', () => {
+    expect(css).toContain('--he-brand-navy: #00256c')
+    expect(css).toContain('--he-brand-orange: #ff7300')
+    expect(css).toContain('--he-brand-accent: #ff4500')
   })
 
   it('agrees on every hex value the guard knows about', () => {

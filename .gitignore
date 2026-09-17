@@ -18,6 +18,7 @@ tsconfig.tsbuildinfo
 /blob-report/
 /coverage/
 .sanity/
+/tmp/
 
 # Migration intermediates — regenerate with `node scripts/migrate/extract.mjs`
 scripts/migrate/out/

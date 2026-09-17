@@ -64,7 +64,7 @@ export function InstitutionTemplate({
       <section className="bg-paper">
         <Container>
           <div className="grid gap-10 py-8 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-14 lg:py-12">
-            <div className="min-w-0 rounded-[1.5rem] border border-border/60 bg-white px-5 shadow-[0_12px_36px_rgba(35,35,38,0.045)] sm:px-8 lg:px-10">
+            <div className="min-w-0 rounded-[1.5rem] border border-border/60 bg-card px-5 shadow-[0_12px_36px_rgba(35,35,38,0.045)] sm:px-8 lg:px-10">
               <ProseSection locale={locale} title={copy.overview} body={doc.overview} id="overview" />
               <ProseSection locale={locale} title={copy.entryGuidance} body={doc.entryGuidance} id="entry" />
               <FactTable locale={locale} title={copy.englishRequirements} facts={doc.englishRequirements} />
@@ -91,7 +91,7 @@ export function InstitutionTemplate({
               {doc.rankings && doc.rankings.length > 0 ? (
                 <section className="border-t border-border/70 py-10 sm:py-12">
                   <h2 className="text-[length:var(--text-2xl)] font-bold text-fg">{copy.rankings}</h2>
-                  <div className="scroll-x mt-6 overflow-hidden rounded-[1.2rem] border border-border/80 bg-white" tabIndex={0} role="group">
+                  <div className="scroll-x mt-6 overflow-hidden rounded-[1.2rem] border border-border/80 bg-card" tabIndex={0} role="group">
                     <table className="text-sm">
                       <thead>
                         <tr>
@@ -162,7 +162,7 @@ export function InstitutionTemplate({
       </section>
 
       {doc.relatedArticles && doc.relatedArticles.length > 0 ? (
-        <section className="border-t border-border/70 bg-white py-14 sm:py-16">
+        <section className="border-t border-border/70 bg-card py-14 sm:py-16">
           <Container>
             <p className="text-sm font-bold uppercase tracking-[0.1em] text-brand-strong">{copy.keepReading}</p>
             <h2 className="mt-2 text-[length:var(--text-3xl)] font-bold text-fg">{copy.relatedReading}</h2>

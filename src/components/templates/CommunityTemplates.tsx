@@ -37,7 +37,7 @@ export function SocialContentTemplate({
         <Container>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {copy.themes.map((theme) => (
-              <article key={theme.title} className="rounded-[1.4rem] border border-border/70 bg-white p-5 shadow-[0_10px_30px_rgba(35,35,38,0.05)] sm:p-6">
+              <article key={theme.title} className="rounded-[1.4rem] border border-border/70 bg-card p-5 shadow-[0_10px_30px_rgba(35,35,38,0.05)] sm:p-6">
                 <h2 className="text-lg font-bold text-fg">{theme.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-fg-muted">{theme.body}</p>
               </article>
@@ -46,7 +46,7 @@ export function SocialContentTemplate({
         </Container>
       </section>
 
-      <section className="border-t border-border/70 bg-white py-14 sm:py-18 lg:py-20">
+      <section className="border-t border-border/70 bg-card py-14 sm:py-18 lg:py-20">
         <Container>
           <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
@@ -90,7 +90,7 @@ export function SocialContentTemplate({
                         </div>
                         <h3 className="mt-4 text-xl font-bold text-fg">{post.title}</h3>
                         <p className="mt-3 text-sm leading-relaxed text-fg-muted">{post.summary}</p>
-                        <div className="mt-5 rounded-[1rem] bg-white p-4">
+                        <div className="mt-5 rounded-[1rem] bg-card p-4">
                           <p className="text-[0.68rem] font-black uppercase tracking-[0.09em] text-brand-strong">{copy.whyLabel}</p>
                           <p className="mt-1.5 text-sm leading-relaxed text-fg">{post.whyItMatters}</p>
                         </div>
@@ -143,7 +143,7 @@ export function StudentStoriesTemplate({
 
       <section className="bg-paper py-14 sm:py-16 lg:py-20">
         <Container>
-          <div className="rounded-[1.4rem] border border-border/70 bg-white p-5 shadow-[0_10px_30px_rgba(35,35,38,0.04)] sm:p-7">
+          <div className="rounded-[1.4rem] border border-border/70 bg-card p-5 shadow-[0_10px_30px_rgba(35,35,38,0.04)] sm:p-7">
             <p className="text-xs font-black uppercase tracking-[0.1em] text-brand-strong">{copy.trustLabel}</p>
             <p className="mt-3 max-w-[72ch] text-base leading-relaxed text-fg-muted">{copy.trustBody}</p>
           </div>
@@ -152,7 +152,7 @@ export function StudentStoriesTemplate({
             <ul className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {testimonials.map((story) => (
                 <li key={story._id}>
-                  <article className="flex h-full flex-col overflow-hidden rounded-[1.45rem] border border-border/70 bg-white shadow-[0_12px_34px_rgba(35,35,38,0.055)]">
+                  <article className="flex h-full flex-col overflow-hidden rounded-[1.45rem] border border-border/70 bg-card shadow-[0_12px_34px_rgba(35,35,38,0.055)]">
                     {story.photo ? (
                       <MediaFrame
                         image={story.photo}

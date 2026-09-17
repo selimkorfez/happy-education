@@ -46,7 +46,7 @@ export function FactTable({
   return (
     <section className="border-t border-border/70 py-10 sm:py-12">
       <h2 className="text-[length:var(--text-2xl)] font-bold text-fg">{title}</h2>
-      <div className="scroll-x mt-6 overflow-hidden rounded-[1.25rem] border border-border/80 bg-white shadow-[0_12px_34px_rgba(35,35,38,0.055)]" tabIndex={0} role="group" aria-label={title}>
+      <div className="scroll-x mt-6 overflow-hidden rounded-[1.25rem] border border-border/80 bg-card shadow-[0_12px_34px_rgba(35,35,38,0.055)]" tabIndex={0} role="group" aria-label={title}>
         <table className="text-sm">
           <tbody>
             {rows.map((fact, index) => (
@@ -91,7 +91,7 @@ export function DetailList({
   if (rows.length === 0) return null
 
   return (
-    <div className="rounded-[1.25rem] border border-border/70 bg-white p-5 shadow-[0_12px_32px_rgba(35,35,38,0.055)]">
+    <div className="rounded-[1.25rem] border border-border/70 bg-card p-5 shadow-[0_12px_32px_rgba(35,35,38,0.055)]">
       <span className="inline-flex rounded-full bg-brand-soft px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-strong">{title}</span>
       <dl className="mt-5 space-y-4 text-sm">
         {rows.map((item) => (
@@ -129,7 +129,7 @@ export function IncludedExcluded({
             <ul className="mt-5 space-y-3 text-base text-fg-muted">
               {inc.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-white text-xs font-black text-success">+</span>
+                  <span aria-hidden="true" className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-card text-xs font-black text-success">+</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -142,7 +142,7 @@ export function IncludedExcluded({
             <ul className="mt-5 space-y-3 text-base text-fg-muted">
               {exc.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-white text-xs font-black text-fg-muted">–</span>
+                  <span aria-hidden="true" className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-card text-xs font-black text-fg-muted">–</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -172,7 +172,7 @@ export function CardGrid({
     <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
         <li key={item.href}>
-          <article className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-white shadow-[0_10px_32px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_48px_rgba(35,35,38,0.10)]">
+          <article className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/70 bg-card shadow-[0_10px_32px_rgba(35,35,38,0.055)] transition duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_20px_48px_rgba(35,35,38,0.10)]">
             {item.image !== undefined || item.externalImage ? (
               <div className="overflow-hidden">
                 <MediaFrame
@@ -210,7 +210,7 @@ export function CardGrid({
 export function EmptySection({ locale, contactHref }: { locale: Locale; contactHref: string }) {
   return (
     <Container>
-      <div className="relative overflow-hidden rounded-[1.75rem] border border-border/70 bg-white p-8 shadow-[0_16px_45px_rgba(35,35,38,0.07)] sm:p-10">
+      <div className="relative overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-8 shadow-[0_16px_45px_rgba(35,35,38,0.07)] sm:p-10">
         <div aria-hidden="true" className="absolute -right-12 -top-16 h-52 w-52 rounded-full bg-brand-soft" />
         <div className="relative max-w-[42rem]">
           <span className="inline-flex rounded-full bg-brand-soft px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-strong">

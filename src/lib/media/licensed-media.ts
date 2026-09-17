@@ -150,6 +150,24 @@ const DESTINATION_PLACE: Record<string, keyof typeof PLACES> = {
   'united arab emirates': 'uae desert', 'united-arab-emirates': 'uae desert', uae: 'uae desert', bae: 'uae desert',
 }
 
+/**
+ * Country-level fallbacks deliberately rotate through several verified location
+ * photographs. This avoids presenting one London or New York image as though it
+ * were the campus of every institution whose exact city is not yet mapped.
+ */
+const DESTINATION_VARIANTS: Partial<Record<keyof typeof PLACES, Array<keyof typeof PLACES>>> = {
+  london: ['oxford', 'cambridge', 'birmingham', 'manchester', 'edinburgh', 'cardiff', 'bristol', 'leeds', 'liverpool'],
+  'new york': ['boston', 'chicago', 'los angeles', 'san francisco'],
+  toronto: ['vancouver', 'montreal'],
+  dublin: ['cork', 'galway'],
+  sydney: ['melbourne', 'brisbane', 'perth'],
+  auckland: ['auckland', 'wellington', 'christchurch'],
+  valletta: ['valletta', 'sliema', "st julian's"],
+  nicosia: ['nicosia'],
+  "st george's": ["st george's"],
+  'uae desert': ['uae desert'],
+}
+
 function normalise(value?: string): string {
   return (value ?? '')
     .toLocaleLowerCase('en-GB')
@@ -203,9 +221,20 @@ export function licensedMediaForInstitutionOrPlace(
   city?: string,
   destinationOrCountry?: string,
 ): LicensedExternalImage | null {
-  return licensedMediaForInstitution(title)
-    ?? licensedMediaForPlace(city)
-    ?? licensedMediaForDestination(destinationOrCountry)
+  const exact = licensedMediaForInstitution(title) ?? licensedMediaForPlace(city)
+  if (exact) return exact
+
+  const destinationKey = DESTINATION_PLACE[normalise(destinationOrCountry)]
+  const variants = destinationKey ? DESTINATION_VARIANTS[destinationKey] : undefined
+  if (!variants?.length) return licensedMediaForDestination(destinationOrCountry)
+
+  const seed = normalise(`${title ?? ''} ${city ?? ''}`)
+  let hash = 0
+  for (let index = 0; index < seed.length; index += 1) {
+    hash = ((hash * 31) + seed.charCodeAt(index)) >>> 0
+  }
+  const selected = variants[hash % variants.length]
+  return selected ? (PLACES[selected] ?? null) : licensedMediaForDestination(destinationOrCountry)
 }
 
 export function allLicensedExternalMedia(): LicensedExternalImage[] {

@@ -16,7 +16,7 @@ import type { Locale } from '@/lib/i18n/config'
  *   - NO IMAGES. No logo file, no tracking pixel, no spacer. Images are blocked by
  *     default in most clients, and a tracking pixel in a transactional email is a
  *     consent problem nobody needs.
- *   - NO WEB FONTS. Fraunces and Figtree are not available in mail, so headings use
+ *   - NO WEB FONTS. Nunito Sans is not reliably available in mail, so headings use
  *     Georgia and body copy uses a plain sans stack. The palette carries the brand.
  *   - INLINE STYLES ONLY. Gmail strips `<style>` blocks in several contexts.
  *
@@ -31,7 +31,7 @@ const PALETTE = {
   body: '#1B1B1D',
   muted: '#56565C',
   accent: '#B8490A',
-  accentFill: '#F47426',
+  accentFill: '#FF7300',
   border: '#DED7CB',
 } as const
 
