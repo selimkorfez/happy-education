@@ -15,13 +15,15 @@ import { deskStructure } from './sanity/lib/structure'
  * Vision (the GROQ playground) is loaded only outside production, so the query
  * console is not shipped to a live editor session.
  */
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? ''
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? 'q1voz8ji'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production'
+const basePath =
+  process.env.SANITY_STUDIO_STANDALONE === 'true' ? '/' : '/studio'
 
 export default defineConfig({
   name: 'happy-education',
   title: 'Happy Education',
-  basePath: '/studio',
+  basePath,
   projectId,
   dataset,
   plugins: [
