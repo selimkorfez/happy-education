@@ -7,6 +7,7 @@ import {
   slugField,
   translationGroupField,
 } from '../shared'
+import { studioSubtitle } from '../../lib/studioRoutes'
 
 /** Shared opening fields for the institution-like types. */
 const identity = [
@@ -126,10 +127,13 @@ export const destination = defineType({
     ...closing,
   ],
   preview: {
-    select: { title: 'title', locale: 'locale', section: 'section', flag: 'review.editorialFlag' },
-    prepare: ({ title, locale, section, flag }) => ({
+    select: { title: 'title', locale: 'locale', section: 'section', slug: 'slug.current', parentSlug: 'parent.slug.current', flag: 'review.editorialFlag' },
+    prepare: ({ title, locale, section, slug, parentSlug, flag }) => ({
       title,
-      subtitle: `${(locale ?? '').toUpperCase()} · ${section ?? ''}${flag ? ' · NEEDS REVIEW' : ''}`,
+      subtitle: studioSubtitle(
+        { type: 'destination', locale, section, slug, parentSlug },
+        flag ? 'NEEDS REVIEW' : undefined,
+      ),
     }),
   },
 })
@@ -234,10 +238,14 @@ export const institution = defineType({
     ...closing,
   ],
   preview: {
-    select: { title: 'title', locale: 'locale', city: 'city', flag: 'review.editorialFlag' },
-    prepare: ({ title, locale, city, flag }) => ({
+    select: { title: 'title', locale: 'locale', slug: 'slug.current', destinationSlug: 'destination.slug.current', city: 'city', flag: 'review.editorialFlag' },
+    prepare: ({ title, locale, slug, destinationSlug, city, flag }) => ({
       title,
-      subtitle: `${(locale ?? '').toUpperCase()} · ${city ?? ''}${flag ? ' · NEEDS REVIEW' : ''}`,
+      subtitle: studioSubtitle(
+        { type: 'institution', locale, slug, destinationSlug },
+        city,
+        flag ? 'NEEDS REVIEW' : undefined,
+      ),
     }),
   },
 })
@@ -295,10 +303,10 @@ export const languageSchool = defineType({
     ...closing,
   ],
   preview: {
-    select: { title: 'title', locale: 'locale', city: 'city' },
-    prepare: ({ title, locale, city }) => ({
+    select: { title: 'title', locale: 'locale', slug: 'slug.current', destinationSlug: 'destination.slug.current', city: 'city' },
+    prepare: ({ title, locale, slug, destinationSlug, city }) => ({
       title,
-      subtitle: `${(locale ?? '').toUpperCase()} · ${city ?? ''}`,
+      subtitle: studioSubtitle({ type: 'languageSchool', locale, slug, destinationSlug }, city),
     }),
   },
 })
@@ -330,7 +338,13 @@ export const boardingSchool = defineType({
     }),
     ...closing,
   ],
-  preview: { select: { title: 'title', locale: 'locale', subtitle: 'city' } },
+  preview: {
+    select: { title: 'title', locale: 'locale', slug: 'slug.current', city: 'city' },
+    prepare: ({ title, locale, slug, city }) => ({
+      title,
+      subtitle: studioSubtitle({ type: 'boardingSchool', locale, slug }, city),
+    }),
+  },
 })
 
 /**
@@ -404,10 +418,10 @@ export const summerProgramme = defineType({
     ...closing,
   ],
   preview: {
-    select: { title: 'title', locale: 'locale', format: 'format', city: 'city' },
-    prepare: ({ title, locale, format, city }) => ({
+    select: { title: 'title', locale: 'locale', slug: 'slug.current', format: 'format', city: 'city' },
+    prepare: ({ title, locale, slug, format, city }) => ({
       title,
-      subtitle: `${(locale ?? '').toUpperCase()} · ${format ?? ''} · ${city ?? ''}`,
+      subtitle: studioSubtitle({ type: 'summerProgramme', locale, slug, format }, city),
     }),
   },
 })
@@ -458,7 +472,13 @@ export const tour = defineType({
     defineField({ name: 'cta', type: 'cta', group: 'content' }),
     ...closing,
   ],
-  preview: { select: { title: 'title', locale: 'locale' } },
+  preview: {
+    select: { title: 'title', locale: 'locale', slug: 'slug.current' },
+    prepare: ({ title, locale, slug }) => ({
+      title,
+      subtitle: studioSubtitle({ type: 'tour', locale, slug }),
+    }),
+  },
 })
 
 export const article = defineType({
@@ -512,10 +532,14 @@ export const article = defineType({
     ...closing,
   ],
   preview: {
-    select: { title: 'title', locale: 'locale', date: 'publishedAt', flag: 'review.editorialFlag' },
-    prepare: ({ title, locale, date, flag }) => ({
+    select: { title: 'title', locale: 'locale', slug: 'slug.current', date: 'publishedAt', flag: 'review.editorialFlag' },
+    prepare: ({ title, locale, slug, date, flag }) => ({
       title,
-      subtitle: `${(locale ?? '').toUpperCase()} · ${(date ?? '').slice(0, 10)}${flag ? ' · NEEDS REVIEW' : ''}`,
+      subtitle: studioSubtitle(
+        { type: 'article', locale, slug },
+        (date ?? '').slice(0, 10),
+        flag ? 'NEEDS REVIEW' : undefined,
+      ),
     }),
   },
 })
@@ -540,7 +564,10 @@ export const service = defineType({
     defineField({ name: 'cta', type: 'cta', group: 'content' }),
     ...closing,
   ],
-  preview: { select: { title: 'title', locale: 'locale' } },
+  preview: {
+    select: { title: 'title', locale: 'locale', slug: 'slug.current' },
+    prepare: ({ title, locale, slug }) => ({ title, subtitle: studioSubtitle({ type: 'service', locale, slug }) }),
+  },
 })
 
 export const guide = defineType({
@@ -563,7 +590,10 @@ export const guide = defineType({
     defineField({ name: 'cta', type: 'cta', group: 'content' }),
     ...closing,
   ],
-  preview: { select: { title: 'title', locale: 'locale' } },
+  preview: {
+    select: { title: 'title', locale: 'locale', slug: 'slug.current' },
+    prepare: ({ title, locale, slug }) => ({ title, subtitle: studioSubtitle({ type: 'guide', locale, slug }) }),
+  },
 })
 
 export const page = defineType({
@@ -580,11 +610,18 @@ export const page = defineType({
       description: 'Connects this record to a fixed or section landing page.',
       options: {
         list: [
+          { title: 'Universities landing', value: 'universities' },
+          { title: 'Language schools landing', value: 'languageSchools' },
+          { title: 'Summer schools landing', value: 'summerSchools' },
+          { title: 'Boarding schools landing', value: 'boardingSchools' },
+          { title: 'Tours landing', value: 'tours' },
+          { title: 'Articles landing', value: 'insights' },
+          { title: 'Student guides landing', value: 'guides' },
+          { title: 'Services landing', value: 'services' },
           { title: 'About', value: 'about' },
           { title: 'Contact', value: 'contact' },
           { title: 'Consultation', value: 'consultation' },
           { title: 'Search', value: 'search' },
-          { title: 'Boarding schools landing', value: 'boardingSchools' },
           { title: 'Individual summer schools landing', value: 'summerIndividual' },
           { title: 'Group summer schools landing', value: 'summerGroup' },
         ],
@@ -635,7 +672,13 @@ export const page = defineType({
     defineField({ name: 'faqs', type: 'array', of: [{ type: 'faqItem' }], group: 'details' }),
     ...closing,
   ],
-  preview: { select: { title: 'title', locale: 'locale' } },
+  preview: {
+    select: { title: 'title', locale: 'locale', slug: 'slug.current', pageKey: 'pageKey' },
+    prepare: ({ title, locale, slug, pageKey }) => ({
+      title,
+      subtitle: studioSubtitle({ type: 'page', locale, slug, pageKey }),
+    }),
+  },
 })
 
 /** Bookable appointment types. Prices live server-side; the browser never sets them. */

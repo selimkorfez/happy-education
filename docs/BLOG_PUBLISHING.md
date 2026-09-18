@@ -4,7 +4,8 @@ This is the day-to-day checklist for publishing an article on the new site. The 
 
 ## 1. Open the publishing desk
 
-1. Sign in to Sanity Studio at `/studio`.
+1. Sign in at `https://happy-education.sanity.studio/`. The same editor is also
+   available at `/studio` when the redesigned website application is deployed.
 2. Open **Publishing**.
 3. Choose **English articles** or **Türkçe articles**.
 4. Create a new **Article** document.

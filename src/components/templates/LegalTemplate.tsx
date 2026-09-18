@@ -140,7 +140,7 @@ const COPY = {
     draftNotice:
       'This document has not yet been reviewed by a solicitor and does not constitute legal advice. It is published here for review and is not indexed by search engines.',
     notYetPublished:
-      'This document is being prepared. If you need this information now, please contact us and we will provide it directly.',
+      'For the current version of this information, please contact Happy Education and we will provide it directly.',
     controller: 'Who is responsible for your data',
     companyNumber: 'Registered in England and Wales, company number',
     registeredOffice: 'Registered office',
@@ -151,7 +151,7 @@ const COPY = {
     draftNotice:
       'Bu belge henüz bir hukuk danışmanı tarafından incelenmemiştir ve hukuki görüş niteliği taşımaz. İnceleme amacıyla yayımlanmıştır ve arama motorlarına kapalıdır.',
     notYetPublished:
-      'Bu belge hazırlanıyor. Bilgiye şimdi ihtiyacınız varsa bizimle iletişime geçin, doğrudan paylaşalım.',
+      'Bu bilginin güncel sürümü için Happy Education ile iletişime geçin; belgeyi size doğrudan iletelim.',
     controller: 'Verilerinizden kim sorumlu?',
     companyNumber: "İngiltere ve Galler'de tescillidir, şirket numarası",
     registeredOffice: 'Tescilli adres',

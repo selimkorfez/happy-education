@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { LicensedImageInput } from '../../components/LicensedImageInput'
 
 /**
  * Every image on the site uses this type.
@@ -15,6 +16,7 @@ export const imageWithMeta = defineType({
   title: 'Image',
   type: 'image',
   options: { hotspot: true },
+  components: { input: LicensedImageInput },
   fields: [
     defineField({
       name: 'alt',
@@ -45,6 +47,13 @@ export const imageWithMeta = defineType({
     }),
     defineField({ name: 'caption', title: 'Caption', type: 'string' }),
     defineField({
+      name: 'attribution',
+      title: 'Public credit line',
+      type: 'string',
+      description:
+        'Shown with the image when a public credit is required. The licensed-image assistant fills this automatically.',
+    }),
+    defineField({
       name: 'licence',
       title: 'Licence and provenance',
       type: 'object',
@@ -61,6 +70,28 @@ export const imageWithMeta = defineType({
           title: 'Licence terms',
           type: 'string',
           description: 'e.g. "Owned outright", "Supplied by the school for marketing use", "Stock licence #12345".',
+        }),
+        defineField({
+          name: 'sourceUrl',
+          title: 'Original source page',
+          type: 'url',
+          validation: (rule) => rule.uri({ scheme: ['https'] }),
+          description:
+            'The page where the image and its reuse terms can be checked. Filled automatically for Wikimedia imports.',
+        }),
+        defineField({
+          name: 'licenceUrl',
+          title: 'Licence deed',
+          type: 'url',
+          validation: (rule) => rule.uri({ scheme: ['https'] }),
+          description: 'Direct link to the applicable licence when one exists.',
+        }),
+        defineField({
+          name: 'reviewedAt',
+          title: 'Source checked at',
+          type: 'datetime',
+          readOnly: true,
+          description: 'Recorded automatically when the image assistant imports a suggestion.',
         }),
         defineField({
           name: 'cleared',
