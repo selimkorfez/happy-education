@@ -322,6 +322,33 @@ function reviewWorkspace(S: StructureBuilder) {
                 .apiVersion('2026-08-01'),
             ),
           S.listItem()
+            .title('Pages that can break a public URL')
+            .child(
+              S.documentList()
+                .title('Fix before publishing')
+                .filter(`
+                  !defined(locale)
+                  || !defined(slug.current)
+                  || (_type == "page" && !defined(pageKey))
+                  || (
+                    _type in [
+                      "destination", "institution", "languageSchool", "boardingSchool",
+                      "summerProgramme", "tour", "article", "guide", "service", "page", "legalPage"
+                    ]
+                    && !defined(translationGroup._ref)
+                  )
+                `)
+                .apiVersion('2026-08-01'),
+            ),
+          S.listItem()
+            .title('Brand pages without a country')
+            .child(
+              S.documentList()
+                .title('Check whether these are genuinely multi-location')
+                .filter('_type in ["institution", "languageSchool"] && !defined(destination._ref)')
+                .apiVersion('2026-08-01'),
+            ),
+          S.listItem()
             .title('Turkish content missing an English version')
             .child(
               S.documentList()

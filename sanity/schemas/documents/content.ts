@@ -145,6 +145,7 @@ const institutionFields = [
     type: 'reference',
     to: [{ type: 'destination' }],
     group: 'content',
+    description: 'Choose a destination for a country-specific page. Leave empty only for a genuine multi-location brand page.',
   }),
   defineField({ name: 'city', type: 'string', group: 'content' }),
   defineField({ name: 'country', type: 'string', group: 'content' }),
@@ -608,6 +609,8 @@ export const page = defineType({
       type: 'string',
       group: 'content',
       description: 'Connects this record to a fixed or section landing page.',
+      readOnly: ({ value }) => typeof value === 'string' && value.length > 0,
+      validation: (rule) => rule.required().error('Choose which website page this record controls.'),
       options: {
         list: [
           { title: 'Universities landing', value: 'universities' },

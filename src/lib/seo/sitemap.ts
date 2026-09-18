@@ -3,12 +3,21 @@ import type { MetadataRoute } from 'next'
 import { sanityFetch } from '@/lib/sanity/client'
 import { isConfigured } from '@/lib/env'
 import { hasLocalContent, allOfType, deref, slugOf } from '@/lib/content/local-source'
+import { listStarterDestinations, listStarterProse } from '@/lib/content/starter-content'
+import {
+  listEditorialArticles,
+  listEditorialProse,
+  listEditorialTours,
+} from '@/lib/content/starter-editorial'
+import { listTurkishStarterProse } from '@/lib/content/starter-turkish-prose'
+import { summerFormatSlug } from '@/lib/routing'
 import {
   LOCALES,
   docPath,
   homePath,
   isLocale,
   sectionPath,
+  sectionSegment,
   type Locale,
   type SectionKey,
 } from '@/lib/i18n/config'
@@ -78,6 +87,8 @@ interface DocRow {
   countrySlug: string | null
   /** page documents only */
   pageKey: string | null
+  /** summer programme documents only */
+  format: string | null
 }
 
 /**
@@ -101,6 +112,7 @@ const SITEMAP_QUERY = /* groq */ `
   "noIndex": seo.noIndex,
   "groupId": translationGroup._ref,
   section,
+  format,
   "parentSlug": parent->slug.current,
   "countrySlug": select(
     destination->kind == "city" => destination->parent->slug.current,
@@ -193,8 +205,21 @@ function pathForDoc(row: DocRow, locale: Locale): string | null {
   const section = TYPE_SECTION[row._type]
   if (!section) return null
 
-  if (NESTED_UNDER_COUNTRY.has(row._type) && row.countrySlug) {
-    return docPath(locale, section, row.countrySlug, slug)
+  // Migration index records are navigation labels, not content pages.
+  if (
+    (row._type === 'tour' && slug === sectionSegment(locale, 'tours'))
+    || (row._type === 'institution' && ['universiteler', 'universities'].includes(slug))
+  ) return null
+
+  if (row._type === 'summerProgramme') {
+    const format = row.format === 'group' ? 'group' : 'individual'
+    return docPath(locale, section, summerFormatSlug(locale, format), slug)
+  }
+
+  if (NESTED_UNDER_COUNTRY.has(row._type)) {
+    return row.countrySlug
+      ? docPath(locale, section, row.countrySlug, slug)
+      : docPath(locale, section, slug)
   }
 
   return docPath(locale, section, slug)
@@ -252,6 +277,71 @@ function staticSeeds(sections: SectionKey[]): RouteSeed[] {
         groupId: `static:section:${section}`,
       })
     }
+  }
+
+  return seeds
+}
+
+/** Code-backed routes that remain real pages when the CMS has no matching row. */
+function editorialSeeds(): RouteSeed[] {
+  const seeds: RouteSeed[] = []
+
+  for (const section of ['universities', 'languageSchools'] as const) {
+    for (const destination of listStarterDestinations('en', section)) {
+      seeds.push({
+        locale: 'en',
+        path: docPath('en', section, destination.slug),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      })
+    }
+  }
+
+  for (const article of listEditorialArticles('en')) {
+    seeds.push({
+      locale: 'en',
+      path: docPath('en', 'insights', article.slug),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    })
+  }
+
+  for (const type of ['guide', 'service'] as const) {
+    const section = type === 'guide' ? 'guides' : 'services'
+    const english = [...listStarterProse('en', type), ...listEditorialProse('en', type)]
+    const turkish = [
+      ...listStarterProse('tr', type),
+      ...listTurkishStarterProse(type),
+    ]
+    for (const item of english) {
+      seeds.push({
+        locale: 'en',
+        path: docPath('en', section, item.slug),
+        changeFrequency: 'monthly',
+        priority: type === 'service' ? 0.7 : 0.6,
+      })
+    }
+    for (const item of turkish) {
+      seeds.push({
+        locale: 'tr',
+        path: docPath('tr', section, item.slug),
+        changeFrequency: 'monthly',
+        priority: type === 'service' ? 0.7 : 0.6,
+      })
+    }
+  }
+
+  const tours = { en: listEditorialTours('en'), tr: listEditorialTours('tr') }
+  for (const locale of LOCALES) {
+    tours[locale].forEach((tour, index) => {
+      seeds.push({
+        locale,
+        path: docPath(locale, 'tours', tour.slug),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+        groupId: `starter:tour:${index}`,
+      })
+    })
   }
 
   return seeds
@@ -333,13 +423,16 @@ export async function collectSitemapEntries(): Promise<SitemapEntry[]> {
       ? localRows()
       : await sanityFetch<DocRow[]>(SITEMAP_QUERY, {}, { tags: ['sitemap'], revalidate: 3600 }, [])
 
-  const presentTypes = new Set(rows.map((row) => row._type))
   const sections = [
     ...CHROME_SECTIONS,
-    ...CONDITIONAL_SECTIONS.filter(({ type }) => presentTypes.has(type)).map(({ section }) => section),
+    // The code-backed guide and service libraries guarantee useful index pages
+    // even before an editor creates CMS records for these types.
+    ...CONDITIONAL_SECTIONS.map(({ section }) => section),
   ]
 
-  const seeds = [...staticSeeds(sections), ...seedsFromDocs(rows)]
+  // CMS rows come before code-backed fallbacks so a real authored document keeps
+  // its last-modified date and hreflang group when both sources share a URL.
+  const seeds = [...staticSeeds(sections), ...seedsFromDocs(rows), ...editorialSeeds()]
   const entries = toEntries(seeds)
 
   entries.sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0) || a.url.localeCompare(b.url))
@@ -454,6 +547,7 @@ function localRows(): DocRow[] {
           parentSlug: parent ? slugOf(parent) : null,
           countrySlug: country ? slugOf(country) : null,
           pageKey: typeof doc.pageKey === 'string' ? doc.pageKey : null,
+          format: typeof doc.format === 'string' ? doc.format : null,
         } satisfies DocRow
       }),
   )

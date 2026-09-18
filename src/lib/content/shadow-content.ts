@@ -64,10 +64,11 @@ const DESTINATIONS: Array<{ title: string; slug: string; aliases: string[] }> = 
   { title: 'Malta', slug: 'malta', aliases: ['malta'] },
   { title: 'Cyprus', slug: 'cyprus', aliases: ['cyprus', 'kibris', 'kıbrıs'] },
   { title: 'Grenada', slug: 'grenada', aliases: ['grenada'] },
+  { title: 'South Africa', slug: 'south-africa', aliases: ['south africa', 'guney afrika', 'güney afrika'] },
   {
     title: 'United Arab Emirates',
     slug: 'united-arab-emirates',
-    aliases: ['united arab emirates', 'uae', 'bae', 'birlesik arap emirlikleri'],
+    aliases: ['united arab emirates', 'uae', 'bae', 'birlesik arap emirlikleri', 'dubai'],
   },
 ]
 
@@ -96,6 +97,11 @@ function destinationFromValue(value?: string): DestinationIdentity | undefined {
     }
   }
   return undefined
+}
+
+/** Public, controlled destination lookup used by locale routing. */
+export function englishDestinationForValue(value?: string): DestinationIdentity | undefined {
+  return destinationFromValue(value)
 }
 
 /**

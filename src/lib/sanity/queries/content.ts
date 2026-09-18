@@ -231,15 +231,31 @@ export async function getInstitution(
   locale: Locale,
   slug: string,
   types: string[],
+  destinationSlug?: string | null,
 ): Promise<InstitutionDoc | null> {
-  if (shouldReadLocalBundle()) return local.localGetInstitution(locale, slug, types)
+  if (shouldReadLocalBundle()) return local.localGetInstitution(locale, slug, types, destinationSlug)
   return sanityFetch<InstitutionDoc | null>(
     /* groq */ `
-      *[_type in $types && locale == $locale && slug.current == $slug][0]{
+      *[
+        _type in $types
+        && locale == $locale
+        && slug.current == $slug
+        && (
+          $destinationSlug == "__any__"
+          || ($destinationSlug == "__none__" && !defined(destination._ref))
+          || destination->slug.current == $destinationSlug
+          || destination->parent->slug.current == $destinationSlug
+        )
+      ][0]{
         ${INSTITUTION_PROJECTION}
       }
     `,
-    { locale, slug, types },
+    {
+      locale,
+      slug,
+      types,
+      destinationSlug: destinationSlug === undefined ? '__any__' : (destinationSlug ?? '__none__'),
+    },
     { tags: ['institution', `institution:${slug}`], revalidate: 1800 },
     null,
   )
