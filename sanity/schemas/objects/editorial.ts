@@ -87,7 +87,7 @@ export const reviewMeta = defineType({
             return 'Time-sensitive content needs at least one source.'
           }
           return true
-        }),
+        }).warning(),
     }),
     defineField({
       name: 'editorialFlag',

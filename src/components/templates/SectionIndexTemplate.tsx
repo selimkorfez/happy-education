@@ -6,6 +6,7 @@ import { ConsultationBand } from '@/components/shared/ConsultationBand'
 import { InstitutionBrowser } from '@/components/content/InstitutionBrowser'
 import { SortableCardGrid } from '@/components/content/SortableCardGrid'
 import { SectionLandingContent } from '@/components/content/SectionLandingContent'
+import { PortableText } from '@/components/content/PortableText'
 import { EmptySection } from './shared'
 import { sectionPath, docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
 import { t } from '@/lib/i18n/dictionary'
@@ -20,39 +21,84 @@ import {
 } from '@/lib/media/editorial-media'
 import { getPageByKey, getProseDoc, listDestinations, listInstitutions, listTours, listSummerProgrammes } from '@/lib/sanity/queries/content'
 import { listEditorialTours } from '@/lib/content/starter-editorial'
+import {
+  listEditorialArticles,
+  listEditorialProse,
+} from '@/lib/content/starter-editorial'
+import { listStarterDestinations, listStarterProse } from '@/lib/content/starter-content'
+import { listTurkishStarterProse } from '@/lib/content/starter-turkish-prose'
+import {
+  listEnglishInstitutionShadows,
+  listEnglishSummerShadows,
+} from '@/lib/content/catalogue-fallback'
 import { mergeLandingContent, sectionLandingFallback } from '@/lib/content/section-landing'
 import { getArticlesByCategory } from '@/lib/sanity/queries/articles'
 import { getProseIndex } from '@/lib/sanity/queries/index-lists'
 
 export async function SectionIndexTemplate({ locale, section }: { locale: Locale; section: SectionKey }) {
   const copy = SECTION_COPY[section]
+  const pagePromise = section === 'legal'
+    ? Promise.resolve(null)
+    : getPageByKey(locale, section)
+  const [page, body] = await Promise.all([
+    pagePromise,
+    sectionBody(locale, section, pagePromise),
+  ])
+  const title = page?.title ?? copy?.title[locale] ?? section
+  const intro = page?.intro ?? copy?.description[locale]
   const crumbs = [
     { label: t(locale, 'brand.name'), href: `/${locale}` },
-    { label: copy?.title[locale] ?? section },
+    { label: title },
   ]
-  const body = await sectionBody(locale, section)
-
   return (
     <>
-      <PageHero locale={locale} crumbs={crumbs} eyebrow={locale === 'tr' ? 'Keşfet' : 'Explore'} title={copy?.title[locale] ?? section} intro={copy?.description[locale]} visualVariant={visualForSection(section)} />
+      <PageHero
+        locale={locale}
+        crumbs={crumbs}
+        eyebrow={locale === 'tr' ? 'Keşfet' : 'Explore'}
+        title={title}
+        intro={intro}
+        image={page?.heroImage ?? null}
+        imageAlt={page?.heroImage?.alt ?? title}
+        visualVariant={visualForSection(section)}
+      />
       <section className="bg-paper py-10 sm:py-14 lg:py-16">
-        <Container>{body}</Container>
+        <Container>
+          {page?.body && section !== 'boardingSchools'
+            ? <PortableText value={page.body} locale={locale} className="mb-12 lg:mb-16" />
+            : null}
+          {body}
+        </Container>
       </section>
       <ConsultationBand locale={locale} />
     </>
   )
 }
 
-async function sectionBody(locale: Locale, section: SectionKey) {
+async function sectionBody(
+  locale: Locale,
+  section: SectionKey,
+  pagePromise: Promise<Awaited<ReturnType<typeof getPageByKey>>>,
+) {
   const contactHref = sectionPath(locale, 'contact')
 
   switch (section) {
     case 'universities':
     case 'languageSchools': {
-      const [destinations, institutions] = await Promise.all([
+      const [storedDestinations, storedInstitutions] = await Promise.all([
         listDestinations(locale, section),
         listInstitutions(locale, section === 'universities' ? ['institution'] : ['languageSchool']),
       ])
+      const destinations = mergeBySlug(
+        storedDestinations,
+        locale === 'en' ? listStarterDestinations(locale, section) : [],
+      )
+      const institutions = mergeBySlug(
+        storedInstitutions,
+        locale === 'en'
+          ? listEnglishInstitutionShadows(section === 'universities' ? ['institution'] : ['languageSchool'])
+          : [],
+      )
 
       if (destinations.length === 0 && institutions.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
 
@@ -102,12 +148,20 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     }
 
     case 'boardingSchools': {
-      const [schools, page] = await Promise.all([
+      const [storedSchools, landingPage] = await Promise.all([
         listInstitutions(locale, ['boardingSchool']),
-        getPageByKey(locale, 'boardingSchools').then((doc) => doc ?? (locale === 'tr' ? getProseDoc(locale, 'yatili-okullar', 'page') : null)),
+        pagePromise.then((page) => (
+          page || locale !== 'tr'
+            ? page
+            : getProseDoc(locale, 'yatili-okullar', 'page')
+        )),
       ])
+      const schools = mergeBySlug(
+        storedSchools,
+        locale === 'en' ? listEnglishInstitutionShadows(['boardingSchool']) : [],
+      )
       if (schools.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
-      const landing = mergeLandingContent(sectionLandingFallback(locale, 'boardingSchools'), page)
+      const landing = mergeLandingContent(sectionLandingFallback(locale, 'boardingSchools'), landingPage)
       return (
         <div className="space-y-14 lg:space-y-16">
           <SectionLandingContent content={landing} />
@@ -122,10 +176,18 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     }
 
     case 'summerSchools': {
-      const [individual, group] = await Promise.all([
+      const [storedIndividual, storedGroup] = await Promise.all([
         listSummerProgrammes(locale, 'individual'),
         listSummerProgrammes(locale, 'group'),
       ])
+      const individual = mergeBySlug(
+        storedIndividual,
+        locale === 'en' ? listEnglishSummerShadows('individual') : [],
+      )
+      const group = mergeBySlug(
+        storedGroup,
+        locale === 'en' ? listEnglishSummerShadows('group') : [],
+      )
       const formats = [
         { key: 'individual' as const, label: locale === 'tr' ? 'Bireysel katılım' : 'Independent study', title: locale === 'tr' ? 'Bireysel yaz okulları' : 'Individual summer schools', body: locale === 'tr' ? 'Öğrencinin tek başına katıldığı, okulun gözetiminde yürüyen programlar.' : 'Programmes a student joins independently, with the school responsible for its on-site supervision.', count: individual.length, tone: 'bg-brand-soft' },
         { key: 'group' as const, label: locale === 'tr' ? 'Grup katılımı' : 'Group travel', title: locale === 'tr' ? 'Grup yaz okulları' : 'Group summer schools', body: locale === 'tr' ? 'Refakatçi eşliğinde birlikte seyahat eden gruplar için planlanan programlar.' : 'Programmes built for organised groups travelling together with a group leader.', count: group.length, tone: 'bg-sky-soft' },
@@ -175,7 +237,10 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     }
 
     case 'insights': {
-      const articles = await getArticlesByCategory(locale, null, 60)
+      const articles = mergeBySlug(
+        await getArticlesByCategory(locale, null, 60),
+        listEditorialArticles(locale),
+      )
       if (articles.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
       return (
         <SortableCardGrid
@@ -198,7 +263,12 @@ async function sectionBody(locale: Locale, section: SectionKey) {
 
     case 'guides':
     case 'services': {
-      const docs = await getProseIndex(locale, section === 'guides' ? 'guide' : 'service')
+      const type = section === 'guides' ? 'guide' : 'service'
+      const fallbackDocs = [
+        ...listStarterProse(locale, type),
+        ...(locale === 'tr' ? listTurkishStarterProse(type) : listEditorialProse(locale, type)),
+      ]
+      const docs = mergeBySlug(await getProseIndex(locale, type), fallbackDocs)
       if (docs.length === 0) return <EmptySection locale={locale} contactHref={contactHref} />
       const variant = section === 'guides' ? 'guides' : 'services'
       return (
@@ -228,6 +298,15 @@ async function sectionBody(locale: Locale, section: SectionKey) {
     default:
       return <EmptySection locale={locale} contactHref={contactHref} />
   }
+}
+
+/**
+ * CMS records win, while the reviewed starter catalogue fills only missing
+ * routes. Connecting Sanity must never make a previously complete section empty.
+ */
+function mergeBySlug<T extends { slug: string }>(stored: T[], fallback: T[]): T[] {
+  const seen = new Set(stored.map((item) => item.slug))
+  return [...stored, ...fallback.filter((item) => !seen.has(item.slug))]
 }
 
 function SectionHeading({ kicker, title, body }: { locale: Locale; kicker: string; title: string; body: string }) {

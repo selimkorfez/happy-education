@@ -10,6 +10,7 @@ import { licensedMediaForPlace } from '@/lib/media/licensed-media'
 import { licensedMediaForEditorialText, licensedMediaForEditorialVariant } from '@/lib/media/editorial-media'
 import { getPageByKey, getProseDoc, listSummerProgrammes } from '@/lib/sanity/queries/content'
 import { LEGACY_GROUP_CAMPUSES, mergeLandingContent, sectionLandingFallback } from '@/lib/content/section-landing'
+import { listEnglishSummerShadows } from '@/lib/content/catalogue-fallback'
 import Link from 'next/link'
 
 /** Listing of summer programmes for one format. */
@@ -23,13 +24,20 @@ export async function SummerListingTemplate({
   formatSlug: string
 }) {
   const copy = COPY[locale][format]
-  const [programmes, page] = await Promise.all([
+  const [storedProgrammes, page] = await Promise.all([
     listSummerProgrammes(locale, format),
     getPageByKey(locale, format === 'individual' ? 'summerIndividual' : 'summerGroup').then((doc) => {
       if (doc || locale !== 'tr') return doc
       return getProseDoc(locale, format === 'individual' ? 'yaz-okullari' : 'grup', 'page')
     }),
   ])
+  const seen = new Set(storedProgrammes.map((programme) => programme.slug))
+  const programmes: Awaited<ReturnType<typeof listSummerProgrammes>> = [
+    ...storedProgrammes,
+    ...(locale === 'en'
+      ? listEnglishSummerShadows(format).filter((programme) => !seen.has(programme.slug))
+      : []),
+  ]
   const landing = mergeLandingContent(sectionLandingFallback(locale, format === 'individual' ? 'summerIndividual' : 'summerGroup'), page)
 
   const crumbs = [

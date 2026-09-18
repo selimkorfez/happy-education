@@ -83,7 +83,7 @@ test.describe('community content', () => {
     await page.goto('/en/insights/student-stories')
     await dismissConsent(page)
     await expect(page.locator('h1')).toContainText('Real stories')
-    await expect(page.getByText(/Verified stories are being prepared/i)).toBeVisible()
+    await expect(page.getByText(/Every published story starts with permission/i)).toBeVisible()
     await expect(page.getByText(/publication permission/i).first()).toBeVisible()
   })
 

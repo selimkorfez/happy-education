@@ -11,13 +11,13 @@ required for everyday content work.
 1. Accept the Sanity project invitation using the same sign-in method every time.
 2. Turn on two-factor authentication for that account.
 3. Open **https://happy-education.sanity.studio/** and sign in.
-4. Confirm that the **Happy Education** workspace shows **Publishing**,
-   **Universities & study content**, **Programmes & tours**, and
-   **Editorial review queues**.
+4. Confirm that the **Happy Education website** workspace shows **Start here —
+   brand, homepage & contact**, the main website sections, and **Review &
+   publishing checks**.
 
 ## Change the brand or homepage
 
-Open **Brand, colours & global content**. This single screen controls the parts
+Open **Start here — brand, homepage & contact**. This single screen controls the parts
 that appear across the website:
 
 - official logos for light and dark backgrounds, the compact mark, floating chat
@@ -44,7 +44,15 @@ its title, introduction, sections, buttons, SEO details and hero image. Page her
 are shown as wide landscape banners, so use a landscape crop with the subject away
 from the extreme edges.
 
-Articles can be created, updated, unpublished or deleted under **Publishing**.
+Each list entry shows its language and public website address, for example
+`EN · /en/universities`. The landing-page item at the top of each Studio section
+controls that section's large title, introduction, optional image and opening
+content. The lists below it control the individual countries, cities, schools or
+programmes. Use **Create** inside the correct English or Turkish list to add a new
+item; unpublish or delete the item to remove it from the public catalogue.
+
+Articles can be created, updated, unpublished or deleted under **Articles, guides
+& services**.
 Use **Unpublish** when content may be needed again; deletion removes the document
 from the editorial library.
 
@@ -55,7 +63,8 @@ access is needed.
 
 ## Publish an article
 
-1. Open **Publishing**, then choose the correct English or Turkish article list.
+1. Open **Articles, guides & services → Blog articles**, then choose the correct
+   English or Turkish list.
 2. Create a document and complete the title, URL slug, excerpt, author, category,
    body and publication date.
 3. Add an image only when its publication rights can be recorded.
@@ -93,7 +102,7 @@ editor can change the words before searching. The assistant:
 An imported suggestion always has **Cleared for publication** switched off.
 Open the source page, confirm the pictured subject is relevant, check the creator
 and licence details, improve the alt text if required, and only then clear it.
-The Studio's **Editorial review queues → Images awaiting licence clearance** list
+The Studio's **Review & publishing checks → Images awaiting licence clearance** list
 collects common page images that still need this decision.
 
 The assistant is intentionally unavailable for logos, favicons and brand marks.
@@ -109,15 +118,21 @@ English and Turkish versions are separate documents. Link equivalent versions to
 the same translation group so the language switcher opens the matching page.
 Never publish an automatic translation without a fluent editorial review.
 
+The **Review & publishing checks** area also shows Turkish records missing an
+English partner and English records missing a Turkish partner. These queues make
+translation gaps visible during future catalogue growth.
+
 ## Changing a live URL
 
 After changing a published page's slug, create a permanent redirect under
-**Technical → Redirects** from the old path to the new path. This preserves old
+**Technical & redirects → Redirects** from the old path to the new path. This preserves old
 links and search results.
 
 ## Review routine
 
 - Check **Needs editorial review** every week.
+- Work through **Time-sensitive content missing a source** before reusing legacy
+  fees, dates, rankings, entry rules or visa wording.
 - Check **Review overdue** every week.
 - Recheck fees, dates, rankings, visa rules and work-rights claims against their
   original sources before their review date.

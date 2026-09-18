@@ -214,15 +214,15 @@ export function EmptySection({ locale, contactHref }: { locale: Locale; contactH
         <div aria-hidden="true" className="absolute -right-12 -top-16 h-52 w-52 rounded-full bg-brand-soft" />
         <div className="relative max-w-[42rem]">
           <span className="inline-flex rounded-full bg-brand-soft px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-strong">
-            {locale === 'tr' ? 'Yakında' : 'Coming together'}
+            {locale === 'tr' ? 'Size özel destek' : 'Personal guidance'}
           </span>
           <h2 className="mt-4 text-2xl font-bold text-fg">
-            {locale === 'tr' ? 'Bu bölümü geliştiriyoruz' : 'We are building this section out'}
+            {locale === 'tr' ? 'Aradığınız seçeneği birlikte bulalım' : 'Let us help you find the right option'}
           </h2>
           <p className="mt-3 max-w-[60ch] text-base leading-relaxed text-fg-muted">
             {locale === 'tr'
-              ? 'İçerik tamamlanırken aradığınız okul, program veya ülke hakkında doğrudan yardımcı olabiliriz.'
-              : 'While the content is being expanded, we can still help you find the right school, programme or destination directly.'}
+              ? 'Hedefinizi, yaş veya eğitim seviyesini ve düşündüğünüz tarihi paylaşın; uygun okul, program veya ülke seçeneklerini birlikte daraltalım.'
+              : 'Share the goal, age or current study level and preferred timing, and we will help narrow the suitable schools, programmes or destinations.'}
           </p>
           <Link
             href={contactHref}
