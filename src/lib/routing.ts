@@ -126,6 +126,7 @@ export async function resolveRoute({
   if (section === 'tours') {
     const slug = segments[0]
     if (!slug || segments.length > 1) return null
+    if (slug === 'turlar' || slug === 'tours') return null
     const doc = (await getTour(locale, slug)) ?? getEditorialTour(locale, slug)
     return doc ? { kind: 'tour', doc } : null
   }
