@@ -23,6 +23,7 @@ import {
   type SummerShadowSource,
 } from '../src/lib/content/shadow-content'
 import { listStarterDestinations } from '../src/lib/content/starter-content'
+import { getEditorialTour, listEditorialTours } from '../src/lib/content/starter-editorial'
 
 type Reference = { _type: 'reference'; _ref: string }
 type SourceDoc = {
@@ -49,6 +50,8 @@ type GeneratedDoc = Record<string, unknown> & {
   slug: { _type: 'slug'; current: string }
   translationGroup: Reference
 }
+
+type SeedDoc = Record<string, unknown> & { _id: string; _type: string }
 
 const API_VERSION = '2025-02-19'
 const SOURCE_TYPES = ['destination', 'institution', 'languageSchool', 'boardingSchool', 'summerProgramme'] as const
@@ -249,12 +252,45 @@ function generateSummer(source: SourceDoc): GeneratedDoc {
   }
 }
 
-const generated: GeneratedDoc[] = []
+const generated: SeedDoc[] = []
 for (const source of sources.values()) {
   if (!slugOf(source)) continue
   if (source._type === 'destination') generated.push(generateDestination(source))
   else if (source._type === 'summerProgramme') generated.push(generateSummer(source))
   else generated.push(generateInstitution(source))
+}
+
+const englishTours = listEditorialTours('en')
+const turkishTours = listEditorialTours('tr')
+if (englishTours.length !== turkishTours.length) throw new Error('Editorial tour language lists are out of sync.')
+
+for (const [index, englishCard] of englishTours.entries()) {
+  const turkishCard = turkishTours[index]
+  if (!turkishCard) throw new Error(`Missing Turkish tour for ${englishCard.slug}.`)
+  const english = getEditorialTour('en', englishCard.slug)
+  const turkish = getEditorialTour('tr', turkishCard.slug)
+  if (!english || !turkish) throw new Error(`Missing editorial tour content for ${englishCard.slug}.`)
+  const groupId = `tgroup-tour-editorial-${englishCard.slug}`
+  generated.push({
+    _id: groupId,
+    _type: 'translationGroup',
+    title: `Tour — ${english.title} / ${turkish.title}`,
+  })
+  for (const tour of [english, turkish]) {
+    generated.push({
+      ...tour,
+      _id: `tour-${tour.locale}-editorial-${tour.slug}`,
+      _type: 'tour',
+      slug: { _type: 'slug', current: tour.slug },
+      translationGroup: ref(groupId),
+      seo: { ...tour.seo, noIndex: true },
+      review: {
+        ...tour.review,
+        lastReviewed: '2026-09-19',
+        editorialFlag: 'Confirm current dates, operator, accommodation, inclusions and price before removing noindex.',
+      },
+    })
+  }
 }
 
 const duplicateIds = generated.filter((doc, index) => generated.findIndex((candidate) => candidate._id === doc._id) !== index)
@@ -271,7 +307,7 @@ async function query<T>(groq: string): Promise<T> {
   return payload.result
 }
 
-async function applyBatch(batch: GeneratedDoc[]) {
+async function applyBatch(batch: SeedDoc[]) {
   const response = await fetch(`${endpoint}/mutate/${dataset}?returnIds=true`, {
     method: 'POST',
     headers: {
@@ -284,9 +320,11 @@ async function applyBatch(batch: GeneratedDoc[]) {
 }
 
 async function main() {
-  const existingIds = new Set(await query<string[]>('*[locale == "en"]._id'))
+  const existingIds = new Set(await query<string[]>('*[]._id'))
   const missing = generated.filter((doc) => !existingIds.has(doc._id))
-  const counts = Object.fromEntries(SOURCE_TYPES.map((type) => [type, generated.filter((doc) => doc._type === type).length]))
+  const counts = Object.fromEntries(
+    [...SOURCE_TYPES, 'tour', 'translationGroup'].map((type) => [type, generated.filter((doc) => doc._type === type).length]),
+  )
 
   console.info(JSON.stringify({ mode: APPLY ? 'apply' : 'dry-run', generated: generated.length, missing: missing.length, existing: generated.length - missing.length, counts }, null, 2))
 
@@ -301,7 +339,7 @@ async function main() {
 
   const created = await query<number>(`count(*[_id in ${JSON.stringify(missing.map((doc) => doc._id))}])`)
   if (created !== missing.length) throw new Error(`Expected ${missing.length} created records; Sanity reports ${created}.`)
-  console.info(`Created ${created} editable English catalogue records. Existing records were left unchanged.`)
+  console.info(`Created ${created} missing editable CMS records. Existing records were left unchanged.`)
 }
 
 main().catch((error: unknown) => {
