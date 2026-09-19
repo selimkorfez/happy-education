@@ -152,8 +152,18 @@ export function localGetInstitution(
   locale: Locale,
   slug: string,
   types: string[],
+  destinationSlug?: string | null,
 ): InstitutionDoc | null {
-  const doc = findBySlug(types, locale, slug)
+  const doc = types
+    .flatMap((type) => allOfType(type, locale))
+    .find((candidate) => {
+      if (slugOf(candidate) !== slug) return false
+      const destination = deref(candidate.destination)
+      if (destinationSlug === undefined) return true
+      if (destinationSlug === null) return !destination
+      if (!destination) return false
+      return slugOf(deref(destination.parent) ?? destination) === destinationSlug
+    })
   if (!doc) return null
 
   const destination = deref(doc.destination)

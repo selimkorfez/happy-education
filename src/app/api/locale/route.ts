@@ -9,6 +9,7 @@ import {
 } from '@/lib/i18n/config'
 import { socialContentSlug, studentStoriesSlug } from '@/lib/routing'
 import { findTranslatedPath } from '@/lib/sanity/queries/translations'
+import { findFallbackTranslatedPath } from '@/lib/content/fallback-translations'
 
 /** Locale switch with graceful section-level fallback. */
 export async function GET(request: NextRequest) {
@@ -67,6 +68,14 @@ async function resolveTarget(from: string, to: Locale): Promise<string> {
   } catch {
     // A CMS outage must not break the language switcher.
   }
+
+  const fallback = findFallbackTranslatedPath({
+    fromLocale: sourceLocale,
+    toLocale: to,
+    section,
+    slugPath: rest,
+  })
+  if (fallback) return fallback
 
   return sectionIndex
 }

@@ -31,7 +31,11 @@ export function PortableText({ value, locale, constrained = true, className = ''
 
   return (
     <div className={`${constrained ? 'prose-he' : ''} ${className}`}>
-      <PortableTextBase value={value as never} components={components(locale)} />
+      <PortableTextBase
+        value={value as never}
+        components={components(locale)}
+        onMissingComponent={false}
+      />
     </div>
   )
 }
@@ -70,7 +74,14 @@ function components(locale: Locale): PortableTextComponents {
           </a>
         )
       },
+      // The migration records old WordPress links that no longer have a safe,
+      // known target. Keep their visible words without emitting a broken link.
+      unresolvedLink: ({ children }) => <>{children}</>,
     },
+
+    // A few legacy spans reference a mark key whose definition was already
+    // missing in WordPress. Rendering the words plainly is the only safe option.
+    unknownMark: ({ children }) => <>{children}</>,
 
     types: {
       imageWithMeta: ({ value }) => {

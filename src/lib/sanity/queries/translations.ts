@@ -1,13 +1,11 @@
 import "server-only";
 import { sanityFetch } from "@/lib/sanity/client";
 import {
-  sectionSegment,
+  docPath,
   type Locale,
   type SectionKey,
 } from "@/lib/i18n/config";
 import { isConfigured } from "@/lib/env";
-import { hasLocalContent } from "@/lib/content/local-source";
-import { localFindTranslatedSlug } from "@/lib/content/local-queries";
 
 /**
  * Resolves the equivalent document in another locale.
@@ -19,7 +17,7 @@ import { localFindTranslatedSlug } from "@/lib/content/local-queries";
  * The query walks: this document -> its group -> the sibling in the target locale.
  */
 
-const TRANSLATED_SLUG_QUERY = /* groq */ `
+const TRANSLATED_ROUTE_QUERY = /* groq */ `
 *[
   _type in $types
   && locale == $fromLocale
@@ -30,9 +28,28 @@ const TRANSLATED_SLUG_QUERY = /* groq */ `
     && locale == $toLocale
     && translationGroup._ref == ^.translationGroup._ref
     && defined(slug.current)
-  ][0].slug.current
+  ][0] {
+    _type,
+    "slug": slug.current,
+    section,
+    format,
+    "parentSlug": parent->slug.current,
+    "countrySlug": select(
+      destination->kind == "city" => destination->parent->slug.current,
+      destination->slug.current
+    )
+  }
 }.sibling
 `;
+
+interface TranslatedRoute {
+  _type: string
+  slug: string
+  section?: string | null
+  format?: 'individual' | 'group' | null
+  parentSlug?: string | null
+  countrySlug?: string | null
+}
 
 /** Document types that can appear under each section. */
 const SECTION_TYPES: Record<SectionKey, string[]> = {
@@ -65,33 +82,43 @@ export async function findTranslatedPath({
   const leaf = slugPath[slugPath.length - 1];
   if (!leaf) return null;
 
-  const readLocalBundle = !isConfigured.sanity() && hasLocalContent();
-  const translatedSlug = readLocalBundle
-    ? localFindTranslatedSlug(
-        fromLocale,
-        toLocale,
-        SECTION_TYPES[section],
-        leaf,
-      )
-    : await sanityFetch<string | null>(
-        TRANSLATED_SLUG_QUERY,
-        {
-          types: SECTION_TYPES[section],
-          fromLocale,
-          toLocale,
-          slug: leaf,
-        },
-        { tags: ["translation"], revalidate: 3600 },
-        null,
-      );
+  if (!isConfigured.sanity()) return null
 
-  if (!translatedSlug) return null;
+  const translated = await sanityFetch<TranslatedRoute | null>(
+    TRANSLATED_ROUTE_QUERY,
+    {
+      types: SECTION_TYPES[section],
+      fromLocale,
+      toLocale,
+      slug: leaf,
+    },
+    { tags: ["translation"], revalidate: 3600 },
+    null,
+  )
 
-  // Preserve any intermediate segments (e.g. a country under a section) by
-  // translating only the leaf; deeper structures resolve their own parents when
-  // the page renders.
-  const parents = slugPath.slice(0, -1);
-  return `/${toLocale}/${[sectionSegment(toLocale, section), ...parents, translatedSlug].join("/")}`;
+  if (!translated?.slug) return null
+
+  if (translated._type === 'destination') {
+    return translated.parentSlug
+      ? docPath(toLocale, section, translated.parentSlug, translated.slug)
+      : docPath(toLocale, section, translated.slug)
+  }
+
+  if (translated._type === 'institution' || translated._type === 'languageSchool') {
+    return translated.countrySlug
+      ? docPath(toLocale, section, translated.countrySlug, translated.slug)
+      : docPath(toLocale, section, translated.slug)
+  }
+
+  if (translated._type === 'summerProgramme') {
+    const format = translated.format === 'group' ? 'group' : 'individual'
+    const formatSlug = format === 'group'
+      ? (toLocale === 'tr' ? 'grup' : 'group')
+      : (toLocale === 'tr' ? 'bireysel' : 'individual')
+    return docPath(toLocale, section, formatSlug, translated.slug)
+  }
+
+  return docPath(toLocale, section, translated.slug)
 }
 
 /**

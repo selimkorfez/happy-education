@@ -22,6 +22,8 @@ export const localeField = defineField({
   type: 'string',
   options: { list: LOCALE_OPTIONS, layout: 'radio' },
   initialValue: 'tr',
+  description: 'Choose once when creating the record. Create or open the linked record for the other language.',
+  readOnly: ({ value }) => typeof value === 'string' && value.length > 0,
   validation: (rule) => rule.required(),
 })
 
@@ -33,6 +35,7 @@ export const translationGroupField = defineField({
   description:
     'Links this document to its equivalent in the other language, so the language switcher lands on the right page.',
   weak: false,
+  validation: (rule) => rule.required().warning('Link a translation group so the language switch can find the matching page.'),
 })
 
 /** Slug scoped per locale — the Turkish and English slugs differ deliberately. */
