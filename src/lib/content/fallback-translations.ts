@@ -1,5 +1,5 @@
 import 'server-only'
-import { allOfType, deref, findBySlug, slugOf, type LocalDoc } from './local-source'
+import { allOfType, deref, findBySlug, findTranslation, slugOf, type LocalDoc } from './local-source'
 import { englishDestinationForSource, englishDestinationForValue } from './shadow-content'
 import { translatedEditorialTourSlug } from './starter-editorial'
 import { docPath, type Locale, type SectionKey } from '@/lib/i18n/config'
@@ -72,6 +72,13 @@ export function findFallbackTranslatedPath({
   if (section === 'tours') {
     const targetSlug = translatedEditorialTourSlug(fromLocale, toLocale, leaf)
     return targetSlug ? docPath(toLocale, 'tours', targetSlug) : null
+  }
+
+  if (section === 'insights') {
+    const source = findBySlug(['article'], fromLocale, leaf)
+    const sibling = source ? findTranslation(source, toLocale) : null
+    const targetSlug = slugOf(sibling)
+    return targetSlug ? docPath(toLocale, section, targetSlug) : null
   }
 
   if (section === 'summerSchools') {

@@ -20,26 +20,24 @@ import { isConfigured } from "@/lib/env";
 const TRANSLATED_ROUTE_QUERY = /* groq */ `
 *[
   _type in $types
-  && locale == $fromLocale
-  && slug.current == $slug
-][0] {
-  "sibling": *[
+  && locale == $toLocale
+  && translationGroup._ref in *[
     _type in $types
-    && locale == $toLocale
-    && translationGroup._ref == ^.translationGroup._ref
-    && defined(slug.current)
-  ][0] {
-    _type,
-    "slug": slug.current,
-    section,
-    format,
-    "parentSlug": parent->slug.current,
-    "countrySlug": select(
-      destination->kind == "city" => destination->parent->slug.current,
-      destination->slug.current
-    )
-  }
-}.sibling
+    && locale == $fromLocale
+    && slug.current == $slug
+  ].translationGroup._ref
+  && defined(slug.current)
+][0] {
+  _type,
+  "slug": slug.current,
+  section,
+  format,
+  "parentSlug": parent->slug.current,
+  "countrySlug": select(
+    destination->kind == "city" => destination->parent->slug.current,
+    destination->slug.current
+  )
+}
 `;
 
 interface TranslatedRoute {

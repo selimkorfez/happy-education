@@ -1,0 +1,146 @@
+[
+  {
+    "_id": "category-en-consultancy-and-process",
+    "_type": "category",
+    "locale": "en",
+    "title": "Study abroad consultancy",
+    "slug": {
+      "_type": "slug",
+      "current": "study-abroad-consultancy"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-consultancy-and-process"
+    },
+    "_migration": {
+      "source": "Translated from the legacy Turkish editorial taxonomy",
+      "cluster": "consultancy-and-process"
+    }
+  },
+  {
+    "_id": "category-en-destination-comparison",
+    "_type": "category",
+    "locale": "en",
+    "title": "Country comparisons",
+    "slug": {
+      "_type": "slug",
+      "current": "country-comparisons"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-destination-comparison"
+    },
+    "_migration": {
+      "source": "Translated from the legacy Turkish editorial taxonomy",
+      "cluster": "destination-comparison"
+    }
+  },
+  {
+    "_id": "category-en-language-study-value",
+    "_type": "category",
+    "locale": "en",
+    "title": "Language study",
+    "slug": {
+      "_type": "slug",
+      "current": "language-study"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-language-study-value"
+    },
+    "_migration": {
+      "source": "Translated from the legacy Turkish editorial taxonomy",
+      "cluster": "language-study-value"
+    }
+  },
+  {
+    "_id": "category-en-parents-and-safeguarding",
+    "_type": "category",
+    "locale": "en",
+    "title": "Advice for parents",
+    "slug": {
+      "_type": "slug",
+      "current": "advice-for-parents"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-parents-and-safeguarding"
+    },
+    "_migration": {
+      "source": "Translated from the legacy Turkish editorial taxonomy",
+      "cluster": "parents-and-safeguarding"
+    }
+  },
+  {
+    "_id": "category-en-pre-departure",
+    "_type": "category",
+    "locale": "en",
+    "title": "Before departure",
+    "slug": {
+      "_type": "slug",
+      "current": "before-departure"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-pre-departure"
+    },
+    "_migration": {
+      "source": "Translated from the legacy Turkish editorial taxonomy",
+      "cluster": "pre-departure"
+    }
+  },
+  {
+    "_id": "category-en-summer-schools",
+    "_type": "category",
+    "locale": "en",
+    "title": "Summer schools",
+    "slug": {
+      "_type": "slug",
+      "current": "summer-schools"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-summer-schools"
+    },
+    "_migration": {
+      "source": "Translated from the legacy Turkish editorial taxonomy",
+      "cluster": "summer-schools"
+    }
+  },
+  {
+    "_id": "category-en-university-admissions",
+    "_type": "category",
+    "locale": "en",
+    "title": "University applications",
+    "slug": {
+      "_type": "slug",
+      "current": "university-applications"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-university-admissions"
+    },
+    "_migration": {
+      "source": "Translated from the legacy Turkish editorial taxonomy",
+      "cluster": "university-admissions"
+    }
+  },
+  {
+    "_id": "category-en-visa-and-immigration",
+    "_type": "category",
+    "locale": "en",
+    "title": "Visas and applications",
+    "slug": {
+      "_type": "slug",
+      "current": "visas-and-applications"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-visa-and-immigration"
+    },
+    "_migration": {
+      "source": "Translated from the legacy Turkish editorial taxonomy",
+      "cluster": "visa-and-immigration"
+    }
+  }
+]
