@@ -62,14 +62,19 @@ function load(): Store {
   const byType = new Map<string, LocalDoc[]>()
 
   for (const type of TYPES) {
-    const file = path.join(CONTENT_DIR, `${type}.json`)
-    if (!existsSync(file)) {
+    const files = [
+      path.join(CONTENT_DIR, `${type}.json`),
+      path.join(CONTENT_DIR, `${type}.en.json`),
+    ].filter(existsSync)
+    if (files.length === 0) {
       byType.set(type, [])
       continue
     }
     try {
-      const parsed: unknown = JSON.parse(readFileSync(file, 'utf8'))
-      const docs = Array.isArray(parsed) ? (parsed as LocalDoc[]) : []
+      const docs = files.flatMap((file) => {
+        const parsed: unknown = JSON.parse(readFileSync(file, 'utf8'))
+        return Array.isArray(parsed) ? (parsed as LocalDoc[]) : []
+      })
       byType.set(type, docs)
       for (const doc of docs) byId.set(doc._id, doc)
     } catch (error) {

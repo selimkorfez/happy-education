@@ -384,3 +384,12 @@ export function getEditorialTour(locale: Locale, slug: string): TourDoc | null {
     },
   }
 }
+
+export function translatedEditorialTourSlug(
+  fromLocale: Locale,
+  toLocale: Locale,
+  slug: string,
+): string | null {
+  const index = TOUR_ENTRIES[fromLocale].findIndex((tour) => tour.slug === slug)
+  return index >= 0 ? (TOUR_ENTRIES[toLocale][index]?.slug ?? null) : null
+}

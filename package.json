@@ -18,6 +18,8 @@
     "test:e2e": "playwright test",
     "sanity:dev": "sanity dev",
     "sanity:deploy": "sanity deploy",
+    "sanity:seed-english": "node --import tsx scripts/seed-english-catalogue.ts",
+    "sanity:seed-english-articles": "node --import tsx scripts/seed-english-articles.ts",
     "migrate:extract": "node scripts/migrate/extract.mjs",
     "migrate:import": "node scripts/migrate/import.mjs"
   },

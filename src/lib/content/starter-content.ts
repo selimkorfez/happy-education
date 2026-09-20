@@ -67,6 +67,18 @@ const EN_DESTINATIONS: Partial<Record<SectionKey, StarterDestination[]>> = {
       intro: 'Explore university study in New Zealand and build a clear shortlist around your subject, preferred location and application plan.',
       cities: ['Auckland', 'Wellington', 'Christchurch'],
     },
+    {
+      slug: 'cyprus',
+      title: 'Study in Cyprus',
+      intro: 'Explore university study in Cyprus and compare programmes, institutions, locations and current application requirements before building a shortlist.',
+      cities: ['Nicosia'],
+    },
+    {
+      slug: 'grenada',
+      title: 'Study in Grenada',
+      intro: 'Explore university study in Grenada and compare programme fit, location, total cost and current application requirements before making a decision.',
+      cities: ['St George’s'],
+    },
   ],
   languageSchools: [
     {
@@ -104,6 +116,24 @@ const EN_DESTINATIONS: Partial<Record<SectionKey, StarterDestination[]>> = {
       title: 'English courses in Australia',
       intro: 'Explore English-language study in Australia and compare schools by city, course type, study length and your longer-term plans.',
       cities: ['Sydney', 'Melbourne', 'Brisbane'],
+    },
+    {
+      slug: 'new-zealand',
+      title: 'English courses in New Zealand',
+      intro: 'Explore English-language study in New Zealand and compare schools by location, course format, study length and your personal goals.',
+      cities: ['Auckland', 'Wellington', 'Christchurch'],
+    },
+    {
+      slug: 'south-africa',
+      title: 'English courses in South Africa',
+      intro: 'Explore English-language study in South Africa and compare course formats, school locations, accommodation and study length before choosing a programme.',
+      cities: ['Cape Town'],
+    },
+    {
+      slug: 'united-arab-emirates',
+      title: 'English courses in Dubai and the UAE',
+      intro: 'Explore English-language study in Dubai and compare course formats, locations, accommodation and current booking conditions before choosing a programme.',
+      cities: ['Dubai'],
     },
   ],
 }

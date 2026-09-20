@@ -11,6 +11,10 @@
     "_migration": {
       "source": "docs/audit/blog-posts.json cluster",
       "cluster": "consultancy-and-process"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-consultancy-and-process"
     }
   },
   {
@@ -25,6 +29,10 @@
     "_migration": {
       "source": "docs/audit/blog-posts.json cluster",
       "cluster": "destination-comparison"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-destination-comparison"
     }
   },
   {
@@ -39,6 +47,10 @@
     "_migration": {
       "source": "docs/audit/blog-posts.json cluster",
       "cluster": "language-study-value"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-language-study-value"
     }
   },
   {
@@ -53,6 +65,10 @@
     "_migration": {
       "source": "docs/audit/blog-posts.json cluster",
       "cluster": "parents-and-safeguarding"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-parents-and-safeguarding"
     }
   },
   {
@@ -67,6 +83,10 @@
     "_migration": {
       "source": "docs/audit/blog-posts.json cluster",
       "cluster": "pre-departure"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-pre-departure"
     }
   },
   {
@@ -81,6 +101,10 @@
     "_migration": {
       "source": "docs/audit/blog-posts.json cluster",
       "cluster": "summer-schools"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-summer-schools"
     }
   },
   {
@@ -95,6 +119,10 @@
     "_migration": {
       "source": "docs/audit/blog-posts.json cluster",
       "cluster": "university-admissions"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-university-admissions"
     }
   },
   {
@@ -109,6 +137,10 @@
     "_migration": {
       "source": "docs/audit/blog-posts.json cluster",
       "cluster": "visa-and-immigration"
+    },
+    "translationGroup": {
+      "_type": "reference",
+      "_ref": "tgroup-category-visa-and-immigration"
     }
   }
 ]

@@ -36,16 +36,24 @@ test.describe('restored legacy section content', () => {
 
   test('has no horizontal overflow or framework errors on a phone viewport', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 })
-    const errors: string[] = []
+    const frameworkErrors: string[] = []
     page.on('console', (message) => {
-      if (message.type() === 'error') errors.push(message.text())
+      if (message.type() !== 'error') return
+
+      const text = message.text()
+      // Remote licensed photographs are allowed to fail independently of the
+      // application (Wikimedia can rate-limit Next's image proxy in CI). The
+      // browser reports those resource responses as generic console errors, so
+      // only retain messages that can identify a React/Next runtime failure.
+      if (!text.startsWith('Failed to load resource:')) frameworkErrors.push(text)
     })
+    page.on('pageerror', (error) => frameworkErrors.push(error.message))
 
     for (const path of ['/tr/turlar', '/tr/yatili-okullar', '/tr/yaz-okullari/bireysel', '/tr/yaz-okullari/grup']) {
       await page.goto(path)
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true)
       await expect(page.locator('[data-nextjs-dialog]')).toHaveCount(0)
     }
-    expect(errors).toEqual([])
+    expect(frameworkErrors).toEqual([])
   })
 })

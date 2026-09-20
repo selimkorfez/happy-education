@@ -7,21 +7,9 @@ import { expect, test } from '@playwright/test'
  * home. The rule this spec protects is that a switch never silently dumps a
  * visitor on the homepage when a better destination exists.
  *
- * BUG (open at the time of writing, owner: src/proxy.ts)
- * -----------------------------------------------------
- * The proxy matcher does not exclude `/api`, so `/api/locale` is treated as a
- * locale-less content path and 307-redirected to `/en/api/locale`, which does not
- * exist. Verified with curl against the dev server:
- *
- *   GET /api/locale?to=tr&from=%2Fen%2Funiversities
- *   -> 307 Location: /en/api/locale?to=tr&from=%2Fen%2Funiversities
- *
- * Every API route is affected, including `/api/checkout` and the Stripe webhook,
- * which fails silently because Stripe does not follow redirects.
- *
- * Fix: add `api` to the negative lookahead in the `config.matcher` of
- * `src/proxy.ts` (or return `NextResponse.next()` early for `/api` paths), then
- * remove the `.fixme` markers below.
+ * Code-backed English catalogue profiles are also exact counterparts while the
+ * full English CMS migration is in progress. The switch must preserve the item,
+ * country and summer-programme format instead of dropping to a section index.
  */
 
 test.describe('language switcher (UI)', () => {
@@ -44,7 +32,7 @@ test.describe('language switcher (UI)', () => {
     await expect(switcher.getByRole('link', { name: /TR/ })).toHaveAttribute('hreflang', 'tr-TR')
   })
 
-  test('BUG(proxy): switches from the English home to the Turkish home', async ({ page }) => {
+  test('switches from the English home to the Turkish home', async ({ page }) => {
     await page.goto('/en')
     await page
       .getByRole('navigation', { name: 'Change language' })
@@ -56,7 +44,7 @@ test.describe('language switcher (UI)', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'tr-TR')
   })
 
-  test('BUG(proxy): switches back from Turkish to English', async ({ page }) => {
+  test('switches back from Turkish to English', async ({ page }) => {
     await page.goto('/tr')
     await page.locator('nav a[hreflang="en-GB"]').first().click()
 
@@ -64,20 +52,18 @@ test.describe('language switcher (UI)', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'en-GB')
   })
 
-  // Falls back to the English section index today, because the English tree has no
-  // documents yet. Once transcreation lands this should arrive on the translated
-  // document itself. See content.spec.ts for why the English tree is empty.
   test('switches from a deep page to the best available equivalent', async ({ page }) => {
-    await page.goto('/tr/universiteler/ingiltere')
+    await page.goto('/tr/universiteler/ingiltere/anglia-ruskin-university')
     // On a Turkish page the Turkish entry is the current locale and renders as a
     // span, not a link. The switch target is the English one.
     await page.locator('nav a[hreflang="en-GB"]').first().click()
-    await expect(page).toHaveURL(/\/en\/universities/)
+    await expect(page).toHaveURL(/\/en\/universities\/united-kingdom\/anglia-ruskin-university$/)
+    await expect(page.locator('h1')).toContainText(/Anglia Ruskin/i)
   })
 })
 
 test.describe('locale route (API)', () => {
-  test('BUG(proxy): maps a section index onto the other tree', async ({ request }) => {
+  test('maps a section index onto the other tree', async ({ request }) => {
     const cases: Array<[string, string, string]> = [
       ['tr', '/en/universities', '/tr/universiteler'],
       ['tr', '/en/language-schools', '/tr/dil-okullari'],
@@ -95,7 +81,62 @@ test.describe('locale route (API)', () => {
     }
   })
 
-  test('BUG(proxy): falls back to the section index when no translation exists', async ({
+  test('preserves exact code-backed catalogue counterparts', async ({ request }) => {
+    const cases: Array<[string, string, string]> = [
+      ['en', '/tr/universiteler/ingiltere', '/en/universities/united-kingdom'],
+      ['en', '/tr/dil-okullari/guney-afrika', '/en/language-schools/south-africa'],
+      ['en', '/tr/dil-okullari/dubai', '/en/language-schools/united-arab-emirates'],
+      ['en', '/tr/universiteler/ingiltere/anglia-ruskin-university', '/en/universities/united-kingdom/anglia-ruskin-university'],
+      ['tr', '/en/universities/united-kingdom/anglia-ruskin-university', '/tr/universiteler/ingiltere/anglia-ruskin-university'],
+      ['en', '/tr/yatili-okullar/cats-cambridge', '/en/boarding-schools/cats-cambridge'],
+      ['en', '/tr/yaz-okullari/bireysel/sir-edward-cambridge', '/en/summer-schools/individual/sir-edward-cambridge'],
+      ['tr', '/en/summer-schools/individual/sir-edward-cambridge', '/tr/yaz-okullari/bireysel/sir-edward-cambridge'],
+      ['en', '/tr/turlar/ingiltere-turu', '/en/tours/england-tour'],
+      ['tr', '/en/tours/italy-tour', '/tr/turlar/italya-turu'],
+    ]
+
+    for (const [to, from, expected] of cases) {
+      const response = await request.get(`/api/locale?to=${to}&from=${encodeURIComponent(from)}`, {
+        maxRedirects: 0,
+      })
+      expect(response.status(), `${from} -> ${to}`).toBe(307)
+      expect(pathOf(response.headers()['location']), `${from} -> ${to}`).toBe(expected)
+    }
+  })
+
+  test('every published Turkish catalogue route switches to a working English page', async ({ request }) => {
+    // This intentionally renders every translated catalogue detail page. On a
+    // cold CI runner Next.js has to compile many of those routes for the first
+    // time, so the normal single-page budget is too short even though every
+    // request succeeds. Keep the exhaustive assertion and give that cold-start
+    // work an honest budget instead of dropping coverage.
+    test.setTimeout(180_000)
+
+    const sitemap = await (await request.get('/sitemap.xml')).text()
+    const catalogue = /^\/tr\/(?:universiteler|dil-okullari|yatili-okullar|yaz-okullari|turlar)\/.+/
+    const paths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
+      .map((match) => new URL(match[1]).pathname)
+      .filter((path) => catalogue.test(path))
+
+    for (let index = 0; index < paths.length; index += 10) {
+      const batch = paths.slice(index, index + 10)
+      const results = await Promise.all(batch.map(async (from) => {
+        const switched = await request.get(
+          `/api/locale?to=en&from=${encodeURIComponent(from)}`,
+          { maxRedirects: 0 },
+        )
+        const target = pathOf(switched.headers()['location'])
+        const targetResponse = await request.get(target, { maxRedirects: 0 })
+        return { from, target, status: targetResponse.status() }
+      }))
+
+      for (const result of results) {
+        expect(result.status, `${result.from} -> ${result.target}`).toBeLessThan(400)
+      }
+    }
+  })
+
+  test('falls back to the section index when no translation exists', async ({
     request,
   }) => {
     const response = await request.get(
@@ -106,7 +147,7 @@ test.describe('locale route (API)', () => {
     expect(pathOf(response.headers()['location'])).toBe('/tr/blog')
   })
 
-  test('BUG(proxy): never becomes an open redirect', async ({ request }) => {
+  test('never becomes an open redirect', async ({ request }) => {
     const hostile = ['//evil.example/phish', 'https://evil.example', '/en/../../evil', 'javascript:alert(1)']
 
     for (const from of hostile) {
@@ -120,27 +161,27 @@ test.describe('locale route (API)', () => {
     }
   })
 
-  test('BUG(proxy): rejects an unknown target locale', async ({ request }) => {
+  test('rejects an unknown target locale', async ({ request }) => {
     const response = await request.get('/api/locale?to=de&from=%2Fen', { maxRedirects: 0 })
     expect(response.status()).toBe(307)
     expect(pathOf(response.headers()['location'])).toBe('/en')
   })
 
-  test('BUG(proxy): is never cached', async ({ request }) => {
+  test('is never cached', async ({ request }) => {
     const response = await request.get('/api/locale?to=tr&from=%2Fen', { maxRedirects: 0 })
     expect(response.headers()['cache-control']).toContain('no-store')
   })
 
   /**
-   * Active regression guard for the bug above, written so it documents the defect
-   * without asserting that the defect is correct: it only checks that the response
-   * is a redirect and records where it goes. Delete this once the fixmes are live.
+   * Regression guard: preview deployments use a different host from local tests,
+   * but the redirect must always remain on the configured test origin.
    */
   test('reaches the locale route without leaving the site', async ({ request }) => {
     const response = await request.get('/api/locale?to=tr&from=%2Fen', { maxRedirects: 0 })
     const location = new URL(response.headers()['location'] ?? '/', 'http://localhost')
+    const expectedOrigin = new URL(process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000').origin
     expect([200, 307, 308]).toContain(response.status())
-    expect(location.hostname).toMatch(/^(?:127\.0\.0\.1|localhost)$/)
+    expect(location.origin).toBe(expectedOrigin)
   })
 })
 

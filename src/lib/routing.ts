@@ -126,6 +126,7 @@ export async function resolveRoute({
   if (section === 'tours') {
     const slug = segments[0]
     if (!slug || segments.length > 1) return null
+    if (slug === 'turlar' || slug === 'tours') return null
     const doc = (await getTour(locale, slug)) ?? getEditorialTour(locale, slug)
     return doc ? { kind: 'tour', doc } : null
   }
@@ -174,11 +175,23 @@ export async function resolveRoute({
       const destination =
         (await getDestination(locale, countrySlug, section)) ??
         getStarterDestination(locale, section, countrySlug)
-      return destination ? { kind: 'destination', section, doc: destination } : null
+      if (destination) return { kind: 'destination', section, doc: destination }
+
+      // A provider can legitimately operate in several countries. Records with
+      // no destination reference use a stable top-level brand URL rather than
+      // being forced under an inaccurate country or becoming a 404.
+      const types = INSTITUTION_TYPES[section] ?? []
+      const brand =
+        (await getInstitution(locale, countrySlug, types, null)) ??
+        (locale === 'en' ? getEnglishInstitutionShadow(countrySlug, types) : null)
+      if (!brand?.destination?.slug) return brand ? { kind: 'institution', section, doc: brand } : null
+      return null
     }
+    const city = await getDestination(locale, leafSlug, section)
+    if (city?.parentSlug === countrySlug) return { kind: 'destination', section, doc: city }
     const types = INSTITUTION_TYPES[section] ?? []
     const doc =
-      (await getInstitution(locale, leafSlug, types)) ??
+      (await getInstitution(locale, leafSlug, types, countrySlug)) ??
       (locale === 'en' ? getEnglishInstitutionShadow(leafSlug, types) : null)
     if (!doc) return null
     if (locale === 'en' && doc.destination?.slug && doc.destination.slug !== countrySlug) return null
