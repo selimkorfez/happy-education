@@ -105,6 +105,13 @@ test.describe('locale route (API)', () => {
   })
 
   test('every published Turkish catalogue route switches to a working English page', async ({ request }) => {
+    // This intentionally renders every translated catalogue detail page. On a
+    // cold CI runner Next.js has to compile many of those routes for the first
+    // time, so the normal single-page budget is too short even though every
+    // request succeeds. Keep the exhaustive assertion and give that cold-start
+    // work an honest budget instead of dropping coverage.
+    test.setTimeout(180_000)
+
     const sitemap = await (await request.get('/sitemap.xml')).text()
     const catalogue = /^\/tr\/(?:universiteler|dil-okullari|yatili-okullar|yaz-okullari|turlar)\/.+/
     const paths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
