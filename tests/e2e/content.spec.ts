@@ -138,6 +138,11 @@ test.describe('sitemap and feeds', () => {
   })
 
   test('contains only routes that resolve', async ({ request }) => {
+    // This is an exhaustive crawl rather than a single-page assertion. A cold CI
+    // development server compiles hundreds of routes during the loop, so use a
+    // crawl-sized budget while retaining the check for every sitemap entry.
+    test.setTimeout(240_000)
+
     const response = await request.get('/sitemap.xml')
     const xml = await response.text()
     const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]).pathname)
